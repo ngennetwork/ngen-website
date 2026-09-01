@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ivy-alumni-2026",
+    "title": "Ivy League Alumni Event",
+    "date": "October 2, 2026",
+    "location": "New York City",
+    "description": "Connecting student founders with alumni operators and investors across the Ivy+ network.",
+    "targetAudience": "Alumni operators and investors across the Ivy+ network",
+    "audience": [
+      "investors"
+    ],
+    "photo": "/about/events/A78A2335.JPG"
+  },
+  {
+    "id": "west-coast-conference-2026",
+    "title": "West Coast Conference",
+    "date": "October 16, 2026",
+    "location": "San Francisco",
+    "description": "Bringing NGEN beyond the East Coast with Stanford, Caltech, and UCLA.",
+    "targetAudience": "West Coast investors - Stanford, Caltech, and UCLA founders",
+    "audience": [
+      "investors"
+    ],
+    "photo": "/about/events/Copy of DSC06488.jpg"
+  },
+  {
+    "id": "trailblazers-conference-2027",
+    "title": "Trailblazers Conference",
+    "date": "April 2027 (exact date TBD)",
+    "location": "New York City",
+    "description": "Our flagship event, with a hackathon the day after - the largest audience of the year.",
+    "targetAudience": "Our flagship event - the largest audience of the year",
+    "audience": [
+      "investors"
+    ],
+    "photo": "/about/events/Copy of DSC06459-Enhanced-NR.jpg"
+  }
+]

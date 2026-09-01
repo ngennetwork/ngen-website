@@ -1,0 +1,62 @@
+[
+  {
+    "id": "freya",
+    "name": "Freya",
+    "oneLiner": "Voice AI agents for financial services.",
+    "logo": "/logos/startups/freya-logo.jpeg",
+    "photo": "/team-photos/freya-photo.webp",
+    "link": "https://pulse2.com/freya-3-5-million/",
+    "linkLabel": "Freya raises $3.5M - Pulse2",
+    "summary": "Freya has raised $3.5 million in new funding to accelerate the adoption of its human-like voice automation platform, attracting support from DOMiNO Ventures, Y Combinator, Formosa Capital, and others."
+  },
+  {
+    "id": "series",
+    "name": "Series",
+    "oneLiner": "Series: AI-powered social network matching founders and mentors.",
+    "logo": "/logos/startups/series-logo.png",
+    "photo": "/team-photos/series-photo.webp",
+    "link": "https://www.forbes.com/sites/davidprosser/2025/04/04/how-two-yale-juniors-just-raised-31-million-for-their-social-network/",
+    "linkLabel": "How two Yale juniors raised $3.1M - Forbes",
+    "summary": "New Haven-based start-up Series is a social network founded by two students at one of the US's most prestigious colleges. But if that makes you think of another well-known social network launched in similar fashion some 20 years ago, co-founders Nathaneo Johnson and Sean Hargrow are keen to put you right."
+  },
+  {
+    "id": "nerd-apply",
+    "name": "Nerd Apply",
+    "oneLiner": "Privacy-first data platform for college admissions counseling.",
+    "logo": "/logos/startups/nerdapply-logo.jpeg",
+    "photo": "/team-photos/nerdapply-photo.jpeg",
+    "link": "https://www.edtechinnovationhub.com/news/nerd-apply-raises-32-million-in-seed-funding-for-its-college-admissions-counseling-platform",
+    "linkLabel": "Raises $3.2M seed funding - EdTech Innovation Hub",
+    "summary": "Nerd Apply, a college counseling platform, has raised $3.2 million in seed funding to scale and increase its security, compliance and infrastructure."
+  },
+  {
+    "id": "cloak",
+    "name": "Cloak",
+    "oneLiner": "Protects online publisher content against AI scraping.",
+    "logo": "/logos/startups/cloak-logo.png",
+    "photo": "/team-photos/cloak-photo.jpg",
+    "link": "https://news.wharton.upenn.edu/press-releases/2026/05/cloak-wins-75000-perlman-grand-prize-in-venture-lab-startup-challenge/",
+    "linkLabel": "Wins $75,000 Perlman Grand Prize - Wharton",
+    "summary": "The University of Pennsylvania's Venture Lab is proud to announce the winner of its tenth annual Startup Challenge: Cloak, founded by Rishi Ambavanekar and Tyler Sacharow. Cloak works with publishers, ranging from news to novels to screenplays, to protect content against AI scraping."
+  },
+  {
+    "id": "doe",
+    "name": "Doe",
+    "oneLiner": "AI platform building company-native agents to automate work.",
+    "logo": "/logos/startups/doe-lockup-dark.svg",
+    "photo": "/team-photos/doe-photo.jpeg",
+    "link": "https://www.ycombinator.com/launches/OyO-doe-a-new-productivity-platform",
+    "linkLabel": "Doe launches on YC",
+    "summary": "Doe is where AI agents actually do your work. Connect your tools, tell Doe what you need, and agents handle it."
+  },
+  {
+    "id": "cai-creative",
+    "name": "Cai Creative",
+    "oneLiner": "AI co-composer helping musicians create chords and melodies.",
+    "logo": "/logos/startups/cai-creative-logo.png",
+    "photo": "/team-photos/cai-creative-photo.avif",
+    "link": "https://www.inverse.com/tech/how-mathematician-reuel-williams-is-uniting-art-technology",
+    "linkLabel": "How mathematician Reuel Williams is uniting art and technology - Inverse",
+    "summary": "Music has long captivated the human mind, transcending cultural boundaries and personal backgrounds. For some, it represents pure emotion and expression."
+  }
+]

@@ -1,0 +1,15 @@
+.next/
+node_modules/
+backend/
+public/founders-photos/
+public/logos/
+public/about/
+public/home/
+public/speakers/
+*.webp
+*.jpg
+*.jpeg
+*.png
+*.avif
+*.svg
+package-lock.json

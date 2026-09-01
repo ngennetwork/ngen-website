@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+/*
+ * NGEN design system — single source of truth.
+ * =============================================
+ * One consolidated token set for the whole site: one accent family, one dark
+ * (navy) surface, one warm off-white page background, one warm neutral ramp,
+ * one type scale, one vertical rhythm, and two focus-ring variants.
+ *
+ * Semantic tokens (accent-fill, surface-dark, on-dark, neutral-*, …) are the
+ * names to reach for going forward. The original brand tokens (orange, navy,
+ * navy-tint, …) are kept as aliases so existing pages keep working until they
+ * are refactored onto the semantic names.
+ *
+ * To swap a typeface later, change the Google Font import in layout.js and
+ * update the matching --font-* variable below — nothing else needs to change.
+ */
+:root {
+  /* --- Brand anchors (fixed; do not change these hex values) --- */
+  --color-orange: #E35E1E;
+  --color-navy: #1E3460;
+
+  /* --- Legacy aliases (kept until pages are refactored) --- */
+  --color-navy-tint: #2B4A82;    /* lighter navy, hover/secondary on dark bands */
+  --color-navy-deep: #152747;    /* darker navy, footer */
+  --color-orange-hover: #C85122; /* darkened orange, hover/active on orange buttons */
+  --color-text-on-navy: #F5F0EA; /* warm off-white text on navy bands */
+  --color-gray-muted: #55524D;   /* warm muted gray */
+
+  /* ============================================================
+   * COLOR — semantic tokens
+   * ============================================================ */
+
+  /* Page & light surfaces */
+  --color-bg: #FAF7F1;           /* one warm off-white page background */
+  --color-surface-card: #FFFFFF; /* raised card surface on the off-white page */
+  --color-surface-warm: #FBEEE3; /* warm peach band (default event page header) */
+  --color-text: #211A14;         /* warm near-black body text on light */
+  --color-text-muted: #55524D;   /* muted/secondary text on light */
+
+  /* Accent — ONE family (terra-cotta/orange). Fill for backgrounds, ink for text. */
+  --color-accent-fill: #E35E1E;       /* button/badge backgrounds */
+  --color-accent-fill-hover: #C85122; /* hover/active fill */
+  --color-accent-ink: #96401B;        /* darkened accent for text/links on light (AA) */
+
+  /* Dark surface — ONE navy family for all dark cards, banners, heroes */
+  --color-surface-dark: #1E3460;        /* THE dark surface */
+  --color-surface-dark-raised: #2B4A82; /* secondary/hover within dark bands */
+  --color-surface-dark-deep: #152747;   /* deepest navy (footer) */
+  --color-on-dark: #F5F0EA;             /* text on any dark surface */
+
+  /* Danger — destructive actions (delete buttons, error text) */
+  --color-danger: #DC2626;        /* red-600 equivalent */
+  --color-danger-tint: #FEF2F2;   /* red-50 — hover background */
+  --color-danger-border: #FECACA; /* red-200 — outline */
+
+  /* Success — positive/live state (the "Open" status badge) */
+  --color-success: #16A34A;       /* green-600 — dot / solid */
+  --color-success-tint: #ECFDF3;  /* green-50 — subtle badge background */
+  --color-success-ink: #15803D;   /* green-700 — AA text on the tint */
+
+  /* Speaker panels — fixed accent set for the "Previous Speakers" cards */
+  --color-speaker-yellow: #F5C24C;
+  --color-speaker-yellow-ink: #3A2A00;
+  --color-speaker-teal: #2E8B8B;
+
+  /* Warm neutral ramp — borders, muted text, card surfaces */
+  --color-neutral-50: #FAF7F1;
+  --color-neutral-100: #F2EEE7;
+  --color-neutral-200: #E5DFD5;  /* default border */
+  --color-neutral-300: #D3CABB;
+  --color-neutral-400: #B0A695;
+  --color-neutral-500: #8A8072;
+  --color-neutral-600: #6B6357;
+  --color-neutral-700: #4E483F;
+  --color-neutral-800: #33302A;
+  --color-neutral-900: #211A14;
+
+  /* ============================================================
+   * TYPOGRAPHY — families
+   * ============================================================ */
+  --font-display: var(--font-albert-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-signature: var(--font-marck-script), "Marck Script", cursive;
+  --font-mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo,
+    "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", monospace;
+
+  /* "NGEN" hero wordmark only (see MissionHero.jsx). */
+  --font-ngen: var(--font-codec-pro), ui-sans-serif, system-ui, sans-serif;
+
+  /* Headings (h1/h2/h3) sitewide, including /events/* pages, use
+     --font-display (Albert Sans) to match the home page. */
+  --font-heading-events: var(--font-display);
+
+  /* ============================================================
+   * SPACING — vertical rhythm (also exposed as spacing utilities)
+   * ============================================================ */
+  --measure: 68ch;         /* comfortable body measure (~65–75ch) */
+  --measure-narrow: 60ch;
+  --measure-wide: 75ch;
+}
+
+/* Slightly larger base type scale for Figtree — bumps every rem-based
+   Tailwind text size (text-sm, text-lg, etc.) sitewide by the same ratio. */
+html {
+  font-size: 103%;
+}
+
+@theme inline {
+  /* Legacy brand aliases */
+  --color-orange: var(--color-orange);
+  --color-navy: var(--color-navy);
+  --color-navy-tint: var(--color-navy-tint);
+  --color-navy-deep: var(--color-navy-deep);
+  --color-orange-hover: var(--color-orange-hover);
+  --color-gray-muted: var(--color-gray-muted);
+  --color-text-on-navy: var(--color-text-on-navy);
+
+  /* Semantic color tokens → utilities (bg-*, text-*, border-*) */
+  --color-bg: var(--color-bg);
+  --color-surface-card: var(--color-surface-card);
+  --color-surface-warm: var(--color-surface-warm);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+
+  --color-accent-fill: var(--color-accent-fill);
+  --color-accent-fill-hover: var(--color-accent-fill-hover);
+  --color-accent-ink: var(--color-accent-ink);
+
+  --color-surface-dark: var(--color-surface-dark);
+  --color-surface-dark-raised: var(--color-surface-dark-raised);
+  --color-surface-dark-deep: var(--color-surface-dark-deep);
+  --color-on-dark: var(--color-on-dark);
+
+  --color-neutral-50: var(--color-neutral-50);
+  --color-neutral-100: var(--color-neutral-100);
+  --color-neutral-200: var(--color-neutral-200);
+  --color-neutral-300: var(--color-neutral-300);
+  --color-neutral-400: var(--color-neutral-400);
+  --color-neutral-500: var(--color-neutral-500);
+  --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-700: var(--color-neutral-700);
+  --color-neutral-800: var(--color-neutral-800);
+  --color-neutral-900: var(--color-neutral-900);
+
+  --color-danger: var(--color-danger);
+  --color-danger-tint: var(--color-danger-tint);
+  --color-danger-border: var(--color-danger-border);
+
+  --color-success: var(--color-success);
+  --color-success-tint: var(--color-success-tint);
+  --color-success-ink: var(--color-success-ink);
+
+  --color-speaker-yellow: var(--color-speaker-yellow);
+  --color-speaker-yellow-ink: var(--color-speaker-yellow-ink);
+  --color-speaker-teal: var(--color-speaker-teal);
+
+  /* Fonts → utilities (font-sans, font-serif, font-mono) */
+  --font-sans: var(--font-display);
+  --font-serif: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  /* Type scale → text-display … text-caption, text-body-lg, text-small */
+  --text-display: 3.5rem;
+  --text-display--line-height: 1.05;
+  --text-display--font-weight: 800;
+
+  --text-h1: 2.5rem;
+  --text-h1--line-height: 1.1;
+  --text-h1--font-weight: 700;
+
+  --text-h2: 2rem;
+  --text-h2--line-height: 1.15;
+  --text-h2--font-weight: 700;
+
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.2;
+  --text-h3--font-weight: 600;
+
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.3;
+  --text-h4--font-weight: 600;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.6;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--font-weight: 500;
+
+  /* Vertical rhythm → py-section, my-section, etc. */
+  --spacing-section-sm: 3rem;
+  --spacing-section: 5rem;
+  --spacing-section-lg: 8rem;
+}
+
+/*
+ * Layered as "base" so page-level utility classes (Tailwind's "utilities"
+ * layer, which comes after "base") can override these defaults — plain
+ * unlayered CSS would otherwise beat utility classes regardless of
+ * specificity, silently blocking any font-[family-name:...] override.
+ */
+@layer base {
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/*
+ * FOCUS — visible outlines everywhere (accessibility floor). Global default
+ * uses the accent; the two surface-specific classes below let dark bands opt
+ * into an off-white ring that stays visible against navy.
+ */
+:focus-visible {
+  outline: 2px solid var(--color-accent-fill);
+  outline-offset: 2px;
+}
+
+.focus-ring-light:focus-visible {
+  outline: 2px solid var(--color-accent-ink);
+  outline-offset: 2px;
+}
+
+.focus-ring-dark:focus-visible {
+  outline: 2px solid var(--color-on-dark);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+ * Reusable treatments
+ * ============================================================ */
+
+/* Monospace eyebrow / section label: letterspaced caps. */
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--text-small);
+  line-height: 1.4;
+  color: var(--color-accent-ink);
+}
+
+/* Max line length for readable body copy (~65–75ch). */
+.measure { max-width: var(--measure); }
+.measure-narrow { max-width: var(--measure-narrow); }
+.measure-wide { max-width: var(--measure-wide); }
+
+/* Vertical rhythm — fluid section padding. */
+.section-y-sm { padding-block: clamp(2rem, 4vw, 3rem); }
+.section-y { padding-block: clamp(3rem, 6vw, 5rem); }
+.section-y-lg { padding-block: clamp(4rem, 8vw, 8rem); }
+
+.container-page {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.rule-orange {
+  height: 2px;
+  background: var(--color-accent-fill);
+  border: none;
+}
+
+/* Thin cross-browser scrollbar for horizontally-scrolling carousels
+   (e.g. the homepage Featured Startups strip) — no Tailwind scrollbar
+   plugin is installed, so this backs the `scrollbar-thin` utility class. */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-300, #d4d4d4);
+  border-radius: 9999px;
+}
+
+/* Auto-scrolling logo ticker (UniversityMarquee.jsx) — the track renders
+   its item list twice back to back, this animates it exactly -50% (one
+   full copy) so the loop point is invisible. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .marquee-dup {
+    display: none;
+  }
+}
