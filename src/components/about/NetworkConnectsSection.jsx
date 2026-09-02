@@ -77,12 +77,14 @@ export default function NetworkConnectsSection() {
               </p>
             </div>
             <div className="mt-auto pt-4">
+              {/* /capital-network/founders isn't public yet — disabled
+                  rather than linked until that page goes live. */}
               <Button
                 variant="dark"
-                href="/capital-network/founders"
+                disabled
                 className="w-full py-3.5 px-6 rounded-full text-center font-medium"
               >
-                Submit Your Startup →
+                Coming Soon
               </Button>
             </div>
           </div>

@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { programs } from "@/content/programs";
-import { Button, SectionHeader } from "@/components/ui";
+import { SectionHeader } from "@/components/ui";
 import TrailblazersVideo from "./TrailblazersVideo";
 
 // The 4 core pillars, including Trailblazers — it gets the cinematic
@@ -29,12 +28,6 @@ function ProgramCard({ program, className = "" }) {
     >
       <h3 className="text-body font-sans font-extrabold text-text">{program.name}</h3>
       <p className="mt-2 flex-1 text-small text-text-muted">{ONE_LINERS[program.slug]}</p>
-      <Link
-        href={`/events/${program.slug}`}
-        className="mt-3 text-small font-semibold text-accent-ink hover:underline"
-      >
-        Learn More →
-      </Link>
     </div>
   );
 }
@@ -50,11 +43,7 @@ export default function CoreProgramsSection() {
   return (
     <section id="programs" className="bg-bg py-16 md:py-20">
       <div className="container-page">
-        <SectionHeader title="Core Programs" align="center">
-          <Button variant="link" href="/events">
-            See all events →
-          </Button>
-        </SectionHeader>
+        <SectionHeader title="Core Programs" align="center" />
 
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {CORE_PROGRAMS.map((program) => (
