@@ -6,7 +6,7 @@ import Logo from "@/components/Logo";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { navGroups, NAV_LIVE } from "@/data/nav";
 
-const HIDE_NEWSLETTER_PATHS = ["/capital-network/investors", "/startup-challenge"];
+const HIDE_NEWSLETTER_PATHS = ["/", "/capital-network/investors", "/startup-challenge"];
 
 const COMMUNITY_LINKS = {
   label: "Get Involved",
