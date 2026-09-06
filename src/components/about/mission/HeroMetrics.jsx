@@ -25,7 +25,7 @@ const SIGNATURE_PROGRAM_COUNT = programs.filter(
 const METRICS = [
   // Hardcoded org-level reach total — no content file tracks this yet, so
   // update by hand as the running total changes.
-  { value: "20,000+", label: "Student\nReach" },
+  { value: "20,000", label: "Student\nReach" },
   // Hardcoded — 11 universities represented and growing.
   { value: "11", label: "Universities Represented" },
   { value: `${SIGNATURE_PROGRAM_COUNT}`, label: "Core\nPrograms" },
