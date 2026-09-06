@@ -23,19 +23,17 @@ const SIGNATURE_PROGRAM_COUNT = programs.filter(
 // own: money founders raised on their own vs. money NGEN itself has
 // handed out.
 const METRICS = [
+  // Hardcoded org-level reach total — no content file tracks this yet, so
+  // update by hand as the running total changes.
+  { value: "20,000+", label: "Student Reach" },
+  // Hardcoded — 11 universities represented and growing.
+  { value: "11+", label: "Universities Represented" },
+  { value: `${SIGNATURE_PROGRAM_COUNT}`, label: "Core Programs" },
   { value: formatCapital(getTotalCapitalRaised()), label: "Founder-Raised Capital" },
   // Hardcoded org-level total (grants/prize capital NGEN has directly
   // helped put in founders' hands) — no content file tracks this yet, so
   // update by hand as the running total changes.
   { value: "$500K+", label: "NGEN-Distributed Capital" },
-  // Hardcoded, not universities.length (11) — we have students involved
-  // from 10 schools; matches the "10 universities represented" copy used
-  // elsewhere on the homepage (see UniversityMarquee.jsx).
-  { value: "10", label: "Universities Represented" },
-  { value: `${SIGNATURE_PROGRAM_COUNT}`, label: "Core Programs" },
-  // Hardcoded org-level reach total — no content file tracks this yet, so
-  // update by hand as the running total changes.
-  { value: "20,000+", label: "Student Reach" },
 ];
 
 /**

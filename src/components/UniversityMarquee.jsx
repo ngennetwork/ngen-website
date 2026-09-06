@@ -20,7 +20,7 @@ function LogoItem({ u }) {
 
 /**
  * Homepage university logo marquee — single-row auto-scrolling ticker of
- * the 10 universities NGEN has students involved from (not official
+ * the 11 universities NGEN has students involved from (not official
  * partnerships), replacing the honeycomb grid that used to live here
  * (see CommunitySection.jsx). Uses the marquee
  * keyframes/track classes defined in globals.css (already respects
@@ -33,7 +33,7 @@ export default function UniversityMarquee() {
       <div className="container-page">
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-extrabold uppercase tracking-wider text-text md:text-3xl">
-            10 Universities Represented
+            11+ Universities Represented
           </h2>
           <p className="mt-2 font-sans text-small font-semibold text-accent-ink">
             Innovative Students From
