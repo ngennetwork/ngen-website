@@ -25,10 +25,10 @@ const SIGNATURE_PROGRAM_COUNT = programs.filter(
 const METRICS = [
   // Hardcoded org-level reach total — no content file tracks this yet, so
   // update by hand as the running total changes.
-  { value: "20,000+", label: "Student Reach" },
+  { value: "20,000+", label: "Student\nReach" },
   // Hardcoded — 11 universities represented and growing.
   { value: "11", label: "Universities Represented" },
-  { value: `${SIGNATURE_PROGRAM_COUNT}`, label: "Core Programs" },
+  { value: `${SIGNATURE_PROGRAM_COUNT}`, label: "Core\nPrograms" },
   { value: formatCapital(getTotalCapitalRaised()), label: "Founder-Raised Capital" },
   // Hardcoded org-level total (grants/prize capital NGEN has directly
   // helped put in founders' hands) — no content file tracks this yet, so
@@ -49,7 +49,9 @@ export default function HeroMetrics() {
           <div className="font-[family-name:var(--font-display)] text-h3 font-extrabold text-accent-ink md:text-h2">
             {m.value}
           </div>
-          <div className="mt-1 text-caption uppercase tracking-wide text-text-muted">{m.label}</div>
+          <div className="mt-1 whitespace-pre-line text-caption uppercase tracking-wide text-text-muted">
+            {m.label}
+          </div>
         </Card>
       ))}
     </div>
