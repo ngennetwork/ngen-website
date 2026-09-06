@@ -29,7 +29,7 @@ function LogoItem({ u }) {
  */
 export default function UniversityMarquee() {
   return (
-    <div className="bg-slate-50 py-16 md:py-20">
+    <div className="bg-bg py-16 md:py-20">
       <div className="container-page">
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-extrabold uppercase tracking-wider text-text md:text-3xl">
