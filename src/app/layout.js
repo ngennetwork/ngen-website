@@ -35,7 +35,7 @@ const albertSans = Albert_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const DEFAULT_TITLE = "NGEN | NextGen Entrepreneurship Network";
+const DEFAULT_TITLE = "NGEN";
 const DEFAULT_DESCRIPTION =
   "NGEN is the center of gravity for intercollegiate entrepreneurship across top universities - connecting early-stage student founders with each other and with the investors who back them.";
 
