@@ -33,7 +33,7 @@ export default function UniversityMarquee() {
       <div className="container-page">
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-extrabold uppercase tracking-wider text-text md:text-3xl">
-            11+ Universities Represented
+            11 Universities Represented
           </h2>
           <p className="mt-2 font-sans text-small font-semibold text-accent-ink">
             Innovative Students From

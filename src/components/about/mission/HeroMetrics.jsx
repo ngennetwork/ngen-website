@@ -27,7 +27,7 @@ const METRICS = [
   // update by hand as the running total changes.
   { value: "20,000+", label: "Student Reach" },
   // Hardcoded — 11 universities represented and growing.
-  { value: "11+", label: "Universities Represented" },
+  { value: "11", label: "Universities Represented" },
   { value: `${SIGNATURE_PROGRAM_COUNT}`, label: "Core Programs" },
   { value: formatCapital(getTotalCapitalRaised()), label: "Founder-Raised Capital" },
   // Hardcoded org-level total (grants/prize capital NGEN has directly
