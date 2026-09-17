@@ -1,6 +1,7 @@
 import MissionSection from "@/components/about/MissionSection";
 import CoreProgramsSection from "@/components/about/CoreProgramsSection";
 import CommunitySection from "@/components/about/CommunitySection";
+import UpcomingEventsSection from "@/components/about/UpcomingEventsSection";
 import NetworkConnectsSection from "@/components/about/NetworkConnectsSection";
 import FeaturedStartupsSection from "@/components/about/FeaturedStartupsSection";
 import EventsSection from "@/components/about/EventsSection";
@@ -27,6 +28,10 @@ export default function Home() {
       {/* c) Core Programs bento — 4 pillar cards + the Trailblazers
           cinematic video banner, unified in one section */}
       <CoreProgramsSection />
+      <hr className="rule-orange" />
+
+      {/* c.5) Upcoming Events — Luma calendar embed */}
+      <UpcomingEventsSection />
       <hr className="rule-orange" />
 
       {/* d) How the Network Connects — dark navy bento, 3 initiatives + CTAs */}

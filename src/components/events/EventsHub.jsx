@@ -5,7 +5,7 @@ import { Button, Card, Badge, StatusBadge, SectionHeader } from "@/components/ui
 import EmptyState from "@/components/EmptyState";
 import { PROGRAM_CATEGORY } from "./shared";
 
-const CATEGORY_FILTERS = ["All Programs", ...new Set(Object.values(PROGRAM_CATEGORY)), "Community"];
+const CATEGORY_FILTERS = ["All Programs", ...new Set(Object.values(PROGRAM_CATEGORY))];
 
 const STATUS_FILTERS = ["All", "Open Applications", "Upcoming"];
 
@@ -32,8 +32,8 @@ function formatEventLine(program) {
 }
 
 /**
- * EventsHub — the client half of /events. Receives the program list
- * assembled server-side (see src/app/events/page.js) and owns the
+ * EventsHub — the client half of /programs. Receives the program list
+ * assembled server-side (see src/app/programs/page.js) and owns the
  * category/status filtering. Renders the hero, filter pills, the program
  * grid, and an EmptyState so a filtered-out category is never a dead end.
  */
@@ -53,7 +53,7 @@ export default function EventsHub({ programs }) {
         <SectionHeader
           as="h1"
           title="Everything NGEN runs for student founders"
-          subtext="Flagship conferences, founder treks, pitch competitions, and workshops across our university network. Find the program that fits where you are and apply in minutes."
+          subtext="Flagship conferences, founder treks, and pitch competitions across our university network. Find the program that fits where you are and apply in minutes."
           align="center"
         />
 
@@ -107,9 +107,7 @@ export default function EventsHub({ programs }) {
         {visible.length > 0 ? (
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {visible.map((program) => {
-              // Community is the standing network, not an application cycle
-              // (see src/app/apply/page.js) — it always routes to its own page.
-              const canApply = program.category !== "Community" && OPEN_STATUSES.has(program.status);
+              const canApply = OPEN_STATUSES.has(program.status);
               const eventLine = formatEventLine(program);
 
               return (
@@ -141,11 +139,11 @@ export default function EventsHub({ programs }) {
 
                   <div className="mt-6">
                     {canApply ? (
-                      <Button variant="primary" size="sm" href="/apply" fullWidth>
+                      <Button variant="primary" size="sm" href="/events" fullWidth>
                         Apply Now →
                       </Button>
                     ) : (
-                      <Button variant="secondary" size="sm" href={`/events/${program.slug}`} fullWidth>
+                      <Button variant="secondary" size="sm" href={`/programs/${program.slug}`} fullWidth>
                         View Program →
                       </Button>
                     )}

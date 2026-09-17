@@ -1,19 +1,24 @@
 import { navGroups } from "@/data/nav";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
-// The hub pages called out for Google Sitelinks.
-const NAV_HUB_HREFS = ["/events", "/impact", "/about"];
+// The hub pages called out for Google Sitelinks. /programs and /about are
+// group-level hubs (no direct nav item of their own — /about redirects to
+// /about/mission-story), so they're named from their dropdown group's
+// label; /events and /impact resolve off a real nav item.
+const NAV_HUB_HREFS = ["/programs", "/events", "/impact", "/about"];
 
-// /about redirects to /about/mission-story and has no direct nav item, so
-// its own dropdown group's label ("About") is the right name for the hub.
+const GROUP_HUB_IDS = { "/programs": "programs", "/about": "about" };
+
 function resolveNavHubName(href) {
-  if (href === "/about") {
-    return navGroups.find((group) => group.id === "about")?.label ?? "About";
+  const groupId = GROUP_HUB_IDS[href];
+  if (groupId) {
+    return navGroups.find((group) => group.id === groupId)?.label ?? href;
   }
   for (const group of navGroups) {
     const match = group.items.find((item) => item.href === href);
     if (match) return match.label;
   }
+  if (href === "/events") return "Apply";
   return href;
 }
 

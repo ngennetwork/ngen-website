@@ -1,16 +1,24 @@
 /**
  * Programs — the single source of truth.
  * ======================================================================
+ * There are exactly FOUR programs: Trailblazers, Lab-to-Startup, Founder
+ * Treks, and Pitch Competitions. (Workshops and Community used to live
+ * here as pseudo-programs; they were folded into the four — workshops are
+ * a format inside a program, Community is the network itself.)
+ *
  * Every program's identity, copy, photos, application link, dates, and
  * status live HERE and nowhere else. Status badges, deadline lines, the
- * header's Apply CTA, the /apply portal, each /events/[slug] hero, and
- * the home-page cards/deadline strip all derive from this file via the
- * helpers below — so a deadline is edited in exactly one place and can
- * never drift out of sync between pages again.
+ * header's Apply CTA, the /events applications page, each
+ * /programs/[slug] hero, and the home-page cards all derive from this
+ * file via the helpers below — so a deadline is edited in exactly one
+ * place and can never drift out of sync between pages again.
+ *
+ * ROUTES: evergreen program pages live at /programs and /programs/[slug].
+ * /events is the applications + real-event-instances page.
  *
  * `src/data/whatWeDo.js` is now a thin *derived view* of this array (it
  * maps these objects into the older { title, photo, cardDescription, … }
- * shape the /events/[slug] layouts still read), so those layouts keep
+ * shape the /programs/[slug] layouts still read), so those layouts keep
  * working unchanged.
  *
  * STATUS IS COMPUTED, NOT TRUSTED. The `status` field below is only the
@@ -34,8 +42,9 @@
  *   stats                 array of { value, label }
  *   isFeatured            boolean
  *
- * `type` is retained beyond the spec's minimum because /apply's category
- * filter and /events/[slug]'s layout selection key off it.
+ * `type` is retained beyond the spec's minimum because the /programs
+ * directory's category filter and /programs/[slug]'s layout selection
+ * key off it.
  *
  * NOTE: the dates below are realistic placeholders seeded from the copy
  * that used to be hardcoded in the layouts. Edit them here to reflect
@@ -179,56 +188,6 @@ export const programs = [
       { value: "$150K", label: "Funding Pool" },
     ],
     isFeatured: true,
-  },
-  {
-    slug: "workshops",
-    name: "Workshops",
-    shortName: "Workshops",
-    type: "workshops",
-    tagline: "Sharpen your entrepreneurial skills through workshops and expert-led sessions.",
-    description:
-      "Workshops are smaller, hands-on sessions led by founders, operators, and investors who've done the specific thing being taught: fundraising, GTM, hiring, whatever the moment calls for. No lecture-hall theory: the goal is a skill you can use in your business that same week.",
-    audience: "both",
-    // Announced but not yet open — the next cohort opens on opensAt.
-    status: "announced",
-    opensAt: "2026-08-15",
-    closesAt: null,
-    nextEventDate: "2026-09-12",
-    nextEventCity: "New York, NY",
-    eligibility: "Early-stage founders (pre-seed to seed)",
-    applicationTimeEstimate: "~5 min",
-    applicationUrl: "/capital-network/founders",
-    heroImage: "/about/events/workshops.jpg",
-    cardImage: "/about/events/workshops.jpg",
-    stats: [
-      { value: "4", label: "Modules" },
-      { value: "2 Days", label: "Cohort" },
-    ],
-    isFeatured: false,
-  },
-  {
-    slug: "community",
-    name: "Community",
-    shortName: "Community",
-    type: null,
-    tagline:
-      "Connecting and promoting one ecosystem of shared resources across every NGEN partner school.",
-    description:
-      "Community is what ties every other program together. Instead of ten separate campus ecosystems each rebuilding the same resources (mentor lists, investor intros, hiring pipelines), NGEN pools them into one shared network. A founder at any partner school can tap into the full network's resources, not just their own campus's.",
-    audience: "both",
-    // The standing network — always joinable, no application cycle.
-    status: "open",
-    opensAt: null,
-    closesAt: null,
-    nextEventDate: null,
-    nextEventCity: null,
-    eligibility: "Anyone in the NGEN network",
-    applicationTimeEstimate: "~2 min",
-    applicationUrl: "/about/team",
-    heroImage: "/about/events/A78A2298.JPG",
-    cardImage: "/about/events/A78A2298.JPG",
-    stats: [],
-    isFeatured: false,
   },
 ];
 

@@ -36,7 +36,7 @@ export default function FeaturedStartupsSection() {
       <div className="container-page">
         <SectionHeader
           title="Featured Startups"
-          subtext="Companies founded by students from the 10 universities represented in our network."
+          subtext="Companies founded by students from the 11 universities represented in our network."
           align="center"
         />
 

@@ -16,7 +16,7 @@ const IMPACT_REPORT_URL = "/reports/ngen-2026-impact-report.pdf";
 const METRICS = [
   { value: "$10M+", label: "Founder Capital Raised" },
   { value: "11", label: "Partner Universities" },
-  { value: "5", label: "Signature Programs" },
+  { value: "4", label: "Signature Programs" },
 ];
 
 function fundingBadge(startup) {

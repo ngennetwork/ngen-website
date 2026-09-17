@@ -4,7 +4,7 @@ import NewsletterForm from "@/components/NewsletterForm";
 
 /**
  * EmptyState — shown wherever a program has no open application cycle
- * (a closed/announced program page hero, or the /apply portal when
+ * (a closed/announced program page hero, or the /events page when
  * nothing is open). It surfaces the next expected window when known and
  * an email-capture form, so a closed program is never a dead end: the
  * visitor can always ask to be notified.

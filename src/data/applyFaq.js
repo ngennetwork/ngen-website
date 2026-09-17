@@ -1,5 +1,5 @@
 /**
- * FAQ content for /apply's "General Info & FAQ" tier. Keep answers short
+ * FAQ content for the "How it works" section on /events. Keep answers short
  * and program-agnostic — per-program specifics (deadlines, eligibility)
  * already live on each program's card, sourced from programs.js.
  */

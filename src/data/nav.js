@@ -7,23 +7,34 @@ import { whatWeDo } from "./whatWeDo";
  * destination here and it updates everywhere the nav is rendered
  * (desktop dropdowns + mobile accordion + footer sitemap).
  *
- * Grouped around the three audiences the site serves — Students
- * (Programs), capital partners and founders (Capital Network), and
- * everyone else (About) — each a dropdown with a stable `id` used for
- * aria-controls wiring.
+ * The header is deliberately minimal: two dropdowns and ONE primary CTA.
+ * Partner and Donate are NOT in the header — they live in the footer's
+ * "Get Involved" column (see src/components/Footer.jsx).
  *
- * The Programs dropdown's items are generated from src/data/whatWeDo.js,
- * filtered to the flagship programs — each gets its own /events/[slug]
- * page, so edit titles/links there, not here, to keep the dropdown and
- * the pages in sync. Workshops is intentionally excluded from this list
- * (its /events/workshops page still exists, just isn't in the nav).
+ * Programs holds both the four things students apply to (under an
+ * "Events" subheading) AND Capital Network (For Founders / For
+ * Investors, under its own subheading below a divider) — Capital
+ * Network isn't a program students apply to, so it's set off from the
+ * four rather than getting its own top-level slot. About is the second
+ * dropdown, each with a stable `id` used for aria-controls wiring.
  *
- * The three CTAs are a fixed set: Partner and Donate (secondary, static)
- * and Active Applications (primary, links to /apply).
+ * The Programs dropdown's four program items are generated from
+ * src/data/whatWeDo.js, a derived view of src/content/programs.js — each
+ * with its own /programs/[slug] page. Add or rename a program in
+ * programs.js and this dropdown follows automatically.
  *
- * Each group item is either:
- *   - a dropdown:  { id, label, type: "dropdown", items: [{ label, href, external? }, ...] }
- *   - a link:      { label, type: "link", href }
+ * The single CTA is Apply, pointing at /events — the one page that lists
+ * open application cycles (with live status badges) and real event
+ * instances.
+ *
+ * Each group item is one of:
+ *   - a link:      { label, href, external? }
+ *   - a divider:   { type: "divider" }               — a visual rule
+ *   - a heading:   { type: "heading", label }         — a subsection label
+ * Dividers/headings are presentational only (no href) — Header.jsx and
+ * MobileNav.jsx render them as non-interactive; Footer.jsx's flat
+ * sitemap list skips them and renders only the real links.
+ *
  * Each CTA item is either:
  *   - a button:    { label, type: "button", href } — solid orange pill (primary CTA)
  *   - a secondary
@@ -34,29 +45,26 @@ import { whatWeDo } from "./whatWeDo";
 // stay unlinked from the live site until this flips to "true" (set
 // NEXT_PUBLIC_NAV_LIVE=true in the host's env vars, then redeploy — no
 // code change needed). While false, Header/Footer render logo-only.
-export const NAV_LIVE = process.env.NEXT_PUBLIC_NAV_LIVE === "true";
-
-const PROGRAM_SLUGS = ["trailblazers", "research-conferences", "founder-treks", "pitch-competitions"];
+// NOTE: local `next dev` renders the full nav regardless (see below), so
+// the restructured site can be clicked through before it goes public.
+const NAV_LIVE_ENV = process.env.NEXT_PUBLIC_NAV_LIVE === "true";
+export const NAV_LIVE = NAV_LIVE_ENV || process.env.NODE_ENV !== "production";
 
 export const navGroups = [
   {
     id: "programs",
     label: "Programs",
     type: "dropdown",
-    items: whatWeDo
-      .filter((program) => PROGRAM_SLUGS.includes(program.slug))
-      .map((program) => ({
-        label: program.title,
-        href: `/events/${program.slug}`,
-      })),
-  },
-  {
-    id: "capital-network",
-    label: "Capital Network",
-    type: "dropdown",
     items: [
-      { label: "For Investors", href: "/capital-network/investors" },
+      { type: "heading", label: "Events" },
+      ...whatWeDo.map((program) => ({
+        label: program.title,
+        href: `/programs/${program.slug}`,
+      })),
+      { type: "divider" },
+      { type: "heading", label: "Capital Network" },
       { label: "For Founders", href: "/capital-network/founders" },
+      { label: "For Investors", href: "/capital-network/investors" },
     ],
   },
   {
@@ -65,17 +73,14 @@ export const navGroups = [
     type: "dropdown",
     items: [
       { label: "Mission & Story", href: "/about/mission-story" },
-      { label: "Our Team", href: "/about/team" },
-      { label: "Impact & Metrics", href: "/impact" },
+      { label: "Team", href: "/about/team" },
+      { label: "Impact", href: "/impact" },
       { label: "Contact", href: "/contact" },
     ],
   },
 ];
 
-export const ctaItems = [
-  { label: "Active Applications", type: "button", href: "/apply" },
-  { label: "Partner", type: "button-secondary", href: "/partner" },
-  { label: "Donate", type: "button-secondary", href: "/donate" },
-];
+// One primary CTA, nothing else. /events is the applications page.
+export const ctaItems = [{ label: "Apply", type: "button", href: "/events" }];
 
 export const navItems = [...navGroups, ...ctaItems];

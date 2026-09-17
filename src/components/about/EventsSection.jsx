@@ -14,7 +14,7 @@ import { SectionHeader } from "@/components/ui";
  */
 export default function EventsSection() {
   return (
-    <section id="events" className="bg-[var(--color-bg)] py-10 md:py-12">
+    <section id="previous-speakers" className="bg-[var(--color-bg)] py-10 md:py-12">
       <div className="container-page">
         <SectionHeader title="Previous Speakers" align="center" />
         <div className="mt-6 grid items-start gap-6 sm:grid-cols-3">

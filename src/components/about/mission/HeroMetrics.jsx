@@ -11,12 +11,9 @@ function formatCapital(usd) {
   return `$${usd}`;
 }
 
-// Signature Programs = the 4 core pillars shown in CoreProgramsSection's
-// bento (same exclusion list as CORE_PROGRAMS there) — Workshops and the
-// standing Community network aren't counted here.
-const SIGNATURE_PROGRAM_COUNT = programs.filter(
-  (p) => p.slug !== "community" && p.slug !== "workshops"
-).length;
+// Signature Programs = the 4 core pillars, i.e. every program in the data
+// layer now that Workshops and Community have been folded in.
+const SIGNATURE_PROGRAM_COUNT = programs.length;
 
 // The two capital figures sit next to each other in METRICS (below) since
 // they're easy to conflate — each label is worded to disambiguate on its

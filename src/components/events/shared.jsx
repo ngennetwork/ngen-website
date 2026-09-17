@@ -55,7 +55,7 @@ export function ClosingCta({ program }) {
           {open ? (
             <ApplyButton href={program.ctaHref} external={program.ctaExternal} label={program.ctaLabel} />
           ) : (
-            <Button variant="dark" href="/apply">
+            <Button variant="dark" href="/events">
               Join the waitlist
             </Button>
           )}
@@ -94,18 +94,17 @@ export function PhotoBand({ src, alt = "", className = "" }) {
 }
 
 /** Program `type` -> the directory's category label. Shared by the
- * /events grid and each program page's category badge so the taxonomy
+ * /programs grid and each program page's category badge so the taxonomy
  * can't drift between the two. */
 export const PROGRAM_CATEGORY = {
   trailblazers: "Conferences",
   research: "Conferences",
   treks: "Founder Treks",
   competitions: "Pitch Competitions",
-  workshops: "Workshops",
 };
 
 export function categoryLabel(type) {
-  return PROGRAM_CATEGORY[type] ?? "Community";
+  return PROGRAM_CATEGORY[type] ?? "Programs";
 }
 
 export function CategoryBadge({ type, className = "" }) {

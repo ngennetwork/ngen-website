@@ -8,15 +8,16 @@ import TrailblazersLayout from "@/components/events/TrailblazersLayout";
 import ResearchLayout from "@/components/events/ResearchLayout";
 import TreksLayout from "@/components/events/TreksLayout";
 import CompetitionsLayout from "@/components/events/CompetitionsLayout";
-import WorkshopsLayout from "@/components/events/WorkshopsLayout";
 
 /**
- * /events/[slug] — one page per program. Existence, metadata, and the new
+ * /programs/[slug] — one page per program. Existence, metadata, and the
  * category/deadline/audience/timeline sections read src/content/programs.js
  * directly; the bespoke per-type layouts still take the whatWeDo-shaped
  * `program` prop they were built against. Each program's `type` field picks
- * which layout variant renders below; programs with no `type` (e.g.
- * Community) get the plain fallback layout.
+ * which layout variant renders below; a program with no matching layout
+ * gets the plain fallback.
+ *
+ * Old /events/[slug] URLs redirect here (see next.config.mjs).
  */
 
 const LAYOUTS = {
@@ -24,13 +25,10 @@ const LAYOUTS = {
   research: ResearchLayout,
   treks: TreksLayout,
   competitions: CompetitionsLayout,
-  workshops: WorkshopsLayout,
 };
 
 export async function generateStaticParams() {
-  // "trailblazers" has its own dedicated route at src/app/events/trailblazers —
-  // excluded here so the two don't collide.
-  return programs.filter((p) => p.slug !== "trailblazers").map((program) => ({ slug: program.slug }));
+  return programs.map((program) => ({ slug: program.slug }));
 }
 
 export async function generateMetadata({ params }) {
@@ -95,7 +93,7 @@ export default async function WhatWeDoPage({ params }) {
   return (
     <>
       <div className="container-page pt-6">
-        <Link href="/events" className="text-sm font-semibold text-text-muted hover:text-text">
+        <Link href="/programs" className="text-sm font-semibold text-text-muted hover:text-text">
           ← Back to All Programs
         </Link>
       </div>

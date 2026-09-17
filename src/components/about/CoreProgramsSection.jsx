@@ -2,11 +2,10 @@ import { programs } from "@/content/programs";
 import { SectionHeader } from "@/components/ui";
 import TrailblazersVideo from "./TrailblazersVideo";
 
-// The 4 core pillars, including Trailblazers — it gets the cinematic
-// video treatment too, but still shows up as a card like every other
-// program so it's never missing from the list. Workshops and the
-// standing Community network are excluded from this bento.
-const CORE_PROGRAMS = programs.filter((p) => p.slug !== "community" && p.slug !== "workshops");
+// The 4 core pillars — every program in the data layer. Trailblazers gets
+// the cinematic video treatment below too, but still shows up as a card
+// like every other program so it's never missing from the list.
+const CORE_PROGRAMS = programs;
 
 const ONE_LINERS = {
   trailblazers:
@@ -17,8 +16,6 @@ const ONE_LINERS = {
     "Curated office visits with top venture capital funds for actively raising founders.",
   "pitch-competitions":
     "Live pitch stages awarding non-dilutive grant funding and direct investor feedback.",
-  workshops:
-    "Hands-on masterclasses led by operators on GTM, fundraising, and startup execution.",
 };
 
 function ProgramCard({ program, className = "" }) {
