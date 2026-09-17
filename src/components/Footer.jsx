@@ -1,81 +1,18 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
-import NewsletterSignup from "@/components/NewsletterSignup";
-import { navGroups, NAV_LIVE } from "@/data/nav";
 
-const HIDE_NEWSLETTER_PATHS = ["/", "/capital-network/investors", "/startup-challenge"];
-
-const COMMUNITY_LINKS = {
-  label: "Get Involved",
-  items: [
-    { label: "Partner", href: "/partner" },
-    { label: "Donate", href: "/donate" },
-    { label: "Active Applications", href: "/apply" },
-    { label: "Contact", href: "/contact" },
-  ],
-};
+const FOOTER_LINKS = [
+  {
+    label: "Donate",
+    href: "https://www.zeffy.com/en-US/donation-form/donate-to-empower-entrepreneurs",
+  },
+  { label: "Contact", href: "mailto:info@ngennetwork.org" },
+];
 
 export default function Footer() {
-  const pathname = usePathname();
-  const showNewsletter = !HIDE_NEWSLETTER_PATHS.includes(pathname);
-
   return (
     <footer className="bg-surface-dark-deep text-on-dark">
       <div className="container-page py-8 flex flex-col items-center gap-6 text-center">
         <Logo variant="white" className="h-14 w-auto" />
-
-        {showNewsletter && (
-          <NewsletterSignup
-            variant="dark"
-            headline="Stay Updated on Student Opportunities"
-            subtext="For active university students only. Get curated startup internships, venture roles, and campus event invites straight to your inbox."
-          />
-        )}
-
-        {NAV_LIVE && (
-          <nav
-            aria-label="Footer"
-            className="flex flex-wrap justify-center gap-x-10 gap-y-6"
-          >
-            {navGroups.map((group) => (
-              <div key={group.id}>
-                <p className="eyebrow text-on-dark/60">{group.label}</p>
-                <ul className="mt-3 space-y-2">
-                  {group.items.map((sub) => (
-                    <li key={sub.label}>
-                      <Link
-                        href={sub.href}
-                        {...(sub.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                        className="focus-ring-dark text-sm text-on-dark/80 hover:text-accent-fill"
-                      >
-                        {sub.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-
-            <div>
-              <p className="eyebrow text-on-dark/60">{COMMUNITY_LINKS.label}</p>
-              <ul className="mt-3 space-y-2">
-                {COMMUNITY_LINKS.items.map((sub) => (
-                  <li key={sub.label}>
-                    <Link
-                      href={sub.href}
-                      className="focus-ring-dark text-sm text-on-dark/80 hover:text-accent-fill"
-                    >
-                      {sub.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </nav>
-        )}
 
         <div className="flex items-center gap-5">
           <a
@@ -104,15 +41,28 @@ export default function Footer() {
           </a>
         </div>
 
+        <nav aria-label="Footer">
+          <ul className="mx-auto flex w-fit items-center gap-5">
+            {FOOTER_LINKS.map((link) => (
+              <li key={link.label} className="text-center">
+                <a
+                  href={link.href}
+                  {...(link.href.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="focus-ring-dark text-sm text-on-dark/80 hover:text-accent-fill"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
         <p className="max-w-2xl text-xs leading-relaxed text-on-dark/80">
           NextGen Entrepreneurship Network (operating as NGEN) is a registered 501(c)(3) tax-exempt
           organization (EIN: 93-2106846). Contributions are tax-deductible to the extent allowed by
-          law. Copies of our Form 990 and tax-exemption application are available upon request by
-          emailing{" "}
-          <a href="mailto:info@ngennetwork.org" className="underline hover:text-accent-fill">
-            info@ngennetwork.org
-          </a>
-          .
+          law. Copies of our Form 990 and tax-exemption application are available upon request.
         </p>
 
         <p className="text-xs text-on-dark/50">
