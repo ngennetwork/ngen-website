@@ -88,7 +88,7 @@ export const programs = [
     shortName: "Trailblazers",
     type: "trailblazers",
     tagline:
-      "Leading entrepreneurs from across all 10 NGEN partner universities are selected to convene for our flagship conferences in New York City.",
+      "Flagship conference where student innovators meet one another and learn from experienced entrepreneurs and VCs.",
     description:
       "The Trailblazers Conference is NGEN's flagship event: a full day in New York City bringing together the sharpest student founders from every partner school. Attendees hear directly from operators and investors who've built and backed category-defining companies, then spend the rest of the day turning hallway conversations into co-founders, mentors, and first checks.",
     audience: "student",
@@ -115,7 +115,7 @@ export const programs = [
     shortName: "Lab-to-Startup",
     type: "research",
     tagline:
-      "A dedicated track for founders building at the edge of deep tech, biotech, and applied research, pairing rigorous science with startup speed.",
+      "Specialized conferences that help student researchers turn their work into real commercial applications.",
     description:
       "Lab-to-Startup Conferences bring together student founders working on deep tech, biotech, and other research-heavy ventures: the ideas that take longer to build but change more when they land. Sessions pair scientific rigor with startup speed: technical deep dives, translational-research panels, and direct access to investors who fund science-first companies.",
     audience: "student",
@@ -143,7 +143,7 @@ export const programs = [
     shortName: "Treks",
     type: "treks",
     tagline:
-      "NGEN brings together select groups of brilliant founders who are actively raising to visit VCs in their offices throughout the day and build meaningful connections.",
+      "Curated office visits for actively raising founders to meet top VCs and angel groups and get live feedback.",
     description:
       "Founder Treks bring together select groups of brilliant, actively-raising founders for a day of back-to-back visits with VCs in their own offices. Instead of a cold email, founders walk in with a warm introduction and walk out with a real relationship, often the first meeting in a much longer conversation with that fund.",
     audience: "student",
@@ -168,7 +168,8 @@ export const programs = [
     name: "Pitch Competitions",
     shortName: "Pitch",
     type: "competitions",
-    tagline: "Pitch your startup for a chance to receive a $150K investment from Honors Fund.",
+    tagline:
+      "Pitch opportunities for founders to win funding and land direct investments, both non-dilutive and dilutive.",
     description:
       "Pitch Competitions give student founders a real stage and a real check on the line: up to $150K from Honors Fund. Teams get direct feedback from the investors judging the room, not just a trophy, so even the founders who don't win walk away with sharper answers to the questions that matter most.",
     audience: "student",
