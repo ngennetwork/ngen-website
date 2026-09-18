@@ -1,6 +1,5 @@
 import { SectionHeader } from "@/components/ui";
 
-const JOIN_HREF = "https://tally.so/r/rjQVD2";
 const LUMA_HREF = "https://luma.com/ngen";
 
 /**
@@ -43,19 +42,6 @@ export default function UpcomingEventsSection() {
             className="min-h-[420px] sm:min-h-[600px]"
           />
         </div>
-
-        <p className="mt-6 text-center text-body text-text-muted">
-          Not ready for an event?{" "}
-          <a
-            href={JOIN_HREF}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-accent-ink hover:underline"
-          >
-            Join the Network
-          </a>{" "}
-          for opportunities.
-        </p>
       </div>
     </section>
   );
