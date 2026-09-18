@@ -23,6 +23,9 @@ export default function UpcomingEventsSection() {
             Follow our events calendar on Luma →
           </a>
         </p>
+        <p className="mt-1 text-center text-xs text-text-muted">
+          Enter your email for new event notifications. No account needed.
+        </p>
 
         <div className="mx-auto mt-10 max-w-3xl">
           {/* lt=light pins the embed to the light theme — without it, it follows
