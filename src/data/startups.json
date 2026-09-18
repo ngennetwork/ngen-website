@@ -14,10 +14,10 @@
     "name": "Series",
     "oneLiner": "Series: AI-powered social network matching founders and mentors.",
     "logo": "/logos/startups/series-logo.png",
-    "photo": "/team-photos/series-photo.webp",
-    "link": "https://www.forbes.com/sites/davidprosser/2025/04/04/how-two-yale-juniors-just-raised-31-million-for-their-social-network/",
-    "linkLabel": "How two Yale juniors raised $3.1M - Forbes",
-    "summary": "New Haven-based start-up Series is a social network founded by two students at one of the US's most prestigious colleges. But if that makes you think of another well-known social network launched in similar fashion some 20 years ago, co-founders Nathaneo Johnson and Sean Hargrow are keen to put you right."
+    "photo": "/team-photos/series-photo.png",
+    "link": "https://techcrunch.com/2026/04/24/two-college-kids-raise-a-5-1-million-pre-seed-to-build-an-ai-social-network-in-imessage/",
+    "linkLabel": "Two college kids raise $5.1M pre-seed - TechCrunch",
+    "summary": "Series, an AI-powered social network built inside iMessage, has raised a $5.1 million pre-seed round led by founders Nathaneo Johnson and Sean Hargrow."
   },
   {
     "id": "nerd-apply",
