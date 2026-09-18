@@ -16,6 +16,17 @@ export default function Footer() {
 
         <div className="flex items-center gap-5">
           <a
+            href="https://luma.com/ngen"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="NGEN events on Luma"
+            className="text-on-dark hover:text-accent-fill"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2c.5 4.5 2.2 7.3 5 8.7 1.5.75 2.4.9 3.5 1.3-1.1.4-2 .55-3.5 1.3-2.8 1.4-4.5 4.2-5 8.7-.5-4.5-2.2-7.3-5-8.7C5.5 12.75 4.6 12.6 3.5 12.2c1.1-.4 2-.55 3.5-1.3 2.8-1.4 4.5-4.2 5-8.9z" />
+            </svg>
+          </a>
+          <a
             href="https://www.linkedin.com/company/ngen-network/"
             target="_blank"
             rel="noopener noreferrer"
