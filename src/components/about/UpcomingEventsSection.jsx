@@ -20,7 +20,7 @@ export default function UpcomingEventsSection() {
             rel="noopener noreferrer"
             className="font-semibold text-accent-ink hover:underline"
           >
-            View our full events calendar on Luma →
+            Follow our events calendar on Luma →
           </a>
         </p>
 
