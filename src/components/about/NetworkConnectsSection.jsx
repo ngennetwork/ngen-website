@@ -57,8 +57,8 @@ export default function NetworkConnectsSection() {
           Built by the students in it
         </h2>
         <p className="text-[19px] leading-[1.6] text-[#C3BDB2]">
-          Sign up once. What runs through the network is whatever students put
-          into it, so you get back roughly what you give.
+          Sign up to access a peer ecosystem where student builders exchange
+          opportunities, feedback, and introductions.
         </p>
       </div>
 
