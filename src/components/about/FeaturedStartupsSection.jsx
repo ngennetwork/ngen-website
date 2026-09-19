@@ -34,11 +34,7 @@ export default function FeaturedStartupsSection() {
   return (
     <section id="startups" className="bg-bg py-16 md:py-20">
       <div className="container-page">
-        <SectionHeader
-          title="Featured Startups"
-          subtext="Companies founded by students from the 15 universities represented in our network."
-          align="center"
-        />
+        <SectionHeader title="Featured Startups" align="center" />
 
         <div className="mt-10 grid grid-cols-1 gap-6 max-w-6xl mx-auto md:grid-cols-3">
           {featuredStartups.map((s) => (
