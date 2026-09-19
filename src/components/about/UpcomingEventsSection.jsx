@@ -29,7 +29,15 @@ export default function UpcomingEventsSection() {
         <div className="mx-auto mt-10 max-w-3xl">
           {/* lt=light pins the embed to the light theme — without it, it follows
               the visitor's OS dark mode and goes dark on our cream page.
-              Add &compact=1 for the condensed list layout. */}
+              Add &compact=1 for the condensed list layout.
+
+              The mobile height is deliberately well short of a phone
+              viewport. An iframe that fills the screen traps the scroll:
+              once the embed's own event list bottoms out, iOS won't hand
+              the gesture back to the page, so a visitor swiping over the
+              calendar can't reach anything below it. Leaving page visible
+              above and below gives them somewhere to swipe that scrolls
+              the page instead. */}
           <iframe
             src="https://luma.com/embed/calendar/cal-WtngTovCXlKVWHM/events?lt=light"
             width="100%"
@@ -39,7 +47,7 @@ export default function UpcomingEventsSection() {
             allowFullScreen
             aria-hidden="false"
             tabIndex="0"
-            className="min-h-[420px] sm:min-h-[600px]"
+            className="h-[360px] w-full sm:h-[600px]"
           />
         </div>
       </div>
