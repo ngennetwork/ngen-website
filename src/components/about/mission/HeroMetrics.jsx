@@ -1,5 +1,4 @@
 import { getTotalCapitalRaised } from "@/content/startups";
-import { programs } from "@/content/programs";
 import { Card } from "@/components/ui";
 
 // Every value below is a live computation off real content files where
@@ -11,10 +10,6 @@ function formatCapital(usd) {
   return `$${usd}`;
 }
 
-// Signature Programs = the 4 core pillars, i.e. every program in the data
-// layer now that Workshops and Community have been folded in.
-const SIGNATURE_PROGRAM_COUNT = programs.length;
-
 // The two capital figures sit next to each other in METRICS (below) since
 // they're easy to conflate — each label is worded to disambiguate on its
 // own: money founders raised on their own vs. money NGEN itself has
@@ -22,10 +17,9 @@ const SIGNATURE_PROGRAM_COUNT = programs.length;
 const METRICS = [
   // Hardcoded org-level reach total — no content file tracks this yet, so
   // update by hand as the running total changes.
-  { value: "20,000", label: "Student\nReach" },
-  // Hardcoded — 11 universities represented and growing.
-  { value: "11", label: "Universities Represented" },
-  { value: `${SIGNATURE_PROGRAM_COUNT}`, label: "Core\nPrograms" },
+  { value: "20,000", label: "Student Reach" },
+  // Hardcoded — 15 universities represented and growing.
+  { value: "15", label: "Universities Represented" },
   { value: formatCapital(getTotalCapitalRaised()), label: "Founder-Raised Capital" },
   // Hardcoded org-level total (grants/prize capital NGEN has directly
   // helped put in founders' hands) — no content file tracks this yet, so
@@ -34,19 +28,19 @@ const METRICS = [
 ];
 
 /**
- * Hero impact strip — 5 stat tiles sitting under the CTA row, mostly
+ * Hero impact strip — 4 stat tiles sitting under the CTA row, mostly
  * live-computed from src/content / src/data; hardcoded values are called
  * out inline above.
  */
 export default function HeroMetrics() {
   return (
-    <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 sm:gap-6">
+    <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 lg:grid-cols-4 sm:gap-6">
       {METRICS.map((m) => (
         <Card key={m.label} variant="light" padded={false} className="px-3 py-5 text-center sm:px-4">
           <div className="font-[family-name:var(--font-display)] text-h3 font-extrabold text-accent-ink md:text-h2">
             {m.value}
           </div>
-          <div className="mt-1 whitespace-pre-line text-caption uppercase tracking-wide text-text-muted">
+          <div className="mt-2 whitespace-pre-line text-caption uppercase tracking-wide text-text-muted">
             {m.label}
           </div>
         </Card>

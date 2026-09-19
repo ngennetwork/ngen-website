@@ -85,6 +85,7 @@ export const startups = [
     fundingRaisedUsd: 8200000,
     accelerator: null,
     photo: "/team-photos/series-photo.png",
+    photoPosition: "center 25%",
   },
   {
     id: "nerd-apply",
