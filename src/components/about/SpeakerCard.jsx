@@ -1,21 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 /**
  * One "Previous Speakers" card. Collapsed shows name + title on a plain
- * neutral panel; expands on hover (desktop) or click (works on touch too,
- * since a tap fires a click) to reveal the bio. Colored panelColor
- * backgrounds retired in favor of the house neutral card language.
+ * neutral panel; expands on hover (pointer devices) or click/tap to
+ * reveal the bio. Colored panelColor backgrounds retired in favor of the
+ * house neutral card language.
  *
- * Touch devices never fire the hover reveal, so the chevron below is the
- * only cue that there's a bio to open — and the collapse has to actually
- * collapse there (see the max-height note inline).
+ * Two things this has to get right for touch, both learned the hard way:
+ *   - The bio lives *outside* the <button>, not inside it. A <button> may
+ *     only contain phrasing content, and WebKit's button renderer ignores
+ *     the overflow/max-height clip on block children — which left a
+ *     bio-sized blank gap under every collapsed card on iOS.
+ *   - Hover only counts on devices that actually hover. A tap in mobile
+ *     Safari fires mouseenter and then leaves the element "hovered," so
+ *     hover-driven expansion stuck open and the second tap couldn't
+ *     close it.
  */
 export default function SpeakerCard({ speaker }) {
+  const bioId = useId();
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const expanded = clicked || hovered;
+  const [canHover, setCanHover] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    setCanHover(mq.matches);
+    const onChange = (e) => setCanHover(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  const expanded = clicked || (canHover && hovered);
 
   return (
     <div
@@ -35,44 +52,48 @@ export default function SpeakerCard({ speaker }) {
           }}
         />
       </div>
-      <button
-        type="button"
-        className="w-full border-t border-neutral-200 px-5 py-4 text-left transition-colors hover:bg-neutral-50"
-        aria-expanded={expanded}
-        onClick={() => setClicked((c) => !c)}
-      >
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <p className="font-sans font-extrabold text-text">{speaker.name}</p>
-            <p className="text-small text-text-muted">{speaker.title}</p>
-          </div>
+
+      <div className="border-t border-neutral-200">
+        <button
+          type="button"
+          className="flex w-full items-start justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-neutral-50"
+          aria-expanded={expanded}
+          aria-controls={bioId}
+          onClick={() => setClicked((c) => !c)}
+        >
+          <span>
+            <span className="block font-sans font-extrabold text-text">{speaker.name}</span>
+            <span className="block text-small text-text-muted">{speaker.title}</span>
+          </span>
           {/* Tap affordance — without it there's no hint the bio exists on
               touch, where the hover reveal never fires. */}
-          <svg
+          <span
             className={`mt-1 shrink-0 text-text-muted transition-transform duration-300 ${
               expanded ? "rotate-180" : ""
             }`}
-            width="14"
-            height="9"
-            viewBox="0 0 14 9"
-            fill="none"
             aria-hidden="true"
           >
-            <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-        {/* Collapsed with max-height rather than a 0fr grid row: Safari
-            (iOS included) doesn't shrink an fr track below its content's
-            height, so the old version left a bio-sized blank gap under
-            every name on mobile. */}
+            <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+              <path
+                d="M1 1L7 7L13 1"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </button>
+
         <div
-          className={`overflow-hidden transition-all duration-300 ${
-            expanded ? "mt-3 max-h-96 opacity-100" : "max-h-0 opacity-0"
+          id={bioId}
+          className={`overflow-hidden px-5 transition-all duration-300 ${
+            expanded ? "max-h-96 pb-4 opacity-100" : "max-h-0 pb-0 opacity-0"
           }`}
         >
           <p className="text-small leading-relaxed text-text-muted">{speaker.bio}</p>
         </div>
-      </button>
+      </div>
     </div>
   );
 }
