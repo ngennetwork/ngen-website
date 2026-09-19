@@ -43,7 +43,11 @@ export default function StartupCard({ startup, showFounders = true, badge = null
             href={startup.websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-auto text-sm font-semibold text-accent underline underline-offset-2 hover:text-accent/80"
+            // min-h reserves space for 2 lines, so a one-line title (like
+            // Doe's) still starts flush with the top of a neighboring
+            // card's two-line title instead of getting bottom-aligned
+            // down into where that card's second line sits.
+            className="mt-auto block min-h-[2.5rem] text-sm font-semibold text-accent underline underline-offset-2 hover:text-accent/80"
           >
             {startup.articleTitle}
           </a>
