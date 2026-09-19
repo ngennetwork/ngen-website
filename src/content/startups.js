@@ -171,7 +171,7 @@ export const startups = [
     ],
     isFeatured: true,
     fundingRaisedUsd: null,
-    accelerator: null,
+    accelerator: "Techstars",
     photo: "/team-photos/cai-creative-photo.avif",
   },
 ];
