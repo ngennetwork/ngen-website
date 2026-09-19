@@ -193,11 +193,11 @@ export default function MissionHero() {
           // flex gap above — this negative margin pulls the tagline up
           // into that reserved space so it actually sits close to "NGEN"
           // instead of just removing the (much smaller) flex gap. The pull
-          // scales with viewport width (same as the wordmark's own clamp),
-          // since the reserved descender space is proportional to the
-          // font size — a fixed large pull overlapped the wordmark on
-          // narrow screens.
-          style={{ fontSize: "clamp(1rem, 1.9vw, 1.3rem)", marginTop: "clamp(-4rem, -5vw, -1rem)" }}
+          // scales down as viewport width shrinks (the "1rem -" term backs
+          // it off further still on phones) — a flat pull either
+          // overlapped the wordmark on narrow screens or left almost no
+          // gap at all once backed off enough to avoid that.
+          style={{ fontSize: "clamp(1rem, 1.9vw, 1.3rem)", marginTop: "clamp(-4rem, calc(1rem - 6vw), -0.5rem)" }}
         >
           {TAGLINE_SENTENCES.map((sentence, i) => (
             <p
