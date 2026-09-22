@@ -5,14 +5,19 @@ import gsap from "gsap";
 
 const TAGLINE_SENTENCES = [
   [
-    { text: "NGEN is a 501(c)(3) intercollegiate entrepreneurship organization dedicated to connecting students across " },
-    { text: "top universities", strong: true },
+    { text: "NGEN is a 501(c)(3) intercollegiate entrepreneurship organization dedicated to connecting the most ambitious student founders across " },
+    { text: "the Ivy League and top universities", strong: true },
     { text: "." },
   ],
   [
     { text: "By bridging campus ecosystems, NGEN serves as the " },
     { text: "center of gravity for student innovation", strong: true },
     { text: "." },
+  ],
+  [
+    {
+      text: "Through conferences, founder treks, pitch competitions, and community-driven opportunity sharing, we create pathways that foster meaningful peer relationships and empower the next generation of founders.",
+    },
   ],
 ];
 
