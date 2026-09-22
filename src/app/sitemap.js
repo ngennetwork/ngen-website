@@ -3,8 +3,8 @@ import { programs } from "@/content/programs";
 
 // /about is excluded — it's a redirect to /about/mission-story, not
 // canonical content. /admin/* and /api/* are excluded via robots.js.
-// /startup-challenge is excluded on purpose: it's kept off the public
-// site (see src/middleware.js).
+// /startup-challenge is reachable but excluded from the sitemap on
+// purpose — it's a direct/shared link, not meant for search indexing.
 const STATIC_ROUTES = [
   "",
   "/about/mission-story",

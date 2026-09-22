@@ -9,7 +9,7 @@ import { NextResponse } from "next/server";
  * Add a path here the moment it's ready to go public; nothing else about
  * the route needs to change.
  */
-const ALLOWED_PATHS = ["/"];
+const ALLOWED_PATHS = ["/", "/startup-challenge"];
 const ALLOWED_PREFIXES = ["/admin"];
 
 function isAllowed(pathname) {
