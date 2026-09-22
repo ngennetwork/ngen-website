@@ -14,11 +14,6 @@ const TAGLINE_SENTENCES = [
     { text: "center of gravity for student innovation", strong: true },
     { text: "." },
   ],
-  [
-    {
-      text: "Through conferences, founder treks, pitch competitions, and community-driven opportunity sharing, we create pathways that foster meaningful peer relationships and empower the next generation of founders.",
-    },
-  ],
 ];
 
 // Shared between the JSX's default inline styles (below, so the very
