@@ -5,7 +5,7 @@ import gsap from "gsap";
 
 const TAGLINE_SENTENCES = [
   [
-    { text: "NGEN is a 501(c)(3) intercollegiate entrepreneurship organization dedicated to connecting the most ambitious student founders across " },
+    { text: "NGEN is a 501(c)(3) intercollegiate entrepreneurship organization dedicated to connecting student founders across " },
     { text: "the Ivy League and top universities", strong: true },
     { text: "." },
   ],
