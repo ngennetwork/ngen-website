@@ -41,7 +41,16 @@ export default function HeroMetrics() {
             {m.value}
           </div>
           <div className="mt-2 whitespace-pre-line text-caption uppercase tracking-wide text-text-muted">
-            {m.label}
+            {m.label === "Student Reach" ? (
+              <>
+                Student
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                Reach
+              </>
+            ) : (
+              m.label
+            )}
           </div>
         </Card>
       ))}
