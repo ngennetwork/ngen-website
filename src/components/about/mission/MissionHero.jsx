@@ -203,7 +203,7 @@ export default function MissionHero() {
             <p
               key={i}
               ref={(el) => el && lineRefs.current.push(el)}
-              className={`opacity-0 ${i > 0 ? "mt-3" : ""}`}
+              className={`opacity-0 ${i > 0 ? "mt-6" : ""}`}
               style={{ textWrap: "balance", transform: "translateY(14px)" }}
             >
               {sentence.map((part, j) => (
