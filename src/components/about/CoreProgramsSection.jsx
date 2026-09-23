@@ -13,7 +13,7 @@ const ONE_LINERS = {
   "research-conferences":
     "Explore how to commercialize research, including IP and tech transfer, across a new field each time.",
   "founder-treks":
-    "Spend a day visiting four VCs and angels in their offices while actively raising.",
+    "Spend a day visiting four VCs and angels in their offices to pitch and connect while actively raising.",
   "pitch-competitions":
     "Pitch your company and compete against other founders for investment and prize funding.",
 };
