@@ -9,13 +9,13 @@ const CORE_PROGRAMS = programs;
 
 const ONE_LINERS = {
   trailblazers:
-    "Flagship NYC gatherings connecting top student founders with leading VCs and operators.",
+    "Our flagship conference to learn from experienced founders and VCs and network with fellow builders.",
   "research-conferences":
-    "Deep-tech and biotech showcases pairing university lab research with venture capital.",
+    "Explore how to commercialize research, including IP and tech transfer, with a new research focus at each conference.",
   "founder-treks":
-    "Curated office visits with top venture capital funds for actively raising founders.",
+    "Spend a day visiting four VCs and angels in their offices while actively raising.",
   "pitch-competitions":
-    "Live pitch stages awarding non-dilutive grant funding and direct investor feedback.",
+    "Pitch your company and compete against other founders for investment and prize funding.",
 };
 
 function ProgramCard({ program, className = "" }) {
