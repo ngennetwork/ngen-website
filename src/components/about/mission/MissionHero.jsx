@@ -187,7 +187,7 @@ export default function MissionHero() {
           </div>
         </div>
         <div
-          className="max-w-2xl font-[family-name:var(--font-body)] leading-relaxed text-white"
+          className="max-w-3xl font-[family-name:var(--font-body)] leading-relaxed text-white"
           // Codec Pro's line-box reserves visible space below the
           // baseline for descenders even at line-height:1, on top of the
           // flex gap above — this negative margin pulls the tagline up
@@ -209,8 +209,11 @@ export default function MissionHero() {
               style={{ textWrap: "balance", transform: "translateY(14px)" }}
             >
               {sentence.map((part, j) => (
-                <span key={j} className={part.strong ? "font-semibold text-[var(--color-orange)]" : ""}>
-                  {part.text}
+                <span key={j}>
+                  {part.strong && <br />}
+                  <span className={part.strong ? "font-semibold text-[var(--color-orange)]" : ""}>
+                    {part.text}
+                  </span>
                 </span>
               ))}
             </p>
