@@ -29,6 +29,21 @@ const PHOTO_START_SCALE = 2.15;
 const PHOTO_END_SCALE = 2.05;
 const PHOTO_OBJECT_POSITION = "center 68%";
 
+// Calls onReady once the image is fully downloaded and decoded. Works
+// whether the image finished before or after hydration (so a missed
+// React onLoad can't leave it hidden). Stays hidden if it fails to load.
+function whenPhotoReady(img, onReady) {
+  if (!img) return;
+  const done = () => {
+    if (img.naturalWidth > 0) onReady();
+  };
+  if (img.complete) {
+    img.decode().then(done, done);
+  } else {
+    img.addEventListener("load", () => img.decode().then(done, done), { once: true });
+  }
+}
+
 export default function MissionHero() {
   const photoRef = useRef(null);
   const logoRef = useRef(null);
@@ -65,26 +80,33 @@ export default function MissionHero() {
 
     if (reduced) {
       // Jump straight to the fully-settled end state, no motion at all.
-      gsap.set(photoRef.current, { scale: PHOTO_END_SCALE, autoAlpha: 1 });
+      whenPhotoReady(photoRef.current, () => gsap.set(photoRef.current, { scale: PHOTO_END_SCALE, autoAlpha: 1 }));
       gsap.set(logoRef.current, { autoAlpha: 1, y: 0, scale: 0.62 });
       gsap.set(lines, { autoAlpha: 1, y: 0 });
       gsap.set(chevronRef.current, { autoAlpha: 1 });
       return;
     }
 
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({ delay: 0.25 });
 
-    tl.to(photoRef.current, { autoAlpha: 1, duration: 0.6, ease: "power2.out" })
-      .to(logoRef.current, { autoAlpha: 1, y: 0, duration: 0.55, ease: "power3.out" }, "-=0.35")
+    // The photo reveals on its own schedule — only once it's fully
+    // downloaded and decoded — so a slow connection never shows it
+    // painting in top-to-bottom. The text timeline doesn't wait on it.
+    let photoTl;
+    let cancelled = false;
+    whenPhotoReady(photoRef.current, () => {
+      if (cancelled) return;
+      photoTl = gsap
+        .timeline()
+        .to(photoRef.current, { autoAlpha: 1, duration: 0.6, ease: "power2.out" })
+        .to(photoRef.current, { scale: PHOTO_END_SCALE, duration: 18, ease: "none" }, 0);
+    });
+
+    tl.to(logoRef.current, { autoAlpha: 1, y: 0, duration: 0.55, ease: "power3.out" })
       .to({}, { duration: 0.35 }) // brief hold on NGEN alone
       .to(logoRef.current, { scale: 0.62, duration: 0.5, ease: "power2.inOut" })
       .to(lines, { autoAlpha: 1, y: 0, duration: 0.35, stagger: 0.1, ease: "power2.out" }, "-=0.2")
-      .to(chevronRef.current, { autoAlpha: 1, duration: 0.35, ease: "power1.out" }, "-=0.1")
-      // Slow background zoom, added last (anchored to the timeline's very
-      // start) so its long duration can't shift the "-=" offsets above —
-      // those were all resolved relative to each other before this got
-      // appended.
-      .to(photoRef.current, { scale: PHOTO_END_SCALE, duration: 18, ease: "none" }, 0);
+      .to(chevronRef.current, { autoAlpha: 1, duration: 0.35, ease: "power1.out" }, "-=0.1");
 
     // Gentle infinite bounce on the scroll cue.
     const bounce = gsap.to(chevronRef.current, {
@@ -97,7 +119,9 @@ export default function MissionHero() {
     });
 
     return () => {
+      cancelled = true;
       tl.kill();
+      photoTl?.kill();
       bounce.kill();
     };
   }, []);
@@ -107,7 +131,12 @@ export default function MissionHero() {
       {/* eslint-disable-next-line @next/next/no-img-element -- fixed full-bleed background, no benefit from Next's raster image optimizer */}
       <img
         ref={photoRef}
-        src="/home/hero-ngen-new-group.jpg"
+        src="/home/hero-ngen-new-group-2400.webp"
+        // The photo is zoomed ~2x (PHOTO_*_SCALE), hence sizes="200vw".
+        srcSet="/home/hero-ngen-new-group-1600.webp 1600w, /home/hero-ngen-new-group-2400.webp 2400w, /home/hero-ngen-new-group-3200.webp 3200w"
+        sizes="200vw"
+        fetchPriority="high"
+        decoding="async"
         alt="NGEN students at the Trailblazers Conference"
         className="absolute inset-0 h-full w-full object-cover opacity-0"
         style={{

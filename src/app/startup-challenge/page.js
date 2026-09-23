@@ -26,7 +26,7 @@ export const metadata = {
  * /public, so swapping in the real photo is a one line change here.
  */
 const PHOTOS = {
-  hero: "/home/hero-ngen-new-group.jpg",
+  hero: "/home/hero-ngen-new-group-1600.webp",
   heroSecondary: "/about/events/Copy of DSC06515.jpg",
   build: "/about/events/workshops.jpg",
   trek: "/about/events/founder-treks.jpg",
