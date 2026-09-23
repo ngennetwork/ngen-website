@@ -11,7 +11,7 @@ const ONE_LINERS = {
   trailblazers:
     "Our flagship conference to learn from experienced founders and VCs and network with fellow builders.",
   "research-conferences":
-    "Explore how to commercialize research, including IP and tech transfer, with a new research focus at each conference.",
+    "Explore how to commercialize research, including IP and tech transfer, across a new field each time.",
   "founder-treks":
     "Spend a day visiting four VCs and angels in their offices while actively raising.",
   "pitch-competitions":
