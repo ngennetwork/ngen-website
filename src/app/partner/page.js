@@ -51,7 +51,7 @@ export default function PartnerPage() {
 
         <div className="mx-auto mt-14 max-w-3xl rounded-2xl bg-surface-dark px-8 py-14 text-center text-white">
           <h2 className="font-sans text-2xl font-bold">
-            Put your organization in front of student founders.
+            Put your organization in front of the next generation of founders.
           </h2>
           <p className="mt-4 text-white/85">
             Tell us what you&rsquo;re looking for and we&rsquo;ll put together a partnership

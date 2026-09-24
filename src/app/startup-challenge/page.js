@@ -79,7 +79,7 @@ const HIGHLIGHTS = [
   },
   {
     value: formatCapital(getTotalCapitalRaised()),
-    label: "Founder-Raised Capital",
+    label: "Raised by NGEN Founders",
   },
   {
     value: "8",
@@ -111,13 +111,13 @@ const AT_A_GLANCE = [
   },
   {
     value: "20,000+",
-    label: "Student Founders Served",
+    label: "Students Reached",
     note: "Students who have come through NGEN programming, workshops, and conferences.",
   },
   {
     value: formatCapital(getTotalCapitalRaised()),
-    label: "Founder-Raised Capital",
-    note: "Raised by NGEN founders' own startups across the network.",
+    label: "Raised by NGEN Founders",
+    note: "Across the startups NGEN founders have built throughout the network.",
   },
   {
     value: "All 8 Ivies",

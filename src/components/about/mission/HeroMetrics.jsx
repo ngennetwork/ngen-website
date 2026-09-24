@@ -12,19 +12,19 @@ function formatCapital(usd) {
 
 // The two capital figures sit next to each other in METRICS (below) since
 // they're easy to conflate — each label is worded to disambiguate on its
-// own: money founders raised on their own vs. money NGEN itself has
-// handed out.
+// own: money founders raised in total vs. money invested through NGEN
+// directly.
 const METRICS = [
   // Hardcoded org-level reach total — no content file tracks this yet, so
   // update by hand as the running total changes.
   { value: "20,000", label: "Student Reach" },
   // Hardcoded — 15 universities represented and growing.
   { value: "15", label: "Universities Represented" },
-  { value: formatCapital(getTotalCapitalRaised()), label: "Founder-Raised Capital" },
-  // Hardcoded org-level total (grants/prize capital NGEN has directly
-  // helped put in founders' hands) — no content file tracks this yet, so
-  // update by hand as the running total changes.
-  { value: "$500K+", label: "NGEN-Distributed Capital" },
+  { value: formatCapital(getTotalCapitalRaised()), label: "Raised by NGEN Founders" },
+  // Hardcoded org-level total (capital invested into NGEN startups
+  // through NGEN's investment partnership) — no content file tracks this
+  // yet, so update by hand as the running total changes.
+  { value: "$500K+", label: "Invested Through NGEN" },
 ];
 
 /**

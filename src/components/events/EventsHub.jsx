@@ -52,7 +52,7 @@ export default function EventsHub({ programs }) {
       <div className="container-page py-20">
         <SectionHeader
           as="h1"
-          title="Everything NGEN runs for student founders"
+          title="Everything NGEN runs for the next generation of founders"
           subtext="Flagship conferences, founder treks, and pitch competitions across our university network. Find the program that fits where you are and apply in minutes."
           align="center"
         />

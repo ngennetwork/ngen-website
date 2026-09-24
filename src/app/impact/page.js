@@ -6,7 +6,7 @@ import StartupCard from "@/components/startups/StartupCard";
 export const metadata = {
   title: "Impact & Metrics",
   description:
-    "Measuring the growth, capital raised, and reach of student founders across NGEN's top university ecosystems.",
+    "Measuring the growth, capital raised, and reach of the next generation of founders across NGEN's top university ecosystems.",
 };
 
 // TODO: upload the real 2026 impact report PDF to /public/reports and
@@ -55,7 +55,7 @@ export default function ImpactPage() {
           as="h1"
           titleClassName="text-h2 font-sans font-extrabold text-accent-ink"
           title="Our Impact & Ecosystem Footprint"
-          subtext="Measuring the growth, capital raised, and reach of student founders across top university ecosystems."
+          subtext="Measuring the growth, capital raised, and reach of the next generation of founders across top university ecosystems."
           align="center"
         >
           <div className="flex justify-center">
