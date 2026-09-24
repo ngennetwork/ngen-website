@@ -9,7 +9,7 @@ import HeroMetrics from "./HeroMetrics";
 export default function HeroCTAs() {
   return (
     <div className="container-page py-16 text-center md:py-20">
-      <h1 className="mx-auto max-w-3xl font-[family-name:var(--font-display)] text-h2 font-extrabold text-text md:text-h1">
+      <h1 className="mx-auto max-w-3xl text-balance font-[family-name:var(--font-display)] text-h2 font-extrabold text-text md:text-h1">
         Where students meet, build, and raise capital.
       </h1>
       <HeroMetrics />
