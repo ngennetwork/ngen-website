@@ -4,7 +4,7 @@ import OurStoryStatement from "@/components/about/mission/OurStoryStatement";
 export const metadata = {
   title: "Mission & Story",
   description:
-    "NGEN's mission to connect student founders across top universities, and the founding story behind the network.",
+    "NGEN's mission to connect the next generation of founders across top universities, and the founding story behind the network.",
 };
 
 /**
@@ -24,7 +24,7 @@ export default function MissionStoryPage() {
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-neutral-600 md:text-xl">
           NGEN is a 501(c)(3) intercollegiate entrepreneurship organization dedicated to
-          connecting students across{" "}
+          connecting the next generation of founders across{" "}
           <strong className="font-semibold text-accent-fill">top universities</strong>.
           By bridging campus ecosystems, NGEN serves as the{" "}
           <strong className="font-semibold text-accent-fill">

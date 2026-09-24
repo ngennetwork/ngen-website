@@ -3,7 +3,7 @@ import { SectionHeader } from "@/components/ui";
 export const metadata = {
   title: "Donate",
   description:
-    "Support NGEN's mission with a gift that funds travel grants, mentorship, and the programming connecting student founders across top universities.",
+    "Support NGEN with a gift that funds travel grants, mentorship, and programming connecting the next generation of founders across top universities.",
 };
 
 const IMPACT_ITEMS = [
@@ -32,14 +32,14 @@ export default function SupportPage() {
           as="h1"
           titleClassName="text-h2 font-sans font-extrabold text-accent-ink"
           title="Donate"
-          subtext="Every gift goes directly toward connecting student founders with the resources, mentorship, and community they need to build."
+          subtext="Every gift goes directly toward giving students the resources, mentorship, and community they need to build."
           align="center"
         />
 
         <div className="mx-auto mt-10 max-w-2xl text-center text-body text-text-muted">
           <p>
-            NGEN is a 501(c)(3) nonprofit connecting student founders, operators, and builders
-            across top universities (EIN: 93-2106846). Your tax-deductible gift directly powers
+            NGEN is a 501(c)(3) nonprofit connecting the next generation of founders across top
+            universities (EIN: 93-2106846). Your tax-deductible gift directly powers
             our intercollegiate programming, core operations, and student travel grants.
           </p>
           <p className="mt-4">

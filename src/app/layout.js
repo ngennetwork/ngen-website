@@ -37,7 +37,7 @@ const albertSans = Albert_Sans({
 
 const DEFAULT_TITLE = "NGEN";
 const DEFAULT_DESCRIPTION =
-  "NGEN is the center of gravity for intercollegiate entrepreneurship across top universities - connecting early-stage student founders with each other and with the investors who back them.";
+  "Connecting the next generation of founders across the Ivy League and top universities. Where students meet, build, and raise capital.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),

@@ -6,7 +6,7 @@ import TeamDirectory from "@/components/about/TeamDirectory";
 export const metadata = {
   title: "Our Team",
   description:
-    "Meet the student founders, directors, and campus leads who built and run NGEN, the intercollegiate entrepreneurship network connecting founders across top universities.",
+    "Meet the student founders, directors, and campus leads who built and run NGEN, connecting the next generation of founders across top universities.",
 };
 
 /**
