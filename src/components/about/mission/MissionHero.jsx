@@ -5,7 +5,7 @@ import gsap from "gsap";
 
 const TAGLINE_SENTENCES = [
   [
-    { text: "NGEN is the intercollegiate network for the next generation of founders across the " },
+    { text: "NGEN connects the next generation of founders across the " },
     { text: "Ivy League and top universities.", strong: true },
   ],
   [
