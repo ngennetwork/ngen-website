@@ -5,12 +5,12 @@ import gsap from "gsap";
 
 const TAGLINE_SENTENCES = [
   [
-    { text: "NGEN is a 501(c)(3) intercollegiate entrepreneurship organization dedicated to connecting student founders across " },
+    { text: "NGEN is the intercollegiate network for the next generation of founders across " },
     { text: "the Ivy League and top universities.", strong: true },
   ],
   [
-    { text: "By bridging campus ecosystems, NGEN serves as the " },
-    { text: "center of gravity for student innovation.", strong: true },
+    { text: "From first idea to funded startup, NGEN is " },
+    { text: "the center of gravity for student innovation.", strong: true },
   ],
 ];
 
