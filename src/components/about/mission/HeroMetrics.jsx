@@ -13,18 +13,19 @@ function formatCapital(usd) {
 // The two capital figures sit next to each other in METRICS (below) since
 // they're easy to conflate — each label is worded to disambiguate on its
 // own: money founders raised in total vs. money invested through NGEN
-// directly.
+// directly. Each label is split into `lines`, stacked on mobile so no
+// single word wraps alone, and joined on one line from sm up.
 const METRICS = [
   // Hardcoded org-level reach total — no content file tracks this yet, so
   // update by hand as the running total changes.
-  { value: "20,000", label: "Student Reach" },
+  { value: "20,000", lines: ["Student", "Reach"] },
   // Hardcoded — 15 universities represented and growing.
-  { value: "15", label: "Universities Represented" },
-  { value: formatCapital(getTotalCapitalRaised()), label: "Raised by NGEN Founders" },
+  { value: "15", lines: ["Universities Represented"] },
+  { value: formatCapital(getTotalCapitalRaised()), lines: ["Raised by", "NGEN Founders"] },
   // Hardcoded org-level total (capital invested into NGEN startups
   // through NGEN's investment partnership) — no content file tracks this
   // yet, so update by hand as the running total changes.
-  { value: "$500K+", label: "Invested Through NGEN" },
+  { value: "$500K+", lines: ["Invested", "Through NGEN"] },
 ];
 
 /**
@@ -36,21 +37,22 @@ export default function HeroMetrics() {
   return (
     <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 lg:grid-cols-4 sm:gap-6">
       {METRICS.map((m) => (
-        <Card key={m.label} variant="light" padded={false} className="px-3 py-5 text-center sm:px-4">
+        <Card key={m.lines.join(" ")} variant="light" padded={false} className="px-3 py-5 text-center sm:px-4">
           <div className="font-[family-name:var(--font-display)] text-h3 font-extrabold text-accent-ink md:text-h2">
             {m.value}
           </div>
-          <div className="mt-2 whitespace-pre-line text-caption uppercase tracking-wide text-text-muted">
-            {m.label === "Student Reach" ? (
-              <>
-                Student
-                <br className="sm:hidden" />
-                <span className="hidden sm:inline"> </span>
-                Reach
-              </>
-            ) : (
-              m.label
-            )}
+          <div className="mt-2 text-caption uppercase tracking-wide text-text-muted">
+            {m.lines.map((line, i) => (
+              <span key={line}>
+                {i > 0 && (
+                  <>
+                    <br className="sm:hidden" />
+                    <span className="hidden sm:inline"> </span>
+                  </>
+                )}
+                {line}
+              </span>
+            ))}
           </div>
         </Card>
       ))}
