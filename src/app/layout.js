@@ -59,8 +59,12 @@ export const metadata = {
     description: DEFAULT_DESCRIPTION,
   },
   icons: {
+    // icon.svg swaps navy/white marks via an internal prefers-color-scheme
+    // query — the only dark-mode switch Chrome/Edge/Firefox honor for tab
+    // icons. It's listed last so Chrome prefers it; the media-tagged PNGs
+    // are the fallback for Safari (no SVG favicons). app/favicon.ico is
+    // injected automatically by Next.
     icon: [
-      { url: "/favicon.ico" },
       {
         url: "/icon-light.png",
         media: "(prefers-color-scheme: light)",
@@ -71,6 +75,7 @@ export const metadata = {
         media: "(prefers-color-scheme: dark)",
         type: "image/png",
       },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
   },
 };
