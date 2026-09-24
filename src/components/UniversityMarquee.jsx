@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { universities } from "@/data/universities";
 
 function shuffle(list) {
@@ -35,6 +35,11 @@ function spreadShuffle(list) {
   return out;
 }
 
+let shuffledLogos;
+const getShuffledLogos = () => (shuffledLogos ??= spreadShuffle(universities));
+const getServerLogos = () => universities;
+const subscribeNoop = () => () => {};
+
 function LogoItem({ u }) {
   return (
     <div className="flex h-16 w-auto shrink-0 items-center justify-center px-2">
@@ -64,16 +69,13 @@ function LogoItem({ u }) {
  *
  * Logo order is reshuffled on every page load so no school is
  * permanently first, with the California schools kept spread apart
- * (see spreadShuffle). The shuffle runs post-mount (server and first
- * client render both use the data file's order) so the markup React
- * hydrates against always matches what the server sent.
+ * (see spreadShuffle). useSyncExternalStore renders the data file's
+ * order on the server and during hydration (so the markup React
+ * hydrates against always matches what the server sent), then swaps in
+ * the shuffled order — cached so it stays stable across re-renders.
  */
 export default function UniversityMarquee() {
-  const [logos, setLogos] = useState(universities);
-
-  useEffect(() => {
-    setLogos(spreadShuffle(universities));
-  }, []);
+  const logos = useSyncExternalStore(subscribeNoop, getShuffledLogos, getServerLogos);
 
   return (
     <div className="bg-bg py-16 md:py-20">

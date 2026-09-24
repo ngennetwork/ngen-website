@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useId, useState, useSyncExternalStore } from "react";
 
 /**
  * One "Previous Speakers" card. Collapsed shows name + title on a plain
@@ -18,19 +18,21 @@ import { useEffect, useId, useState } from "react";
  *     hover-driven expansion stuck open and the second tap couldn't
  *     close it.
  */
+const HOVER_QUERY = "(hover: hover) and (pointer: fine)";
+
+function subscribeHover(onChange) {
+  const mq = window.matchMedia(HOVER_QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+const getCanHover = () => window.matchMedia(HOVER_QUERY).matches;
+const getServerCanHover = () => false;
+
 export default function SpeakerCard({ speaker }) {
   const bioId = useId();
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const [canHover, setCanHover] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
-    setCanHover(mq.matches);
-    const onChange = (e) => setCanHover(e.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
+  const canHover = useSyncExternalStore(subscribeHover, getCanHover, getServerCanHover);
 
   const expanded = clicked || (canHover && hovered);
 
