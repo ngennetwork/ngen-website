@@ -1,68 +1,64 @@
+import { pages } from "@/content/site";
+import PageHero from "@/components/layout/PageHero";
+import PageSection from "@/components/layout/PageSection";
 import TallyEmbed from "@/components/TallyEmbed";
+import CapitalSwitch from "@/components/sections/CapitalSwitch";
+
+const copy = pages.capitalFounders;
 
 export const metadata = {
-  title: "Capital Network — For Founders",
-  description:
-    "Get hand-curated warm intros to angels, operators, and early capital. From $5k micro-checks and grants to $500k+ rounds.",
+  title: "Capital Network for founders",
+  description: copy.intro,
 };
 
-const ELIGIBILITY_TIERS = [
-  {
-    name: "Micro-Grants & Prototype",
-    range: "< $10k",
-    description:
-      "Grants, hackathons, initial prototype capital, and campus grant matching. Mostly non-dilutive.",
-  },
-  {
-    name: "Early Pre-Seed",
-    range: "$10k – $50k",
-    description: "First angel SAFEs or convertible notes to build your MVP.",
-  },
-  {
-    name: "Seed & Beyond",
-    range: "$50k – $500k+",
-    description: "Priced rounds and lead investor matching for scaling startups.",
-  },
-];
-
+/**
+ * Founders who are raising: the header's right side is the ladder of what
+ * NGEN matches, from micro-grants to seed, rising as it goes; the form
+ * follows.
+ */
 export default function CapitalNetworkFoundersPage() {
   return (
-    <div className="bg-bg">
-      <div className="container-page pb-20 pt-6 lg:pt-12">
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:gap-y-6">
-          {/* Headline — always first, kept to two lines on mobile */}
-          <h1 className="font-sans text-2xl font-extrabold leading-tight text-accent-ink sm:text-3xl lg:col-start-1 lg:row-start-1 lg:text-h2">
-            Capital &amp; Network Access for Student Founders
-          </h1>
-
-          {/* Supporting copy — below the form on mobile, left column on desktop */}
-          <div className="order-2 lg:order-none lg:col-start-1 lg:row-start-2">
-            <p className="text-body text-text-muted lg:text-body-lg">
-              Get hand-curated warm intros to angels, operators, and early capital. From $5k
-              micro-checks and grants to $500k+ rounds. Every submission stays 100% confidential.
-            </p>
-
-            <div className="mt-6 space-y-3">
-              {ELIGIBILITY_TIERS.map((tier) => (
-                <div
-                  key={tier.name}
-                  className="rounded-xl border border-accent-fill/30 bg-accent-fill/5 px-4 py-3"
-                >
-                  <p className="font-sans text-small font-semibold text-accent-ink">
-                    {tier.name} · {tier.range}
-                  </p>
-                  <p className="mt-1 text-small text-text-muted">{tier.description}</p>
-                </div>
+    <>
+      <PageHero
+        id="capital-title"
+        title={copy.title}
+        intro={copy.intro}
+        action={
+          <div className="flex flex-col items-start gap-8">
+            <a href="#submit" className="btn btn-ink">
+              {copy.formTitle}
+            </a>
+            <CapitalSwitch current="founders" />
+          </div>
+        }
+        aside={
+          <section aria-labelledby="tiers-title" className="flex flex-col gap-4">
+            <h2 id="tiers-title" className="text-small text-slate">
+              {copy.tiersTitle}
+            </h2>
+            {/* Listed largest first, so the ladder rises toward the top */}
+            <ol className="flex flex-col-reverse gap-3">
+              {copy.tiers.map((tier) => (
+                <li key={tier.name} className="grid gap-x-6 gap-y-1 rounded-xl bg-paper px-5 py-6 ring-1 ring-ink/6 sm:grid-cols-[8.5rem_1fr] lg:py-7">
+                  <span className="font-display text-[1.375rem] leading-tight tracking-[-0.02em] tabular">{tier.range}</span>
+                  <span className="flex flex-col gap-1">
+                    <span className="font-medium">{tier.name}</span>
+                    <span className="text-small text-slate">{tier.body}</span>
+                  </span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ol>
+          </section>
+        }
+      />
 
-          {/* Form — immediately under the headline on mobile, right column on desktop */}
-          <div className="rounded-2xl border border-neutral-200 bg-surface-card p-4 shadow-sm sm:p-6 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-            <TallyEmbed formId="44YLKk" title="Submit Your Startup to the NGEN Capital Network" />
+      <div id="submit">
+        <PageSection id="submit-title" title={copy.formTitle} tone="band">
+          <div className="rounded-2xl bg-white p-[clamp(1rem,3vw,2rem)] ring-1 ring-ink/6">
+            <TallyEmbed formId="44YLKk" title="Submit your startup to the NGEN Capital Network" />
           </div>
-        </div>
+        </PageSection>
       </div>
-    </div>
+    </>
   );
 }

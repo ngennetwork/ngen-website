@@ -1,316 +1,641 @@
 @import "tailwindcss";
 
-/*
- * NGEN design system — single source of truth.
- * =============================================
- * One consolidated token set for the whole site: one accent family, one dark
- * (navy) surface, one warm off-white page background, one warm neutral ramp,
- * one type scale, one vertical rhythm, and two focus-ring variants.
- *
- * Semantic tokens (accent-fill, surface-dark, on-dark, neutral-*, …) are the
- * names to reach for going forward. The original brand tokens (orange, navy,
- * navy-tint, …) are kept as aliases so existing pages keep working until they
- * are refactored onto the semantic names.
- *
- * To swap a typeface later, change the Google Font import in layout.js and
- * update the matching --font-* variable below — nothing else needs to change.
- */
-:root {
-  /* --- Brand anchors (fixed; do not change these hex values) --- */
-  --color-orange: #E35E1E;
-  --color-navy: #1E3460;
+/* ---------------------------------------------------------------------------
+   NGEN: everything comes from the logo, at night.
 
-  /* --- Legacy aliases (kept until pages are refactored) --- */
-  --color-navy-tint: #2B4A82;    /* lighter navy, hover/secondary on dark bands */
-  --color-navy-deep: #152747;    /* darker navy, footer */
-  --color-orange-hover: #C85122; /* darkened orange, hover/active on orange buttons */
-  --color-text-on-navy: #F5F0EA; /* warm off-white text on navy bands */
-  --color-gray-muted: #55524D;   /* warm muted gray */
+   The site is NGEN's dark tile: deep navy grounds, the mark's lines in
+   near-white, and its orange turned up to a glowing signal. Every grey is
+   navy thinned toward white, so nothing reads warm against the cool ground.
+   Orange does what it does in the mark: nodes where trails end, and the one
+   button that matters; never a rule or a line of text.
 
-  /* ============================================================
-   * COLOR — semantic tokens
-   * ============================================================ */
+   One family, Albert Sans (NGEN's heading face): 400 for display and
+   reading, 500 for labels and buttons.
+   ------------------------------------------------------------------------ */
 
-  /* Page & light surfaces */
-  --color-bg: #FAF7F1;           /* one warm off-white page background */
-  --color-surface-card: #FFFFFF; /* raised card surface on the off-white page */
-  --color-surface-warm: #FBEEE3; /* warm peach band (default event page header) */
-  --color-text: #211A14;         /* warm near-black body text on light */
-  --color-text-muted: #55524D;   /* muted/secondary text on light */
+@theme {
+  --color-*: initial;
+  /* Grounds, deepest to lightest: the page, its bands, raised surfaces */
+  --color-snow: #050e26;
+  --color-fog: #08163a;
+  --color-paper: #0d1d45;
+  /* The ink: every headline, paragraph and outline */
+  --color-ink: #eef3ff;
+  --color-ink-deep: #030a1f;
+  --color-ink-night: #020717;
+  --color-slate: #9eaccc;
+  --color-mist: #8494b8;
+  /* NGEN's orange, glowing */
+  --color-signal: #ff5a14;
+  --color-signal-deep: #ff7a33;
+  /* Text on the deepest surfaces */
+  --color-on-dark: #f6f8fc;
+  /* NGEN's navy, which people photos rest in */
+  --color-navy: #1e3460;
+  --color-duo: #2a5bc4;
+  /* The far ridge's fill */
+  --color-range-back: #0a1a42;
+  --color-white: #ffffff;
+  --color-danger: #b42318;
+  --color-danger-tint: #fef3f2;
+  --color-success: #16a34a;
+  --color-transparent: transparent;
+  --color-current: currentColor;
 
-  /* Accent — ONE family (terra-cotta/orange). Fill for backgrounds, ink for text. */
-  --color-accent-fill: #E35E1E;       /* button/badge backgrounds */
-  --color-accent-fill-hover: #C85122; /* hover/active fill */
-  --color-accent-ink: #96401B;        /* darkened accent for text/links on light (AA) */
+  /* Type scale: 15, 17, 19-22, 24-32, 36-60, 44-76 */
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.5;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lead: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);
+  --text-lead--line-height: 1.5;
+  --text-h3: clamp(1.5rem, 1.2rem + 0.9vw, 2rem);
+  --text-h3--line-height: 1.12;
+  /* h2 also answers the screen's height, so a section headline shrinks a
+     little on a short laptop instead of pushing its section past one screen */
+  --text-h2: clamp(2.25rem, min(1.4rem + 2.6vw, 6.8svh), 3.75rem);
+  --text-h2--line-height: 1.04;
+  --text-h1: clamp(2.75rem, 1.7rem + 3.2vw, 4.75rem);
+  --text-h1--line-height: 1.02;
 
-  /* Dark surface — ONE navy family for all dark cards, banners, heroes */
-  --color-surface-dark: #1E3460;        /* THE dark surface */
-  --color-surface-dark-raised: #2B4A82; /* secondary/hover within dark bands */
-  --color-surface-dark-deep: #152747;   /* deepest navy (footer) */
-  --color-on-dark: #F5F0EA;             /* text on any dark surface */
+  --radius-btn: 0.5rem;
 
-  /* Danger — destructive actions (delete buttons, error text) */
-  --color-danger: #DC2626;        /* red-600 equivalent */
-  --color-danger-tint: #FEF2F2;   /* red-50 — hover background */
-  --color-danger-border: #FECACA; /* red-200 — outline */
+  --breakpoint-nav: 60rem;
 
-  /* Success — positive/live state (the "Open" status badge) */
-  --color-success: #16A34A;       /* green-600 — dot / solid */
-  --color-success-tint: #ECFDF3;  /* green-50 — subtle badge background */
-  --color-success-ink: #15803D;   /* green-700 — AA text on the tint */
-
-  /* Speaker panels — fixed accent set for the "Previous Speakers" cards */
-  --color-speaker-yellow: #F5C24C;
-  --color-speaker-yellow-ink: #3A2A00;
-  --color-speaker-teal: #2E8B8B;
-
-  /* Warm neutral ramp — borders, muted text, card surfaces */
-  --color-neutral-50: #FAF7F1;
-  --color-neutral-100: #F2EEE7;
-  --color-neutral-200: #E5DFD5;  /* default border */
-  --color-neutral-300: #D3CABB;
-  --color-neutral-400: #B0A695;
-  --color-neutral-500: #8A8072;
-  --color-neutral-600: #6B6357;
-  --color-neutral-700: #4E483F;
-  --color-neutral-800: #33302A;
-  --color-neutral-900: #211A14;
-
-  /* ============================================================
-   * TYPOGRAPHY — families
-   * ============================================================ */
-  --font-display: var(--font-albert-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
-  --font-signature: var(--font-marck-script), "Marck Script", cursive;
-  --font-mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo,
-    "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", monospace;
-
-  /* "NGEN" hero wordmark only (see MissionHero.jsx). */
-  --font-ngen: var(--font-codec-pro), ui-sans-serif, system-ui, sans-serif;
-
-  /* Headings (h1/h2/h3) sitewide, including /events/* pages, use
-     --font-display (Albert Sans) to match the home page. */
-  --font-heading-events: var(--font-display);
-
-  /* ============================================================
-   * SPACING — vertical rhythm (also exposed as spacing utilities)
-   * ============================================================ */
-  --measure: 68ch;         /* comfortable body measure (~65–75ch) */
-  --measure-narrow: 60ch;
-  --measure-wide: 75ch;
-}
-
-/* Slightly larger base type scale for Figtree — bumps every rem-based
-   Tailwind text size (text-sm, text-lg, etc.) sitewide by the same ratio. */
-html {
-  font-size: 103%;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
-  /* Legacy brand aliases */
-  --color-orange: var(--color-orange);
-  --color-navy: var(--color-navy);
-  --color-navy-tint: var(--color-navy-tint);
-  --color-navy-deep: var(--color-navy-deep);
-  --color-orange-hover: var(--color-orange-hover);
-  --color-gray-muted: var(--color-gray-muted);
-  --color-text-on-navy: var(--color-text-on-navy);
-
-  /* Semantic color tokens → utilities (bg-*, text-*, border-*) */
-  --color-bg: var(--color-bg);
-  --color-surface-card: var(--color-surface-card);
-  --color-surface-warm: var(--color-surface-warm);
-  --color-text: var(--color-text);
-  --color-text-muted: var(--color-text-muted);
-
-  --color-accent-fill: var(--color-accent-fill);
-  --color-accent-fill-hover: var(--color-accent-fill-hover);
-  --color-accent-ink: var(--color-accent-ink);
-
-  --color-surface-dark: var(--color-surface-dark);
-  --color-surface-dark-raised: var(--color-surface-dark-raised);
-  --color-surface-dark-deep: var(--color-surface-dark-deep);
-  --color-on-dark: var(--color-on-dark);
-
-  --color-neutral-50: var(--color-neutral-50);
-  --color-neutral-100: var(--color-neutral-100);
-  --color-neutral-200: var(--color-neutral-200);
-  --color-neutral-300: var(--color-neutral-300);
-  --color-neutral-400: var(--color-neutral-400);
-  --color-neutral-500: var(--color-neutral-500);
-  --color-neutral-600: var(--color-neutral-600);
-  --color-neutral-700: var(--color-neutral-700);
-  --color-neutral-800: var(--color-neutral-800);
-  --color-neutral-900: var(--color-neutral-900);
-
-  --color-danger: var(--color-danger);
-  --color-danger-tint: var(--color-danger-tint);
-  --color-danger-border: var(--color-danger-border);
-
-  --color-success: var(--color-success);
-  --color-success-tint: var(--color-success-tint);
-  --color-success-ink: var(--color-success-ink);
-
-  --color-speaker-yellow: var(--color-speaker-yellow);
-  --color-speaker-yellow-ink: var(--color-speaker-yellow-ink);
-  --color-speaker-teal: var(--color-speaker-teal);
-
-  /* Fonts → utilities (font-sans, font-serif, font-mono) */
-  --font-sans: var(--font-display);
-  --font-serif: var(--font-body);
-  --font-mono: var(--font-mono);
-
-  /* Type scale → text-display … text-caption, text-body-lg, text-small */
-  --text-display: 3.5rem;
-  --text-display--line-height: 1.05;
-  --text-display--font-weight: 800;
-
-  --text-h1: 2.5rem;
-  --text-h1--line-height: 1.1;
-  --text-h1--font-weight: 700;
-
-  --text-h2: 2rem;
-  --text-h2--line-height: 1.15;
-  --text-h2--font-weight: 700;
-
-  --text-h3: 1.5rem;
-  --text-h3--line-height: 1.2;
-  --text-h3--font-weight: 600;
-
-  --text-h4: 1.25rem;
-  --text-h4--line-height: 1.3;
-  --text-h4--font-weight: 600;
-
-  --text-body-lg: 1.125rem;
-  --text-body-lg--line-height: 1.6;
-
-  --text-body: 1rem;
-  --text-body--line-height: 1.65;
-
-  --text-small: 0.875rem;
-  --text-small--line-height: 1.5;
-
-  --text-caption: 0.75rem;
-  --text-caption--line-height: 1.4;
-  --text-caption--font-weight: 500;
-
-  /* Vertical rhythm → py-section, my-section, etc. */
-  --spacing-section-sm: 3rem;
-  --spacing-section: 5rem;
-  --spacing-section-lg: 8rem;
+  --font-display: var(--font-albert-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-albert-sans), "Helvetica Neue", Arial, sans-serif;
 }
 
-/*
- * Layered as "base" so page-level utility classes (Tailwind's "utilities"
- * layer, which comes after "base") can override these defaults — plain
- * unlayered CSS would otherwise beat utility classes regardless of
- * specificity, silently blocking any font-[family-name:...] override.
- */
 @layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
-    background: var(--color-bg);
-    color: var(--color-text);
-    font-family: var(--font-body);
+    background-color: var(--color-snow);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  [id] {
+    scroll-margin-top: 96px;
+  }
+  a {
+    color: inherit;
+  }
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+  /* No stranded words, and lines that run the full measure: pretty keeps
+     the last line from being a lone word without narrowing the others
+     (balance would). Names and dates carry non-breaking spaces. */
+  h1,
+  h2,
+  h3,
+  p,
+  li,
+  dt,
+  dd,
+  figcaption,
+  summary,
+  .font-display {
+    text-wrap: pretty;
+  }
+  .font-display {
+    font-weight: 400;
+    letter-spacing: -0.032em;
+  }
+  ::selection {
+    background: var(--color-signal);
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* The measure every section aligns to: the nav pill's edges. */
+  :root {
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+  }
+  .wrap {
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  /* Left edge of .wrap, for content inside a full-bleed split */
+  .pl-wrap {
+    padding-left: max(var(--gutter), calc((100vw - 82rem) / 2 + var(--gutter)));
+  }
+  .pr-wrap {
+    padding-right: max(var(--gutter), calc((100vw - 82rem) / 2 + var(--gutter)));
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+  /* Film grain, for the navy panel and dark moments */
+  .grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url("/textures/grain.webp");
+    background-size: 256px;
+    opacity: 0.08;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0 1.25rem;
+    border-radius: var(--radius-btn);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  /* The one glow: the filled button burns orange, like the logo tile's edge. */
+  .btn-ink,
+  .btn-paper {
+    background: var(--color-signal);
+    color: #fff;
+    box-shadow:
+      0 0 0 1px rgb(255 140 80 / 0.45),
+      0 10px 32px -10px rgb(255 90 20 / 0.8);
+  }
+  .btn-ink:hover,
+  .btn-paper:hover {
+    background: var(--color-signal-deep);
+    box-shadow:
+      0 0 0 1px rgb(255 160 100 / 0.6),
+      0 12px 40px -8px rgb(255 90 20 / 0.95);
+  }
+  .btn-ghost {
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 28%, transparent);
+  }
+  .btn-ghost:hover {
+    box-shadow: inset 0 0 0 1px currentColor;
+  }
+
+  .link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+    transition: text-decoration-color 0.2s ease;
+  }
+  .link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* Footer links: plain until pointed at */
+  .footer-link {
+    font-size: var(--text-base);
+    color: color-mix(in srgb, var(--color-on-dark) 86%, transparent);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    transition:
+      color 0.2s ease,
+      text-decoration-color 0.2s ease;
+  }
+  .footer-link:hover {
+    color: var(--color-on-dark);
+    text-decoration-color: currentColor;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* A node: the orange ring from the logo, used as a marker. */
+  .node {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    box-shadow:
+      inset 0 0 0 2px var(--color-signal),
+      0 0 12px 1px rgb(255 90 20 / 0.6);
+  }
+
+  /* Reveal on scroll, for the few things that rise into view */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.9s var(--ease-out),
+      transform 0.9s var(--ease-out);
+    transition-delay: var(--d, 0s);
+  }
+  [data-in] .reveal,
+  [data-in].reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* People photos rest in NGEN's ink (a navy duotone) and return to colour
+     when pointed at. Put .duo on the frame and .group on whatever is hovered. */
+  .duo {
+    position: relative;
+    isolation: isolate;
+    background: var(--color-duo);
+  }
+  .duo img {
+    filter: grayscale(1) contrast(1.08) brightness(1.04);
+    transition:
+      filter 0.7s var(--ease-out),
+      transform 0.7s var(--ease-out);
+  }
+  .duo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-duo);
+    mix-blend-mode: color;
+    opacity: 0.92;
+    pointer-events: none;
+    transition: opacity 0.7s var(--ease-out);
+  }
+  .group:hover .duo img,
+  .group:focus-visible .duo img,
+  .duo:hover img {
+    filter: none;
+  }
+  .group:hover .duo::after,
+  .group:focus-visible .duo::after,
+  .duo:hover::after {
+    opacity: 0;
   }
 }
 
-/*
- * FOCUS — visible outlines everywhere (accessibility floor). Global default
- * uses the accent; the two surface-specific classes below let dark bands opt
- * into an off-white ring that stays visible against navy.
- */
-:focus-visible {
-  outline: 2px solid var(--color-accent-fill);
-  outline-offset: 2px;
+/* A line drawing itself: pair with stroke-dasharray: 1 and pathLength="1". */
+@keyframes trail-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-.focus-ring-light:focus-visible {
-  outline: 2px solid var(--color-accent-ink);
-  outline-offset: 2px;
+/* ---------------------------------------------------------------------------
+   The Ivy range (home hero). Drawing space is stretched to the frame, so
+   lines keep their width (non-scaling) and nodes and cards are HTML.
+   ------------------------------------------------------------------------ */
+
+.range-line {
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
 }
-
-.focus-ring-dark:focus-visible {
-  outline: 2px solid var(--color-on-dark);
-  outline-offset: 2px;
+.range-back-fill {
+  fill: var(--color-range-back);
 }
-
-/* ============================================================
- * Reusable treatments
- * ============================================================ */
-
-/* Monospace eyebrow / section label: letterspaced caps. */
-.eyebrow {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: var(--text-small);
-  line-height: 1.4;
-  color: var(--color-accent-ink);
+.range-fill {
+  fill: var(--color-fog);
 }
-
-/* Max line length for readable body copy (~65–75ch). */
-.measure { max-width: var(--measure); }
-.measure-narrow { max-width: var(--measure-narrow); }
-.measure-wide { max-width: var(--measure-wide); }
-
-/* Vertical rhythm — fluid section padding. */
-.section-y-sm { padding-block: clamp(2rem, 4vw, 3rem); }
-.section-y { padding-block: clamp(3rem, 6vw, 5rem); }
-.section-y-lg { padding-block: clamp(4rem, 8vw, 8rem); }
-
-.container-page {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+.range-back {
+  stroke-opacity: 0.2;
+  stroke-width: 1;
 }
-
-.rule-orange {
-  height: 2px;
-  background: var(--color-accent-fill);
-  border: none;
+.range-ridge {
+  stroke-opacity: 0.85;
+  stroke-width: 1.5;
 }
-
-/* Thin cross-browser scrollbar for horizontally-scrolling carousels
-   (e.g. the homepage Featured Startups strip) — no Tailwind scrollbar
-   plugin is installed, so this backs the `scrollbar-thin` utility class. */
-.scrollbar-thin {
-  scrollbar-width: thin;
+.range-seg {
+  stroke-width: 2.5;
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
-.scrollbar-thin::-webkit-scrollbar {
-  height: 6px;
+.range-seg[data-on] {
+  opacity: 1;
 }
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: var(--color-neutral-300, #d4d4d4);
+.range-trail {
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-opacity: 0.32;
+  stroke-width: 1;
+  stroke-dasharray: 2 6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.range-node {
+  position: absolute;
+  z-index: 1;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 9999px;
+  background: var(--color-snow);
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--color-ink) 55%, transparent);
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.4s var(--ease-out),
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+/* Ivy summits carry the logo's node: an orange ring with a small core */
+.range-node[data-ivy] {
+  width: 1rem;
+  height: 1rem;
+  box-shadow:
+    inset 0 0 0 2px var(--color-signal),
+    0 0 12px 1px rgb(255 90 20 / 0.6);
+}
+.range-node[data-ivy]::after {
+  content: "";
+  position: absolute;
+  inset: 32%;
+  border-radius: 9999px;
+  background: var(--color-signal);
+}
+.range-node[data-on] {
+  background: var(--color-signal);
+  box-shadow:
+    inset 0 0 0 2px var(--color-signal),
+    0 0 0 6px rgb(255 90 20 / 0.18),
+    0 0 26px 4px rgb(255 90 20 / 0.7);
+  transform: translate(-50%, -50%) scale(1.35);
+}
+.range-card {
+  position: absolute;
+  z-index: 2;
+  width: max-content;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(var(--anchor), calc(-100% - 0.6rem)) translateY(10px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s var(--ease-out);
+}
+.range-card[data-on] {
+  opacity: 1;
+  transform: translate(var(--anchor), calc(-100% - 0.6rem));
 }
 
-/* Auto-scrolling logo ticker (UniversityMarquee.jsx) — the track renders
-   its item list twice back to back, this animates it exactly -50% (one
-   full copy) so the loop point is invisible. */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* Once, on load: the near ridge draws left to right, the far one follows,
+   the ground fills in, each summit's node lights as the line reaches it,
+   and the dashed trail between the Ivies appears last. */
+.ivy-range .range-ridge {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: trail-draw 2.4s cubic-bezier(0.45, 0, 0.2, 1) 0.2s forwards;
+}
+.ivy-range .range-back {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: trail-draw 2.8s cubic-bezier(0.45, 0, 0.2, 1) 0.6s forwards;
+}
+.ivy-range .range-fill,
+.ivy-range .range-back-fill {
+  animation: fade-in 1.4s ease 1.1s backwards;
+}
+.ivy-range .range-trail {
+  animation: fade-in 1.2s ease 2.5s backwards;
+}
+.ivy-range .range-node {
+  animation: node-pop 0.6s var(--ease-out) var(--at, 0s) backwards;
+}
+@keyframes node-pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
 }
 
-.marquee-track {
-  animation: marquee 30s linear infinite;
+/* The story trail (home). The line draws when the list comes into view
+   (InView sets data-in); each node lights as the line reaches it. It runs
+   down the left below 1280px and across the page from xl up, where four
+   columns are wide enough for the step titles. */
+.timeline-line {
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0;
+  left: 0.5rem;
+  width: 1px;
+  background: color-mix(in srgb, var(--color-ink) 26%, transparent);
+  transform: scaleY(0);
+  transform-origin: top left;
+  transition: transform 1.8s cubic-bezier(0.45, 0, 0.2, 1) 0.15s;
+}
+.timeline-node {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  margin: -0.5rem 0 0 -0.5rem;
+  border-radius: 9999px;
+  background: var(--color-fog);
+  box-shadow:
+    inset 0 0 0 2px var(--color-signal),
+    0 0 12px 1px rgb(255 90 20 / 0.6);
+  opacity: 0;
+  transform: scale(0.3);
+  transition:
+    transform 0.6s var(--ease-out),
+    opacity 0.4s ease;
+  transition-delay: calc(0.35s + var(--i, 0) * 0.42s);
+}
+.timeline-node::after {
+  content: "";
+  position: absolute;
+  inset: 32%;
+  border-radius: 9999px;
+  background: var(--color-signal);
+}
+@media (min-width: 80rem) {
+  .timeline-line {
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: auto;
+    height: 1px;
+    transform: scaleX(0);
+  }
+  .timeline-node {
+    left: 0;
+    margin-left: 0;
+  }
+}
+.timeline[data-in] .timeline-line,
+.timeline[data-in] .timeline-node {
+  opacity: 1;
+  transform: none;
+}
+
+/* Home hero: the words settle in while the range draws. */
+.hero-rise {
+  animation: settle 1s var(--ease-out) var(--d, 0s) both;
+}
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Speaker bio dialog */
+.speaker-dialog[open] {
+  animation: dialog-in 0.5s var(--ease-out);
+}
+.speaker-dialog[open]::backdrop {
+  animation: fade-in 0.3s ease;
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Contact: the drawn email's subject follows whichever topic is pointed at */
+.draft-subject {
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s var(--ease-out);
+}
+.draft-subject[data-subject="0"],
+header:has([data-topic="1"]:is(:hover, :focus-visible)) .draft-subject[data-subject="1"],
+header:has([data-topic="2"]:is(:hover, :focus-visible)) .draft-subject[data-subject="2"],
+header:has([data-topic="3"]:is(:hover, :focus-visible)) .draft-subject[data-subject="3"],
+header:has([data-topic="4"]:is(:hover, :focus-visible)) .draft-subject[data-subject="4"] {
+  opacity: 1;
+  transform: none;
+}
+header:has([data-topic]:is(:hover, :focus-visible)) .draft-subject[data-subject="0"] {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.draft-caret {
+  display: inline-block;
+  width: 1.5px;
+  height: 1.05em;
+  margin-left: 0.12em;
+  vertical-align: -0.15em;
+  background: currentColor;
+  animation: caret 1.1s steps(1) infinite;
+}
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Mobile menu: wipes down from the top */
+.mobile-menu {
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  transition:
+    clip-path 0.6s var(--ease-out),
+    visibility 0s linear 0.6s;
+}
+.mobile-menu[data-open] {
+  clip-path: inset(0 0 0 0);
+  visibility: visible;
+  transition:
+    clip-path 0.6s var(--ease-out),
+    visibility 0s;
+}
+.mobile-menu li > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 0.8s var(--ease-out);
+  transition-delay: calc(0.15s + var(--i, 0) * 0.05s);
+}
+.mobile-menu[data-open] li > span {
+  transform: none;
+}
+
+/* Page changes: a quick cross-fade, nothing cinematic */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
+  html {
+    scroll-behavior: auto;
   }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ivy-range .range-line,
+  .timeline-line {
+    stroke-dashoffset: 0;
+  }
+}
 
-  .marquee-dup {
-    display: none;
-  }
+/* The sky over the range: a deep blue glow above, an orange horizon behind the peaks. */
+.hero-sky {
+  background:
+    radial-gradient(90% 70% at 22% 18%, rgb(22 74 160 / 0.55), transparent 62%),
+    radial-gradient(70% 45% at 50% 100%, rgb(255 90 20 / 0.34), transparent 70%),
+    var(--color-snow);
+}
+
+/* The conference ticket glows like NGEN's dark tiles. */
+.glow-card {
+  box-shadow:
+    0 0 0 1px rgb(255 110 50 / 0.55),
+    0 0 44px -6px rgb(255 90 20 / 0.55),
+    0 30px 60px -30px rgb(0 0 0 / 0.8);
+}
+
+/* Luma's dark style is a neutral grey; a colour layer (like the portraits'
+   duotone) brings it into the navy, keeping its light and dark. */
+.luma-frame {
+  position: relative;
+  isolation: isolate;
+}
+.luma-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-navy);
+  mix-blend-mode: color;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Official logos in one ink: white. */
+.uni-logo {
+  filter: brightness(0) invert(1);
 }

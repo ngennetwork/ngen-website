@@ -1,103 +1,126 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { whatWeDo } from "@/data/whatWeDo";
+import { pages } from "@/content/site";
 import { programs, getProgramBySlug } from "@/content/programs";
-import { Button } from "@/components/ui";
-import { AudienceEligibility, CategoryBadge, ContactCta, DeadlineBanner, ProgramTimeline } from "@/components/events/shared";
-import TrailblazersLayout from "@/components/events/TrailblazersLayout";
-import ResearchLayout from "@/components/events/ResearchLayout";
-import TreksLayout from "@/components/events/TreksLayout";
-import CompetitionsLayout from "@/components/events/CompetitionsLayout";
+import { speakers } from "@/data/speakers";
+import PageHero from "@/components/layout/PageHero";
+import PageSection from "@/components/layout/PageSection";
+import Photo from "@/components/layout/Photo";
+import PageLink from "@/components/ui/PageLink";
+import ProgramName from "@/components/ui/ProgramName";
+import SpeakerGrid from "@/components/sections/SpeakerGrid";
+import ConferenceFilm from "@/components/sections/ConferenceFilm";
+
+const copy = pages.program;
 
 /**
- * /programs/[slug] — one page per program. Existence, metadata, and the
- * category/deadline/audience/timeline sections read src/content/programs.js
- * directly; the bespoke per-type layouts still take the whatWeDo-shaped
- * `program` prop they were built against. Each program's `type` field picks
- * which layout variant renders below; a program with no matching layout
- * gets the plain fallback.
- *
- * Old /events/[slug] URLs redirect here (see next.config.mjs).
+ * /programs/[slug]: one template for every program. The header carries
+ * the program's line, its real application portal and its photo; below,
+ * what it is and who it's for. The flagship conference adds its past
+ * speakers and its film. Old /events/[slug] URLs redirect here.
  */
 
-const LAYOUTS = {
-  trailblazers: TrailblazersLayout,
-  research: ResearchLayout,
-  treks: TreksLayout,
-  competitions: CompetitionsLayout,
-};
-
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return programs.map((program) => ({ slug: program.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const raw = getProgramBySlug(slug);
-  if (!raw) return { title: "Program Not Found" };
-  return { title: raw.name, description: raw.tagline };
+  const program = getProgramBySlug(slug);
+  if (!program) return { title: "Program not found" };
+  return { title: program.name, description: program.summary };
 }
 
-function DefaultLayout({ program, raw }) {
-  return (
-    <div className="bg-surface-warm">
-      <div className="container-page py-20">
-        <div className="flex justify-center gap-2">
-          <CategoryBadge type={raw?.type} />
-        </div>
-        <h1 className="mt-4 text-center font-[family-name:var(--font-heading-events)] text-3xl font-extrabold uppercase tracking-wider text-surface-dark md:text-4xl">
-          {program.title}
-        </h1>
+const isExternal = (href) => href.startsWith("http");
 
-        <div className="mx-auto mt-12 aspect-[16/9] max-w-3xl overflow-hidden rounded-xl">
-          {/* eslint-disable-next-line @next/next/no-img-element -- placeholder photo, swapped for real file later */}
-          <img src={program.photo} alt={`${program.title} program photo`} className="h-full w-full object-cover" />
-        </div>
-
-        <p className="mx-auto mt-10 max-w-2xl text-center text-lg leading-relaxed text-text">
-          {program.pageBody}
-        </p>
-
-        {raw && (
-          <div className="mt-4 flex justify-center">
-            <DeadlineBanner program={raw} />
-          </div>
-        )}
-
-        <div className="mt-10 flex justify-center gap-4">
-          <Button variant="primary" href={program.ctaHref} external={program.ctaExternal}>
-            {program.ctaLabel}
-          </Button>
-          <ContactCta />
-        </div>
-
-        {raw && (
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 border-t border-neutral-200 pt-10 sm:grid-cols-2">
-            <AudienceEligibility program={raw} />
-            <ProgramTimeline program={raw} />
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-export default async function WhatWeDoPage({ params }) {
+export default async function ProgramPage({ params }) {
   const { slug } = await params;
-  const raw = getProgramBySlug(slug);
-  if (!raw) notFound();
+  const program = getProgramBySlug(slug);
+  if (!program) notFound();
 
-  const program = whatWeDo.find((p) => p.slug === slug);
-  const Layout = LAYOUTS[program.type] ?? DefaultLayout;
+  const others = programs.filter((p) => p.slug !== program.slug);
+  const isFlagship = program.slug === "ivy-league-entrepreneurship-conference";
 
   return (
     <>
-      <div className="container-page pt-6">
-        <Link href="/programs" className="text-sm font-semibold text-text-muted hover:text-text">
-          ← Back to All Programs
-        </Link>
-      </div>
-      <Layout program={program} raw={raw} />
+      <PageHero
+        id="program-title"
+        title={<ProgramName name={program.name} />}
+        intro={program.summary}
+        action={
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href={program.apply.href}
+              {...(isExternal(program.apply.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="btn btn-ink"
+            >
+              {program.apply.label}
+            </a>
+            <PageLink href={copy.calendar.href} className="btn btn-ghost">
+              {copy.calendar.label}
+            </PageLink>
+          </div>
+        }
+        aside={<Photo src={program.photo.src} alt={program.photo.alt} position={program.photo.position} priority />}
+      />
+
+      <PageSection id="about-program" title="The program" tone="band">
+        <div className="grid gap-x-8 gap-y-10 lg:grid-cols-9">
+          <p className="text-lead lg:col-span-5 lg:[text-wrap:pretty]">{program.description}</p>
+          <dl className="flex flex-col gap-6 lg:col-span-3 lg:col-start-7">
+            <div className="flex flex-col gap-1">
+              <dt className="text-small text-slate">{copy.audienceLabel}</dt>
+              <dd>{program.audience}</dd>
+            </div>
+            <div className="flex flex-col gap-1">
+              <dt className="text-small text-slate">{copy.applyLabel}</dt>
+              <dd>{copy.applyNote}</dd>
+            </div>
+          </dl>
+        </div>
+      </PageSection>
+
+      {isFlagship && (
+        <>
+          <section id="speakers" aria-labelledby="speakers-title" className="bg-snow">
+            <div className="wrap py-[clamp(5rem,10vw,8rem)]">
+              <div className="mb-12 flex flex-col gap-3">
+                <h2 id="speakers-title" className="font-display text-h2">
+                  {copy.speakersTitle}
+                </h2>
+                <p className="text-lead text-slate">{copy.speakersSubtitle}</p>
+              </div>
+              <SpeakerGrid items={speakers} columns="sm:grid-cols-3" listOnPhones />
+            </div>
+          </section>
+
+          <PageSection id="film-title" title={copy.filmTitle} tone="band">
+            <ConferenceFilm />
+          </PageSection>
+        </>
+      )}
+
+      <PageSection id="others-title" title={copy.otherTitle}>
+        <ul className="flex flex-col">
+          {others.map((p) => (
+            <li key={p.slug}>
+              <PageLink
+                href={`/programs/${p.slug}`}
+                className="group grid gap-2 rounded-lg py-5 transition-colors sm:grid-cols-2 sm:gap-8"
+              >
+                <span className="font-display text-h3 underline decoration-transparent decoration-1 underline-offset-[0.18em] transition-colors group-hover:decoration-current">
+                  <ProgramName name={p.name} />
+                </span>
+                <span className="text-base text-slate sm:pt-1.5">{p.summary}</span>
+              </PageLink>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-8">
+          <PageLink href={copy.back.href} className="link text-small">
+            {copy.back.label}
+          </PageLink>
+        </p>
+      </PageSection>
     </>
   );
 }

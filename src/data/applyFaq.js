@@ -1,7 +1,6 @@
 /**
- * FAQ content for the "How it works" section on /events. Keep answers short
- * and program-agnostic — per-program specifics (deadlines, eligibility)
- * already live on each program's card, sourced from programs.js.
+ * "How it works" on /events. Keep answers short and program-agnostic;
+ * per-program specifics live on each program's own page.
  */
 export const applyFaq = [
   {
@@ -11,22 +10,21 @@ export const applyFaq = [
   },
   {
     question: "How long does an application take?",
-    answer:
-      "Most applications take 5–15 minutes. Each program card above shows its own time estimate before you start.",
+    answer: "Most applications take 5 to 15 minutes.",
   },
   {
     question: "Can I apply to more than one program?",
     answer:
-      "Yes. Programs run on independent cycles, so apply to as many open programs as fit what you're building or looking for.",
+      "Yes. Programs run on independent cycles, so apply to as many as fit what you're building or looking for.",
   },
   {
     question: "What if nothing's open right now?",
     answer:
-      "Join the waitlist below and we'll email you the moment the next cycle opens — you won't need to keep checking back.",
+      "Leave your email on this page and we'll write the moment the next cycle opens, so you won't need to keep checking back.",
   },
   {
     question: "Who's eligible to apply?",
     answer:
-      "Eligibility varies by program — most are open to students at NGEN partner universities, and some also welcome partners and mentors. Check the eligibility line on each program card.",
+      "It varies by program. Most are open to students at NGEN partner universities; each program's page says who it's for.",
   },
 ];

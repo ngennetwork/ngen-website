@@ -58,5 +58,25 @@
     "link": "https://www.inverse.com/tech/how-mathematician-reuel-williams-is-uniting-art-technology",
     "linkLabel": "How mathematician Reuel Williams is uniting art and technology - Inverse",
     "summary": "Music has long captivated the human mind, transcending cultural boundaries and personal backgrounds. For some, it represents pure emotion and expression."
+  },
+  {
+    "id": "zorbe",
+    "name": "Zorbe",
+    "oneLiner": "Company-owned AI models that beat the frontier, backed by a16z speedrun.",
+    "logo": "/logos/startups/zorbe-mark.webp",
+    "photo": "/team-photos/zorbe-photo.webp",
+    "link": "https://www.zorbe.ai/",
+    "linkLabel": "zorbe.ai",
+    "summary": "Zorbe builds company-owned AI models that beat the frontier. Backed by a16z speedrun and Pareto Holdings; it has raised $8M."
+  },
+  {
+    "id": "nirvana-carbon",
+    "name": "Nirvana Carbon Solutions",
+    "oneLiner": "Turns agricultural waste into critical input products for old-world industry.",
+    "logo": "/logos/startups/nirvana-mark.png",
+    "photo": "/team-photos/nirvana-photo.webp",
+    "link": "https://nirvanacarbon.com/",
+    "linkLabel": "nirvanacarbon.com",
+    "summary": "Nirvana Carbon Solutions turns agricultural waste into critical input products for old-world industry. It has raised $2M."
   }
 ]

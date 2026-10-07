@@ -1,112 +1,81 @@
-import { universities } from "@/data/universities";
-import { getFeaturedStartups } from "@/content/startups";
-import { Button, Card, Badge, LogoGrid, SectionHeader } from "@/components/ui";
-import StartupCard from "@/components/startups/StartupCard";
+import { pages, site } from "@/content/site";
+import { firms } from "@/data/brands";
+import PageHero from "@/components/layout/PageHero";
+import PageSection from "@/components/layout/PageSection";
+import BrandLogo from "@/components/brand/BrandLogo";
+import Strip from "@/components/sections/Strip";
+import StartupCards from "@/components/sections/StartupCards";
+
+const copy = pages.impact;
+const { raised, reach, universities, partners, events } = site.figures;
 
 export const metadata = {
-  title: "Impact & Metrics",
-  description:
-    "Measuring the growth, capital raised, and reach of the next generation of founders across NGEN's top university ecosystems.",
+  title: "Impact",
+  description: copy.intro,
 };
 
-// TODO: upload the real 2026 impact report PDF to /public/reports and
-// point this at the final filename before launch.
-const IMPACT_REPORT_URL = "/reports/ngen-2026-impact-report.pdf";
-
-const METRICS = [
-  { value: "$10M+", label: "Founder Capital Raised" },
-  { value: "11", label: "Partner Universities" },
-  { value: "4", label: "Signature Programs" },
-];
-
-function fundingBadge(startup) {
-  if (startup.fundingRaisedUsd) {
-    const usd = startup.fundingRaisedUsd;
-    const formatted =
-      usd >= 1_000_000 ? `$${(usd / 1_000_000).toFixed(1)}M` : `$${Math.round(usd / 1_000)}K`;
-    return (
-      <Badge tone="dark" variant="solid">
-        {formatted} Raised
-      </Badge>
-    );
-  }
-  if (startup.accelerator) {
-    return (
-      <Badge tone="dark" variant="solid">
-        {startup.accelerator}
-      </Badge>
-    );
-  }
-  return null;
-}
-
+/**
+ * The record: one dominant figure with smaller proof beside the headline,
+ * then every startup with its press, where the founders come from, and
+ * the firms behind the people who spoke and backed them.
+ */
 export default function ImpactPage() {
-  const universityLogos = universities.map((u) => ({
-    id: u.name,
-    name: u.name,
-    logo: u.logo,
-  }));
-  const spotlightStartups = getFeaturedStartups();
+  const proof = [reach, universities, partners, events];
 
   return (
-    <div className="bg-bg">
-      <div className="container-page py-20">
-        <SectionHeader
-          as="h1"
-          titleClassName="text-h2 font-sans font-extrabold text-accent-ink"
-          title="Our Impact & Ecosystem Footprint"
-          subtext="Measuring the growth, capital raised, and reach of the next generation of founders across top university ecosystems."
-          align="center"
-        >
-          <div className="flex justify-center">
-            <Button variant="primary" href={IMPACT_REPORT_URL}>
-              Download 2026 Impact Report (PDF)
-            </Button>
-          </div>
-        </SectionHeader>
+    <>
+      <PageHero
+        id="impact-title"
+        title={copy.title}
+        intro={copy.intro}
+        action={
+          <a href="#startups-title" className="btn btn-ink">
+            {copy.action}
+          </a>
+        }
+        aside={
+          <dl className="flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
+              <dt className="order-2 text-base text-slate">{raised.label}</dt>
+              <dd className="order-1 font-display text-[clamp(3.5rem,1.5rem+4vw,5.75rem)] leading-[0.95] tracking-[-0.035em] tabular">
+                {raised.value}
+              </dd>
+            </div>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+              {proof.map((f) => (
+                <div key={f.value} className="flex flex-col gap-1.5">
+                  <dt className="order-2 text-small text-slate">{f.label}</dt>
+                  <dd className="order-1 font-display text-[2rem] leading-none tracking-[-0.02em] tabular">{f.value}</dd>
+                </div>
+              ))}
+            </div>
+          </dl>
+        }
+      />
 
-        {/* Metrics bar */}
-        <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
-          {METRICS.map((m) => (
-            <Card key={m.label} className="text-center">
-              <div className="font-sans text-h1 font-extrabold text-accent-ink">{m.value}</div>
-              <div className="mt-1 text-caption uppercase tracking-wide text-text-muted">
-                {m.label}
-              </div>
-            </Card>
-          ))}
+      <section aria-labelledby="startups-title" className="bg-fog">
+        <div className="wrap py-[clamp(4rem,8vw,7rem)]">
+          <div className="mb-12 flex flex-col gap-3">
+            <h2 id="startups-title" className="font-display text-h2">
+              {copy.startupsTitle}
+            </h2>
+            <p className="text-lead text-slate">{copy.startupsIntro}</p>
+          </div>
+          <StartupCards showFounders />
         </div>
+      </section>
 
-        {/* Represented universities */}
-        <section className="mx-auto mt-20 max-w-4xl">
-          <h2 className="text-center font-sans text-h3 font-extrabold text-text">
-            Represented Universities
-          </h2>
-          <div className="mt-10">
-            <LogoGrid items={universityLogos} surface="light" />
-          </div>
-        </section>
+      <Strip title={copy.universitiesTitle} intro={copy.universitiesIntro} className="bg-snow" />
 
-        {/* Alumni startup spotlights */}
-        <section className="mx-auto mt-20 max-w-6xl">
-          <h2 className="text-center font-sans text-h3 font-extrabold text-text">
-            Alumni Startup Spotlights
-          </h2>
-          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {spotlightStartups.map((startup) => (
-              <Card
-                key={startup.id}
-                variant="light"
-                padded={false}
-                hover
-                className="flex flex-col overflow-hidden"
-              >
-                <StartupCard startup={startup} showFounders={false} badge={fundingBadge(startup)} />
-              </Card>
-            ))}
-          </div>
-        </section>
-      </div>
-    </div>
+      <PageSection id="firms-title" title={pages.partner.firmsLabel} tone="band">
+        <ul className="grid grid-cols-2 items-center gap-x-8 gap-y-10 text-ink sm:grid-cols-4">
+          {firms.map((f) => (
+            <li key={f.name} className="flex h-12 items-center max-sm:last:col-span-2">
+              <BrandLogo brand={f} />
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+    </>
   );
 }

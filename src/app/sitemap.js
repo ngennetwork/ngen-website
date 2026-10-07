@@ -1,14 +1,12 @@
 import { SITE_URL } from "@/lib/site";
 import { programs } from "@/content/programs";
 
-// /about is excluded — it's a redirect to /about/mission-story, not
-// canonical content. /admin/* and /api/* are excluded via robots.js.
+// /admin/* and /api/* are excluded via robots.js.
 // /startup-challenge is reachable but excluded from the sitemap on
 // purpose — it's a direct/shared link, not meant for search indexing.
 const STATIC_ROUTES = [
   "",
-  "/about/mission-story",
-  "/about/team",
+  "/about",
   "/impact",
   "/contact",
   "/programs",

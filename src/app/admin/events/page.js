@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui";
+
+// Presentation only: a plain tool, drawn in the site's tokens.
+const field =
+  "block w-full rounded-[var(--radius-btn)] bg-paper px-3 py-2 text-ink ring-1 ring-ink/12 placeholder:text-mist focus:ring-ink focus:outline-none";
+const label = "block text-small text-ink";
+const btnDisabled = "disabled:pointer-events-none disabled:opacity-50";
+const btnSmall = "min-h-9 px-4 text-small";
+const card = "rounded-lg border border-ink/12 bg-paper";
+const checkboxStyle = { accentColor: "var(--color-ink)" };
 
 const emptyForm = {
   title: "",
@@ -134,117 +142,111 @@ export default function AdminEventsPage() {
   }
 
   if (status === "checking") {
-    return <div className="p-10 text-center text-text">Loading…</div>;
+    return <p className="wrap text-slate">Loading…</p>;
   }
 
   if (status === "loggedOut") {
     return (
-      <div className="mx-auto max-w-sm px-5 py-24">
-        <h1 className="font-sans text-2xl font-bold text-surface-dark">
-          Admin login
-        </h1>
+      <div className="wrap max-w-md">
+        <h1 className="font-display text-h3 text-ink">Admin login</h1>
         <form onSubmit={handleLogin} className="mt-6 space-y-4">
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
+            aria-label="Password"
             autoFocus
-            className="w-full rounded-lg border border-surface-dark/20 px-4 py-2.5 focus:border-accent-fill focus:outline-none"
+            className={field}
           />
-          {loginError && <p className="text-sm text-danger">{loginError}</p>}
-          <Button variant="primary" type="submit" fullWidth>
+          {loginError && <p className="text-small text-danger">{loginError}</p>}
+          <button type="submit" className="btn btn-ink w-full">
             Log in
-          </Button>
+          </button>
         </form>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-5 py-16">
-      <div className="flex items-center justify-between">
-        <h1 className="font-sans text-2xl font-bold text-surface-dark">
-          Manage upcoming events
-        </h1>
+    <div className="wrap max-w-3xl">
+      <div className="flex items-baseline justify-between gap-4">
+        <h1 className="font-display text-h3 text-ink">Manage upcoming events</h1>
         <button
           type="button"
           onClick={handleLogout}
-          className="text-sm font-semibold text-surface-dark/60 hover:text-accent-fill"
+          className="link shrink-0 text-small text-slate hover:text-ink"
         >
           Log out
         </button>
       </div>
 
       {/* Add / edit form */}
-      <form
-        onSubmit={handleSubmit}
-        className="mt-8 space-y-4 rounded-xl border border-surface-dark/10 bg-surface-card p-6 shadow-sm"
-      >
-        <h2 className="font-sans font-bold text-surface-dark">
+      <form onSubmit={handleSubmit} className={`mt-8 space-y-4 p-6 ${card}`}>
+        <h2 className="font-display text-lead text-ink">
           {editingId ? "Edit event" : "Add a new event"}
         </h2>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="block text-sm">
+          <label className={label}>
             Title
             <input
               required
               value={form.title}
               onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
-              className="mt-1 w-full rounded-lg border border-surface-dark/20 px-3 py-2 focus:border-accent-fill focus:outline-none"
+              className={`mt-1 ${field}`}
             />
           </label>
-          <label className="block text-sm">
+          <label className={label}>
             Date
             <input
               required
               value={form.date}
               onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
               placeholder="e.g. October 4, 2026"
-              className="mt-1 w-full rounded-lg border border-surface-dark/20 px-3 py-2 focus:border-accent-fill focus:outline-none"
+              className={`mt-1 ${field}`}
             />
           </label>
-          <label className="block text-sm">
+          <label className={label}>
             Venue / location
             <input
               required
               value={form.location}
               onChange={(e) => setForm((f) => ({ ...f, location: e.target.value }))}
-              className="mt-1 w-full rounded-lg border border-surface-dark/20 px-3 py-2 focus:border-accent-fill focus:outline-none"
+              className={`mt-1 ${field}`}
             />
           </label>
-          <label className="block text-sm">
+          <label className={label}>
             Photo path (optional)
             <input
               value={form.photo}
               onChange={(e) => setForm((f) => ({ ...f, photo: e.target.value }))}
               placeholder="/about/events/example.jpg"
-              className="mt-1 w-full rounded-lg border border-surface-dark/20 px-3 py-2 focus:border-accent-fill focus:outline-none"
+              className={`mt-1 ${field}`}
             />
           </label>
         </div>
 
-        <label className="block text-sm">
+        <label className={label}>
           Description
           <textarea
             value={form.description}
             onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
             rows={2}
-            className="mt-1 w-full rounded-lg border border-surface-dark/20 px-3 py-2 focus:border-accent-fill focus:outline-none"
+            className={`mt-1 ${field}`}
           />
         </label>
 
-        <label className="block text-sm">
+        <label className={label}>
           Target audience blurb (shown on the investor bubble)
           <input
             value={form.targetAudience}
             onChange={(e) => setForm((f) => ({ ...f, targetAudience: e.target.value }))}
-            className="mt-1 w-full rounded-lg border border-surface-dark/20 px-3 py-2 focus:border-accent-fill focus:outline-none"
+            className={`mt-1 ${field}`}
           />
         </label>
 
-        <div className="text-sm">
+        <div className="text-small text-ink">
           <span className="block">Show on</span>
           <div className="mt-1 flex gap-4">
             <label className="flex items-center gap-2">
@@ -252,6 +254,7 @@ export default function AdminEventsPage() {
                 type="checkbox"
                 checked={form.audience.includes("investors")}
                 onChange={() => toggleAudience("investors")}
+                style={checkboxStyle}
               />
               Investors page
             </label>
@@ -260,55 +263,51 @@ export default function AdminEventsPage() {
                 type="checkbox"
                 checked={form.audience.includes("founders")}
                 onChange={() => toggleAudience("founders")}
+                style={checkboxStyle}
               />
               Founders page
             </label>
           </div>
         </div>
 
-        {formError && <p className="text-sm text-danger">{formError}</p>}
+        {formError && <p className="text-small text-danger">{formError}</p>}
 
         <div className="flex gap-3">
-          <Button variant="primary" type="submit" disabled={saving}>
+          <button type="submit" disabled={saving} className={`btn btn-ink ${btnDisabled}`}>
             {saving ? "Saving…" : editingId ? "Save changes" : "Add event"}
-          </Button>
+          </button>
           {editingId && (
-            <Button variant="secondary" type="button" onClick={cancelEdit}>
+            <button type="button" onClick={cancelEdit} className="btn btn-ghost">
               Cancel
-            </Button>
+            </button>
           )}
         </div>
       </form>
 
       {/* Existing events */}
       <div className="mt-10 space-y-4">
-        {events.length === 0 && (
-          <p className="text-text/70">No events yet - add one above.</p>
-        )}
+        {events.length === 0 && <p className="text-slate">No events yet - add one above.</p>}
         {events.map((event) => (
-          <div
-            key={event.id}
-            className="flex items-start justify-between gap-4 rounded-xl border border-surface-dark/10 bg-surface-card p-5 shadow-sm"
-          >
+          <div key={event.id} className={`flex items-start justify-between gap-4 p-5 ${card}`}>
             <div>
-              <p className="font-sans font-bold text-surface-dark">
-                {event.title}
-              </p>
-              <p className="text-sm text-text/70">
+              <p className="font-display text-lead text-ink">{event.title}</p>
+              <p className="text-small text-slate">
                 {event.date} · {event.location}
               </p>
-              <p className="mt-1 text-xs uppercase tracking-wide text-text/50">
-                {event.audience.join(", ")}
-              </p>
+              <p className="mt-1 text-small text-slate">{event.audience.join(", ")}</p>
             </div>
             <div className="flex shrink-0 gap-2">
-              <Button variant="secondary" size="sm" type="button" onClick={() => startEdit(event)}>
+              <button
+                type="button"
+                onClick={() => startEdit(event)}
+                className={`btn btn-ghost ${btnSmall}`}
+              >
                 Edit
-              </Button>
+              </button>
               <button
                 type="button"
                 onClick={() => handleDelete(event.id)}
-                className="rounded-full border border-danger-border px-4 py-1.5 text-sm font-semibold text-danger transition-colors hover:bg-danger-tint"
+                className={`btn btn-ghost text-danger hover:bg-danger-tint ${btnSmall}`}
               >
                 Delete
               </button>

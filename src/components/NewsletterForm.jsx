@@ -2,9 +2,14 @@
 
 import { useState } from "react";
 import { submitToAppsScript } from "@/lib/submitToAppsScript";
+import { site } from "@/content/site";
 
-export default function NewsletterForm({ variant = "light" }) {
-  const isDark = variant === "dark";
+/**
+ * One email field for application alerts. Submits to the Apps Script
+ * backend (formType "newsletter"), which dedupes into the sheet.
+ */
+export default function NewsletterForm({ id = "alerts-email", tone = "light" }) {
+  const dark = tone === "dark";
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const [error, setError] = useState("");
@@ -24,44 +29,38 @@ export default function NewsletterForm({ variant = "light" }) {
 
   if (status === "success") {
     return (
-      <div className={`rounded-xl p-6 text-center ${isDark ? "bg-surface-dark-raised" : "bg-neutral-100"}`}>
-        <p className={`font-sans font-semibold ${isDark ? "text-on-dark" : "text-text"}`}>
-          You&rsquo;re signed up - thanks for joining.
-        </p>
-      </div>
+      <p role="status" className="flex items-center gap-2.5 text-lead">
+        <span aria-hidden="true" className="node" />
+        You’re on the list. We’ll write when the next cycle opens.
+      </p>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mx-auto flex max-w-md flex-col gap-3 sm:flex-row">
-      <label htmlFor="newsletter-email" className="sr-only">
-        Email address
-      </label>
-      <input
-        id="newsletter-email"
-        type="email"
-        required
-        placeholder="yourname@university.edu"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className={`flex-1 rounded-full bg-surface-card px-5 py-3 text-text placeholder:text-text-muted outline-none ${
-          isDark ? "focus-ring-dark" : "border border-neutral-200 focus-ring-light"
-        }`}
-      />
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className={`rounded-full bg-accent-fill px-6 py-3 font-sans font-semibold text-white transition-colors hover:bg-accent-fill-hover disabled:opacity-60 ${
-          isDark ? "focus-ring-dark" : "focus-ring-light"
-        }`}
-      >
-        {status === "loading" ? "Signing up…" : "Subscribe"}
-      </button>
+    <form onSubmit={handleSubmit} className="flex w-full max-w-xl flex-col gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <label htmlFor={id} className="sr-only">
+          Email address
+        </label>
+        <input
+          id={id}
+          type="email"
+          required
+          autoComplete="email"
+          placeholder="you@university.edu"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="min-h-11 flex-1 rounded-[var(--radius-btn)] bg-paper px-4 text-base text-ink ring-1 ring-ink/12 outline-none placeholder:text-slate/70 focus:ring-ink"
+        />
+        <button type="submit" disabled={status === "loading"} className={`btn ${dark ? "btn-paper" : "btn-ink"} disabled:opacity-60`}>
+          {status === "loading" ? "Signing up…" : "Notify me"}
+        </button>
+      </div>
       {status === "error" && (
-        <p role="alert" className="w-full text-center text-sm text-danger sm:text-left">
-          {error} Please try again, or email{" "}
-          <a href="mailto:info@ngennetwork.org" className="underline">
-            info@ngennetwork.org
+        <p role="alert" className={`text-small ${dark ? "text-on-dark" : "text-danger"}`}>
+          {error} Please try again, or write to{" "}
+          <a href={`mailto:${site.email}`} className="link">
+            {site.email}
           </a>
           .
         </p>

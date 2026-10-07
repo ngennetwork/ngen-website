@@ -1,97 +1,115 @@
-import { programs, getProgramStatus, formatDeadline } from "@/content/programs";
-import { getEvents } from "@/data/events";
-import EventsPortal from "./EventsPortal";
+import { pages, site } from "@/content/site";
+import { programs } from "@/content/programs";
+import { applyFaq } from "@/data/applyFaq";
+import PageHero from "@/components/layout/PageHero";
+import PageSection from "@/components/layout/PageSection";
+import Photo from "@/components/layout/Photo";
+import PageLink from "@/components/ui/PageLink";
+import ExternalLink from "@/components/ui/ExternalLink";
+import LumaCalendar from "@/components/sections/LumaCalendar";
+import NewsletterForm from "@/components/NewsletterForm";
+
+const copy = pages.events;
 
 export const metadata = {
-  title: "Events & Applications",
-  description:
-    "Open NGEN application cycles — Trailblazers, Lab-to-Startup, Founder Treks, and Pitch Competitions — plus the events we've run across our university network.",
+  title: "Events",
+  description: copy.intro,
 };
 
-/**
- * /events — the ONE destination for both applying and browsing.
- * ---------------------------------------------------------------------
- * Replaces the old /apply portal (which now redirects here, see
- * next.config.mjs). Two stacked sections:
- *
- *   1. Open applications — one row per program whose LIVE status
- *      (getProgramStatus, src/content/programs.js) is open/closing-soon,
- *      soonest deadline first, each with its apply link. Programs with no
- *      live cycle fall to a "Coming up" list below it so a passed
- *      deadline never silently disappears.
- *   2. Events — real event instances from src/data/events.json, upcoming
- *      first, then past ones as proof/history.
- *
- * Evergreen program *pages* live at /programs and /programs/[slug]; this
- * route is only about cycles and instances.
- */
-
-const OPEN_STATUSES = new Set(["open", "closing-soon"]);
-
-// Rendered per request, never prerendered: both halves of this page are
-// date-derived (live application status) or read off disk at request time
-// (events.json), and a static build would freeze both at build time.
-export const dynamic = "force-dynamic";
+const isExternal = (href) => href.startsWith("http");
 
 /**
- * events.json dates are human-readable strings ("October 2, 2026",
- * "April 2027 (exact date TBD)"), so parsing is best-effort: anything
- * unparseable is treated as upcoming rather than quietly filed as past.
+ * The calendar first (it's what people come for), then where each program
+ * applies, one email field for alerts, and the questions people ask.
  */
-function parseEventDate(date) {
-  const parsed = Date.parse(date);
-  return Number.isNaN(parsed) ? null : parsed;
-}
-
-/** Split real event instances into upcoming (soonest first) and past
- * (most recent first). Kept out of the component so the `Date.now()`
- * read isn't a render-time side effect. */
-function splitEventsByDate(events) {
-  const now = Date.now();
-  const withTime = events.map((event) => ({ ...event, time: parseEventDate(event.date) }));
-  return {
-    upcomingEvents: withTime
-      .filter((event) => event.time === null || event.time >= now)
-      .sort((a, b) => (a.time ?? Infinity) - (b.time ?? Infinity)),
-    pastEvents: withTime
-      .filter((event) => event.time !== null && event.time < now)
-      .sort((a, b) => b.time - a.time),
-  };
-}
-
-export default async function EventsPage() {
-  const applications = programs
-    .map((program) => {
-      const status = getProgramStatus(program.slug);
-      return {
-        slug: program.slug,
-        name: program.name,
-        tagline: program.tagline,
-        status,
-        isOpen: OPEN_STATUSES.has(status),
-        deadlineLabel: formatDeadline(program.closesAt),
-        closesAt: program.closesAt,
-        eligibility: program.eligibility,
-        timeEstimate: program.applicationTimeEstimate,
-        applicationUrl: program.applicationUrl,
-        opensAt: program.opensAt,
-        nextEventDate: program.nextEventDate,
-      };
-    })
-    .sort((a, b) => {
-      if (a.isOpen !== b.isOpen) return a.isOpen ? -1 : 1;
-      if (!a.closesAt) return 1;
-      if (!b.closesAt) return -1;
-      return new Date(a.closesAt).getTime() - new Date(b.closesAt).getTime();
-    });
-
-  const { upcomingEvents, pastEvents } = splitEventsByDate(await getEvents());
-
+export default function EventsPage() {
   return (
-    <EventsPortal
-      applications={applications}
-      upcomingEvents={upcomingEvents}
-      pastEvents={pastEvents}
-    />
+    <>
+      <PageHero
+        id="events-title"
+        title={copy.title}
+        intro={copy.intro}
+        action={
+          <a href="#calendar" className="btn btn-ink">
+            {copy.calendarCta}
+          </a>
+        }
+        aside={
+          <Photo
+            src="/about/events/A78A2298.JPG"
+            alt="Student founders in conversation in the audience at an NGEN event"
+            caption={copy.caption}
+            position="50% 45%"
+            priority
+          />
+        }
+      />
+
+      <section id="calendar" aria-labelledby="calendar-title" className="bg-fog">
+        <div className="wrap grid gap-x-8 gap-y-8 py-[clamp(4rem,8vw,7rem)] lg:grid-cols-12">
+          <div className="flex flex-col items-start gap-2 lg:col-span-3 lg:pt-2">
+            <h2 id="calendar-title" className="font-display text-[1.75rem] leading-tight tracking-[-0.025em]">
+              {copy.calendarTitle}
+            </h2>
+            <ExternalLink href={site.links.luma} className="link text-small">
+              {copy.calendarNote}
+            </ExternalLink>
+          </div>
+          <LumaCalendar className="lg:col-span-9" />
+        </div>
+      </section>
+
+      <PageSection id="apply-title" title={copy.applyTitle} aside={<p className="text-small text-slate">{copy.applyIntro}</p>}>
+        <ul className="flex flex-col">
+          {programs.map((p) => (
+            <li key={p.slug} className="grid gap-3 py-6 first:pt-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-8">
+              <div className="flex flex-col gap-1">
+                <PageLink href={`/programs/${p.slug}`} className="font-display text-h3 underline decoration-transparent decoration-1 underline-offset-[0.18em] transition-colors hover:decoration-current">
+                  {p.name}
+                </PageLink>
+                <p className="text-base text-slate">{p.audience}</p>
+              </div>
+              <a
+                href={p.apply.href}
+                {...(isExternal(p.apply.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="btn btn-ghost justify-self-start"
+              >
+                {p.apply.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+
+      <section aria-labelledby="alerts-title" className="grain bg-ink-deep text-on-dark">
+        <div className="wrap grid items-end gap-x-8 gap-y-8 py-[clamp(4rem,8vw,6rem)] lg:grid-cols-12">
+          <div className="flex flex-col gap-3 lg:col-span-5">
+            <h2 id="alerts-title" className="font-display text-h2">
+              {copy.alertsTitle}
+            </h2>
+            <p className="text-lead text-on-dark/75">{copy.alertsBody}</p>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <NewsletterForm tone="dark" />
+          </div>
+        </div>
+      </section>
+
+      <PageSection id="faq-title" title={copy.faqTitle}>
+        <div className="flex flex-col">
+          {applyFaq.map((item) => (
+            <details key={item.question} className="group border-b border-ink/10 py-5 first:pt-0 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-baseline justify-between gap-6 font-display text-h3">
+                {item.question}
+                <span aria-hidden="true" className="shrink-0 text-lead text-slate transition-transform duration-300 group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 max-w-[60ch] text-base text-slate">{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </PageSection>
+    </>
   );
 }

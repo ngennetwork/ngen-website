@@ -24,15 +24,15 @@
     "photo": "/about/events/Copy of DSC06488.jpg"
   },
   {
-    "id": "trailblazers-conference-2027",
-    "title": "Trailblazers Conference",
-    "date": "April 2027 (exact date TBD)",
+    "id": "ivy-league-entrepreneurship-conference-2027",
+    "title": "Ivy League Entrepreneurship Conference",
+    "date": "April 17, 2027",
     "location": "New York City",
     "description": "Our flagship event, with a hackathon the day after - the largest audience of the year.",
     "targetAudience": "Our flagship event - the largest audience of the year",
     "audience": [
       "investors"
     ],
-    "photo": "/about/events/Copy of DSC06459-Enhanced-NR.jpg"
+    "photo": "/about/events/conferences.jpg"
   }
 ]
