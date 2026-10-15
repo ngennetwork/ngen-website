@@ -12,8 +12,6 @@
 /** The flagship NGEN presents. Its own site carries the details. */
 export const conference = {
   name: "Ivy League Entrepreneurship Conference",
-  // The conference site's own lockup: three lines.
-  nameLines: ["Ivy League", "Entrepreneurship", "Conference"],
   // Noon keeps the date right in any time zone; the start time is TBD.
   startsAt: "2027-04-17T12:00:00-04:00",
   dateLabel: "April 17, 2027",
@@ -23,6 +21,8 @@ export const conference = {
   motto: "Connecting world-class student entrepreneurs with today’s most influential leaders.",
   // The conference site's production address. Swap for its custom domain once connected.
   url: "https://ngen-five.vercel.app",
+  // The conference's official wordmark (set in white on the site).
+  wordmark: { src: "/logos/conference/ilec-wordmark.png", width: 2000, height: 548 },
 };
 
 export const site = {
@@ -30,8 +30,9 @@ export const site = {
   fullName: "NextGen Entrepreneurship Network",
   tagline: "The Ivy League entrepreneurship network",
   mission: "Connecting the next generation of founders across the Ivy League.",
+  // The core positioning (October 2026).
   description:
-    "NGEN connects the next generation of founders across the Ivy League and top universities. Where students meet, build, and raise capital.",
+    "NGEN brings together the brightest student innovators and founders across universities and gives them new connections and opportunities. It’s the center of gravity for student innovation.",
   email: "info@ngennetwork.org",
   ein: "93-2106846",
 
@@ -59,18 +60,27 @@ export const site = {
       { label: "Events", href: "/events" },
       { label: "Capital", href: "/capital-network/founders", match: "/capital-network" },
       { label: "Impact", href: "/impact" },
-      { label: "About", href: "/about" },
+      {
+        label: "About",
+        href: "/about",
+        children: [
+          { label: "Our story", href: "/about" },
+          { label: "Team", href: "/about/team" },
+        ],
+      },
     ],
     cta: { label: "Upcoming events", href: "/events" },
   },
 
   /** Figures from NGEN's bio. Each appears once per page at most. */
   figures: {
-    raised: { value: "$30M+", label: "raised by founders who came through NGEN" },
+    // $25M+ confirmed by Juan (October 2026), replacing the earlier $30M+.
+    // Every page reads this one value.
+    raised: { value: "$25M+", label: "raised by NGEN founders" },
     reach: { value: "20,000", label: "students reached across the network" },
-    universities: { value: "15", label: "universities represented" },
+    universities: { value: "15", label: "universities across the\u00a0network" },
     partners: { value: "$500K+", label: "put into students and programs by NGEN’s VC partners" },
-    events: { value: "18", label: "conferences, treks and pitch competitions in three years" },
+    events: { value: "20+", label: "conferences, treks and pitch competitions in three years" },
   },
 
   footer: {
@@ -91,6 +101,9 @@ export const site = {
   },
 };
 
+// The raised figure as prose uses it ("more than $25M"), from the one source above.
+const RAISED = site.figures.raised.value.replace("+", "");
+
 /* ---------------------------------------------------------------------------
    Home
    ------------------------------------------------------------------------ */
@@ -99,15 +112,16 @@ export const home = {
   hero: {
     kicker: "The Ivy League entrepreneurship network",
     title: "Where students meet, build, and raise capital.",
+    // The positioning's first sentence; its second is the next section's headline.
     intro:
-      "NGEN connects the next generation of founders across the Ivy League and top universities.",
+      "NGEN brings together the brightest student innovators and founders across universities and gives them new connections and opportunities.",
     primary: { label: "Upcoming events", href: "/events" },
     secondary: { label: "Partner with us", href: "/partner" },
   },
 
   mission: {
     title: "The center of gravity for student\u00a0innovation.",
-    body: "NGEN builds the spaces where entrepreneurial students meet in person, find co-founders and test ideas, well before they call themselves founders.",
+    body: "NGEN builds the spaces where students meet in person, find co-founders and test ideas, long before they call themselves founders.",
     line: "Our mission: connecting the next generation of founders across the Ivy League.",
     cta: { label: "Our story", href: "/about" },
   },
@@ -115,52 +129,80 @@ export const home = {
   programs: {
     title: "From first idea to funded\u00a0startup.",
     more: { label: "All programs", href: "/programs" },
+    // TODO(photo): generic stand-in for the Capital Network; replace with a
+    // photo of a founder meeting investors.
     capitalPhoto: {
       src: "/about/events/workshops.jpg",
       alt: "Student founders talking in a small group at an NGEN event",
     },
   },
 
+  // The founding, as a story. Facts from the founders' letter (About); the
+  // numbers that came after belong to the timeline, so they aren't repeated here.
   story: {
     title: "How NGEN began",
-    steps: [
-      {
-        label: "Origin",
-        figure: "3",
-        title: "Three campus leaders, one group chat",
-        body: "Will led entrepreneurship at Brown, Harsha at Wharton and Jackson at Princeton. Students everywhere were building, but school lines kept them apart.",
-      },
-      {
-        label: "The trial run",
-        figure: "100+",
-        title: "The first conference",
-        body: "A trial run in New\u00a0York\u00a0City. Over 100 students from Ivy+ universities came, and the momentum in that room made the next step clear.",
-      },
-      {
-        label: "Three years",
-        figure: "18",
-        title: "Conferences, treks and pitch competitions",
-        body: "NGEN incorporated as a 501(c)(3) so the programs would last, then built the network event by event.",
-      },
-      {
-        label: "Now",
-        figure: "2027",
-        title: "A bigger stage",
-        body: "NGEN’s flagship becomes the Ivy League Entrepreneurship Conference: invite-only, in New\u00a0York\u00a0City on April\u00a017,\u00a02027.",
-      },
+    lead: "It started in a group chat for student entrepreneurship leaders across top\u00a0universities.",
+    founders: [
+      { name: "Harsha", led: "Wharton Undergraduate Entrepreneurship Club,\u00a0Penn" },
+      { name: "Jackson", led: "Princeton Entrepreneurship\u00a0Club" },
+      { name: "Will", led: "Brown Entrepreneurship\u00a0Program" },
     ],
+    body: [
+      "Each ran a campus ecosystem, and each kept seeing the same gap: students everywhere were building, but school lines kept them apart, with no way to meet peers with complementary skills on other campuses.",
+      "So they hosted a trial run in New\u00a0York: a first conference, to see whether student founders would actually build across campus lines. Students came from across the Ivy+, and the momentum in that room made the next step\u00a0clear.",
+    ],
+    signature: "Harsha, Jackson & Will",
+    caption: "NGEN’s first conference, in New\u00a0York.",
     more: { label: "Read the founders’ letter", href: "/about" },
   },
 
+  // What came after the founding, one milestone per step.
+  // TODO(confirm): the 501(c)(3) year. 2023 is the founding year on the
+  // conference site's team page; confirm it's also the incorporation year.
+  timeline: {
+    title: "From a trial run to a bigger\u00a0stage.",
+    steps: [
+      {
+        label: "The trial run",
+        title: "100+ students at the first\u00a0conference",
+        body: "Founders from Ivy+ universities, in one room in New\u00a0York.",
+        // TODO(photo): replace with a first-conference photo without the old Trailblazers banner.
+        photo: { src: "/about/events/Copy of DSC06488.jpg", alt: "A panel on stage at NGEN’s first conference in New York", position: "50% 55%" },
+      },
+      {
+        label: "2023",
+        title: "A 501(c)(3) nonprofit",
+        body: "NGEN incorporated so the programs would outlast any one\u00a0class.",
+        // TODO(photo): stand-in (also the About header); replace with a photo of the team.
+        photo: { src: "/about/events/A78A2335.JPG", alt: "A speaker on stage in front of NGEN’s slide: building the Ivy+ intercollegiate entrepreneurship ecosystem", position: "50% 38%" },
+      },
+      {
+        label: "Three years",
+        title: `${site.figures.events.value} conferences, treks and pitch\u00a0competitions`,
+        body: "The network grew event by event, from Lab-2-Startup to Founder\u00a0Treks.",
+        // TODO(photo): stand-in (also the Programs header); replace with a recent event photo.
+        photo: { src: "/about/events/Copy of DSC06558.jpg", alt: "A founder and investor panel on stage at an NGEN event", position: "50% 45%" },
+      },
+      {
+        label: "April 2027",
+        title: "The Ivy League Entrepreneurship\u00a0Conference",
+        body: "NGEN’s flagship, invite-only, in New\u00a0York\u00a0City on April\u00a017,\u00a02027.",
+        // No photo of it exists yet, so it shows the conference's own wordmark.
+        // TODO(photo): swap for a photo once the conference has one.
+        mark: conference.wordmark,
+      },
+    ],
+  },
+
   startups: {
-    title: "$30M+ raised by founders who came through NGEN.",
+    title: "What NGEN founders went on to\u00a0raise.",
     more: { label: "The full record", href: "/impact" },
   },
 
   speakers: {
     title: "Past speakers",
     subtitle: "At NGEN’s flagship conference in New\u00a0York",
-    more: { label: "All speakers", href: "/programs/ivy-league-entrepreneurship-conference#speakers" },
+    more: { label: "All speakers", href: "/programs/conferences#speakers" },
     previous: "Previous speakers",
     next: "More speakers",
   },
@@ -202,10 +244,19 @@ export const pages = {
   programs: {
     title: "Conferences, treks and pitch competitions.",
     intro:
-      "Four programs connect student founders with each other and with the operators and investors who back them, from a first idea to a funded startup.",
+      "NGEN’s programs connect student founders with each other and with the operators and investors who back them, from a first idea to a funded startup.",
     action: { label: "Upcoming events", href: "/events" },
     caption: "A panel at an NGEN conference.",
     listTitle: "Programs",
+    // TODO(copy): confirm SpaceTech's line. Lab-2-Startup's application also
+    // points at space.ngennetwork.org; confirm whether SpaceTech is its own
+    // program or this cycle of Lab-2-Startup.
+    spaceTech: {
+      kicker: "New program",
+      name: "SpaceTech",
+      body: "NGEN’s program for student founders and researchers building in space, and the investors backing the new space\u00a0economy.",
+      cta: { label: "Learn more", href: "https://space.ngennetwork.org" },
+    },
     capitalTitle: "For founders who are raising",
     applyNote: "Applications open by cycle. Dates are announced on the calendar.",
     more: "About this program",
@@ -287,16 +338,30 @@ export const pages = {
     giveCta: "Make a tax-deductible gift",
   },
 
+  // The homepage carries the headline figures; Impact goes underneath them.
+  // Placeholder data lives in src/content/impact.js.
   impact: {
     title: "The record, three years in.",
     intro:
-      "What founders who came through NGEN have built and raised, and where they come from.",
+      "What each event moves, what each cohort raised, how founders came through NGEN and where they are\u00a0now.",
     action: "See every startup",
-    figuresTitle: "In figures",
+    startupsLabel: "startups on the record",
     startupsTitle: "Founders who came\u00a0through",
     startupsIntro: "Largest raise first, each with the press that covered it or, before there is any, the company’s own\u00a0site.",
-    universitiesTitle: "Universities represented",
-    universitiesIntro: "Student founders across the network come from these 15 schools.",
+    perEventTitle: "Per event",
+    perEventNote: "Averaged over every NGEN conference, trek and pitch competition.",
+    cohortsTitle: "By cohort",
+    cohortsNote: "Founders grouped by the year they first came to an NGEN event.",
+    cohortColumns: { cohort: "Cohort", founders: "Founders", startups: "Startups", raised: "Raised" },
+    pathsTitle: "How founders came\u00a0through",
+    pathsNote: "Every founder on the record came in one of two ways.",
+    pathFounders: "founders",
+    pathRaised: "raised",
+    alumniTitle: "Where they are\u00a0now",
+    alumniNote: "Alumni and former team members, and what they do today.",
+    alumniColumns: { name: "Name", path: "Came through", now: "Now" },
+    universitiesTitle: "Where founders come\u00a0from",
+    universitiesIntro: "Student founders across the network come from these\u00a0schools.",
   },
 
   about: {
@@ -305,12 +370,12 @@ export const pages = {
     // The header shows NGEN's own slide; the only founders photo carries the
     // old Trailblazers banner, so it stays off the site until a new one exists.
     caption: "NGEN on stage: building the Ivy+ intercollegiate entrepreneurship ecosystem.",
-    // Juan's conference description (October 2026), with the current $30M
-    // figure (he confirmed the $20M in the old bio is outdated) and grammar fixed.
+    // Juan's conference description (October 2026), with the site's one raised
+    // figure (site.figures.raised; the old bio's $20M is outdated) and grammar fixed.
     conferenceTitle: "The conference",
     conference: [
       "NGEN, the Ivy League entrepreneurship network, presents the inaugural Ivy League Entrepreneurship Conference. The mission is clear: an invite-only conference that connects world-class student entrepreneurs face to face with today’s most influential leaders.",
-      "What began as an intimate New York gathering has been reborn on a larger stage to expand its impact. Its alumni have gone on to earn backing from Y Combinator, a16z, and Techstars, raise over $30M, and lead their startups to acquisition.",
+      `What began as an intimate New York gathering has been reborn on a larger stage to expand its impact. Its alumni have gone on to earn backing from Y Combinator, a16z, and Techstars, raise over ${RAISED}, and lead their startups to acquisition.`,
       "Past speakers include Geoff Ralston (President Emeritus, Y Combinator), Tom Gardner (Co-Founder & CEO, The Motley Fool), and Seema Hingorani (Founder, Girls Who Invest).",
     ],
     letterTitle: "The founders’ letter",
@@ -323,6 +388,14 @@ export const pages = {
     signoff: "Warmly,",
     signature: "Harsha, Jackson & Will",
     roomCaption: "Students at NGEN’s first conference in New\u00a0York.",
+  },
+
+  team: {
+    title: "The people behind\u00a0NGEN.",
+    intro: "Students and alumni across campuses who run NGEN’s conferences, Founder Treks and pitch\u00a0competitions.",
+    caption: "On stage at NGEN’s first conference.",
+    leadershipTitle: "Leadership",
+    teamTitle: "Team",
   },
 
   partner: {
@@ -348,7 +421,7 @@ export const pages = {
       {
         name: "Sponsors",
         body: "Firms that want to back the next generation early.",
-        points: ["Your brand in the room with Ivy League founders", "Founders who came through have raised more than\u00a0$30M"],
+        points: ["Your brand in the room with Ivy League founders", `Founders who came through have raised more than\u00a0${RAISED}`],
       },
     ],
     waysTitle: "Ways to partner",

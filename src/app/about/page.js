@@ -25,6 +25,7 @@ export default function AboutPage() {
         title={about.title}
         intro={about.intro}
         aside={
+          // TODO(photo): keep or replace; also stands in on the home timeline.
           <Photo
             src="/about/events/A78A2335.JPG"
             alt="A speaker on stage in front of NGEN's slide: building the Ivy+ intercollegiate entrepreneurship ecosystem"
@@ -52,6 +53,9 @@ export default function AboutPage() {
             </article>
             <figure className="flex flex-col gap-3 self-start lg:sticky lg:top-28 lg:col-span-3">
               <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-ink/5">
+                {/* TODO(photo): this first-conference photo is used on four pages; replace
+                    with a new one of the founders (see public/about/founders-photo.jpeg,
+                    which still shows the old Trailblazers banner). */}
                 <Image
                   src="/about/events/Copy of DSC06515.jpg"
                   alt="Students in the audience at NGEN’s first conference in New York, one of them asking a question into a microphone"

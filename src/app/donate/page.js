@@ -30,6 +30,7 @@ export default function DonatePage() {
         }
         aside={
           <Photo
+            // TODO(photo): replace; this first-conference photo is used on four pages.
             src="/about/events/Copy of DSC06515.jpg"
             alt="Student founders in the audience at an NGEN event, one asking a question into a microphone"
             caption="Student founders at an NGEN event."

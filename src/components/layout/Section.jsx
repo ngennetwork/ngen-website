@@ -15,6 +15,8 @@
 const GROUND = {
   snow: "bg-snow",
   fog: "bg-fog",
+  // NGEN's deepest navy, for the one band that should read as night (the timeline)
+  deep: "grain bg-ink-deep text-on-dark",
 };
 
 export default function Section({

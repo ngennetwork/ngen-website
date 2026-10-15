@@ -5,6 +5,7 @@ import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import Photo from "@/components/layout/Photo";
 import PageLink from "@/components/ui/PageLink";
+import ProgramSummary from "@/components/ui/ProgramSummary";
 import ExternalLink from "@/components/ui/ExternalLink";
 import LumaCalendar from "@/components/sections/LumaCalendar";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -35,6 +36,7 @@ export default function EventsPage() {
           </a>
         }
         aside={
+          // TODO(photo): replace; the same photo closes the homepage.
           <Photo
             src="/about/events/A78A2298.JPG"
             alt="Student founders in conversation in the audience at an NGEN event"
@@ -67,7 +69,9 @@ export default function EventsPage() {
                 <PageLink href={`/programs/${p.slug}`} className="font-display text-h3 underline decoration-transparent decoration-1 underline-offset-[0.18em] transition-colors hover:decoration-current">
                   {p.name}
                 </PageLink>
-                <p className="text-base text-slate">{p.audience}</p>
+                <p className="text-base text-slate">
+                  <ProgramSummary program={p} text={p.audience} />
+                </p>
               </div>
               <a
                 href={p.apply.href}

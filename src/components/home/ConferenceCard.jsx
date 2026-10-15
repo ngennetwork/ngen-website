@@ -30,10 +30,10 @@ export default function ConferenceCard({ className = "", ground = "bg-fog" }) {
       <div className="flex flex-col gap-3.5 px-7 pt-6 pb-5">
         <p className="text-small text-slate">{card.kicker}</p>
         <Image
-          src="/logos/conference/ilec-wordmark.png"
+          src={conference.wordmark.src}
           alt={conference.name}
-          width={2000}
-          height={548}
+          width={conference.wordmark.width}
+          height={conference.wordmark.height}
           sizes="260px"
           className="h-auto w-full max-w-[15rem] brightness-0 invert"
         />

@@ -7,6 +7,7 @@ import { programs } from "@/content/programs";
 const STATIC_ROUTES = [
   "",
   "/about",
+  "/about/team",
   "/impact",
   "/contact",
   "/programs",

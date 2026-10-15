@@ -1,42 +1,62 @@
-import { home } from "@/content/site";
+import Image from "next/image";
+import { conference, home } from "@/content/site";
 import InView from "@/components/motion/InView";
 import Section from "@/components/layout/Section";
-import PageLink from "@/components/ui/PageLink";
 
-const { story } = home;
+const { timeline } = home;
 
 /**
- * How NGEN began, as a trail: one line across the page with a node at each
- * step, drawn left to right the first time it comes into view, each node
- * lighting as the line reaches it. Below 1280px the trail runs down the left.
+ * What came after the founding, as a trail on NGEN's deepest navy: one
+ * line with a node at each milestone, drawn the first time it comes into
+ * view. Each milestone reads the same way: its step, a photo (in NGEN's ink
+ * until pointed at), what happened, one line on it. The flagship that
+ * hasn't happened yet shows its own wordmark instead of a photo (no glow:
+ * the conference ticket further down is the page's one glowing object).
+ * Across the page from 1280px; below that the trail runs down the left,
+ * photo beside the words.
  */
 export default function Timeline() {
   return (
-    <Section
-      id="story-title"
-      tone="fog"
-      title={story.title}
-      action={
-        <PageLink href={story.more.href} className="link text-base">
-          {story.more.label}
-        </PageLink>
-      }
-    >
-      <InView as="ol" className="timeline relative grid gap-y-14 xl:grid-cols-4 xl:gap-x-10" margin="0px 0px -25% 0px">
+    <Section id="timeline-title" tone="deep" title={timeline.title}>
+      <InView as="ol" className="timeline relative grid gap-y-12 xl:grid-cols-4 xl:gap-x-8" margin="0px 0px -25% 0px">
         <span aria-hidden="true" className="timeline-line" />
-        {story.steps.map((step, i) => (
+        {timeline.steps.map((step, i) => (
           <li
-            key={step.label}
-            className="relative flex flex-col gap-3 pl-10 md:grid md:grid-cols-[minmax(0,12rem)_minmax(0,1fr)] md:gap-x-10 md:gap-y-2 xl:flex xl:pt-14 xl:pl-0"
+            key={step.title}
+            className="group relative flex flex-col gap-4 pl-10 md:grid md:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] md:content-start md:gap-x-8 md:gap-y-2 xl:flex xl:pt-10 xl:pl-0"
             style={{ "--i": i }}
           >
             <span aria-hidden="true" className="timeline-node" />
-            <span className="font-display text-[clamp(3.25rem,2rem+3.4vw,5.5rem)] leading-[0.9] tracking-[-0.045em] tabular md:row-span-3 xl:row-span-1">
-              {step.figure}
-            </span>
-            <span className="text-small text-slate md:col-start-2 xl:col-start-auto">{step.label}</span>
-            <h3 className="mt-1 font-display text-h3 md:col-start-2 xl:col-start-auto xl:text-[1.5rem]">{step.title}</h3>
-            <p className="max-w-[52ch] text-base text-slate md:col-start-2 xl:col-start-auto">{step.body}</p>
+            <p className="flex gap-2 text-small text-mist tabular md:col-start-2 xl:col-start-auto">
+              <span>{String(i + 1).padStart(2, "0")}</span>
+              <span aria-hidden="true">·</span>
+              <span>{step.label}</span>
+            </p>
+            {step.photo ? (
+              <div className="duo relative aspect-[4/3] overflow-hidden rounded-xl md:col-start-1 md:row-span-3 md:row-start-1">
+                <Image
+                  src={step.photo.src}
+                  alt={step.photo.alt}
+                  fill
+                  sizes="(min-width: 1280px) 22vw, (min-width: 768px) 15rem, 100vw"
+                  className="object-cover group-hover:scale-[1.04]"
+                  style={{ objectPosition: step.photo.position ?? "50% 50%" }}
+                />
+              </div>
+            ) : (
+              <div className="flex aspect-[4/3] items-center justify-center rounded-xl bg-paper px-[14%] ring-1 ring-ink/10 ring-inset md:col-start-1 md:row-span-3 md:row-start-1">
+                <Image
+                  src={step.mark.src}
+                  alt={conference.name}
+                  width={step.mark.width}
+                  height={step.mark.height}
+                  sizes="260px"
+                  className="h-auto w-full brightness-0 invert"
+                />
+              </div>
+            )}
+            <h3 className="font-display text-[1.5rem] leading-[1.15] tracking-[-0.02em] md:col-start-2 xl:col-start-auto">{step.title}</h3>
+            <p className="text-base text-slate md:col-start-2 xl:col-start-auto">{step.body}</p>
           </li>
         ))}
       </InView>

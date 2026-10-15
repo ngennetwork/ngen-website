@@ -2,15 +2,17 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { conference, home } from "@/content/site";
+import { home } from "@/content/site";
 import { programs, capitalNetwork } from "@/content/programs";
 import Section from "@/components/layout/Section";
 import PageLink from "@/components/ui/PageLink";
+import ProgramSummary from "@/components/ui/ProgramSummary";
+import ConferenceOnPhoto from "@/components/brand/ConferenceOnPhoto";
 
 const { programs: copy } = home;
 
 const ITEMS = [
-  ...programs.map((p) => ({ key: p.slug, name: p.name, summary: p.summary, href: `/programs/${p.slug}`, photo: p.photo })),
+  ...programs.map((p) => ({ key: p.slug, name: p.name, summary: p.summary, featured: p.featured, href: `/programs/${p.slug}`, photo: p.photo })),
   {
     key: "capital",
     name: capitalNetwork.name,
@@ -24,6 +26,8 @@ const ITEMS = [
  * The programs as an index. Left, the five names set large; right, one
  * photo with the chosen program's line under it, changing as you point at
  * (or focus) a name. The left list and the right figure share one height.
+ * Conferences presents its one conference: the Ivy League Entrepreneurship
+ * Conference's wordmark rises onto the photo and its name leads the line.
  * On small screens it's a plain list, each name with its line.
  */
 export default function ProgramIndex() {
@@ -59,18 +63,13 @@ export default function ProgramIndex() {
                         on ? "text-ink" : "lg:text-ink/40 lg:group-hover:text-ink"
                       }`}
                     >
-                      {item.name === conference.name ? (
-                        <>
-                          <span className="block">{conference.nameLines[0]}</span>
-                          <span className="block sm:whitespace-nowrap">{conference.nameLines.slice(1).join(" ")}</span>
-                        </>
-                      ) : (
-                        item.name
-                      )}
+                      {item.name}
                     </span>
                     <span aria-hidden="true" className={`node hidden transition-opacity duration-300 lg:inline-block ${on ? "opacity-100" : "opacity-0"}`} />
                   </span>
-                  <span className="text-base text-slate lg:hidden">{item.summary}</span>
+                  <span className="text-base text-slate lg:hidden">
+                    <ProgramSummary program={item} />
+                  </span>
                 </PageLink>
               </li>
             );
@@ -92,8 +91,12 @@ export default function ProgramIndex() {
                 style={{ objectPosition: item.photo.position ?? "50% 50%" }}
               />
             ))}
+            {/* The one conference, named on its own photo */}
+            <ConferenceOnPhoto show={Boolean(current.featured)} />
           </div>
-          <figcaption className="min-h-[3em] text-lead text-slate">{current.summary}</figcaption>
+          <figcaption className="min-h-[3em] text-lead text-slate">
+            <ProgramSummary program={current} />
+          </figcaption>
         </figure>
       </div>
     </Section>

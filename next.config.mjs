@@ -42,22 +42,32 @@ const nextConfig = {
         destination: "/partner",
         permanent: true,
       },
-      // The flagship was renamed: Trailblazers is now the Ivy League
-      // Entrepreneurship Conference.
+      // The flagship program is listed as Conferences (Trailblazers became
+      // the Ivy League Entrepreneurship Conference, which leads it).
       {
         source: "/programs/trailblazers",
-        destination: "/programs/ivy-league-entrepreneurship-conference",
+        destination: "/programs/conferences",
         permanent: true,
       },
-      // The research program is called Lab to Startup.
+      {
+        source: "/programs/ivy-league-entrepreneurship-conference",
+        destination: "/programs/conferences",
+        permanent: true,
+      },
+      // The research program is called Lab-2-Startup.
       {
         source: "/programs/research-conferences",
-        destination: "/programs/lab-to-startup",
+        destination: "/programs/lab-2-startup",
+        permanent: true,
+      },
+      {
+        source: "/programs/lab-to-startup",
+        destination: "/programs/lab-2-startup",
         permanent: true,
       },
       {
         source: "/events/research-conferences",
-        destination: "/programs/lab-to-startup",
+        destination: "/programs/lab-2-startup",
         permanent: true,
       },
       // The evergreen program pages moved from /events/[slug] to
@@ -72,14 +82,9 @@ const nextConfig = {
         destination: "/events",
         permanent: true,
       },
-      // Mission and story are one page now; the team section was removed.
+      // Mission and story are one page now; the team has its own (/about/team).
       {
         source: "/about/mission-story",
-        destination: "/about",
-        permanent: true,
-      },
-      {
-        source: "/about/team",
         destination: "/about",
         permanent: true,
       },

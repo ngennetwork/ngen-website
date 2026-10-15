@@ -12,6 +12,7 @@ const { closing } = home;
 export default function Closing() {
   return (
     <section aria-labelledby="closing-title" className="relative isolate overflow-hidden bg-ink-deep text-on-dark">
+      {/* TODO(photo): replace with a wide room shot; the same photo heads /events. */}
       <Image
         src="/about/events/A78A2298.JPG"
         alt=""

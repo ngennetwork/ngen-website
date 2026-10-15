@@ -8,11 +8,21 @@ import PageLink from "@/components/ui/PageLink";
 
 const { nav, labels } = site;
 
+// The phone menu lists each child under its parent, skipping a child that
+// only repeats its parent's page ("Our story" is About itself).
+const mobileLinks = nav.links.flatMap((link) => [
+  link,
+  ...(link.children ?? []).filter((c) => c.href !== link.href).map((c) => ({ ...c, child: true })),
+]);
+
 /**
  * At the top of the page: the full NGEN logo on the left, the links in a
  * frosted tray (readable over stone or the navy panel), and the one action.
  * Once you scroll, the whole bar lifts into a floating frosted pill and the
  * logo folds down to the mountain alone. Its edges set every page's edges.
+ * A link with children (About: its story and the team) opens a small
+ * frosted list under it when pointed at or focused; on phones the children
+ * sit indented under their parent.
  */
 export default function SiteNav() {
   const [open, setOpen] = useState(false);
@@ -74,16 +84,16 @@ export default function SiteNav() {
         className="mobile-menu grain fixed inset-0 flex flex-col justify-between overflow-y-auto bg-ink-deep px-5 pt-28 pb-10 text-on-dark nav:hidden"
       >
         <ul className="flex flex-col gap-1">
-          {nav.links.map((link, i) => (
-            <li key={link.href} className="overflow-hidden">
+          {mobileLinks.map((link, i) => (
+            <li key={`${link.href}-${link.label}`} className={`overflow-hidden ${link.child ? "pl-6" : ""}`}>
               <span style={{ "--i": i }}>
                 <PageLink
                   ref={i === 0 ? firstLinkRef : undefined}
                   href={link.href}
                   tabIndex={open ? undefined : -1}
                   onClick={() => setOpen(false)}
-                  aria-current={isActive(link) ? "page" : undefined}
-                  className="font-display text-h1 leading-[1.2] aria-[current=page]:text-mist"
+                  aria-current={(link.child ? pathname === link.href : isActive(link)) ? "page" : undefined}
+                  className={`font-display leading-[1.2] aria-[current=page]:text-mist ${link.child ? "text-h3" : "text-h1"}`}
                 >
                   {link.label}
                 </PageLink>
@@ -131,14 +141,36 @@ export default function SiteNav() {
               }`}
             >
               {nav.links.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className={link.children ? "group/sub relative" : undefined}>
                   <PageLink
                     href={link.href}
                     aria-current={isActive(link) ? "page" : undefined}
-                    className="block rounded-lg px-3.5 py-2 text-small text-ink/75 transition-colors hover:bg-ink/6 hover:text-ink aria-[current=page]:bg-ink/8 aria-[current=page]:text-ink"
+                    className="flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-small text-ink/75 transition-colors hover:bg-ink/6 hover:text-ink aria-[current=page]:bg-ink/8 aria-[current=page]:text-ink"
                   >
                     {link.label}
+                    {link.children && (
+                      <svg aria-hidden="true" width="8" height="8" viewBox="0 0 10 10" fill="none" className="opacity-60 transition-transform duration-300 group-hover/sub:rotate-180 group-focus-within/sub:rotate-180">
+                        <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.4" />
+                      </svg>
+                    )}
                   </PageLink>
+                  {link.children && (
+                    <div className="invisible absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 transition-[opacity,visibility] duration-200 group-focus-within/sub:visible group-focus-within/sub:opacity-100 group-hover/sub:visible group-hover/sub:opacity-100">
+                      <ul className="min-w-40 rounded-xl bg-paper/95 p-1 shadow-[0_10px_30px_-14px_rgb(0_0_0/0.5)] ring-1 ring-ink/6 backdrop-blur-xl backdrop-saturate-150">
+                        {link.children.map((child) => (
+                          <li key={child.href}>
+                            <PageLink
+                              href={child.href}
+                              aria-current={pathname === child.href ? "page" : undefined}
+                              className="block rounded-lg px-3.5 py-2 text-small whitespace-nowrap text-ink/75 transition-colors hover:bg-ink/6 hover:text-ink aria-[current=page]:text-ink"
+                            >
+                              {child.label}
+                            </PageLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

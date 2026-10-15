@@ -36,6 +36,7 @@ export default function PartnerPage() {
         }
         aside={
           <Photo
+            // TODO(photo): replace with a sponsor-facing photo; this first-conference panel is also on the home timeline.
             src="/about/events/Copy of DSC06488.jpg"
             alt="A fireside chat on stage at an NGEN event, with a student moderator and an executive"
             caption={copy.caption}

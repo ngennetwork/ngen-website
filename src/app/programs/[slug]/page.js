@@ -6,9 +6,10 @@ import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import Photo from "@/components/layout/Photo";
 import PageLink from "@/components/ui/PageLink";
-import ProgramName from "@/components/ui/ProgramName";
+import ProgramSummary from "@/components/ui/ProgramSummary";
 import SpeakerGrid from "@/components/sections/SpeakerGrid";
 import ConferenceFilm from "@/components/sections/ConferenceFilm";
+import ConferenceOnPhoto from "@/components/brand/ConferenceOnPhoto";
 
 const copy = pages.program;
 
@@ -27,7 +28,8 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const program = getProgramBySlug(slug);
   if (!program) return { title: "Program not found" };
-  return { title: program.name, description: program.summary };
+  const description = program.featured ? `${program.featured}. ${program.summary}` : program.summary;
+  return { title: program.name, description };
 }
 
 const isExternal = (href) => href.startsWith("http");
@@ -38,14 +40,14 @@ export default async function ProgramPage({ params }) {
   if (!program) notFound();
 
   const others = programs.filter((p) => p.slug !== program.slug);
-  const isFlagship = program.slug === "ivy-league-entrepreneurship-conference";
+  const isFlagship = program.slug === "conferences";
 
   return (
     <>
       <PageHero
         id="program-title"
-        title={<ProgramName name={program.name} />}
-        intro={program.summary}
+        title={program.name}
+        intro={<ProgramSummary program={program} />}
         action={
           <div className="flex flex-wrap items-center gap-3">
             <a
@@ -60,7 +62,11 @@ export default async function ProgramPage({ params }) {
             </PageLink>
           </div>
         }
-        aside={<Photo src={program.photo.src} alt={program.photo.alt} position={program.photo.position} priority />}
+        aside={
+          <Photo src={program.photo.src} alt={program.photo.alt} position={program.photo.position} priority>
+            {program.featured && <ConferenceOnPhoto />}
+          </Photo>
+        }
       />
 
       <PageSection id="about-program" title="The program" tone="band">
@@ -108,9 +114,11 @@ export default async function ProgramPage({ params }) {
                 className="group grid gap-2 rounded-lg py-5 transition-colors sm:grid-cols-2 sm:gap-8"
               >
                 <span className="font-display text-h3 underline decoration-transparent decoration-1 underline-offset-[0.18em] transition-colors group-hover:decoration-current">
-                  <ProgramName name={p.name} />
+                  {p.name}
                 </span>
-                <span className="text-base text-slate sm:pt-1.5">{p.summary}</span>
+                <span className="text-base text-slate sm:pt-1.5">
+                  <ProgramSummary program={p} />
+                </span>
               </PageLink>
             </li>
           ))}

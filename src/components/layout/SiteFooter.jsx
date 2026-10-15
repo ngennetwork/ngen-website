@@ -5,6 +5,9 @@ import ExternalLink from "@/components/ui/ExternalLink";
 
 const { footer, nav } = site;
 
+// Every page in the nav, About's children included (minus the one that is About itself).
+const pageLinks = nav.links.flatMap((link) => [link, ...(link.children ?? []).filter((c) => c.href !== link.href)]);
+
 /**
  * Brand, mission and the one action on the left; three labelled columns of
  * links, spaced so each one is easy to hit; the legal line, copyright
@@ -30,7 +33,7 @@ export default function SiteFooter() {
           </div>
 
           <FooterColumn title={footer.columns.pages} className="lg:col-span-2 lg:col-start-6">
-            {nav.links.map((link) => (
+            {pageLinks.map((link) => (
               <PageLink key={link.href} href={link.href} className="footer-link">
                 {link.label}
               </PageLink>

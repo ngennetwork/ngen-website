@@ -10,6 +10,7 @@ import Image from "next/image";
  * under 11-14rem), so photo and text end level.
  * `priority` is for a header photo: it loads eagerly at high fetch priority
  * (Next 16 deprecated the Image `priority` prop for this).
+ * children sit on the photo itself (the conference's wordmark).
  */
 export default function Photo({
   src,
@@ -20,6 +21,7 @@ export default function Photo({
   ratio = "fill",
   sizes = "(min-width: 1024px) 40vw, 100vw",
   className = "",
+  children,
 }) {
   const frame = ratio === "fill" ? "aspect-[4/3] lg:aspect-auto lg:min-h-[11rem] lg:flex-1 xl:min-h-[14rem]" : ratio;
   return (
@@ -34,6 +36,7 @@ export default function Photo({
           className="object-cover"
           style={{ objectPosition: position }}
         />
+        {children}
       </div>
       {caption && <figcaption className="text-small text-slate">{caption}</figcaption>}
     </figure>

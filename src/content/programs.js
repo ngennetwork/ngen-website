@@ -4,8 +4,12 @@ import { conference } from "./site";
  * Programs: the single source of truth.
  * ======================================================================
  * Four programs, plus the Capital Network for founders who are actively
- * raising. The flagship is the Ivy League Entrepreneurship Conference
- * (formerly Trailblazers; the old /programs/trailblazers URL redirects).
+ * raising. Listings call them by the program, not the event: "Conferences"
+ * and "Lab-2-Startup", always with dashes. The Ivy League Entrepreneurship
+ * Conference is the one conference: wherever Conferences is listed, it's
+ * named (`featured`), and no other conference appears. Old slugs (/programs/trailblazers,
+ * /programs/ivy-league-entrepreneurship-conference, /programs/lab-to-startup)
+ * redirect in next.config.mjs.
  * Every page that names a program (home's index, /programs,
  * /programs/[slug], /events) reads it from here.
  *
@@ -24,18 +28,25 @@ import { conference } from "./site";
  *   apply       { label, href }: the real application portal (the
  *               conference is invite-only, so its action is an invite request)
  *   photo       { src, alt, position? }: a real NGEN photo
+ *   featured    the one event a program presents (Conferences: the Ivy
+ *               League Entrepreneurship Conference), named before its summary
+ *
+ * TODO(photo): new photos are coming; each record notes whether its photo
+ * should be replaced.
  */
 
 export const programs = [
   {
-    slug: "ivy-league-entrepreneurship-conference",
-    name: "Ivy League Entrepreneurship Conference",
-    shortName: "The conference",
+    slug: "conferences",
+    name: "Conferences",
+    shortName: "Conferences",
+    featured: conference.name,
     summary: conference.motto,
     description:
-      "NGEN’s flagship: an invite-only conference where world-class student entrepreneurs meet today’s most influential leaders face to face. What began as an intimate New York gathering returns on a larger stage in New\u00a0York\u00a0City on April\u00a017,\u00a02027.",
+      "The Ivy League Entrepreneurship Conference is NGEN’s conference: invite-only, where world-class student entrepreneurs meet today’s most influential leaders face to face. What began as an intimate New York gathering returns on a larger stage in New\u00a0York\u00a0City on April\u00a017,\u00a02027.",
     audience: "Student entrepreneurs, by invitation",
     apply: { label: "Request an invite", href: `${conference.url}/invite` },
+    // TODO(photo): keep until a photo from the 2027 conference exists.
     photo: {
       src: "/about/events/conferences.jpg",
       alt: "A panel on stage at NGEN’s conference in New York",
@@ -43,15 +54,17 @@ export const programs = [
     },
   },
   {
-    slug: "lab-to-startup",
-    name: "Lab to Startup",
-    shortName: "Lab to Startup",
+    slug: "lab-2-startup",
+    name: "Lab-2-Startup",
+    shortName: "Lab-2-Startup",
     summary:
       "Explore how to commercialize research, including IP and tech transfer, across a new field each time.",
     description:
-      "Lab to Startup brings together student founders working on deep tech, biotech and other research-heavy ventures: the ideas that take longer to build but change more when they land. Sessions pair scientific rigor with startup speed, with translational-research panels and direct access to investors who fund science-first companies.",
+      "Lab-2-Startup brings together student founders working on deep tech, biotech and other research-heavy ventures: the ideas that take longer to build but change more when they land. Sessions pair scientific rigor with startup speed, with translational-research panels and direct access to investors who fund science-first\u00a0companies.",
     audience: "Student founders in deep tech, biotech or applied research",
     apply: { label: "Apply to attend", href: "https://space.ngennetwork.org" },
+    // TODO(photo): replace. This is the pitch competitions photo; use one
+    // from a Lab-2-Startup event.
     photo: {
       src: "/about/events/pitch-competitions.jpg",
       alt: "A speaker presenting to students at an NGEN event",
@@ -84,6 +97,8 @@ export const programs = [
       "Pitch Competitions give student founders a real stage and a real check on the line: up to $150K from Honors Fund. Teams get direct feedback from the investors judging the room, so even the founders who don't win leave with sharper answers to the questions that matter most.",
     audience: "Student founders",
     apply: { label: "Apply to pitch", href: "https://pitch.ngennetwork.org" },
+    // TODO(photo): replace. This is the first conference's audience (also on
+    // About and home); use one from a pitch competition, e.g. pitch-competitions.jpg.
     photo: {
       src: "/about/events/Copy of DSC06515.jpg",
       alt: "A student founder speaking into a microphone in the audience",
