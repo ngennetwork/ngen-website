@@ -8,8 +8,7 @@
  * student ventures, named speaker companies and stock-style photo
  * captions; they were removed rather than shown as fact.
  *
- * The per-student fee and the booking URL live in this object. The booking
- * URL is a placeholder until the team pastes a live Calendly or Cal.com link.
+ * The per-student fee and the booking URL live in this object.
  */
 
 export const challenge = {
@@ -279,18 +278,13 @@ export const challenge = {
     ],
   },
 
-  /**
-   * PLACEHOLDER. Swap url for the live Calendly or Cal.com event before
-   * launch. Leave embed false until that URL is real, or the page will
-   * show a scheduler that 404s.
-   */
   booking: {
     title: "Fifteen minutes with the NGEN team.",
     intro:
       "A short call for a counselor, a club advisor, or a student deciding whether the January cohort fits. We’ll cover how the six months sit in the school calendar, what registration costs, and what the New\u00a0York week requires.",
     cta: "Book a 15-minute intro",
-    url: "https://calendly.com/ngennetwork/startup-challenge-intro",
-    embed: false,
+    url: "https://calendly.com/ngennetwork-info/start-up-challenge-intro-call",
+    embed: true,
     iframeTitle: "Book a 15-minute intro with the NGEN team",
     or: "or write to",
     apply: "Student application",

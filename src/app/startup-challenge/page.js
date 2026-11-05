@@ -270,24 +270,28 @@ export default function StartupChallengePage() {
       </section>
 
       <section id="book" aria-labelledby="book-title" className="bg-fog">
-        <div className={`${SECTION} grid gap-x-8 gap-y-10 lg:grid-cols-12 lg:items-start`}>
-          <div className="flex flex-col gap-5 lg:col-span-6">
-            <h2 id="book-title" className="max-w-[16ch] font-display text-h2">
-              {booking.title}
-            </h2>
-            <p className="text-lead text-slate">{booking.intro}</p>
+        <div className={SECTION}>
+          <div className="grid gap-x-8 gap-y-10 lg:grid-cols-12 lg:items-end">
+            <div className="flex flex-col gap-5 lg:col-span-7">
+              <h2 id="book-title" className="max-w-[16ch] font-display text-h2">
+                {booking.title}
+              </h2>
+              <p className="text-lead text-slate">{booking.intro}</p>
+            </div>
+            <div className="flex flex-col items-start gap-3 lg:col-span-4 lg:col-start-9 lg:items-end">
+              <p className="text-small text-slate">
+                {booking.or}{" "}
+                <a href={mailto} className="link text-ink">
+                  {site.email}
+                </a>
+              </p>
+              <PageLink href={challenge.applyPath} className="link text-base">
+                {booking.apply}
+              </PageLink>
+            </div>
           </div>
-          <div className="flex flex-col items-start gap-4 lg:col-span-5 lg:col-start-8">
+          <div className="mt-10">
             <BookingCall booking={booking} />
-            <p className="text-small text-slate">
-              {booking.or}{" "}
-              <a href={mailto} className="link text-ink">
-                {site.email}
-              </a>
-            </p>
-            <PageLink href={challenge.applyPath} className="link text-base">
-              {booking.apply}
-            </PageLink>
           </div>
         </div>
       </section>
