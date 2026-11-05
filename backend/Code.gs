@@ -5,6 +5,10 @@
  *   - Newsletter signup (site-wide footer + homepage)      -> formType: "newsletter"
  *   - Contact / apply form                                 -> formType: "contact"
  *   - Investor deal-flow request (/capital-network/investors) -> formType: "investor-request"
+ *   - Start-Up Challenge application (/startup-challenge/apply)
+ *                                                          -> formType: "startup-challenge"
+ *     Saves a sheet row, files the resume in Drive, and emails
+ *     info@ngennetwork.org with the resume attached.
  *
  * All are posted as JSON (see src/lib/submitToAppsScript.js on the
  * Next.js side). Every submission is appended as a row to a tab in the
@@ -40,6 +44,9 @@ function doPost(e) {
     }
     if (data.formType === "investor-request") {
       return handleInvestorRequest(data);
+    }
+    if (data.formType === "startup-challenge") {
+      return handleStartupChallenge(data);
     }
     return jsonResponse({ ok: false, error: "Unknown form type." });
   } catch (err) {
@@ -137,14 +144,112 @@ function handleInvestorRequest(data) {
   return jsonResponse({ ok: true });
 }
 
-function saveResume(base64, fileName) {
-  const folder = DriveApp.getFolderById(DRIVE_FOLDER_ID);
-  const ext = (fileName.split(".").pop() || "").toLowerCase();
-  const mimeType = RESUME_MIME_TYPES[ext] || MimeType.PLAIN_TEXT;
+var CHALLENGE_INBOX = "info@ngennetwork.org";
 
-  const bytes = Utilities.base64Decode(base64);
-  const blob = Utilities.newBlob(bytes, mimeType, fileName);
-  const file = folder.createFile(blob);
+function handleStartupChallenge(data) {
+  var name = (data.name || "").trim();
+  var email = (data.email || "").trim();
+  var grade = (data.grade || "").trim();
+  var school = (data.school || "").trim();
+  var motivation = (data.motivation || "").trim();
+  var applyingAs = (data.applyingAs || "").trim();
+  var guardian = (data.guardian || "").trim();
+
+  if (!name || !email || !grade || !school || !motivation || !applyingAs || guardian !== "yes") {
+    return jsonResponse({ ok: false, error: "Please fill in all required fields." });
+  }
+  if (applyingAs === "team" && !(data.cofounderName || "").trim()) {
+    return jsonResponse({ ok: false, error: "Co-founder name is required." });
+  }
+  if (!data.resumeBase64 || !data.resumeFileName) {
+    return jsonResponse({ ok: false, error: "A resume file is required." });
+  }
+
+  var resumeLink = "";
+  try {
+    resumeLink = saveResume(data.resumeBase64, data.resumeFileName);
+  } catch (err) {
+    resumeLink = "Upload failed: " + err.message;
+  }
+
+  var emailStatus = "pending";
+  try {
+    MailApp.sendEmail({
+      to: CHALLENGE_INBOX,
+      replyTo: email,
+      subject: "Start-Up Challenge application: " + name + " (" + school + ")",
+      body: [
+        "A student applied for the NGEN Start-Up Challenge.",
+        "",
+        "Name: " + name,
+        "Email: " + email,
+        "Grade: " + grade,
+        "Date of birth: " + (data.dob || ""),
+        "School: " + school,
+        "Phone: " + (data.phone || ""),
+        "Applying as: " + applyingAs,
+        "Co-founder: " + (data.cofounderName || ""),
+        "Co-founder email: " + (data.cofounderEmail || ""),
+        "Co-founder school: " + (data.cofounderSchool || ""),
+        "Guardian confirmed: " + guardian,
+        "Resume: " + resumeLink,
+        "",
+        motivation,
+      ].join("\n"),
+      attachments: [resumeBlob(data.resumeBase64, data.resumeFileName)],
+    });
+    emailStatus = "sent";
+  } catch (err) {
+    emailStatus = "Email failed: " + err.message;
+  }
+
+  var sheet = getOrCreateSheet("Start-Up Challenge", [
+    "Timestamp",
+    "Name",
+    "Email",
+    "Grade",
+    "Date of birth",
+    "School",
+    "Phone",
+    "Motivation",
+    "Applying as",
+    "Co-founder name",
+    "Co-founder email",
+    "Co-founder school",
+    "Guardian",
+    "Resume",
+    "Email status",
+  ]);
+  sheet.appendRow([
+    new Date(),
+    name,
+    email,
+    grade,
+    data.dob || "",
+    school,
+    data.phone || "",
+    motivation,
+    applyingAs,
+    data.cofounderName || "",
+    data.cofounderEmail || "",
+    data.cofounderSchool || "",
+    guardian,
+    resumeLink,
+    emailStatus,
+  ]);
+  return jsonResponse({ ok: true });
+}
+
+function resumeBlob(base64, fileName) {
+  var ext = (fileName.split(".").pop() || "").toLowerCase();
+  var mimeType = RESUME_MIME_TYPES[ext] || MimeType.PLAIN_TEXT;
+  var bytes = Utilities.base64Decode(base64);
+  return Utilities.newBlob(bytes, mimeType, fileName);
+}
+
+function saveResume(base64, fileName) {
+  var folder = DriveApp.getFolderById(DRIVE_FOLDER_ID);
+  var file = folder.createFile(resumeBlob(base64, fileName));
 
   // Anyone with the link can view it — lets whoever reads the sheet
   // open the resume without needing Drive access to the folder itself.
@@ -185,5 +290,17 @@ function test_verifySetup() {
     resumeBase64: Utilities.base64Encode("This is a test file."),
     resumeFileName: "setup-test.pdf",
   });
-  Logger.log("Done — check the Sheet tabs and the Drive folder for the test rows/file.");
+  // Also sends one email to info@ngennetwork.org, to authorize MailApp.
+  handleStartupChallenge({
+    name: "Setup Test",
+    email: "setup-test@example.com",
+    grade: "11",
+    school: "Setup High School",
+    motivation: "This is a test row from test_verifySetup(). Safe to delete.",
+    applyingAs: "solo",
+    guardian: "yes",
+    resumeBase64: Utilities.base64Encode("This is a test file."),
+    resumeFileName: "setup-test.pdf",
+  });
+  Logger.log("Done — check the Sheet tabs, the Drive folder, and info@ for the test application email.");
 }

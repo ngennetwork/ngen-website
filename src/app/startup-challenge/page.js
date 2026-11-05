@@ -3,6 +3,9 @@ import { site } from "@/content/site";
 import { universities } from "@/data/universities";
 import { challenge } from "@/components/challenge/content";
 import Itinerary from "@/components/challenge/Itinerary";
+import BookingCall from "@/components/challenge/BookingCall";
+import Pricing from "@/components/challenge/Pricing";
+import { formatMoney } from "@/components/challenge/money";
 import PageHero from "@/components/layout/PageHero";
 import Photo from "@/components/layout/Photo";
 import UniversityLogo from "@/components/brand/UniversityLogo";
@@ -11,10 +14,10 @@ import PageLink from "@/components/ui/PageLink";
 export const metadata = {
   title: "6-Month Start-Up Challenge",
   description:
-    "A 6-month start-up challenge for high schoolers to build real world business skills. Five monthly milestones, Ivy League mentorship, an NYC capstone week, and an optional virtual summer internship add-on.",
+    "A 6-month start-up challenge for high schoolers to build real world business skills. Five monthly milestones, Ivy League mentorship, an NYC capstone week, per-student registration, and a 15-minute intro with the NGEN team.",
 };
 
-const { hero, school, months, mentors, capstone, ngen, recognition, close } = challenge;
+const { hero, school, months, mentors, capstone, ngen, recognition, booking, close } = challenge;
 
 const mailto = `mailto:${site.email}?subject=${encodeURIComponent(challenge.emailSubject)}`;
 
@@ -30,10 +33,9 @@ const { raised, reach, universities: schoolsFigure, events } = site.figures;
  * /startup-challenge: NGEN's pitch to high schools for the six-month
  * Start-Up Challenge. Reachable by direct link; kept out of the sitemap.
  *
- * Top to bottom: what it is, how it fits a school, the six months as a
- * term planner, the mentors, the June capstone (the page's one navy
- * moment, with its itinerary as the signature object), who runs it,
- * recognition, and one way to start: an email.
+ * Top to bottom: what it is, how it fits a school, the six months, the
+ * mentors, the June capstone (the page's one navy moment), registration,
+ * who runs it, recognition, a 15-minute intro, and a way to write or apply.
  */
 export default function StartupChallengePage() {
   return (
@@ -43,9 +45,21 @@ export default function StartupChallengePage() {
         title={hero.title}
         intro={hero.intro}
         action={
-          <a href={mailto} className="btn btn-ink">
-            {hero.cta}
-          </a>
+          <div className="flex flex-col items-start gap-4">
+            <div className="flex flex-wrap gap-3">
+              <a href="#book" className="btn btn-ink">
+                {hero.cta}
+              </a>
+              <PageLink href={challenge.applyPath} className="btn btn-ghost">
+                {hero.applyCta}
+              </PageLink>
+            </div>
+            <p className="max-w-[46ch] text-small text-slate">
+              <a href="#pricing" className="link text-ink">
+                {hero.priceLead} {formatMoney(challenge.pricing.total)} {hero.priceMid}
+              </a>
+            </p>
+          </div>
         }
         aside={
           <Photo
@@ -77,6 +91,18 @@ export default function StartupChallengePage() {
               ))}
             </dl>
           </div>
+
+          <div className="mt-16 border-t border-ink/10 pt-12">
+            <h3 className="font-display text-h3">{school.modesTitle}</h3>
+            <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {school.modes.map((mode) => (
+                <li key={mode.name} className="flex flex-col gap-2">
+                  <h4 className="font-display text-[1.35rem] leading-tight tracking-[-0.03em]">{mode.name}</h4>
+                  <p className="text-base text-slate">{mode.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -89,6 +115,18 @@ export default function StartupChallengePage() {
             </h2>
             <p className="text-lead text-slate">{months.intro}</p>
           </div>
+          <p className="mb-6 flex items-center gap-2.5 text-small text-slate">
+            <span aria-hidden="true" className="node" />
+            {months.skillsTitle}
+          </p>
+          <ul className="mb-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {months.skills.map((skill) => (
+              <li key={skill.name} className="flex flex-col gap-2">
+                <h3 className="font-display text-h3">{skill.name}</h3>
+                <p className="text-base text-slate">{skill.body}</p>
+              </li>
+            ))}
+          </ul>
           <ol className="flex flex-col">
             {months.steps.map((step) => (
               <li
@@ -105,6 +143,7 @@ export default function StartupChallengePage() {
               </li>
             ))}
           </ol>
+          <p className="mt-8 max-w-[44rem] text-base text-slate">{months.record}</p>
         </div>
       </section>
 
@@ -168,6 +207,8 @@ export default function StartupChallengePage() {
         </div>
       </section>
 
+      <Pricing />
+
       {/* Who runs it: NGEN's figures, one leading and the rest smaller */}
       <section aria-labelledby="ngen-title" className="bg-fog">
         <div className={SECTION}>
@@ -228,8 +269,34 @@ export default function StartupChallengePage() {
         </div>
       </section>
 
-      {/* One way to start: an email */}
-      <section aria-labelledby="close-title" className="bg-fog">
+      <section id="book" aria-labelledby="book-title" className="bg-fog">
+        <div className={SECTION}>
+          <div className="grid gap-x-8 gap-y-10 lg:grid-cols-12 lg:items-end">
+            <div className="flex flex-col gap-5 lg:col-span-7">
+              <h2 id="book-title" className="max-w-[16ch] font-display text-h2">
+                {booking.title}
+              </h2>
+              <p className="text-lead text-slate">{booking.intro}</p>
+            </div>
+            <div className="flex flex-col items-start gap-3 lg:col-span-4 lg:col-start-9 lg:items-end">
+              <p className="text-small text-slate">
+                {booking.or}{" "}
+                <a href={mailto} className="link text-ink">
+                  {site.email}
+                </a>
+              </p>
+              <PageLink href={challenge.applyPath} className="link text-base">
+                {booking.apply}
+              </PageLink>
+            </div>
+          </div>
+          <div className="mt-10">
+            <BookingCall booking={booking} />
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="close-title" className="bg-snow">
         <div className={`${SECTION} grid gap-x-8 gap-y-10 lg:grid-cols-12 lg:items-end`}>
           <div className="flex flex-col gap-5 lg:col-span-7">
             <h2 id="close-title" className="max-w-[18ch] font-display text-h2">
@@ -238,9 +305,14 @@ export default function StartupChallengePage() {
             <p className="text-lead text-slate">{close.body}</p>
           </div>
           <div className="flex flex-col items-start gap-3 lg:col-span-4 lg:col-start-9 lg:items-end">
-            <a href={mailto} className="btn btn-ink">
-              {close.cta}
-            </a>
+            <div className="flex flex-wrap gap-3 lg:justify-end">
+              <a href="#book" className="btn btn-ink">
+                {close.cta}
+              </a>
+              <PageLink href={challenge.applyPath} className="btn btn-ghost">
+                {close.apply}
+              </PageLink>
+            </div>
             <p className="text-small text-slate">
               {close.or}{" "}
               <a href={mailto} className="link text-ink">
