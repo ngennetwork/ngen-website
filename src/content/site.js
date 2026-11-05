@@ -35,6 +35,14 @@ export const site = {
     "NGEN brings together the brightest student innovators and founders across universities and gives them new connections and opportunities. It’s the center of gravity for student innovation.",
   email: "info@ngennetwork.org",
   ein: "93-2106846",
+  // Mailing address. Footer, contact, the phone menu, and JSON-LD read this.
+  address: {
+    street: "169 Madison Ave STE 30444",
+    city: "New York",
+    region: "NY",
+    postalCode: "10016",
+    country: "US",
+  },
 
   links: {
     luma: "https://luma.com/ngen",
