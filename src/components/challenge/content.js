@@ -7,17 +7,26 @@
  * are not repeated here. Earlier drafts carried sample mentors, sample
  * student ventures, named speaker companies and stock-style photo
  * captions; they were removed rather than shown as fact.
+ *
+ * Pricing, prize splits, and registration deadlines below are a starting
+ * draft for the January cohort (the challenge still runs January–June).
+ * The booking URL is a placeholder until the team pastes a live Calendly
+ * or Cal.com link. Edit those here; the pages read this object only.
  */
 
 export const challenge = {
   name: "NGEN Start-Up Challenge",
   emailSubject: "NGEN Start-Up Challenge",
+  applyPath: "/startup-challenge/apply",
 
   hero: {
     title: "Your students build a real company in six\u00a0months.",
     intro:
       "The NGEN Start-Up Challenge takes a high school team from an idea in January to a pitch in New\u00a0York City in June, with an Ivy League student founder as its mentor the whole way.",
-    cta: "Bring it to your school",
+    cta: "Book a 15-minute intro",
+    applyCta: "Apply",
+    priceLead: "Super early-bird registration is",
+    priceMid: "per student and closes",
     photo: {
       src: "/about/events/workshops.jpg",
       alt: "Student founders talking in a small group around a low table at an NGEN workshop",
@@ -48,22 +57,60 @@ export const challenge = {
         body: "Students finish with a shipped venture, a pitch deck and a mentor who knows their work, which is what selective universities look for.",
       },
     ],
+    modesTitle: "Ways a school can run it",
+    modes: [
+      {
+        name: "A class",
+        body: "One milestone a month can be the graded work for a subject you already teach.",
+      },
+      {
+        name: "A club",
+        body: "An after-school club, with the mentor call as the meeting that stays on the calendar.",
+      },
+      {
+        name: "Independent study",
+        body: "A student or a small team, with a teacher supervising rather than building the course.",
+      },
+      {
+        name: "Internship credit",
+        body: "Where a school accepts a venture in place of an internship, the six months can stand as that credit.",
+      },
+    ],
   },
 
   months: {
     title: "From an idea in January to a pitch in June.",
     intro:
       "Every milestone ends with something real, and a working operator joins each one live to show how the work is done and take the cohort’s questions.",
+    skillsTitle: "Business, finance, marketing, and AI",
+    skills: [
+      {
+        name: "Business",
+        body: "Choose a customer, a problem, and a reason the venture should exist.",
+      },
+      {
+        name: "Finance",
+        body: "Price the offer, record the first dollars, and put real numbers in the pitch.",
+      },
+      {
+        name: "Marketing",
+        body: "Pick one channel, run a campaign, and read what came back.",
+      },
+      {
+        name: "AI",
+        body: "Use it to research and draft faster, then check every claim before it leaves the team.",
+      },
+    ],
     steps: [
       {
         when: "January",
         title: "Ideation",
-        body: "Teams find a problem worth solving, interview real users, and narrow a long list of ideas to one they can defend.",
+        body: "Teams find a problem worth solving, interview real users, and narrow a long list of ideas to one they can defend. The month is the work of choosing a customer.",
       },
       {
         when: "February",
         title: "Product and brand",
-        body: "A first working version, whether a prototype, an app or a service, with the name, logo and identity that explain why it exists.",
+        body: "A first working version, whether a prototype, an app or a service, with the name, logo and identity that explain why it exists. Teams also write down what it costs to deliver once.",
       },
       {
         when: "March",
@@ -73,12 +120,12 @@ export const challenge = {
       {
         when: "April",
         title: "Sales",
-        body: "First customers, first revenue, and the hard conversations that come with asking someone to pay.",
+        body: "First customers, first revenue, and the hard conversations that come with asking someone to pay. What was charged, and what it cost, goes in a simple record.",
       },
       {
         when: "May",
         title: "Pitch to investors",
-        body: "Five months of work become a deck, a set of numbers and a five-minute pitch the team can deliver cold.",
+        body: "Five months of work become a deck, a set of numbers and a five-minute pitch the team can deliver cold. AI can speed the research and the draft; the team is responsible for every claim.",
       },
       {
         when: "June",
@@ -93,6 +140,8 @@ export const challenge = {
         body: "Students can keep working with the same mentor, alongside the NGEN team on real projects, fully online and around their summer.",
       },
     ],
+    record:
+      "Teachers get a short progress note each month, in the same dashboard. Students who finish the six months receive a certificate of participation naming the venture and the mentor.",
   },
 
   mentors: {
@@ -138,23 +187,104 @@ export const challenge = {
       days: [
         {
           title: "Founder Trek",
-          body: "Back-to-back visits to venture capital offices beside Ivy League student founders who are raising, meeting investors in their own conference rooms.",
+          body: "Back-to-back visits to venture capital offices beside Ivy League student founders who are raising. Students meet investors in their own conference rooms and hear what a first meeting actually sounds like.",
         },
         {
           title: "Startup Trek",
-          body: "New\u00a0York startup offices, and time with the operators who run them, to see how a product team works day to day.",
+          body: "New\u00a0York startup offices, and time with the people who run product, marketing and the numbers, to see how a small team spends a day.",
         },
         {
           title: "Idea Studio",
-          body: "A live workshop where mentors pressure-test every team’s product and pitch before the final day.",
+          body: "A live workshop where mentors pressure-test every team’s product, numbers and pitch, and the five minutes get rewritten in the room before anyone takes the stage.",
         },
         {
           title: "Pitch Competition",
-          body: "Each team pitches on stage to investors and student founders, and the winning teams are\u00a0announced.",
+          body: "Each team pitches on stage to investors and student founders. The winning teams are announced, including the cash prizes for the top of the cohort.",
         },
       ],
       note: "Travel and accommodation are budgeted separately.",
     },
+  },
+
+  /**
+   * DRAFT. Per-student registration for a school cohort. Dollar amounts
+   * follow a three-tier early-bird schedule; deadlines are set for NGEN’s
+   * January start (November 8 is the super early-bird close). Installment
+   * totals equal the tier price. Confirm with the team before launch.
+   */
+  pricing: {
+    title: "Registration, per student.",
+    intro:
+      "The challenge is built for a school cohort of twelve or more. These prices are what each student pays, so a school can budget the cohort and a student can register on their own.",
+    per: "per student",
+    through: "Through",
+    plans: [
+      {
+        id: "super-early",
+        name: "Super Early Bird",
+        price: 89,
+        deadline: "November\u00a08, 2026",
+        emphasis: true,
+      },
+      {
+        id: "early",
+        name: "Early Bird",
+        price: 109,
+        deadline: "December\u00a015, 2026",
+      },
+      {
+        id: "regular",
+        name: "Regular",
+        price: 129,
+        deadline: "January\u00a05, 2027",
+      },
+    ],
+    schedules: [
+      { parts: 1, label: "In full" },
+      { parts: 2, label: "Two payments" },
+      { parts: 3, label: "Three payments" },
+    ],
+    scheduleNote:
+      "The total does not change. Pay in full, or split that same total into two payments (the second 30\u00a0days later) or three (30\u00a0days apart). Any remainder sits on the last payment.",
+    includedTitle: "Included",
+    excludedTitle: "Not included",
+    included: [
+      "Six milestones, from ideation in January through the pitch in May.",
+      "An Ivy League student founder as the team’s mentor, on a recurring call for all six months.",
+      "A live workshop with an operator at each milestone.",
+      "Practice in business, finance, marketing, and using AI with the claims checked.",
+      "Auto-graded coursework and a teacher dashboard.",
+      "A monthly progress note, and a certificate of participation for students who finish.",
+      "For the school’s top students, the four-day New\u00a0York capstone and a pitch on stage.",
+    ],
+    excluded: [
+      "Travel and accommodation for the June week in New\u00a0York.",
+      "The optional summer virtual internship.",
+      "Anything a team spends to build or ship its own product.",
+      "Prize money, which is awarded at the pitch and is not part of the fee.",
+    ],
+    prizes: {
+      title: "Prizes at the June pitch",
+      total: "$7,500",
+      totalLabel: "set aside in cash prizes for the top teams",
+      places: [
+        { place: "1st", amount: "$2,500" },
+        { place: "2nd", amount: "$2,000" },
+        { place: "3rd", amount: "$1,500" },
+      ],
+      note: "Awarded at the New\u00a0York pitch. The published places are first, second and third; the rest of the $7,500, and any non-cash opportunities, are confirmed before the cohort starts.",
+    },
+    eligibility: {
+      title: "Who it’s for",
+      points: [
+        "High school students in grades 9–12.",
+        "No prior company, and no finished idea, required.",
+        "A student may apply alone or with a co-founder. A school cohort is twelve students or more.",
+        "January through June, with an optional virtual summer afterward.",
+      ],
+    },
+    cta: "Start an application",
+    book: "Book a 15-minute intro",
   },
 
   ngen: {
@@ -177,10 +307,92 @@ export const challenge = {
     ],
   },
 
+  /**
+   * PLACEHOLDER. Swap url for the live Calendly or Cal.com event before
+   * launch. Leave embed false until that URL is real, or the page will
+   * show a scheduler that 404s.
+   */
+  booking: {
+    title: "Fifteen minutes with the NGEN team.",
+    intro:
+      "A short call for a counselor, a club advisor, or a student deciding whether the January cohort fits. We’ll cover how the six months sit in the school calendar, what registration costs, and what the New\u00a0York week requires.",
+    cta: "Book a 15-minute intro",
+    url: "https://calendly.com/ngennetwork/startup-challenge-intro",
+    embed: false,
+    iframeTitle: "Book a 15-minute intro with the NGEN team",
+    or: "or write to",
+    apply: "Student application",
+  },
+
   close: {
     title: "Run the challenge at your school.",
-    body: "Tell us about your students and we’ll put together a plan covering curriculum, mentor matching and the New\u00a0York capstone. Cohorts start every January; confirming a term ahead lets us match mentors before the first milestone.",
-    cta: "Start a conversation",
+    body: "Super early-bird registration closes November\u00a08. Tell us about your students and we’ll put together a plan covering curriculum, mentor matching and the New\u00a0York capstone. A student can also apply directly.",
+    cta: "Book a 15-minute intro",
+    apply: "Student application",
     or: "or write to",
+  },
+
+  apply: {
+    title: "Apply for the January cohort.",
+    intro:
+      "For high school students in grades 9–12. Schools still bring a cohort of twelve or more; this form is one student’s place in it. We write back to the email you give us.",
+    cta: "Start the application",
+    book: "Book a 15-minute intro",
+    formTitle: "Your application",
+    formIntro:
+      "Have a resume ready as a PDF or Word file, 2\u00a0MB or smaller. A parent or guardian should know you are applying.",
+    emailInstead: "If the form will not send, write to",
+    submit: "Submit application",
+    submitting: "Sending\u2026",
+    successTitle: "Application received.",
+    successBody:
+      "Thank you. The NGEN team will write to the email you used. To add a file or another teammate, reply to that note or write to us directly.",
+    back: "Back to the challenge",
+    tierUndecided: "I’ll confirm the tier with the team",
+    fields: {
+      name: "Student name",
+      email: "Email",
+      grade: "Grade",
+      gradePlaceholder: "Select a grade",
+      dob: "Date of birth (optional)",
+      school: "School",
+      phone: "Phone (optional)",
+      applyingAs: "Are you applying with a co-founder?",
+      solo: "On my own",
+      team: "With a co-founder",
+      teamHint: "A larger team can send the other names by email after this application.",
+      cofounderName: "Co-founder name",
+      cofounderEmail: "Co-founder email (optional)",
+      cofounderSchool: "Co-founder school (optional)",
+      tier: "Registration tier (optional)",
+      motivation: "Why do you want to join?",
+      motivationHint: "A short note is enough: what you hope to build, or what you want to learn.",
+      resume: "Resume or CV",
+      resumeHint: "PDF, DOC, or DOCX. 2\u00a0MB maximum.",
+      guardian: "A parent or guardian knows I am applying.",
+    },
+    errors: {
+      summary: "Check the highlighted fields and try again.",
+      name: "Enter the student’s name.",
+      email: "Enter a valid email address.",
+      grade: "Choose a grade from 9 to 12.",
+      dob: "Enter a real date of birth, or leave it blank.",
+      school: "Enter the school name.",
+      phone: "Enter a phone number, or leave it blank.",
+      motivation: "Write a short note on why you want to join.",
+      applyingAs: "Say whether you are applying on your own or with a co-founder.",
+      cofounderName: "Enter your co-founder’s name.",
+      cofounderEmail: "Enter a valid email for your co-founder, or leave it blank.",
+      cofounderSchool: "That school name is too long.",
+      tier: "Choose a registration tier, or leave it blank.",
+      guardian: "A parent or guardian needs to know you are applying.",
+      resume: "Attach a resume as a PDF, DOC, or DOCX.",
+      resumeEmpty: "That file is empty. Attach a PDF, DOC, or DOCX.",
+      resumeSize: "That file is over 2\u00a0MB. Attach a shorter PDF, DOC, or DOCX.",
+      resumeType: "That file doesn’t look like a PDF, DOC, or DOCX.",
+      unavailable: "Applications aren’t connected yet. Email us and the team will take it from there.",
+      unreachable: "We couldn’t reach the application inbox. Email us and we’ll sort it out.",
+      generic: "The application didn’t go through. Email us and we’ll sort it out.",
+    },
   },
 };
