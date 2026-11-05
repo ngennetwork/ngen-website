@@ -16,10 +16,6 @@ function errors() {
   return challenge.apply.errors;
 }
 
-function tierIds() {
-  return challenge.pricing.plans.map((plan) => plan.id);
-}
-
 export function validateApplication(input) {
   const copy = errors();
   const fields = {};
@@ -34,7 +30,6 @@ export function validateApplication(input) {
   const cofounderName = String(input.cofounderName || "").trim();
   const cofounderEmail = String(input.cofounderEmail || "").trim();
   const cofounderSchool = String(input.cofounderSchool || "").trim();
-  const tier = String(input.tier || "").trim();
   const guardian = String(input.guardian || "").trim();
 
   if (name.length < 2 || name.length > 120) fields.name = copy.name;
@@ -52,7 +47,6 @@ export function validateApplication(input) {
     }
     if (cofounderSchool.length > 160) fields.cofounderSchool = copy.cofounderSchool;
   }
-  if (tier && !tierIds().includes(tier)) fields.tier = copy.tier;
   if (guardian !== "yes") fields.guardian = copy.guardian;
 
   const withTeam = applyingAs === "team";
@@ -71,7 +65,6 @@ export function validateApplication(input) {
       cofounderName: withTeam ? cofounderName : "",
       cofounderEmail: withTeam ? cofounderEmail : "",
       cofounderSchool: withTeam ? cofounderSchool : "",
-      tier,
       guardian: guardian === "yes" ? "yes" : "",
     },
   };

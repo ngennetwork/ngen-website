@@ -29,8 +29,6 @@ const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.n
 /** NGEN's own figures: the largest leads, the rest follow as smaller proof. */
 const { raised, reach, universities: schoolsFigure, events } = site.figures;
 
-const earlyPlan = challenge.pricing.plans.find((plan) => plan.emphasis);
-
 /**
  * /startup-challenge: NGEN's pitch to high schools for the six-month
  * Start-Up Challenge. Reachable by direct link; kept out of the sitemap.
@@ -56,13 +54,11 @@ export default function StartupChallengePage() {
                 {hero.applyCta}
               </PageLink>
             </div>
-            {earlyPlan && (
-              <p className="max-w-[46ch] text-small text-slate">
-                <a href="#pricing" className="link text-ink">
-                  {hero.priceLead} {formatMoney(earlyPlan.price)} {hero.priceMid} {earlyPlan.deadline}.
-                </a>
-              </p>
-            )}
+            <p className="max-w-[46ch] text-small text-slate">
+              <a href="#pricing" className="link text-ink">
+                {hero.priceLead} {formatMoney(challenge.pricing.total)} {hero.priceMid}
+              </a>
+            </p>
           </div>
         }
         aside={

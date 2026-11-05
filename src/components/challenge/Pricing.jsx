@@ -1,11 +1,13 @@
 import PageLink from "@/components/ui/PageLink";
 import { challenge } from "@/components/challenge/content";
-import { formatMoney, formatPayments, splitTotal } from "@/components/challenge/money";
+import { formatMoney } from "@/components/challenge/money";
 
 const SECTION = "wrap py-[clamp(5rem,10vw,8rem)]";
 
 export default function Pricing() {
   const { pricing, applyPath } = challenge;
+  const { payInFull, installment } = pricing;
+  const installmentTotal = installment.deposit + installment.payments.reduce((sum, payment) => sum + payment.amount, 0);
 
   return (
     <section id="pricing" aria-labelledby="pricing-title" className="bg-snow">
@@ -17,36 +19,43 @@ export default function Pricing() {
           <p className="text-lead text-slate">{pricing.intro}</p>
         </div>
 
-        <ol className="grid gap-4 lg:grid-cols-3">
-          {pricing.plans.map((plan) => (
-            <li
-              key={plan.id}
-              className={`flex flex-col gap-6 rounded-xl bg-paper p-6 sm:p-8 ${plan.emphasis ? "glow-card" : "ring-1 ring-ink/10"}`}
-            >
-              <div className="flex flex-col gap-3">
-                <p className="flex items-center gap-2.5 text-small text-slate">
-                  {plan.emphasis && <span aria-hidden="true" className="node" />}
-                  {plan.name}
-                </p>
-                <p className="font-display text-[clamp(3rem,2rem+2vw,4rem)] leading-none tracking-[-0.03em] tabular">
-                  {formatMoney(plan.price)}
-                </p>
-                <p className="text-small text-slate">
-                  {pricing.per} · {pricing.through} {plan.deadline}
-                </p>
-              </div>
-              <ul className="mt-auto flex flex-col gap-2.5 border-t border-ink/10 pt-5">
-                {pricing.schedules.map((schedule) => (
-                  <li key={schedule.parts} className="flex items-baseline justify-between gap-4 text-base">
-                    <span className="text-slate">{schedule.label}</span>
-                    <span className="text-right tabular">{formatPayments(splitTotal(plan.price, schedule.parts))}</span>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ol>
-        <p className="mt-6 max-w-[46rem] text-small text-slate">{pricing.scheduleNote}</p>
+        <div className="grid gap-4 lg:grid-cols-2">
+          <article className="flex flex-col gap-6 rounded-xl bg-paper p-6 ring-1 ring-ink/10 sm:p-8">
+            <div className="flex flex-col gap-3">
+              <h3 className="text-small text-slate">{payInFull.name}</h3>
+              <p className="font-display text-[clamp(3rem,2rem+2vw,4rem)] leading-none tracking-[-0.03em] tabular">
+                {formatMoney(payInFull.amount)}
+              </p>
+              <p className="text-small text-slate">{pricing.per}</p>
+            </div>
+            <p className="mt-auto border-t border-ink/10 pt-5 text-base text-slate">{payInFull.detail}</p>
+          </article>
+
+          <article className="flex flex-col gap-6 rounded-xl bg-paper p-6 ring-1 ring-ink/10 sm:p-8">
+            <div className="flex flex-col gap-3">
+              <h3 className="text-small text-slate">{installment.name}</h3>
+              <p className="font-display text-[clamp(3rem,2rem+2vw,4rem)] leading-none tracking-[-0.03em] tabular">
+                {formatMoney(installmentTotal)}
+              </p>
+              <p className="text-small text-slate">{pricing.per}</p>
+            </div>
+            <ul className="mt-auto flex flex-col gap-3 border-t border-ink/10 pt-5">
+              <li className="flex items-baseline justify-between gap-4 text-base">
+                <span>
+                  <span className="text-ink">{installment.depositLabel}</span>
+                  <span className="mt-1 block text-small text-slate">{installment.depositWhen}</span>
+                </span>
+                <span className="shrink-0 tabular">{formatMoney(installment.deposit)}</span>
+              </li>
+              {installment.payments.map((payment) => (
+                <li key={payment.when} className="flex items-baseline justify-between gap-4 text-base">
+                  <span className="text-slate">{payment.when}</span>
+                  <span className="shrink-0 tabular">{formatMoney(payment.amount)}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
 
         <div className="mt-16 grid gap-y-12 lg:grid-cols-2 lg:gap-x-16">
           <div>
@@ -68,30 +77,6 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-
-        <div className="mt-16 grid gap-y-8 border-t border-ink/10 pt-12 lg:grid-cols-12 lg:gap-x-8">
-          <div className="flex flex-col gap-3 lg:col-span-4">
-            <h3 className="font-display text-h3">{pricing.prizes.title}</h3>
-            <p className="font-display text-[clamp(2.75rem,2rem+2vw,3.75rem)] leading-none tracking-[-0.03em] tabular">
-              {pricing.prizes.total}
-            </p>
-            <p className="text-base text-slate">{pricing.prizes.totalLabel}</p>
-          </div>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <ul className="flex flex-col">
-              {pricing.prizes.places.map((place) => (
-                <li
-                  key={place.place}
-                  className="-mx-4 flex items-baseline justify-between gap-6 rounded-lg px-4 py-3 odd:bg-fog"
-                >
-                  <span className="text-lead">{place.place}</span>
-                  <span className="tabular">{place.amount}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-base text-slate">{pricing.prizes.note}</p>
           </div>
         </div>
 

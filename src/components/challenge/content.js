@@ -8,10 +8,8 @@
  * student ventures, named speaker companies and stock-style photo
  * captions; they were removed rather than shown as fact.
  *
- * Pricing, prize splits, and registration deadlines below are a starting
- * draft for the January cohort (the challenge still runs January–June).
- * The booking URL is a placeholder until the team pastes a live Calendly
- * or Cal.com link. Edit those here; the pages read this object only.
+ * The per-student fee and the booking URL live in this object. The booking
+ * URL is a placeholder until the team pastes a live Calendly or Cal.com link.
  */
 
 export const challenge = {
@@ -25,8 +23,8 @@ export const challenge = {
       "The NGEN Start-Up Challenge takes a high school team from an idea in January to a pitch in New\u00a0York City in June, with an Ivy League student founder as its mentor the whole way.",
     cta: "Book a 15-minute intro",
     applyCta: "Apply",
-    priceLead: "Super early-bird registration is",
-    priceMid: "per student and closes",
+    priceLead: "The program fee is",
+    priceMid: "per student.",
     photo: {
       src: "/about/events/workshops.jpg",
       alt: "Student founders talking in a small group around a low table at an NGEN workshop",
@@ -199,7 +197,7 @@ export const challenge = {
         },
         {
           title: "Pitch Competition",
-          body: "Each team pitches on stage to investors and student founders. The winning teams are announced, including the cash prizes for the top of the cohort.",
+          body: "Each team pitches on stage to investors and student founders, and the winning teams are announced.",
         },
       ],
       note: "Travel and accommodation are budgeted separately.",
@@ -207,45 +205,31 @@ export const challenge = {
   },
 
   /**
-   * DRAFT. Per-student registration for a school cohort. Dollar amounts
-   * follow a three-tier early-bird schedule; deadlines are set for NGEN’s
-   * January start (November 8 is the super early-bird close). Installment
-   * totals equal the tier price. Confirm with the team before launch.
+   * Per student. Pay in full, or a deposit on acceptance plus three later
+   * payments. Deposit plus the three payments should equal `total`.
    */
   pricing: {
-    title: "Registration, per student.",
+    title: "The fee, per student.",
     intro:
-      "The challenge is built for a school cohort of twelve or more. These prices are what each student pays, so a school can budget the cohort and a student can register on their own.",
+      "The challenge is built for a school cohort of twelve or more. This is what each student pays, so a school can budget the cohort and a student can register on their own.",
+    total: 4000,
     per: "per student",
-    through: "Through",
-    plans: [
-      {
-        id: "super-early",
-        name: "Super Early Bird",
-        price: 89,
-        deadline: "November\u00a08, 2026",
-        emphasis: true,
-      },
-      {
-        id: "early",
-        name: "Early Bird",
-        price: 109,
-        deadline: "December\u00a015, 2026",
-      },
-      {
-        id: "regular",
-        name: "Regular",
-        price: 129,
-        deadline: "January\u00a05, 2027",
-      },
-    ],
-    schedules: [
-      { parts: 1, label: "In full" },
-      { parts: 2, label: "Two payments" },
-      { parts: 3, label: "Three payments" },
-    ],
-    scheduleNote:
-      "The total does not change. Pay in full, or split that same total into two payments (the second 30\u00a0days later) or three (30\u00a0days apart). Any remainder sits on the last payment.",
+    payInFull: {
+      name: "Pay in full",
+      amount: 4000,
+      detail: "One payment of the full fee.",
+    },
+    installment: {
+      name: "Installment plan",
+      deposit: 1000,
+      depositLabel: "Deposit",
+      depositWhen: "Due on acceptance, to hold the spot.",
+      payments: [
+        { amount: 1000, when: "January 2027" },
+        { amount: 1000, when: "February 2027" },
+        { amount: 1000, when: "March 2027" },
+      ],
+    },
     includedTitle: "Included",
     excludedTitle: "Not included",
     included: [
@@ -261,19 +245,7 @@ export const challenge = {
       "Travel and accommodation for the June week in New\u00a0York.",
       "The optional summer virtual internship.",
       "Anything a team spends to build or ship its own product.",
-      "Prize money, which is awarded at the pitch and is not part of the fee.",
     ],
-    prizes: {
-      title: "Prizes at the June pitch",
-      total: "$7,500",
-      totalLabel: "set aside in cash prizes for the top teams",
-      places: [
-        { place: "1st", amount: "$2,500" },
-        { place: "2nd", amount: "$2,000" },
-        { place: "3rd", amount: "$1,500" },
-      ],
-      note: "Awarded at the New\u00a0York pitch. The published places are first, second and third; the rest of the $7,500, and any non-cash opportunities, are confirmed before the cohort starts.",
-    },
     eligibility: {
       title: "Who it’s for",
       points: [
@@ -326,7 +298,7 @@ export const challenge = {
 
   close: {
     title: "Run the challenge at your school.",
-    body: "Super early-bird registration closes November\u00a08. Tell us about your students and we’ll put together a plan covering curriculum, mentor matching and the New\u00a0York capstone. A student can also apply directly.",
+    body: "Tell us about your students and we’ll put together a plan covering curriculum, mentor matching and the New\u00a0York capstone. A student can also apply directly.",
     cta: "Book a 15-minute intro",
     apply: "Student application",
     or: "or write to",
@@ -348,7 +320,6 @@ export const challenge = {
     successBody:
       "Thank you. The NGEN team will write to the email you used. To add a file or another teammate, reply to that note or write to us directly.",
     back: "Back to the challenge",
-    tierUndecided: "I’ll confirm the tier with the team",
     fields: {
       name: "Student name",
       email: "Email",
@@ -364,7 +335,6 @@ export const challenge = {
       cofounderName: "Co-founder name",
       cofounderEmail: "Co-founder email (optional)",
       cofounderSchool: "Co-founder school (optional)",
-      tier: "Registration tier (optional)",
       motivation: "Why do you want to join?",
       motivationHint: "A short note is enough: what you hope to build, or what you want to learn.",
       resume: "Resume or CV",
@@ -384,7 +354,6 @@ export const challenge = {
       cofounderName: "Enter your co-founder’s name.",
       cofounderEmail: "Enter a valid email for your co-founder, or leave it blank.",
       cofounderSchool: "That school name is too long.",
-      tier: "Choose a registration tier, or leave it blank.",
       guardian: "A parent or guardian needs to know you are applying.",
       resume: "Attach a resume as a PDF, DOC, or DOCX.",
       resumeEmpty: "That file is empty. Attach a PDF, DOC, or DOCX.",

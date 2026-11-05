@@ -4,16 +4,15 @@ import { useEffect, useId, useRef, useState } from "react";
 import { challenge } from "@/components/challenge/content";
 import { site } from "@/content/site";
 import { validateApplication, validateResume } from "@/lib/challengeApplication";
-import { formatMoney } from "@/components/challenge/money";
 import PageLink from "@/components/ui/PageLink";
 
 const inputClass =
   "min-h-11 w-full rounded-[var(--radius-btn)] bg-paper px-4 text-base text-ink ring-1 ring-ink/12 outline-none placeholder:text-slate/70 focus:ring-ink aria-invalid:ring-danger";
 
-const { apply, pricing, applyPath } = challenge;
+const { apply, applyPath } = challenge;
 const mailto = `mailto:${site.email}?subject=${encodeURIComponent("NGEN Start-Up Challenge application")}`;
 
-export default function ApplyForm({ initialTier = "" }) {
+export default function ApplyForm() {
   const formId = useId();
   const alertRef = useRef(null);
   const successRef = useRef(null);
@@ -22,8 +21,6 @@ export default function ApplyForm({ initialTier = "" }) {
   const [error, setError] = useState("");
   const [fields, setFields] = useState({});
   const [attempt, setAttempt] = useState(0);
-
-  const tierDefault = pricing.plans.some((plan) => plan.id === initialTier) ? initialTier : "";
 
   useEffect(() => {
     if (!attempt) return;
@@ -74,7 +71,6 @@ export default function ApplyForm({ initialTier = "" }) {
       cofounderName: data.get("cofounderName"),
       cofounderEmail: data.get("cofounderEmail"),
       cofounderSchool: data.get("cofounderSchool"),
-      tier: data.get("tier"),
       guardian: data.get("guardian"),
     });
     const resumeCheck = validateResume(data.get("resume"));
@@ -225,15 +221,6 @@ export default function ApplyForm({ initialTier = "" }) {
           </div>
         )}
       </fieldset>
-
-      <SelectField id={`${formId}-tier`} name="tier" label={apply.fields.tier} defaultValue={tierDefault} error={fields.tier}>
-        <option value="">{apply.tierUndecided}</option>
-        {pricing.plans.map((plan) => (
-          <option key={plan.id} value={plan.id}>
-            {plan.name}, {formatMoney(plan.price)}
-          </option>
-        ))}
-      </SelectField>
 
       <div className="flex flex-col gap-2">
         <label htmlFor={`${formId}-motivation`} className="text-small text-ink">

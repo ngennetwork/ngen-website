@@ -35,7 +35,6 @@ export async function POST(request) {
     cofounderName: form.get("cofounderName"),
     cofounderEmail: form.get("cofounderEmail"),
     cofounderSchool: form.get("cofounderSchool"),
-    tier: form.get("tier"),
     guardian: form.get("guardian"),
   });
 

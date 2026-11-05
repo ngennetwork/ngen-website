@@ -14,10 +14,7 @@ export const metadata = {
 
 const mailto = `mailto:${site.email}?subject=${encodeURIComponent("NGEN Start-Up Challenge application")}`;
 
-export default async function ApplyPage({ searchParams }) {
-  const params = await searchParams;
-  const tier = typeof params?.tier === "string" ? params.tier : "";
-
+export default function ApplyPage() {
   return (
     <>
       <PageHero
@@ -59,7 +56,7 @@ export default async function ApplyPage({ searchParams }) {
             </p>
           </div>
           <div className="lg:col-span-7 lg:col-start-6">
-            <ApplyForm initialTier={tier} />
+            <ApplyForm />
           </div>
         </div>
       </section>
