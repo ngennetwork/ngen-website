@@ -56,7 +56,7 @@ export const site = {
 
   // Branded short links. next.config redirects these with a temporary 307.
   shortLinks: {
-    zoom: "https://us06web.zoom.us/j/7659999275?pwd=1XrmP1IG5Qp5qdK00jP94Htl38csvO.1",
+    zoom: "https://us06web.zoom.us/my/ngennetwork.org",
     intro: "https://calendly.com/ngennetwork-info/start-up-challenge-intro-call",
   },
 
