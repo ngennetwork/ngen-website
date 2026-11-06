@@ -1,5 +1,5 @@
 import { pages } from "@/content/site";
-import { leadership, team } from "@/data/team";
+import { leadership } from "@/data/team";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import Photo from "@/components/layout/Photo";
@@ -13,10 +13,9 @@ export const metadata = {
 };
 
 /**
- * Who runs NGEN, set like the conference's team page: Leadership, then the
- * Team, each a labelled group on the inner pages' grid. People carry tags
- * for what they work on and where they are instead of titles. All of it is
- * placeholder data for now (src/data/team.js).
+ * Who runs NGEN, set like the conference's team page: Leadership as a
+ * labelled group on the inner pages' grid. People carry tags for what they
+ * work on and where they are instead of titles.
  */
 export default function TeamPage() {
   return (
@@ -40,10 +39,6 @@ export default function TeamPage() {
 
       <PageSection id="leadership-title" title={copy.leadershipTitle} tone="band">
         <TeamGrid people={leadership} label={copy.leadershipTitle} />
-      </PageSection>
-
-      <PageSection id="team-members-title" title={copy.teamTitle}>
-        <TeamGrid people={team} label={copy.teamTitle} />
       </PageSection>
     </>
   );

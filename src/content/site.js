@@ -353,27 +353,14 @@ export const pages = {
   },
 
   // The homepage carries the headline figures; Impact goes underneath them.
-  // Placeholder data lives in src/content/impact.js.
   impact: {
     title: "The record, three years in.",
     intro:
-      "What each event moves, what each cohort raised, how founders came through NGEN and where they are\u00a0now.",
+      "The startups on the record, the schools their founders come from, and the firms behind the people who spoke and backed\u00a0them.",
     action: "See every startup",
     startupsLabel: "startups on the record",
     startupsTitle: "Founders who came\u00a0through",
     startupsIntro: "Largest raise first, each with the press that covered it or, before there is any, the company’s own\u00a0site.",
-    perEventTitle: "Per event",
-    perEventNote: "Averaged over every NGEN conference, trek and pitch competition.",
-    cohortsTitle: "By cohort",
-    cohortsNote: "Founders grouped by the year they first came to an NGEN event.",
-    cohortColumns: { cohort: "Cohort", founders: "Founders", startups: "Startups", raised: "Raised" },
-    pathsTitle: "How founders came\u00a0through",
-    pathsNote: "Every founder on the record came in one of two ways.",
-    pathFounders: "founders",
-    pathRaised: "raised",
-    alumniTitle: "Where they are\u00a0now",
-    alumniNote: "Alumni and former team members, and what they do today.",
-    alumniColumns: { name: "Name", path: "Came through", now: "Now" },
     universitiesTitle: "Where founders come\u00a0from",
     universitiesIntro: "Student founders across the network come from these\u00a0schools.",
   },
@@ -409,7 +396,6 @@ export const pages = {
     intro: "Students and alumni across campuses who run NGEN’s conferences, Founder Treks and pitch\u00a0competitions.",
     caption: "On stage at NGEN’s first conference.",
     leadershipTitle: "Leadership",
-    teamTitle: "Team",
   },
 
   partner: {
