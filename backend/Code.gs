@@ -155,7 +155,13 @@ function handleStartupChallenge(data) {
   var applyingAs = (data.applyingAs || "").trim();
   var guardian = (data.guardian || "").trim();
 
-  if (!name || !email || !grade || !school || !motivation || !applyingAs || guardian !== "yes") {
+  var parentName = (data.parentName || "").trim();
+  var countryCity = (data.countryCity || "").trim();
+  var age = (data.age || "").trim();
+  var language = (data.language || "en").trim();
+  if (!applyingAs) applyingAs = "parent";
+
+  if (!name || !email || !grade || !school || !motivation || guardian !== "yes" || !parentName || !countryCity || !age) {
     return jsonResponse({ ok: false, error: "Please fill in all required fields." });
   }
   if (applyingAs === "team" && !(data.cofounderName || "").trim()) {
@@ -179,22 +185,20 @@ function handleStartupChallenge(data) {
       replyTo: email,
       subject: "Start-Up Challenge application: " + name + " (" + school + ")",
       body: [
-        "A student applied for the NGEN Start-Up Challenge.",
+        "A parent applied for the NGEN Start-Up Challenge.",
         "",
-        "Name: " + name,
-        "Email: " + email,
+        "Parent name: " + parentName,
+        "Parent email: " + email,
+        "Phone / WeChat / WhatsApp: " + (data.phone || ""),
+        "Country and city: " + countryCity,
+        "Student name: " + name,
+        "Age: " + age,
         "Grade: " + grade,
-        "Date of birth: " + (data.dob || ""),
         "School: " + school,
-        "Phone: " + (data.phone || ""),
-        "Applying as: " + applyingAs,
-        "Co-founder: " + (data.cofounderName || ""),
-        "Co-founder email: " + (data.cofounderEmail || ""),
-        "Co-founder school: " + (data.cofounderSchool || ""),
+        "Interests: " + motivation,
+        "Language: " + language,
         "Guardian confirmed: " + guardian,
         "Resume: " + resumeLink,
-        "",
-        motivation,
       ].join("\n"),
       attachments: [resumeBlob(data.resumeBase64, data.resumeFileName)],
     });
@@ -203,7 +207,7 @@ function handleStartupChallenge(data) {
     emailStatus = "Email failed: " + err.message;
   }
 
-  var sheet = getOrCreateSheet("Start-Up Challenge", [
+  var headers = [
     "Timestamp",
     "Name",
     "Email",
@@ -219,7 +223,13 @@ function handleStartupChallenge(data) {
     "Guardian",
     "Resume",
     "Email status",
-  ]);
+    "Parent name",
+    "Country and city",
+    "Student age",
+    "Language",
+  ];
+  var sheet = getOrCreateSheet("Start-Up Challenge", headers);
+  ensureTrailingHeaders(sheet, headers);
   sheet.appendRow([
     new Date(),
     name,
@@ -236,6 +246,10 @@ function handleStartupChallenge(data) {
     guardian,
     resumeLink,
     emailStatus,
+    parentName,
+    countryCity,
+    age,
+    language,
   ]);
   return jsonResponse({ ok: true });
 }
@@ -255,6 +269,15 @@ function saveResume(base64, fileName) {
   // open the resume without needing Drive access to the folder itself.
   file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
   return file.getUrl();
+}
+
+function ensureTrailingHeaders(sheet, headerRow) {
+  var width = Math.max(sheet.getLastColumn(), 1);
+  if (!sheet.getRange(1, 1).getValue()) return;
+  if (width >= headerRow.length) return;
+  var extra = headerRow.slice(width);
+  sheet.getRange(1, width + 1, 1, extra.length).setValues([extra]);
+  sheet.getRange(1, width + 1, 1, extra.length).setFontWeight("bold");
 }
 
 function getOrCreateSheet(name, headerRow) {
@@ -297,8 +320,12 @@ function test_verifySetup() {
     grade: "11",
     school: "Setup High School",
     motivation: "This is a test row from test_verifySetup(). Safe to delete.",
-    applyingAs: "solo",
+    applyingAs: "parent",
     guardian: "yes",
+    parentName: "Setup Parent",
+    countryCity: "Hong Kong",
+    age: "16",
+    language: "en",
     resumeBase64: Utilities.base64Encode("This is a test file."),
     resumeFileName: "setup-test.pdf",
   });

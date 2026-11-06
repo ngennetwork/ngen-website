@@ -1,0 +1,255 @@
+/** Simplified Chinese, written for parents. */
+export const zhHans = {
+  meta: {
+    title: "六个月创业挑战",
+    description: "面向中学生的六个月课程。家长可以预约15分钟通话，或在2026年11月8日前申请。费用为每位学生 US$4,000。",
+  },
+  switcherLabel: "语言",
+  name: "NGEN Start-Up Challenge",
+  emailSubject: "NGEN Start-Up Challenge",
+  applyPath: "/startup-challenge/apply",
+  deadline: "2026年11月8日",
+
+  hero: {
+    title: "用六个月，陪孩子建立一家真正的公司。",
+    intro:
+      "2027年1月至6月，孩子会学习一家公司如何运作，并亲手完成自己的项目。导师是常春藤大学的学生创办人。6月，获选学生会前往纽约（New York City）四天。",
+    cta: "预约15分钟介绍通话",
+    applyCta: "为孩子申请",
+    deadlineLabel: "请在以下日期前预约或申请",
+    priceLead: "费用为",
+    priceMid: "（每位学生）。",
+    photo: {
+      src: "/startup-challenge/hero-group.jpg",
+      alt: "学生和导师站在橙色 NGEN 标志前的舞台上",
+      caption: "NGEN 活动舞台上的合影。",
+      position: "50% 38%",
+    },
+  },
+
+  glance: {
+    title: "重点一览",
+    items: [
+      { icon: "who", title: "适合谁", body: "中学9至12年级，大约14至18岁。不需要已有公司或想法。" },
+      { icon: "calendar", title: "日期", body: "2027年1月至6月。请在2026年11月8日前预约通话或申请。" },
+      { icon: "laptop", title: "形式", body: "每月在家上网完成。6月，获选学生前往纽约四天。" },
+      { icon: "fee", title: "费用", body: "每位学生 US$4,000。可以一次付清，或分四次，每次 US$1,000。纽约旅费另计。" },
+    ],
+  },
+
+  gets: {
+    title: "孩子会得到什么",
+    intro: "清楚的进度、一个真实项目，以及一路陪伴的导师。",
+    photo: {
+      src: "/about/events/workshops.jpg",
+      alt: "学生在 NGEN 工作坊中分组讨论",
+      caption: "NGEN 活动中的小组工作坊。",
+      position: "50% 55%",
+    },
+    items: [
+      { icon: "mentor", title: "六个月的导师", body: "导师是自己创办过项目的常春藤学生。同一位导师会陪完整个课程。" },
+      { icon: "build", title: "一个真实的公司项目", body: "从想法、第一版产品、第一批客户，到一次简短汇报。完成后有可以展示的成果。" },
+      { icon: "workshop", title: "每月在线工作坊", body: "每月有一位业界人士在线上加入，并回答问题。" },
+      { icon: "school", title: "可以交给学校的记录", body: "老师可以跟进进度。完成的学生会收到证书。有些学校把它用作课堂、社团或实习学分。" },
+    ],
+  },
+
+  months: {
+    title: "六个月如何安排",
+    intro: "每月一个目标，每次都有完成的成果。",
+    photo: {
+      src: "/about/events/Copy of DSC06515.jpg",
+      alt: "一名学生在 NGEN 纽约活动中拿着麦克风发言",
+      caption: "学生在 NGEN 活动中提问。",
+      position: "50% 40%",
+    },
+    steps: [
+      { when: "1月", title: "选定想法", body: "找出一个真实问题，并访问有这个问题的人。" },
+      { when: "2月", title: "做出第一版", body: "做一个简单的产品，和一个容易记住的名字。" },
+      { when: "3月", title: "让人知道它", body: "选一种方式接触客户，并看结果。" },
+      { when: "4月", title: "完成第一笔销售", body: "请人付费，并把数字记下来。" },
+      { when: "5月", title: "准备汇报", body: "把成果变成简短汇报和清楚的数字。" },
+      { when: "6月", title: "纽约", body: "获选学生在城里四天。安排见下方。" },
+    ],
+    note: "暑假可以选择继续跟随同一位导师，全程在线。",
+  },
+
+  mentors: {
+    title: "导师，以及孩子会见到的人",
+    intro: "每位导师都是常春藤大学的在读学生，也是创办人。他们定期与孩子通话，并在作业提交前先看一遍。",
+    schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
+    schoolsNote: "导师就读的大学。NGEN 是独立非营利组织，并不属于这些大学。",
+    points: [
+      { name: "坦白的反馈", body: "导师会说明什么做得好，什么需要改。" },
+      { name: "同一位导师", body: "六个月都是同一个人，不会中途更换。" },
+    ],
+    speakersTitle: "曾在 NGEN 纽约活动演讲的嘉宾",
+    speakersNote: "他们曾在 NGEN 活动演讲，不是这个课程的一对一导师。",
+  },
+
+  capstone: {
+    title: "纽约四天",
+    intro: "6月，学校会派出表现最好的四至六位学生。NGEN 安排行程：参观办公室、工作坊，以及台上汇报。",
+    logisticsTitle: "交通与陪同",
+    logistics: [
+      "机票和酒店不包括在 US$4,000 内，由家庭另行预算。",
+      "NGEN 制定行程，并在参观和汇报时与学生同行。",
+      "介绍通话会说明谁前往纽约、每天的安排，以及我们如何与家长联系。",
+    ],
+    photo: {
+      src: "/about/events/founder-treks.jpg",
+      alt: "学生坐在台下，听讲者在 NGEN 参访中发言",
+      caption: "学生参加 NGEN 在纽约的创办人参访。",
+      position: "50% 45%",
+    },
+    itinerary: {
+      label: "每天安排",
+      place: "2027年6月，纽约 New York City",
+      days: [
+        { title: "拜访创办人与投资者", body: "到投资者的办公室，与正在融资的常春藤学生创办人一起见面。" },
+        { title: "参观初创公司", body: "看看小团队怎样工作，并与负责产品和销售的人交谈。" },
+        { title: "练习汇报", body: "导师在最后一天之前，先看产品和汇报。" },
+        { title: "台上汇报", body: "每组向投资者和学生创办人介绍自己的项目。" },
+      ],
+      note: "交通和住宿不包括在课程费用内。",
+    },
+  },
+
+  gallery: {
+    title: "过往 NGEN 活动",
+    intro: "我们在纽约办过的会议、工作坊和参访。",
+    photos: [
+      { src: "/about/events/conferences.jpg", alt: "三人在 NGEN 会议上对谈", caption: "NGEN 会议上的对谈。" },
+      { src: "/about/events/pitch-competitions.jpg", alt: "讲者向在座观众介绍内容", caption: "NGEN 活动中的演讲。" },
+      { src: "/about/events/A78A2335.JPG", alt: "讲者站在 NGEN 标志前发言", caption: "NGEN 活动开场。" },
+      { src: "/about/events/Copy of DSC06488.jpg", alt: "讲者在 NGEN 会议台上对谈", caption: "纽约会议上的对谈。" },
+      { src: "/about/events/Copy of DSC06558.jpg", alt: "创办人与投资者在台上对谈", caption: "创办人与投资者同台。" },
+    ],
+  },
+
+  pricing: {
+    title: "费用与付款方式",
+    intro: "2027年1月至6月，每位学生一个费用。请在2026年11月8日前申请。",
+    total: 4000,
+    per: "每位学生",
+    payInFull: { name: "一次付清", amount: 4000, detail: "一次支付 US$4,000。" },
+    installment: {
+      name: "分期付款",
+      deposit: 1000,
+      depositLabel: "定金",
+      depositWhen: "孩子被录取时支付，用来保留名额。",
+      payments: [
+        { amount: 1000, when: "2027年1月" },
+        { amount: 1000, when: "2027年2月" },
+        { amount: 1000, when: "2027年3月" },
+      ],
+    },
+    includedTitle: "费用包括",
+    excludedTitle: "费用不包括",
+    included: [
+      "1月至5月，六个月的每月目标。",
+      "一位常春藤学生创办人担任导师。",
+      "每月一次在线工作坊。",
+      "进度记录，以及完成学生的证书。",
+      "获选学生的纽约四天行程。",
+    ],
+    excluded: ["往返纽约的机票和酒店。", "可以选择的在线暑假。", "孩子为自己的产品另外花费的钱。"],
+    eligibility: {
+      title: "谁可以参加",
+      points: ["9至12年级。", "不需要已有公司。", "由家长或监护人申请。", "2027年1月至6月在线进行；6月获选学生前往纽约。"],
+    },
+    cta: "为孩子申请",
+    book: "预约15分钟介绍通话",
+  },
+
+  ngen: {
+    title: "谁主办",
+    body: "NGEN 是由学生领袖创立的 501(c)(3) 非营利组织。我们在常春藤大学之间举办会议、办公室参访和汇报活动。",
+    more: { label: "关于 NGEN", href: "/about" },
+  },
+
+  recognition: {
+    title: "团队获得的认可",
+    intro: "课程背后团队获得的奖项。",
+    awards: [
+      { name: "Social Entrepreneur of the Year", place: "新加坡", year: "2024" },
+      { name: "Best Entrepreneurship Education Project", place: "新加坡", year: "2023" },
+      { name: "Commonwealth Youth Awards, Asia finalist", place: "英国", year: "2023" },
+      { name: "President’s Innovation Challenge, semifinalist", place: "美国", year: "2022及2023" },
+      { name: "The Diana Award for Young Changemakers", place: "英国", year: "2019" },
+    ],
+  },
+
+  booking: {
+    title: "用15分钟和我们谈谈",
+    intro: "这是给家长的短通话。我们会说明时间表、费用和纽约行程。不用事先准备。",
+    cta: "预约15分钟介绍通话",
+    url: "https://www.ngennetwork.org/intro",
+    embedUrl: "https://calendly.com/ngennetwork-info/start-up-challenge-intro-call",
+    embed: true,
+    iframeTitle: "预约与 NGEN 的15分钟介绍通话",
+    or: "或发送邮件",
+    apply: "为孩子申请",
+  },
+
+  close: {
+    title: "下一步",
+    body: "请在2026年11月8日前，预约15分钟通话，或提交孩子的申请。我们会回复家长的邮箱。",
+    cta: "预约15分钟介绍通话",
+    apply: "为孩子申请",
+    or: "或发送邮件",
+  },
+
+  apply: {
+    title: "为孩子申请",
+    intro: "供9至12年级学生的家长填写。请用您自己的邮箱，我们会回复您。请在2026年11月8日前申请。",
+    cta: "开始填写",
+    book: "预约15分钟介绍通话",
+    formTitle: "申请表",
+    formIntro: "两部分：先填您的资料，再填孩子的资料。简历可以是 PDF 或 Word，最大 2 MB。",
+    emailInstead: "如果表格发送失败，请发邮件至",
+    submit: "提交申请",
+    submitting: "发送中…",
+    successTitle: "已收到申请。",
+    successBody: "谢谢。我们会写信到您填写的家长邮箱。",
+    back: "返回课程页",
+    parentLegend: "家长或监护人",
+    studentLegend: "学生",
+    fields: {
+      parentName: "您的姓名",
+      email: "您的邮箱",
+      phone: "电话、微信或 WhatsApp",
+      countryCity: "国家和地区、城市",
+      studentName: "学生姓名",
+      age: "年龄",
+      school: "学校",
+      grade: "年级",
+      gradePlaceholder: "请选择年级",
+      interests: "兴趣",
+      interestsHint: "用几句话写孩子喜欢做什么，或想学什么。",
+      resume: "学生简历或 CV",
+      resumeHint: "PDF、DOC 或 DOCX，最大 2 MB。",
+      guardian: "我是这名学生的家长或监护人。",
+    },
+    errors: {
+      summary: "请检查下面的栏目，然后再试一次。",
+      parentName: "请填写家长或监护人的姓名。",
+      email: "请填写有效的邮箱地址。",
+      phone: "请填写电话、微信或 WhatsApp。",
+      countryCity: "请填写国家和地区、城市。",
+      name: "请填写学生姓名。",
+      age: "请填写12至20岁之间的年龄。",
+      grade: "请选择9至12年级。",
+      school: "请填写学校名称。",
+      interests: "请用几句话写孩子的兴趣。",
+      guardian: "请确认您是家长或监护人。",
+      resume: "请附上 PDF、DOC 或 DOCX 简历。",
+      resumeEmpty: "文件是空的。请附上 PDF、DOC 或 DOCX。",
+      resumeSize: "文件超过 2 MB。请换一个较小的文件。",
+      resumeType: "这个文件不像 PDF、DOC 或 DOCX。",
+      unavailable: "表格尚未接通。请发邮件给我们，我们会协助您。",
+      unreachable: "表格发送失败。请发邮件给我们，我们会协助您。",
+      generic: "表格没有送出。请发邮件给我们，我们会协助您。",
+    },
+  },
+};

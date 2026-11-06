@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { challenge } from "@/components/challenge/content";
+import { localeFrom } from "@/components/challenge/content";
 import { resumeKind, validateApplication, validateResume } from "@/lib/challengeApplication";
 
 export const runtime = "nodejs";
@@ -23,23 +23,23 @@ export async function POST(request) {
     return NextResponse.json({ ok: false, error: "generic" }, { status: 400 });
   }
 
+  const language = form.get("language");
   const parsed = validateApplication({
-    name: form.get("name"),
+    parentName: form.get("parentName"),
     email: form.get("email"),
-    grade: form.get("grade"),
-    dob: form.get("dob"),
-    school: form.get("school"),
     phone: form.get("phone"),
-    motivation: form.get("motivation"),
-    applyingAs: form.get("applyingAs"),
-    cofounderName: form.get("cofounderName"),
-    cofounderEmail: form.get("cofounderEmail"),
-    cofounderSchool: form.get("cofounderSchool"),
+    countryCity: form.get("countryCity"),
+    name: form.get("studentName") || form.get("name"),
+    age: form.get("age"),
+    school: form.get("school"),
+    grade: form.get("grade"),
+    interests: form.get("interests"),
     guardian: form.get("guardian"),
+    language,
   });
 
   const resume = form.get("resume");
-  const resumeCheck = validateResume(resume);
+  const resumeCheck = validateResume(resume, language);
   const fields = { ...parsed.fields };
   if (!resumeCheck.ok) fields.resume = resumeCheck.error;
 
@@ -51,7 +51,7 @@ export async function POST(request) {
   const kind = resumeKind(bytes);
   if (kind !== resumeCheck.ext) {
     return NextResponse.json(
-      { ok: false, error: "invalid", fields: { resume: challenge.apply.errors.resumeType } },
+      { ok: false, error: "invalid", fields: { resume: localeFrom(language).apply.errors.resumeType } },
       { status: 400 },
     );
   }

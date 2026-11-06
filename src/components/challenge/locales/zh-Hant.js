@@ -1,0 +1,255 @@
+/** Traditional Chinese, written for parents in Hong Kong. */
+export const zhHant = {
+  meta: {
+    title: "六個月創業挑戰",
+    description: "給中學生的六個月課程。家長可預約15分鐘通話，或於2026年11月8日前申請。費用為每位學生 US$4,000。",
+  },
+  switcherLabel: "語言",
+  name: "NGEN Start-Up Challenge",
+  emailSubject: "NGEN Start-Up Challenge",
+  applyPath: "/startup-challenge/apply",
+  deadline: "2026年11月8日",
+
+  hero: {
+    title: "用六個月，陪孩子建立一間真正的公司。",
+    intro:
+      "2027年1月至6月，孩子會學習一間公司如何運作，並親手完成自己的項目。導師是常春藤大學的學生創辦人。6月，獲選學生會到紐約（New York City）四天。",
+    cta: "預約15分鐘介紹通話",
+    applyCta: "為孩子申請",
+    deadlineLabel: "請於以下日期前預約或申請",
+    priceLead: "費用為",
+    priceMid: "（每位學生）。",
+    photo: {
+      src: "/startup-challenge/hero-group.jpg",
+      alt: "學生和導師站在橙色 NGEN 標誌前的舞台上",
+      caption: "NGEN 活動舞台上的合照。",
+      position: "50% 38%",
+    },
+  },
+
+  glance: {
+    title: "重點一覽",
+    items: [
+      { icon: "who", title: "適合誰", body: "中學9至12年級，大約14至18歲。不需要已有公司或想法。" },
+      { icon: "calendar", title: "日期", body: "2027年1月至6月。請於2026年11月8日前預約通話或申請。" },
+      { icon: "laptop", title: "形式", body: "每月在家上網完成。6月，獲選學生到紐約四天。" },
+      { icon: "fee", title: "費用", body: "每位學生 US$4,000。可一次付清，或分四次，每次 US$1,000。紐約旅費另計。" },
+    ],
+  },
+
+  gets: {
+    title: "孩子會得到什麼",
+    intro: "清晰的進度、一個真實項目，以及一路陪同的導師。",
+    photo: {
+      src: "/about/events/workshops.jpg",
+      alt: "學生在 NGEN 工作坊中小組討論",
+      caption: "NGEN 活動中的小組工作坊。",
+      position: "50% 55%",
+    },
+    items: [
+      { icon: "mentor", title: "六個月的導師", body: "導師是曾自己創業的常春藤學生。同一位導師會陪完整個課程。" },
+      { icon: "build", title: "一個真實的公司項目", body: "從想法、初版產品、第一批客戶，到一次簡短匯報。完成後有可以展示的成果。" },
+      { icon: "workshop", title: "每月直播工作坊", body: "每月有一位業界人士在線上加入，並回答問題。" },
+      { icon: "school", title: "可交給學校的紀錄", body: "老師可以跟進進度。完成的學生會收到證書。有些學校把它用作課堂、學會或實習學分。" },
+    ],
+  },
+
+  months: {
+    title: "六個月怎樣安排",
+    intro: "每月一個目標，每次都有完成的成果。",
+    photo: {
+      src: "/about/events/Copy of DSC06515.jpg",
+      alt: "一名學生在 NGEN 紐約活動中拿着麥克風發言",
+      caption: "學生在 NGEN 活動中提問。",
+      position: "50% 40%",
+    },
+    steps: [
+      { when: "1月", title: "選定想法", body: "找出一個真實問題，並訪問有這個問題的人。" },
+      { when: "2月", title: "做出第一版", body: "做一個簡單的產品，和一個容易記住的名字。" },
+      { when: "3月", title: "讓人知道它", body: "選一種方式接觸客戶，並看結果。" },
+      { when: "4月", title: "完成第一筆銷售", body: "請人付費，並把數字記下來。" },
+      { when: "5月", title: "準備匯報", body: "把成果變成簡短匯報和清楚的數字。" },
+      { when: "6月", title: "紐約", body: "獲選學生在城裡四天。安排見下方。" },
+    ],
+    note: "暑期可以選擇繼續跟同一位導師，全程上網。",
+  },
+
+  mentors: {
+    title: "導師，以及孩子會見到的人",
+    intro: "每位導師都是常春藤大學的在讀學生，也是創辦人。他們定期與孩子通話，並在作業提交前先看一遍。",
+    schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
+    schoolsNote: "導師就讀的大學。NGEN 是獨立非營利組織，並不屬於這些大學。",
+    points: [
+      { name: "坦白的回應", body: "導師會說明什麼做得好，什麼需要改。" },
+      { name: "同一位導師", body: "六個月都是同一個人，不會中途更換。" },
+    ],
+    speakersTitle: "曾在 NGEN 紐約活動演講的嘉賓",
+    speakersNote: "他們曾在 NGEN 活動演講，不是這個課程的一對一導師。",
+  },
+
+  capstone: {
+    title: "紐約四天",
+    intro: "6月，學校會派出表現最好的四至六位學生。NGEN 安排行程：參觀辦公室、工作坊，以及台上匯報。",
+    logisticsTitle: "交通與陪同",
+    logistics: [
+      "機票和酒店不包括在 US$4,000 內，由家庭另行預算。",
+      "NGEN 訂定行程，並在參觀和匯報時與學生同行。",
+      "介紹通話會說明誰前往紐約、每天的安排，以及我們如何與家長聯絡。",
+    ],
+    photo: {
+      src: "/about/events/founder-treks.jpg",
+      alt: "學生坐在台下，聽講者在 NGEN 參訪中發言",
+      caption: "學生參加 NGEN 在紐約的創辦人參訪。",
+      position: "50% 45%",
+    },
+    itinerary: {
+      label: "每天安排",
+      place: "2027年6月，紐約 New York City",
+      days: [
+        { title: "拜訪創辦人與投資者", body: "到投資者的辦公室，與正在融資的常春藤學生創辦人一起見面。" },
+        { title: "參觀初創公司", body: "看看小團隊怎樣工作，並與負責產品和銷售的人交談。" },
+        { title: "練習匯報", body: "導師在最後一天之前，先看產品和匯報。" },
+        { title: "台上匯報", body: "每組向投資者和學生創辦人介紹自己的項目。" },
+      ],
+      note: "交通和住宿不包括在課程費用內。",
+    },
+  },
+
+  gallery: {
+    title: "過往 NGEN 活動",
+    intro: "我們在紐約辦過的會議、工作坊和參訪。",
+    photos: [
+      { src: "/about/events/conferences.jpg", alt: "三人在 NGEN 會議上對談", caption: "NGEN 會議上的對談。" },
+      { src: "/about/events/pitch-competitions.jpg", alt: "講者向在座觀眾介紹內容", caption: "NGEN 活動中的演講。" },
+      { src: "/about/events/A78A2335.JPG", alt: "講者站在 NGEN 標誌前發言", caption: "NGEN 活動開場。" },
+      { src: "/about/events/Copy of DSC06488.jpg", alt: "講者在 NGEN 會議台上對談", caption: "紐約會議上的對談。" },
+      { src: "/about/events/Copy of DSC06558.jpg", alt: "創辦人與投資者在台上對談", caption: "創辦人與投資者同台。" },
+    ],
+  },
+
+  pricing: {
+    title: "費用與付款方式",
+    intro: "2027年1月至6月，每位學生一個費用。請於2026年11月8日前申請。",
+    total: 4000,
+    per: "每位學生",
+    payInFull: { name: "一次付清", amount: 4000, detail: "一次支付 US$4,000。" },
+    installment: {
+      name: "分期付款",
+      deposit: 1000,
+      depositLabel: "訂金",
+      depositWhen: "孩子獲錄取時支付，用以保留名額。",
+      payments: [
+        { amount: 1000, when: "2027年1月" },
+        { amount: 1000, when: "2027年2月" },
+        { amount: 1000, when: "2027年3月" },
+      ],
+    },
+    includedTitle: "費用包括",
+    excludedTitle: "費用不包括",
+    included: [
+      "1月至5月，六個月的每月目標。",
+      "一位常春藤學生創辦人擔任導師。",
+      "每月一次直播工作坊。",
+      "進度紀錄，以及完成學生的證書。",
+      "獲選學生的紐約四天行程。",
+    ],
+    excluded: ["往返紐約的機票和酒店。", "可選擇的網上暑期。", "孩子為自己的產品另外花費的錢。"],
+    eligibility: {
+      title: "誰可以參加",
+      points: ["9至12年級。", "不需要已有公司。", "由家長或監護人申請。", "2027年1月至6月上網進行；6月獲選學生前往紐約。"],
+    },
+    cta: "為孩子申請",
+    book: "預約15分鐘介紹通話",
+  },
+
+  ngen: {
+    title: "誰主辦",
+    body: "NGEN 是由學生領袖創立的 501(c)(3) 非營利組織。我們在常春藤大學之間舉辦會議、辦公室參訪和匯報活動。",
+    more: { label: "關於 NGEN", href: "/about" },
+  },
+
+  recognition: {
+    title: "團隊獲得的認可",
+    intro: "課程背後團隊所得的獎項。",
+    awards: [
+      { name: "Social Entrepreneur of the Year", place: "新加坡", year: "2024" },
+      { name: "Best Entrepreneurship Education Project", place: "新加坡", year: "2023" },
+      { name: "Commonwealth Youth Awards, Asia finalist", place: "英國", year: "2023" },
+      { name: "President’s Innovation Challenge, semifinalist", place: "美國", year: "2022及2023" },
+      { name: "The Diana Award for Young Changemakers", place: "英國", year: "2019" },
+    ],
+  },
+
+  booking: {
+    title: "用15分鐘和我們談談",
+    intro: "這是給家長的短通話。我們會說明時間表、費用和紐約行程。不用事先準備。",
+    cta: "預約15分鐘介紹通話",
+    url: "https://www.ngennetwork.org/intro",
+    embedUrl: "https://calendly.com/ngennetwork-info/start-up-challenge-intro-call",
+    embed: true,
+    iframeTitle: "預約與 NGEN 的15分鐘介紹通話",
+    or: "或電郵",
+    apply: "為孩子申請",
+  },
+
+  close: {
+    title: "下一步",
+    body: "請於2026年11月8日前，預約15分鐘通話，或遞交孩子的申請。我們會回覆家長的電郵。",
+    cta: "預約15分鐘介紹通話",
+    apply: "為孩子申請",
+    or: "或電郵",
+  },
+
+  apply: {
+    title: "為孩子申請",
+    intro: "供9至12年級學生的家長填寫。請用您自己的電郵，我們會回覆您。請於2026年11月8日前申請。",
+    cta: "開始填寫",
+    book: "預約15分鐘介紹通話",
+    formTitle: "申請表",
+    formIntro: "兩部分：先填您的資料，再填孩子的資料。簡歷可以是 PDF 或 Word，最大 2 MB。",
+    emailInstead: "如果表格發送失敗，請電郵",
+    submit: "提交申請",
+    submitting: "發送中…",
+    successTitle: "已收到申請。",
+    successBody: "謝謝。我們會寫信到您填寫的家長電郵。",
+    back: "返回課程頁",
+    parentLegend: "家長或監護人",
+    studentLegend: "學生",
+    fields: {
+      parentName: "您的姓名",
+      email: "您的電郵",
+      phone: "電話、微信或 WhatsApp",
+      countryCity: "國家及城市",
+      studentName: "學生姓名",
+      age: "年齡",
+      school: "學校",
+      grade: "年級",
+      gradePlaceholder: "請選擇年級",
+      interests: "興趣",
+      interestsHint: "用幾句話寫孩子喜歡做什麼，或想學什麼。",
+      resume: "學生簡歷或 CV",
+      resumeHint: "PDF、DOC 或 DOCX，最大 2 MB。",
+      guardian: "我是這位學生的家長或監護人。",
+    },
+    errors: {
+      summary: "請檢查下面的欄目，然後再試一次。",
+      parentName: "請填寫家長或監護人的姓名。",
+      email: "請填寫有效的電郵地址。",
+      phone: "請填寫電話、微信或 WhatsApp。",
+      countryCity: "請填寫國家及城市。",
+      name: "請填寫學生姓名。",
+      age: "請填寫12至20歲之間的年齡。",
+      grade: "請選擇9至12年級。",
+      school: "請填寫學校名稱。",
+      interests: "請用幾句話寫孩子的興趣。",
+      guardian: "請確認您是家長或監護人。",
+      resume: "請附上 PDF、DOC 或 DOCX 簡歷。",
+      resumeEmpty: "檔案是空的。請附上 PDF、DOC 或 DOCX。",
+      resumeSize: "檔案超過 2 MB。請換一個較小的檔案。",
+      resumeType: "這個檔案不像 PDF、DOC 或 DOCX。",
+      unavailable: "表格尚未接通。請電郵我們，我們會協助您。",
+      unreachable: "表格發送失敗。請電郵我們，我們會協助您。",
+      generic: "表格沒有送出。請電郵我們，我們會協助您。",
+    },
+  },
+};

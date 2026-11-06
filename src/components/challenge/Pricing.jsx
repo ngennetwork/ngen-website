@@ -1,97 +1,92 @@
+"use client";
+
 import PageLink from "@/components/ui/PageLink";
-import { challenge } from "@/components/challenge/content";
-import { formatMoney } from "@/components/challenge/money";
+import { formatUsd } from "@/components/challenge/money";
 
-const SECTION = "wrap py-[clamp(5rem,10vw,8rem)]";
+const CARD = "flex flex-col gap-6 rounded-2xl bg-[#f6f3ec] p-6 text-[#050e26] shadow-[0_22px_50px_-28px_rgb(5_14_38/0.65)] sm:p-8";
 
-export default function Pricing() {
-  const { pricing, applyPath } = challenge;
+export default function Pricing({ copy }) {
+  const { pricing, applyPath } = copy;
   const { payInFull, installment } = pricing;
   const installmentTotal = installment.deposit + installment.payments.reduce((sum, payment) => sum + payment.amount, 0);
 
   return (
     <section id="pricing" aria-labelledby="pricing-title" className="bg-snow">
-      <div className={SECTION}>
-        <div className="mb-12 flex max-w-[40rem] flex-col gap-5">
-          <h2 id="pricing-title" className="font-display text-h2">
-            {pricing.title}
-          </h2>
-          <p className="text-lead text-slate">{pricing.intro}</p>
-        </div>
+      <div className="wrap py-[clamp(4.25rem,8vw,6.75rem)]">
+        <h2 id="pricing-title" className="max-w-[16ch] font-display text-h2">
+          {pricing.title}
+        </h2>
+        <p className="mt-5 max-w-[40rem] text-lead text-slate">{pricing.intro}</p>
 
-        <div className="grid gap-4 lg:grid-cols-2">
-          <article className="flex flex-col gap-6 rounded-xl bg-paper p-6 ring-1 ring-ink/10 sm:p-8">
-            <div className="flex flex-col gap-3">
-              <h3 className="text-small text-slate">{payInFull.name}</h3>
-              <p className="font-display text-[clamp(3rem,2rem+2vw,4rem)] leading-none tracking-[-0.03em] tabular">
-                {formatMoney(payInFull.amount)}
+        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+          <article className={CARD}>
+            <div>
+              <h3 className="text-small font-medium text-[#c2410c]">{payInFull.name}</h3>
+              <p className="mt-3 font-display text-[clamp(3rem,2rem+2vw,4rem)] leading-none tracking-[-0.03em] tabular">
+                {formatUsd(payInFull.amount)}
               </p>
-              <p className="text-small text-slate">{pricing.per}</p>
+              <p className="mt-2 text-small text-[#3e4d6e]">{pricing.per}</p>
             </div>
-            <p className="mt-auto border-t border-ink/10 pt-5 text-base text-slate">{payInFull.detail}</p>
+            <p className="mt-auto border-t border-[#050e26]/10 pt-5 text-[1.075rem] leading-relaxed text-[#3e4d6e]">{payInFull.detail}</p>
           </article>
 
-          <article className="flex flex-col gap-6 rounded-xl bg-paper p-6 ring-1 ring-ink/10 sm:p-8">
-            <div className="flex flex-col gap-3">
-              <h3 className="text-small text-slate">{installment.name}</h3>
-              <p className="font-display text-[clamp(3rem,2rem+2vw,4rem)] leading-none tracking-[-0.03em] tabular">
-                {formatMoney(installmentTotal)}
+          <article className={`${CARD} ring-2 ring-[#ff5a14]`}>
+            <div>
+              <h3 className="text-small font-medium text-[#c2410c]">{installment.name}</h3>
+              <p className="mt-3 font-display text-[clamp(3rem,2rem+2vw,4rem)] leading-none tracking-[-0.03em] tabular">
+                {formatUsd(installmentTotal)}
               </p>
-              <p className="text-small text-slate">{pricing.per}</p>
+              <p className="mt-2 text-small text-[#3e4d6e]">{pricing.per}</p>
             </div>
-            <ul className="mt-auto flex flex-col gap-3 border-t border-ink/10 pt-5">
-              <li className="flex items-baseline justify-between gap-4 text-base">
+            <ul className="mt-auto flex flex-col gap-3 border-t border-[#050e26]/10 pt-5">
+              <li className="flex items-baseline justify-between gap-4">
                 <span>
-                  <span className="text-ink">{installment.depositLabel}</span>
-                  <span className="mt-1 block text-small text-slate">{installment.depositWhen}</span>
+                  <span className="font-medium">{installment.depositLabel}</span>
+                  <span className="mt-1 block text-small text-[#3e4d6e]">{installment.depositWhen}</span>
                 </span>
-                <span className="shrink-0 tabular">{formatMoney(installment.deposit)}</span>
+                <span className="shrink-0 tabular">{formatUsd(installment.deposit)}</span>
               </li>
               {installment.payments.map((payment) => (
-                <li key={payment.when} className="flex items-baseline justify-between gap-4 text-base">
-                  <span className="text-slate">{payment.when}</span>
-                  <span className="shrink-0 tabular">{formatMoney(payment.amount)}</span>
+                <li key={payment.when} className="flex items-baseline justify-between gap-4 text-[#3e4d6e]">
+                  <span>{payment.when}</span>
+                  <span className="shrink-0 tabular text-[#050e26]">{formatUsd(payment.amount)}</span>
                 </li>
               ))}
             </ul>
           </article>
         </div>
 
-        <div className="mt-16 grid gap-y-12 lg:grid-cols-2 lg:gap-x-16">
-          <div>
-            <h3 className="font-display text-h3">{pricing.includedTitle}</h3>
-            <ul className="mt-6 flex flex-col">
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          <div className={`${CARD} p-6`}>
+            <h3 className="font-display text-[1.5rem]">{pricing.includedTitle}</h3>
+            <ul className="mt-4 flex flex-col gap-3 text-[1.075rem] leading-relaxed text-[#3e4d6e]">
               {pricing.included.map((item) => (
-                <li key={item} className="-mx-4 rounded-lg px-4 py-3 text-base text-slate odd:bg-fog">
-                  {item}
-                </li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
-          <div>
-            <h3 className="font-display text-h3">{pricing.excludedTitle}</h3>
-            <ul className="mt-6 flex flex-col">
+          <div className={`${CARD} p-6`}>
+            <h3 className="font-display text-[1.5rem]">{pricing.excludedTitle}</h3>
+            <ul className="mt-4 flex flex-col gap-3 text-[1.075rem] leading-relaxed text-[#3e4d6e]">
               {pricing.excluded.map((item) => (
-                <li key={item} className="-mx-4 rounded-lg px-4 py-3 text-base text-slate odd:bg-fog">
-                  {item}
-                </li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 grid gap-y-8 lg:grid-cols-12 lg:gap-x-8">
-          <h3 className="font-display text-h3 lg:col-span-4">{pricing.eligibility.title}</h3>
-          <ul className="flex flex-col gap-4 lg:col-span-7 lg:col-start-6">
+        <div className="mt-12">
+          <h3 className="font-display text-h3">{pricing.eligibility.title}</h3>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {pricing.eligibility.points.map((point) => (
-              <li key={point} className="text-lead text-slate">
+              <li key={point} className="rounded-xl bg-[#f6f3ec] px-4 py-3 text-[1.075rem] leading-relaxed text-[#050e26]">
                 {point}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="mt-12 flex flex-wrap gap-3">
+        <div className="mt-10 flex flex-wrap gap-3">
           <PageLink href={applyPath} className="btn btn-ink">
             {pricing.cta}
           </PageLink>

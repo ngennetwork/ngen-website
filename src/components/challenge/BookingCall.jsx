@@ -17,7 +17,7 @@ function widgetUrl(url) {
 
 export default function BookingCall({ booking }) {
   const parentRef = useRef(null);
-  const url = widgetUrl(booking.url);
+  const url = widgetUrl(booking.embedUrl || booking.url);
 
   useEffect(() => {
     if (!booking.embed) return undefined;

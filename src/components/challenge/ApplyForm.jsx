@@ -1,32 +1,30 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { challenge } from "@/components/challenge/content";
 import { site } from "@/content/site";
+import { useLocale } from "@/components/challenge/ChallengeShell";
 import { validateApplication, validateResume } from "@/lib/challengeApplication";
 import PageLink from "@/components/ui/PageLink";
 
-const inputClass =
-  "min-h-11 w-full rounded-[var(--radius-btn)] bg-paper px-4 text-base text-ink ring-1 ring-ink/12 outline-none placeholder:text-slate/70 focus:ring-ink aria-invalid:ring-danger";
-
-const { apply, applyPath } = challenge;
-const mailto = `mailto:${site.email}?subject=${encodeURIComponent("NGEN Start-Up Challenge application")}`;
+const fieldClass =
+  "min-h-11 w-full rounded-[var(--radius-btn)] bg-white px-4 text-base text-[#050e26] ring-1 ring-[#050e26]/15 outline-none focus:ring-[#050e26] aria-invalid:ring-[#9f1239]";
 
 export default function ApplyForm() {
+  const { lang, copy } = useLocale();
+  const apply = copy.apply;
   const formId = useId();
   const alertRef = useRef(null);
   const successRef = useRef(null);
-  const [applyingAs, setApplyingAs] = useState("solo");
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
   const [fields, setFields] = useState({});
   const [attempt, setAttempt] = useState(0);
+  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
 
   useEffect(() => {
     if (!attempt) return;
     const invalid = document.querySelector("[aria-invalid='true']");
-    const target = invalid || alertRef.current;
-    target?.focus();
+    (invalid || alertRef.current)?.focus();
   }, [attempt]);
 
   useEffect(() => {
@@ -43,11 +41,6 @@ export default function ApplyForm() {
     if (!name || !fields[name]) return;
     const next = { ...fields };
     delete next[name];
-    if (name === "applyingAs" && event.target.value !== "team") {
-      delete next.cofounderName;
-      delete next.cofounderEmail;
-      delete next.cofounderSchool;
-    }
     setFields(next);
     if (Object.keys(next).length === 0) {
       setError("");
@@ -60,23 +53,21 @@ export default function ApplyForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
     const parsed = validateApplication({
-      name: data.get("name"),
+      parentName: data.get("parentName"),
       email: data.get("email"),
-      grade: data.get("grade"),
-      dob: data.get("dob"),
-      school: data.get("school"),
       phone: data.get("phone"),
-      motivation: data.get("motivation"),
-      applyingAs: data.get("applyingAs"),
-      cofounderName: data.get("cofounderName"),
-      cofounderEmail: data.get("cofounderEmail"),
-      cofounderSchool: data.get("cofounderSchool"),
+      countryCity: data.get("countryCity"),
+      name: data.get("studentName"),
+      age: data.get("age"),
+      school: data.get("school"),
+      grade: data.get("grade"),
+      interests: data.get("interests"),
       guardian: data.get("guardian"),
+      language: lang,
     });
-    const resumeCheck = validateResume(data.get("resume"));
+    const resumeCheck = validateResume(data.get("resume"), lang);
     const nextFields = { ...parsed.fields };
     if (!resumeCheck.ok) nextFields.resume = resumeCheck.error;
-
     if (Object.keys(nextFields).length > 0) {
       setFields(nextFields);
       setError(apply.errors.summary);
@@ -88,14 +79,12 @@ export default function ApplyForm() {
     setStatus("loading");
     setError("");
     setFields({});
-
     try {
       const res = await fetch("/api/startup-challenge/apply", { method: "POST", body: data });
       const body = await res.json().catch(() => null);
       if (!res.ok || !body?.ok) {
-        const code = body?.error;
         setFields(body?.fields || {});
-        setError(apply.errors[code] || apply.errors.generic);
+        setError(apply.errors[body?.error] || apply.errors.generic);
         setStatus("error");
         setAttempt((n) => n + 1);
         return;
@@ -110,9 +99,9 @@ export default function ApplyForm() {
 
   if (status === "success") {
     return (
-      <div id="application-received" ref={successRef} tabIndex={-1} role="status" className="flex flex-col items-start gap-5 outline-none">
+      <div id="application-received" ref={successRef} tabIndex={-1} role="status" className="flex flex-col items-start gap-5 rounded-2xl bg-[#f6f3ec] p-6 text-[#050e26] outline-none sm:p-8">
         <h3 className="font-display text-h3">{apply.successTitle}</h3>
-        <p className="text-lead text-slate">{apply.successBody}</p>
+        <p className="text-[1.075rem] leading-relaxed text-[#3e4d6e]">{apply.successBody}</p>
         <PageLink href="/startup-challenge" className="btn btn-ghost">
           {apply.back}
         </PageLink>
@@ -121,158 +110,95 @@ export default function ApplyForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} onChange={onFormChange} noValidate aria-busy={status === "loading"} className="flex flex-col gap-6">
+    <form onSubmit={handleSubmit} onChange={onFormChange} noValidate aria-busy={status === "loading"} className="flex flex-col gap-8 rounded-2xl bg-[#f6f3ec] p-6 text-[#050e26] shadow-[0_22px_50px_-28px_rgb(5_14_38/0.65)] sm:p-8">
+      <input type="hidden" name="language" value={lang} />
       {status === "error" && (
-        <div ref={alertRef} tabIndex={-1} role="alert" className="rounded-xl bg-paper px-5 py-4 text-base outline-none">
+        <div ref={alertRef} tabIndex={-1} role="alert" className="rounded-xl bg-white px-5 py-4 outline-none">
           <p>{error}</p>
-          <p className="mt-2 text-small text-slate">
-            <a href={mailto} className="link text-ink">
+          <p className="mt-2 text-small">
+            <a href={mailto} className="link">
               {site.email}
             </a>
           </p>
         </div>
       )}
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        <TextField id={`${formId}-name`} name="name" label={apply.fields.name} autoComplete="name" required error={fields.name} />
-        <TextField
-          id={`${formId}-email`}
-          name="email"
-          type="email"
-          label={apply.fields.email}
-          autoComplete="email"
-          required
-          error={fields.email}
-        />
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <SelectField id={`${formId}-grade`} name="grade" label={apply.fields.grade} required error={fields.grade} defaultValue="">
-          <option value="">{apply.fields.gradePlaceholder}</option>
-          {["9", "10", "11", "12"].map((grade) => (
-            <option key={grade} value={grade}>
-              {grade}
-            </option>
-          ))}
-        </SelectField>
-        <TextField id={`${formId}-dob`} name="dob" type="date" label={apply.fields.dob} autoComplete="bday" error={fields.dob} />
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <TextField
-          id={`${formId}-school`}
-          name="school"
-          label={apply.fields.school}
-          autoComplete="organization"
-          required
-          error={fields.school}
-        />
-        <TextField id={`${formId}-phone`} name="phone" type="tel" label={apply.fields.phone} autoComplete="tel" error={fields.phone} />
-      </div>
-
-      <fieldset className="flex flex-col gap-3">
-        <legend className="text-small text-ink">{apply.fields.applyingAs}</legend>
-        <div className="flex flex-col gap-2">
-          {[
-            ["solo", apply.fields.solo],
-            ["team", apply.fields.team],
-          ].map(([value, label]) => (
-            <label key={value} className="flex items-center gap-3 text-base">
-              <input
-                type="radio"
-                name="applyingAs"
-                value={value}
-                checked={applyingAs === value}
-                onChange={() => setApplyingAs(value)}
-                className="size-4 accent-[var(--color-signal)]"
-              />
-              {label}
-            </label>
-          ))}
+      <fieldset className="flex flex-col gap-5">
+        <legend className="font-display text-[1.5rem]">{apply.parentLegend}</legend>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <TextField id={`${formId}-parent`} name="parentName" label={apply.fields.parentName} autoComplete="name" required error={fields.parentName} />
+          <TextField id={`${formId}-email`} name="email" type="email" label={apply.fields.email} autoComplete="email" required error={fields.email} />
+          <TextField id={`${formId}-phone`} name="phone" type="text" label={apply.fields.phone} autoComplete="tel" required error={fields.phone} />
+          <TextField id={`${formId}-place`} name="countryCity" label={apply.fields.countryCity} autoComplete="address-level2" required error={fields.countryCity} />
         </div>
-        {fields.applyingAs && <p className="text-small text-danger">{fields.applyingAs}</p>}
-        {applyingAs === "team" && (
-          <div className="mt-2 grid gap-6 sm:grid-cols-2">
-            <TextField
-              id={`${formId}-cofounder-name`}
-              name="cofounderName"
-              label={apply.fields.cofounderName}
-              autoComplete="name"
-              required
-              error={fields.cofounderName}
-            />
-            <TextField
-              id={`${formId}-cofounder-email`}
-              name="cofounderEmail"
-              type="email"
-              label={apply.fields.cofounderEmail}
-              autoComplete="email"
-              error={fields.cofounderEmail}
-            />
-            <TextField
-              id={`${formId}-cofounder-school`}
-              name="cofounderSchool"
-              label={apply.fields.cofounderSchool}
-              autoComplete="organization"
-              error={fields.cofounderSchool}
-              className="sm:col-span-2"
-            />
-            <p className="text-small text-slate sm:col-span-2">{apply.fields.teamHint}</p>
-          </div>
-        )}
+      </fieldset>
+
+      <fieldset className="flex flex-col gap-5">
+        <legend className="font-display text-[1.5rem]">{apply.studentLegend}</legend>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <TextField id={`${formId}-student`} name="studentName" label={apply.fields.studentName} autoComplete="name" required error={fields.name} />
+          <TextField id={`${formId}-age`} name="age" inputMode="numeric" label={apply.fields.age} required error={fields.age} />
+          <TextField id={`${formId}-school`} name="school" label={apply.fields.school} autoComplete="organization" required error={fields.school} />
+          <SelectField id={`${formId}-grade`} name="grade" label={apply.fields.grade} required error={fields.grade} defaultValue="">
+            <option value="">{apply.fields.gradePlaceholder}</option>
+            {["9", "10", "11", "12"].map((grade) => (
+              <option key={grade} value={grade}>
+                {grade}
+              </option>
+            ))}
+          </SelectField>
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor={`${formId}-interests`} className="text-small font-medium">
+            {apply.fields.interests}
+          </label>
+          <textarea
+            id={`${formId}-interests`}
+            name="interests"
+            required
+            rows={5}
+            aria-invalid={fields.interests ? true : undefined}
+            aria-describedby={fields.interests ? `${formId}-interests-error` : `${formId}-interests-hint`}
+            className={`${fieldClass} min-h-36 py-3`}
+          />
+          {fields.interests ? (
+            <p id={`${formId}-interests-error`} className="text-small text-[#9f1239]">
+              {fields.interests}
+            </p>
+          ) : (
+            <p id={`${formId}-interests-hint`} className="text-small text-[#3e4d6e]">
+              {apply.fields.interestsHint}
+            </p>
+          )}
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor={`${formId}-resume`} className="text-small font-medium">
+            {apply.fields.resume}
+          </label>
+          <input
+            id={`${formId}-resume`}
+            name="resume"
+            type="file"
+            required
+            accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            aria-invalid={fields.resume ? true : undefined}
+            aria-describedby={fields.resume ? `${formId}-resume-error` : `${formId}-resume-hint`}
+            className="block w-full text-small text-[#3e4d6e] file:mr-4 file:inline-flex file:min-h-11 file:items-center file:rounded-[var(--radius-btn)] file:border-0 file:bg-[#050e26] file:px-4 file:text-small file:font-medium file:text-white"
+          />
+          {fields.resume ? (
+            <p id={`${formId}-resume-error`} className="text-small text-[#9f1239]">
+              {fields.resume}
+            </p>
+          ) : (
+            <p id={`${formId}-resume-hint`} className="text-small text-[#3e4d6e]">
+              {apply.fields.resumeHint}
+            </p>
+          )}
+        </div>
       </fieldset>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor={`${formId}-motivation`} className="text-small text-ink">
-          {apply.fields.motivation}
-        </label>
-        <textarea
-          id={`${formId}-motivation`}
-          name="motivation"
-          required
-          rows={5}
-          aria-invalid={fields.motivation ? true : undefined}
-          aria-describedby={fields.motivation ? `${formId}-motivation-error` : `${formId}-motivation-hint`}
-          className={`${inputClass} min-h-36 py-3`}
-        />
-        {fields.motivation ? (
-          <p id={`${formId}-motivation-error`} className="text-small text-danger">
-            {fields.motivation}
-          </p>
-        ) : (
-          <p id={`${formId}-motivation-hint`} className="text-small text-slate">
-            {apply.fields.motivationHint}
-          </p>
-        )}
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <label htmlFor={`${formId}-resume`} className="text-small text-ink">
-          {apply.fields.resume}
-        </label>
-        <input
-          id={`${formId}-resume`}
-          name="resume"
-          type="file"
-          required
-          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-          aria-invalid={fields.resume ? true : undefined}
-          aria-describedby={fields.resume ? `${formId}-resume-error` : `${formId}-resume-hint`}
-          className="block w-full text-small text-slate file:mr-4 file:inline-flex file:min-h-11 file:items-center file:rounded-[var(--radius-btn)] file:border-0 file:bg-ink file:px-4 file:text-small file:font-medium file:text-snow"
-        />
-        {fields.resume ? (
-          <p id={`${formId}-resume-error`} className="text-small text-danger">
-            {fields.resume}
-          </p>
-        ) : (
-          <p id={`${formId}-resume-hint`} className="text-small text-slate">
-            {apply.fields.resumeHint}
-          </p>
-        )}
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <label className="flex items-start gap-3 text-base">
+        <label className="flex items-start gap-3 text-[1.075rem] leading-relaxed">
           <input
             type="checkbox"
             name="guardian"
@@ -280,25 +206,20 @@ export default function ApplyForm() {
             required
             aria-invalid={fields.guardian ? true : undefined}
             aria-describedby={fields.guardian ? `${formId}-guardian-error` : undefined}
-            className="mt-1 size-4 accent-[var(--color-signal)]"
+            className="mt-1 size-4 accent-[#ff5a14]"
           />
           <span>{apply.fields.guardian}</span>
         </label>
         {fields.guardian && (
-          <p id={`${formId}-guardian-error`} className="text-small text-danger">
+          <p id={`${formId}-guardian-error`} className="text-small text-[#9f1239]">
             {fields.guardian}
           </p>
         )}
       </div>
 
-      <div className="flex flex-wrap items-center gap-4">
-        <button type="submit" disabled={status === "loading"} className="btn btn-ink disabled:opacity-60">
-          {status === "loading" ? apply.submitting : apply.submit}
-        </button>
-        <PageLink href={`${applyPath.replace(/\/apply$/, "")}#book`} className="link text-small">
-          {apply.book}
-        </PageLink>
-      </div>
+      <button type="submit" disabled={status === "loading"} className="btn btn-ink self-start disabled:opacity-60">
+        {status === "loading" ? apply.submitting : apply.submit}
+      </button>
     </form>
   );
 }
@@ -307,7 +228,7 @@ function TextField({ id, name, label, error, className = "", ...rest }) {
   const errorId = `${id}-error`;
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
-      <label htmlFor={id} className="text-small text-ink">
+      <label htmlFor={id} className="text-small font-medium">
         {label}
       </label>
       <input
@@ -315,11 +236,11 @@ function TextField({ id, name, label, error, className = "", ...rest }) {
         name={name}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
-        className={inputClass}
+        className={fieldClass}
         {...rest}
       />
       {error && (
-        <p id={errorId} className="text-small text-danger">
+        <p id={errorId} className="text-small text-[#9f1239]">
           {error}
         </p>
       )}
@@ -331,7 +252,7 @@ function SelectField({ id, name, label, error, children, ...rest }) {
   const errorId = `${id}-error`;
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-small text-ink">
+      <label htmlFor={id} className="text-small font-medium">
         {label}
       </label>
       <select
@@ -339,13 +260,13 @@ function SelectField({ id, name, label, error, children, ...rest }) {
         name={name}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
-        className={inputClass}
+        className={fieldClass}
         {...rest}
       >
         {children}
       </select>
       {error && (
-        <p id={errorId} className="text-small text-danger">
+        <p id={errorId} className="text-small text-[#9f1239]">
           {error}
         </p>
       )}
