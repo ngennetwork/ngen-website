@@ -95,11 +95,17 @@ const nextConfig = {
         destination: "/events",
         permanent: true,
       },
-      // Mission and story are one page now; the team has its own (/about/team).
+      // Mission and story are one page now.
       {
         source: "/about/mission-story",
         destination: "/about",
         permanent: true,
+      },
+      // Team page is archived in src/_archive/team. Temporary so it can return.
+      {
+        source: "/about/team",
+        destination: "/about",
+        permanent: false,
       },
       {
         source: "/capital-network",

@@ -1,9 +1,9 @@
 import { pages } from "@/content/site";
-import { leadership } from "@/data/team";
+import { leadership } from "./team";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import Photo from "@/components/layout/Photo";
-import TeamGrid from "@/components/sections/TeamGrid";
+import TeamGrid from "./TeamGrid";
 
 const copy = pages.team;
 

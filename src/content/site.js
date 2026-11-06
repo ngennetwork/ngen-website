@@ -74,14 +74,7 @@ export const site = {
       { label: "Events", href: "/events" },
       { label: "Capital", href: "/capital-network/founders", match: "/capital-network" },
       { label: "Impact", href: "/impact" },
-      {
-        label: "About",
-        href: "/about",
-        children: [
-          { label: "Our story", href: "/about" },
-          { label: "Team", href: "/about/team" },
-        ],
-      },
+      { label: "About", href: "/about" },
     ],
     cta: { label: "Upcoming events", href: "/events" },
   },
