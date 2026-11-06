@@ -79,6 +79,30 @@
   font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", var(--font-albert-sans), sans-serif;
 }
 
+.challenge-lang-fade {
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+.challenge-lang-fade[data-shown="false"] {
+  opacity: 0;
+  transform: translateY(5px);
+}
+.lang-pill {
+  width: var(--pill-w, 0px);
+  transform: translateX(var(--pill-x, 0px));
+  transition:
+    transform 200ms ease,
+    width 200ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .challenge-lang-fade,
+  .lang-pill,
+  .lang-option {
+    transition: none;
+  }
+}
+
 @layer base {
   html {
     color-scheme: dark;

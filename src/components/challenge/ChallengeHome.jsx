@@ -53,7 +53,7 @@ function Home() {
             <div className="flex max-w-[40rem] flex-col items-start gap-6">
               <p className="inline-flex items-center gap-2 rounded-full bg-[#f6f3ec] px-3 py-1.5 text-small text-[#050e26]">
                 <span aria-hidden="true" className="node" />
-                {hero.deadlineLabel} {copy.deadline}
+                {copy.deadline}
               </p>
               <h1 id="challenge-title" className="max-w-[16ch] font-display text-[clamp(2.75rem,1.6rem+3vw,4.5rem)] leading-[1.02] tracking-[-0.036em]">
                 {hero.title}
@@ -332,6 +332,7 @@ function Home() {
               {close.title}
             </h2>
             <p className="mt-3 text-lead text-slate">{close.body}</p>
+            <p className="mt-3 text-small text-slate">{copy.deadline}</p>
           </div>
           <div className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
             <a href="#book" className="btn btn-ink">

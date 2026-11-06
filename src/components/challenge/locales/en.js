@@ -1,21 +1,21 @@
 /**
  * The Start-Up Challenge: every word in one place.
- * Written for parents. The fee, the November 8, 2026 deadline, and the
- * intro link live here. The Calendly widget uses embedUrl. The button
- * uses url (https://www.ngennetwork.org/intro).
+ * Written for families. The fee and the admissions line live here.
+ * The Calendly widget uses embedUrl. The button uses url
+ * (https://www.ngennetwork.org/intro).
  */
 
 export const en = {
   meta: {
     title: "6-Month Start-Up Challenge",
     description:
-      "A six-month program for high school students. Families can book a 15-minute call or apply by November 8, 2026. The fee is US$4,000 per student.",
+      "A six-month program for high school students. The fee is US$4,000 per student.",
   },
   switcherLabel: "Language",
   name: "NGEN Start-Up Challenge",
   emailSubject: "NGEN Start-Up Challenge",
   applyPath: "/startup-challenge/apply",
-  deadline: "November 8, 2026",
+  deadline: "Applications reviewed on a rolling basis · Limited spots",
 
   hero: {
     title: "Students build a real startup in six\u00a0months.",
@@ -23,7 +23,6 @@ export const en = {
       "From January to June 2027, students learn how a company works and build one. An Ivy League student founder is the mentor. In June, selected students spend four days in New\u00a0York.",
     cta: "Book a 15-minute intro call",
     applyCta: "Apply for a student",
-    deadlineLabel: "Book or apply by",
     priceLead: "The fee is",
     priceMid: "per student.",
     photo: {
@@ -45,7 +44,7 @@ export const en = {
       {
         icon: "calendar",
         title: "Dates",
-        body: "January to June 2027. Please book a call or apply by November\u00a08, 2026.",
+        body: "January to June 2027. Online each month, then four days in New\u00a0York.",
       },
       {
         icon: "laptop",
@@ -174,7 +173,7 @@ export const en = {
 
   pricing: {
     title: "Fee and payment plan",
-    intro: "One fee per student for January to June 2027. Please apply by November\u00a08, 2026.",
+    intro: "One fee per student for January to June 2027.",
     total: 4000,
     per: "per student",
     payInFull: {
@@ -252,7 +251,7 @@ export const en = {
 
   close: {
     title: "Next step",
-    body: "Book a 15-minute call, or send an application, by November\u00a08, 2026. We reply to the family email.",
+    body: "Book a 15-minute call, or send an application. We reply to the family email.",
     cta: "Book a 15-minute intro call",
     apply: "Apply for a student",
     or: "Or email",
@@ -261,7 +260,7 @@ export const en = {
   apply: {
     title: "Apply for a student",
     intro:
-      "For families of students in grades 9 to 12. Use a parent or guardian email. We write back to that address. Please apply by November\u00a08, 2026.",
+      "For families of students in grades 9 to 12. Use a parent or guardian email. We write back to that address.",
     cta: "Start the form",
     book: "Book a 15-minute intro call",
     formTitle: "Application",

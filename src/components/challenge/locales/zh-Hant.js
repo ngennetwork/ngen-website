@@ -2,13 +2,13 @@
 export const zhHant = {
   meta: {
     title: "六個月創業挑戰",
-    description: "給中學生的六個月課程。家長可預約15分鐘通話，或於2026年11月8日前申請。費用為每位學生 US$4,000。",
+    description: "給中學生的六個月課程。費用為每位學生 US$4,000。",
   },
   switcherLabel: "語言",
   name: "NGEN Start-Up Challenge",
   emailSubject: "NGEN Start-Up Challenge",
   applyPath: "/startup-challenge/apply",
-  deadline: "2026年11月8日",
+  deadline: "滾動錄取，名額有限",
 
   hero: {
     title: "六個月，建立一間真正的公司。",
@@ -16,7 +16,6 @@ export const zhHant = {
       "2027年1月至6月，學生學習一間公司如何運作，並親手完成自己的項目。導師是常春藤大學的學生創辦人。6月，獲選學生會到紐約（New York City）四天。",
     cta: "預約15分鐘介紹通話",
     applyCta: "為學生申請",
-    deadlineLabel: "請於以下日期前預約或申請",
     priceLead: "費用為",
     priceMid: "（每位學生）。",
     photo: {
@@ -31,7 +30,7 @@ export const zhHant = {
     title: "重點一覽",
     items: [
       { icon: "who", title: "適合誰", body: "中學9至12年級，大約14至18歲。不需要已有公司或想法。" },
-      { icon: "calendar", title: "日期", body: "2027年1月至6月。請於2026年11月8日前預約通話或申請。" },
+      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月上網進行，6月獲選學生到紐約四天。" },
       { icon: "laptop", title: "形式", body: "每月在家上網完成。6月，獲選學生到紐約四天。" },
       { icon: "fee", title: "費用", body: "每位學生 US$4,000。可一次付清，或分四次，每次 US$1,000。紐約旅費另計。" },
     ],
@@ -129,7 +128,7 @@ export const zhHant = {
 
   pricing: {
     title: "費用與付款方式",
-    intro: "2027年1月至6月，每位學生一個費用。請於2026年11月8日前申請。",
+    intro: "2027年1月至6月，每位學生一個費用。",
     total: 4000,
     per: "每位學生",
     payInFull: { name: "一次付清", amount: 4000, detail: "一次支付 US$4,000。" },
@@ -194,7 +193,7 @@ export const zhHant = {
 
   close: {
     title: "下一步",
-    body: "請於2026年11月8日前，預約15分鐘通話，或遞交申請。我們會回覆家長的電郵。",
+    body: "預約15分鐘通話，或遞交申請。我們會回覆家長的電郵。",
     cta: "預約15分鐘介紹通話",
     apply: "為學生申請",
     or: "或電郵",
@@ -202,7 +201,7 @@ export const zhHant = {
 
   apply: {
     title: "為學生申請",
-    intro: "供9至12年級學生的家庭填寫。請用家長或監護人的電郵，我們會回覆該地址。請於2026年11月8日前申請。",
+    intro: "供9至12年級學生的家庭填寫。請用家長或監護人的電郵，我們會回覆該地址。",
     cta: "開始填寫",
     book: "預約15分鐘介紹通話",
     formTitle: "申請表",
