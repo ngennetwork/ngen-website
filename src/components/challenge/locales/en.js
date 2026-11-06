@@ -9,7 +9,7 @@ export const en = {
   meta: {
     title: "6-Month Start-Up Challenge",
     description:
-      "A six-month program for high school students. Parents can book a 15-minute call or apply by November 8, 2026. The fee is US$4,000 per student.",
+      "A six-month program for high school students. Families can book a 15-minute call or apply by November 8, 2026. The fee is US$4,000 per student.",
   },
   switcherLabel: "Language",
   name: "NGEN Start-Up Challenge",
@@ -18,11 +18,11 @@ export const en = {
   deadline: "November 8, 2026",
 
   hero: {
-    title: "Help your child build a real company in six\u00a0months.",
+    title: "Students build a real startup in six\u00a0months.",
     intro:
-      "From January to June 2027, your child learns how a company works and builds one. An Ivy League student founder is their mentor. In June, selected students spend four days in New\u00a0York.",
+      "From January to June 2027, students learn how a company works and build one. An Ivy League student founder is the mentor. In June, selected students spend four days in New\u00a0York.",
     cta: "Book a 15-minute intro call",
-    applyCta: "Apply for your child",
+    applyCta: "Apply for a student",
     deadlineLabel: "Book or apply by",
     priceLead: "The fee is",
     priceMid: "per student.",
@@ -61,7 +61,7 @@ export const en = {
   },
 
   gets: {
-    title: "What your child gets",
+    title: "What students get",
     intro: "A clear plan, a real project, and adults who stay with them.",
     photo: {
       src: "/about/events/workshops.jpg",
@@ -71,7 +71,7 @@ export const en = {
     },
     items: [
       { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student who has built something of their own. The same mentor stays for the whole program." },
-      { icon: "build", title: "A real company project", body: "An idea, a first product, real customers, and a short pitch. Your child finishes with work they can show." },
+      { icon: "build", title: "A real company project", body: "An idea, a first product, real customers, and a short pitch. Students finish with work they can show." },
       { icon: "workshop", title: "Live workshops", body: "Each month an operator joins the group live and answers questions." },
       { icon: "school", title: "A record for school", body: "Teachers can follow progress. Students who finish receive a certificate. Some schools use it as a class, club, or internship credit." },
     ],
@@ -98,14 +98,14 @@ export const en = {
   },
 
   mentors: {
-    title: "Mentors and people your child will learn from",
+    title: "Mentors",
     intro:
-      "Each mentor is a current student at an Ivy League university and a founder. They meet your child on a regular call and review the work before it is submitted.",
+      "Each mentor is a current student at an Ivy League university and a founder. They meet their student on a regular call and review the work before it is submitted.",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "Where our mentors study. NGEN is an independent nonprofit and is not part of these universities.",
     points: [
       { name: "Honest feedback", body: "The mentor says what is working and what is not." },
-      { name: "The same person", body: "One mentor stays for all six months, so your child is not passed around." },
+      { name: "The same person", body: "One mentor stays for all six months." },
     ],
     speakersTitle: "Speakers at NGEN events in New\u00a0York",
     speakersNote: "These guests have spoken at NGEN. They are not the one-to-one mentors for this program.",
@@ -186,7 +186,7 @@ export const en = {
       name: "Payment plan",
       deposit: 1000,
       depositLabel: "Deposit",
-      depositWhen: "Due when your child is accepted. This holds the place.",
+      depositWhen: "Due when a student is accepted. This holds the place.",
       payments: [
         { amount: 1000, when: "January 2027" },
         { amount: 1000, when: "February 2027" },
@@ -205,7 +205,7 @@ export const en = {
     excluded: [
       "Flights and hotels for New\u00a0York.",
       "The optional online summer.",
-      "Costs your child chooses to spend on their own product.",
+      "Costs a student chooses to spend on their own product.",
     ],
     eligibility: {
       title: "Who can join",
@@ -216,7 +216,7 @@ export const en = {
         "Online from January to June 2027, with New\u00a0York in June for selected students.",
       ],
     },
-    cta: "Apply for your child",
+    cta: "Apply for a student",
     book: "Book a 15-minute intro call",
   },
 
@@ -240,32 +240,32 @@ export const en = {
 
   booking: {
     title: "Talk with us for 15 minutes",
-    intro: "A short call for parents. We cover the schedule, the fee, and the New\u00a0York trip. No preparation is needed.",
+    intro: "A short call for families. We cover the schedule, the fee, and the New\u00a0York trip. No preparation is needed.",
     cta: "Book a 15-minute intro call",
     url: "https://www.ngennetwork.org/intro",
     embedUrl: "https://calendly.com/ngennetwork-info/start-up-challenge-intro-call",
     embed: true,
     iframeTitle: "Book a 15-minute intro call with NGEN",
     or: "Or email",
-    apply: "Apply for your child",
+    apply: "Apply for a student",
   },
 
   close: {
     title: "Next step",
-    body: "Book a 15-minute call, or send your child’s application, by November\u00a08, 2026. We reply to the parent’s email.",
+    body: "Book a 15-minute call, or send an application, by November\u00a08, 2026. We reply to the family email.",
     cta: "Book a 15-minute intro call",
-    apply: "Apply for your child",
+    apply: "Apply for a student",
     or: "Or email",
   },
 
   apply: {
-    title: "Apply for your child",
+    title: "Apply for a student",
     intro:
-      "For parents of students in grades 9 to 12. Use your own email. We write back to you. Please apply by November\u00a08, 2026.",
+      "For families of students in grades 9 to 12. Use a parent or guardian email. We write back to that address. Please apply by November\u00a08, 2026.",
     cta: "Start the form",
     book: "Book a 15-minute intro call",
     formTitle: "Application",
-    formIntro: "Two short sections: you, then your child. The résumé can be a PDF or Word file, up to 2\u00a0MB.",
+    formIntro: "Two short sections: the parent or guardian, then the student. The résumé can be a PDF or Word file, up to 2\u00a0MB.",
     emailInstead: "If the form does not send, email",
     submit: "Submit application",
     submitting: "Sending\u2026",
@@ -285,7 +285,7 @@ export const en = {
       grade: "Grade",
       gradePlaceholder: "Select a grade",
       interests: "Interests",
-      interestsHint: "A few sentences about what your child likes to build or learn.",
+      interestsHint: "A few sentences about what the student likes to build or learn.",
       resume: "Student résumé or CV",
       resumeHint: "PDF, DOC, or DOCX. 2\u00a0MB maximum.",
       guardian: "I am this student’s parent or guardian.",
@@ -300,7 +300,7 @@ export const en = {
       age: "Enter an age from 12 to 20.",
       grade: "Choose a grade from 9 to 12.",
       school: "Enter the school name.",
-      interests: "Write a few sentences about your child’s interests.",
+      interests: "Write a few sentences about the student’s interests.",
       guardian: "Please confirm you are the parent or guardian.",
       resume: "Attach a résumé as a PDF, DOC, or DOCX.",
       resumeEmpty: "That file is empty. Attach a PDF, DOC, or DOCX.",

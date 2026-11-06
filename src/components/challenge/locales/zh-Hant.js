@@ -11,11 +11,11 @@ export const zhHant = {
   deadline: "2026年11月8日",
 
   hero: {
-    title: "用六個月，陪孩子建立一間真正的公司。",
+    title: "六個月，建立一間真正的公司。",
     intro:
-      "2027年1月至6月，孩子會學習一間公司如何運作，並親手完成自己的項目。導師是常春藤大學的學生創辦人。6月，獲選學生會到紐約（New York City）四天。",
+      "2027年1月至6月，學生學習一間公司如何運作，並親手完成自己的項目。導師是常春藤大學的學生創辦人。6月，獲選學生會到紐約（New York City）四天。",
     cta: "預約15分鐘介紹通話",
-    applyCta: "為孩子申請",
+    applyCta: "為學生申請",
     deadlineLabel: "請於以下日期前預約或申請",
     priceLead: "費用為",
     priceMid: "（每位學生）。",
@@ -38,7 +38,7 @@ export const zhHant = {
   },
 
   gets: {
-    title: "孩子會得到什麼",
+    title: "學生會得到什麼",
     intro: "清晰的進度、一個真實項目，以及一路陪同的導師。",
     photo: {
       src: "/about/events/workshops.jpg",
@@ -75,8 +75,8 @@ export const zhHant = {
   },
 
   mentors: {
-    title: "導師，以及孩子會見到的人",
-    intro: "每位導師都是常春藤大學的在讀學生，也是創辦人。他們定期與孩子通話，並在作業提交前先看一遍。",
+    title: "導師",
+    intro: "每位導師都是常春藤大學的在讀學生，也是創辦人。他們定期與學生通話，並在作業提交前先看一遍。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "導師就讀的大學。NGEN 是獨立非營利組織，並不屬於這些大學。",
     points: [
@@ -137,7 +137,7 @@ export const zhHant = {
       name: "分期付款",
       deposit: 1000,
       depositLabel: "訂金",
-      depositWhen: "孩子獲錄取時支付，用以保留名額。",
+      depositWhen: "學生獲錄取時支付，用以保留名額。",
       payments: [
         { amount: 1000, when: "2027年1月" },
         { amount: 1000, when: "2027年2月" },
@@ -153,12 +153,12 @@ export const zhHant = {
       "進度紀錄，以及完成學生的證書。",
       "獲選學生的紐約四天行程。",
     ],
-    excluded: ["往返紐約的機票和酒店。", "可選擇的網上暑期。", "孩子為自己的產品另外花費的錢。"],
+    excluded: ["往返紐約的機票和酒店。", "可選擇的網上暑期。", "學生為自己的產品另外花費的錢。"],
     eligibility: {
       title: "誰可以參加",
       points: ["9至12年級。", "不需要已有公司。", "由家長或監護人申請。", "2027年1月至6月上網進行；6月獲選學生前往紐約。"],
     },
-    cta: "為孩子申請",
+    cta: "為學生申請",
     book: "預約15分鐘介紹通話",
   },
 
@@ -182,31 +182,31 @@ export const zhHant = {
 
   booking: {
     title: "用15分鐘和我們談談",
-    intro: "這是給家長的短通話。我們會說明時間表、費用和紐約行程。不用事先準備。",
+    intro: "這是給家庭的短通話。我們會說明時間表、費用和紐約行程。不用事先準備。",
     cta: "預約15分鐘介紹通話",
     url: "https://www.ngennetwork.org/intro",
     embedUrl: "https://calendly.com/ngennetwork-info/start-up-challenge-intro-call",
     embed: true,
     iframeTitle: "預約與 NGEN 的15分鐘介紹通話",
     or: "或電郵",
-    apply: "為孩子申請",
+    apply: "為學生申請",
   },
 
   close: {
     title: "下一步",
-    body: "請於2026年11月8日前，預約15分鐘通話，或遞交孩子的申請。我們會回覆家長的電郵。",
+    body: "請於2026年11月8日前，預約15分鐘通話，或遞交申請。我們會回覆家長的電郵。",
     cta: "預約15分鐘介紹通話",
-    apply: "為孩子申請",
+    apply: "為學生申請",
     or: "或電郵",
   },
 
   apply: {
-    title: "為孩子申請",
-    intro: "供9至12年級學生的家長填寫。請用您自己的電郵，我們會回覆您。請於2026年11月8日前申請。",
+    title: "為學生申請",
+    intro: "供9至12年級學生的家庭填寫。請用家長或監護人的電郵，我們會回覆該地址。請於2026年11月8日前申請。",
     cta: "開始填寫",
     book: "預約15分鐘介紹通話",
     formTitle: "申請表",
-    formIntro: "兩部分：先填您的資料，再填孩子的資料。簡歷可以是 PDF 或 Word，最大 2 MB。",
+    formIntro: "兩部分：先填家長或監護人的資料，再填學生的資料。簡歷可以是 PDF 或 Word，最大 2 MB。",
     emailInstead: "如果表格發送失敗，請電郵",
     submit: "提交申請",
     submitting: "發送中…",
@@ -226,7 +226,7 @@ export const zhHant = {
       grade: "年級",
       gradePlaceholder: "請選擇年級",
       interests: "興趣",
-      interestsHint: "用幾句話寫孩子喜歡做什麼，或想學什麼。",
+      interestsHint: "用幾句話寫學生喜歡做什麼，或想學什麼。",
       resume: "學生簡歷或 CV",
       resumeHint: "PDF、DOC 或 DOCX，最大 2 MB。",
       guardian: "我是這位學生的家長或監護人。",
@@ -241,7 +241,7 @@ export const zhHant = {
       age: "請填寫12至20歲之間的年齡。",
       grade: "請選擇9至12年級。",
       school: "請填寫學校名稱。",
-      interests: "請用幾句話寫孩子的興趣。",
+      interests: "請用幾句話寫學生的興趣。",
       guardian: "請確認您是家長或監護人。",
       resume: "請附上 PDF、DOC 或 DOCX 簡歷。",
       resumeEmpty: "檔案是空的。請附上 PDF、DOC 或 DOCX。",

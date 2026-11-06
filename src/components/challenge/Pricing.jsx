@@ -12,13 +12,13 @@ export default function Pricing({ copy }) {
 
   return (
     <section id="pricing" aria-labelledby="pricing-title" className="bg-snow">
-      <div className="wrap py-[clamp(4.25rem,8vw,6.75rem)]">
+      <div className="wrap py-[clamp(2.5rem,4.5vw,3.5rem)]">
         <h2 id="pricing-title" className="max-w-[16ch] font-display text-h2">
           {pricing.title}
         </h2>
-        <p className="mt-5 max-w-[40rem] text-lead text-slate">{pricing.intro}</p>
+        <p className="mt-3 max-w-[40rem] text-lead text-slate">{pricing.intro}</p>
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
           <article className={CARD}>
             <div>
               <h3 className="text-small font-medium text-[#c2410c]">{payInFull.name}</h3>
@@ -56,7 +56,7 @@ export default function Pricing({ copy }) {
           </article>
         </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
           <div className={`${CARD} p-6`}>
             <h3 className="font-display text-[1.5rem]">{pricing.includedTitle}</h3>
             <ul className="mt-4 flex flex-col gap-3 text-[1.075rem] leading-relaxed text-[#3e4d6e]">
@@ -75,9 +75,9 @@ export default function Pricing({ copy }) {
           </div>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-6">
           <h3 className="font-display text-h3">{pricing.eligibility.title}</h3>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
             {pricing.eligibility.points.map((point) => (
               <li key={point} className="rounded-xl bg-[#f6f3ec] px-4 py-3 text-[1.075rem] leading-relaxed text-[#050e26]">
                 {point}
@@ -86,7 +86,7 @@ export default function Pricing({ copy }) {
           </ul>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-3">
+        <div className="mt-6 flex flex-wrap gap-3">
           <PageLink href={applyPath} className="btn btn-ink">
             {pricing.cta}
           </PageLink>

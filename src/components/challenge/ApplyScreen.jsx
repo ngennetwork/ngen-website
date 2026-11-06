@@ -39,7 +39,7 @@ function ApplyBody() {
         aside={<Photo src={hero.photo.src} alt={hero.photo.alt} caption={hero.photo.caption} position={hero.photo.position} />}
       />
       <section id="application" aria-labelledby="application-title" className="bg-fog">
-        <div className="wrap grid gap-y-12 py-[clamp(4rem,8vw,7rem)] lg:grid-cols-12 lg:gap-x-8">
+        <div className="wrap grid items-start gap-y-8 py-[clamp(2.5rem,4.5vw,3.5rem)] lg:grid-cols-12 lg:gap-x-8">
           <div className="flex flex-col gap-5 lg:col-span-4">
             <h2 id="application-title" className="font-display text-h2">
               {apply.formTitle}
