@@ -35,6 +35,14 @@ export const site = {
     "NGEN brings together the brightest student innovators and founders across universities and gives them new connections and opportunities. It’s the center of gravity for student innovation.",
   email: "info@ngennetwork.org",
   ein: "93-2106846",
+  // Mailing address. Footer, contact, the phone menu, and JSON-LD read this.
+  address: {
+    street: "169 Madison Ave STE 30444",
+    city: "New York",
+    region: "NY",
+    postalCode: "10016",
+    country: "US",
+  },
 
   links: {
     luma: "https://luma.com/ngen",
@@ -44,6 +52,12 @@ export const site = {
     donateZeffy: "https://www.zeffy.com/en-US/donation-form/donate-to-empower-entrepreneurs",
     donateEmbed: "https://www.zeffy.com/embed/donation-form/donate-to-empower-entrepreneurs",
     giftZeffy: "https://www.zeffy.com/en-US/donation-form/power-the-intercollegiate-founder-ecosystem",
+  },
+
+  // Branded short links. next.config redirects these with a temporary 307.
+  shortLinks: {
+    zoom: "https://us06web.zoom.us/my/ngennetwork.org",
+    intro: "https://calendly.com/ngennetwork-info/start-up-challenge-intro-call",
   },
 
   labels: {

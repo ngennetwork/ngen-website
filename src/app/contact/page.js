@@ -1,5 +1,6 @@
 import { pages, site } from "@/content/site";
 import PageHero from "@/components/layout/PageHero";
+import MailingAddress from "@/components/ui/MailingAddress";
 
 const { contact } = pages;
 
@@ -12,9 +13,10 @@ const subjects = [site.name, ...contact.topics.map((t) => t.subject)];
 
 /**
  * The whole page is the header: the headline, then the intro with one
- * button grouped under it. On the right, the email itself, as it opens,
- * as tall as the room down to the topics; they run along the bottom edge
- * as smaller choices, and pointing at one rewrites the draft's subject line.
+ * button and the mailing address grouped under it. On the right, the email
+ * itself, as it opens, as tall as the room down to the topics; they run
+ * along the bottom edge as smaller choices, and pointing at one rewrites
+ * the draft's subject line.
  */
 export default function ContactPage() {
   return (
@@ -24,9 +26,12 @@ export default function ContactPage() {
       title={contact.title}
       intro={contact.intro}
       action={
-        <a href={mailto(site.name)} className="btn btn-paper">
-          {contact.emailCta}
-        </a>
+        <div className="flex flex-col items-start gap-5">
+          <a href={mailto(site.name)} className="btn btn-paper">
+            {contact.emailCta}
+          </a>
+          <MailingAddress className="text-small text-mist" />
+        </div>
       }
       aside={
         <a

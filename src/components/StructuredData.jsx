@@ -13,6 +13,14 @@ export default function StructuredData() {
       alternateName: site.fullName,
       url: SITE_URL,
       email: site.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: site.address.street,
+        addressLocality: site.address.city,
+        addressRegion: site.address.region,
+        postalCode: site.address.postalCode,
+        addressCountry: site.address.country,
+      },
       sameAs: [site.links.linkedin, site.links.instagram],
     },
     {

@@ -2,6 +2,7 @@ import { site } from "@/content/site";
 import Logo from "@/components/brand/Logo";
 import PageLink from "@/components/ui/PageLink";
 import ExternalLink from "@/components/ui/ExternalLink";
+import MailingAddress from "@/components/ui/MailingAddress";
 
 const { footer, nav } = site;
 
@@ -10,8 +11,9 @@ const pageLinks = nav.links.flatMap((link) => [link, ...(link.children ?? []).fi
 
 /**
  * Brand, mission and the one action on the left; three labelled columns of
- * links, spaced so each one is easy to hit; the legal line, copyright
- * included, runs the full measure at the bottom (nothing in a corner).
+ * links, spaced so each one is easy to hit. The mailing address sits with
+ * the email. The legal line, copyright included, runs the full measure at
+ * the bottom (nothing in a corner).
  * The last column ends on the right margin, in line with the nav.
  */
 export default function SiteFooter() {
@@ -49,6 +51,7 @@ export default function SiteFooter() {
             <a href={`mailto:${site.email}`} className="footer-link whitespace-nowrap">
               {site.email}
             </a>
+            <MailingAddress className="text-base text-on-dark/86" />
           </FooterColumn>
 
           <FooterColumn title={footer.columns.follow} className="lg:col-span-2">
