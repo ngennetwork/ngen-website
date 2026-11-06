@@ -1,3 +1,5 @@
+import { site } from "./src/content/site.js";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
@@ -12,6 +14,17 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Branded short links. Temporary so the targets in site.shortLinks can move.
+      {
+        source: "/zoom",
+        destination: site.shortLinks.zoom,
+        permanent: false,
+      },
+      {
+        source: "/intro",
+        destination: site.shortLinks.intro,
+        permanent: false,
+      },
       {
         source: "/directory",
         destination: "/impact",

@@ -4,6 +4,7 @@ import { programs } from "@/content/programs";
 // /admin/* and /api/* are excluded via robots.js.
 // /startup-challenge is reachable but excluded from the sitemap on
 // purpose — it's a direct/shared link, not meant for search indexing.
+// /zoom and /intro are temporary redirects (next.config); not indexed.
 const STATIC_ROUTES = [
   "",
   "/about",
