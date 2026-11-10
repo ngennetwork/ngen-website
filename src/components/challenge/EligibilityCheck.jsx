@@ -184,7 +184,7 @@ export default function EligibilityCheck({ instanceId, showTitle = true }) {
       }}
       noValidate
       aria-busy={state.status === "loading"}
-      className="flex flex-col gap-4 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-28px_rgb(21_24_21/0.35)] ring-1 ring-ink/10"
+      className="flex flex-col gap-5 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-28px_rgb(21_24_21/0.35)] ring-1 ring-ink/10 max-lg:gap-6 max-lg:p-8"
     >
       {showTitle && (
         <div>
@@ -284,7 +284,7 @@ function ThankYou({ instanceId }) {
       tabIndex={-1}
       role={state.submittedFrom === instanceId ? "status" : undefined}
       data-eligibility={eligible ? "eligible" : "ineligible"}
-      className="flex flex-col gap-5 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-28px_rgb(21_24_21/0.35)] ring-1 ring-ink/10 outline-none"
+      className="flex flex-col gap-5 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-28px_rgb(21_24_21/0.35)] ring-1 ring-ink/10 outline-none max-lg:gap-6 max-lg:p-8"
     >
       <div>
         <h2 className="font-display text-[1.65rem] leading-tight">{eligible ? check.eligibleTitle : check.ineligibleTitle}</h2>
