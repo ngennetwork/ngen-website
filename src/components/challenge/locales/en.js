@@ -43,9 +43,10 @@ export const en = {
     body: "In April, 4 to 6 Fellows are selected for a trip to New\u00a0York. The days include NGEN’s Founder Trek and the Ivy League Entrepreneurship Conference.",
     more: "See the four days",
     photo: {
-      src: "/about/events/founder-treks.jpg",
-      alt: "Students seated at an NGEN visit, listening to a speaker on stage",
-      position: "50% 42%",
+      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      alt: "Students around a boardroom table at Insight Partners in New York, with the skyline in the windows and a slide reading Invest in the Future of Technology with Insight Partners",
+      caption: "NGEN Founder Trek at Insight Partners, New York",
+      position: "center",
     },
   },
 

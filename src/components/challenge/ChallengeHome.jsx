@@ -154,15 +154,18 @@ function Home() {
                 {trip.more}
               </a>
             </div>
-            <figure className="relative aspect-[4/3] overflow-hidden rounded-xl ring-1 ring-ink/10 lg:aspect-auto lg:h-full">
-              <Image
-                src={trip.photo.src}
-                alt={trip.photo.alt}
-                fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
-                style={{ objectPosition: trip.photo.position }}
-              />
+            <figure>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink/10">
+                <Image
+                  src={trip.photo.src}
+                  alt={trip.photo.alt}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover"
+                  style={{ objectPosition: trip.photo.position }}
+                />
+              </div>
+              <figcaption className="mt-3 text-small text-slate">{trip.photo.caption}</figcaption>
             </figure>
           </div>
         </div>

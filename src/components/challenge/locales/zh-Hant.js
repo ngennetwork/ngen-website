@@ -37,9 +37,10 @@ export const zhHant = {
     body: "4月會選出4至6位學人前往紐約。行程包括 NGEN 的 Founder Trek，以及參加常春藤盟校創業會議。",
     more: "看這四天的安排",
     photo: {
-      src: "/about/events/founder-treks.jpg",
-      alt: "學生坐在台下，聽講者在 NGEN 參訪中發言",
-      position: "50% 42%",
+      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      alt: "學生圍坐在紐約 Insight Partners 的會議桌旁，窗外是城市天際線，投影片寫著 Invest in the Future of Technology with Insight Partners",
+      caption: "NGEN 創業者參訪團拜訪紐約 Insight Partners",
+      position: "center",
     },
   },
 
