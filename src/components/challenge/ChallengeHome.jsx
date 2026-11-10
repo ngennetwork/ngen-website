@@ -206,7 +206,7 @@ function Home() {
             {mentors.title}
           </h2>
           <p className="mt-3 max-w-[42rem] text-lead text-slate">{mentors.intro}</p>
-          <div className="mt-6 grid items-start gap-4 lg:grid-cols-12">
+          <div className="mt-6 grid items-start gap-4 lg:grid-cols-12 lg:items-stretch">
             <ul className="grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:col-span-7">
               {mentors.points.map((point) => (
                 <li key={point.name} className={CARD}>
@@ -215,10 +215,11 @@ function Home() {
                 </li>
               ))}
             </ul>
-            <figure className="lg:col-span-5">
-              <ul className="grid grid-cols-4 items-center gap-3 [--logo-scale:0.62]">
+            {/* On wide screens the logos spread over the full height of the two card rows. */}
+            <figure className="flex flex-col lg:col-span-5">
+              <ul className="grid grid-cols-4 items-center gap-3 [--logo-scale:0.62] lg:flex-1 lg:grid-cols-2 lg:grid-rows-4 lg:gap-x-8 lg:gap-y-2 lg:[--logo-scale:0.85]">
                 {mentorSchools.map((u) => (
-                  <li key={u.name} className="flex h-10 items-center justify-center">
+                  <li key={u.name} className="flex h-10 items-center justify-center lg:h-full">
                     <UniversityLogo university={u} />
                   </li>
                 ))}
