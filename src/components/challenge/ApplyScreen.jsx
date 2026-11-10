@@ -22,16 +22,16 @@ function ApplyBody() {
   return (
     <>
       <header className="challenge-dark bg-ink-deep text-on-dark">
-        <div className="relative h-[13.75rem] w-full overflow-hidden lg:hidden">
+        <div className="relative aspect-[3.16/1] w-full overflow-hidden lg:hidden">
           <Image
             src={hero.photo.src}
             alt={hero.photo.alt}
             fill
-            sizes="220vw"
+            sizes="100vw"
             loading="eager"
             fetchPriority="high"
-            className="scale-[2.7] object-cover"
-            style={{ objectPosition: "50% 88%", transformOrigin: "50% 88%" }}
+            className="object-cover"
+            style={{ objectPosition: "center bottom" }}
           />
         </div>
         <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
@@ -53,16 +53,16 @@ function ApplyBody() {
           </div>
           <div className="hidden lg:col-span-5 lg:block">
             <figure className="flex flex-col gap-3">
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[3.16/1] overflow-hidden">
                 <Image
                   src={hero.photo.src}
                   alt={hero.photo.alt}
                   fill
-                  sizes="200vw"
+                  sizes="40vw"
                   loading="eager"
                   fetchPriority="high"
-                  className="scale-[3.3] object-cover"
-                  style={{ objectPosition: "50% 88%", transformOrigin: "50% 88%" }}
+                  className="object-cover"
+                  style={{ objectPosition: "center bottom" }}
                 />
               </div>
               <figcaption className="text-small text-[#fbfaf7]/60">{hero.photo.caption}</figcaption>

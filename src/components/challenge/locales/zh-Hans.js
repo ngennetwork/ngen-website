@@ -3,7 +3,7 @@ export const zhHans = {
   meta: {
     title: "NGEN 全球学人计划",
     applyTitle: "申请 · NGEN 全球学人计划",
-    description: "面向学生的六个月创业课程，与常春藤及美国顶尖大学的学生创办人一同建立项目。2027年1月至6月。",
+    description: "面向学生的六个月创业课程，与常春藤盟校学生一同建立项目。2027年1月至6月。",
   },
   switcherLabel: "语言",
   name: "NGEN 全球学人计划",
@@ -21,8 +21,8 @@ export const zhHans = {
   hero: {
     title: "NGEN 全球学人计划",
     eyebrow: "2027年1月至6月",
-    tagline: "面向学生的六个月创业课程，与常春藤及美国顶尖大学的学生创办人一同建立项目。",
-    intro: "2027年1月至6月，学人学习一家公司如何运作，并亲手完成自己的项目。导师是常春藤大学的学生创办人。",
+    tagline: "面向学生的六个月创业课程，与常春藤盟校学生一同建立项目。",
+    intro: "2027年1月至6月，学人学习一家公司如何运作，并亲手完成自己的项目，由常春藤盟校学生担任导师。",
     photo: {
       src: "/home/hero-ngen-new-group.jpg",
       alt: "NGEN Trailblazers 会议上的一大群学生",
@@ -57,7 +57,7 @@ export const zhHans = {
       position: "50% 55%",
     },
     items: [
-      { icon: "mentor", title: "六个月的导师", body: "导师是自己创办过项目的常春藤学生。同一位导师会陪完整个课程。" },
+      { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生。同一位导师会陪完整个课程。" },
       { icon: "build", title: "一个真实的公司项目", body: "从想法、第一版产品到第一批客户。学人完成后有可以给学校看的成果。" },
       { icon: "workshop", title: "每月在线工作坊", body: "每月有一位业界人士在线上加入，并回答问题。" },
       { icon: "school", title: "可以交给学校的记录", body: "老师可以跟进进度。完成的学生会收到证书。有些学校把它用作课堂、社团或实习学分。" },
@@ -86,7 +86,7 @@ export const zhHans = {
 
   mentors: {
     title: "导师",
-    intro: "每位导师都是常春藤大学的在读学生，也是创办人。他们定期与学人通话，并在作业提交前先看一遍。",
+    intro: "每位导师都是常春藤盟校学生。他们定期与学人通话，并在作业提交前先看一遍。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "导师就读的大学。NGEN 是独立非营利组织，并不属于这些大学。",
     points: [
@@ -162,7 +162,7 @@ export const zhHans = {
       "由家长或监护人申请。",
       "2027年1月至6月在线进行。",
     ],
-    cta: "为学人申请",
+    cta: "立即申请",
   },
 
   ngen: {
@@ -211,7 +211,7 @@ export const zhHans = {
   },
 
   apply: {
-    title: "为学人申请",
+    title: "立即申请",
     intro: "供9至12年级学生的家庭填写。请用家长或监护人的邮箱，我们会回复该地址。",
     cta: "开始填写",
     formTitle: "申请表",

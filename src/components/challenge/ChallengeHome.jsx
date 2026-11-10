@@ -42,27 +42,19 @@ function Home() {
   return (
     <EligibilityState>
       <header className="bg-[#1c3a2a] text-[#fbfaf7] lg:grid lg:min-h-[40rem] lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:pt-28">
-        <div className="relative h-[13.75rem] overflow-hidden lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-full">
-          <Image
-            src={hero.photo.src}
-            alt={hero.photo.alt}
-            fill
-            sizes="220vw"
-            loading="eager"
-            fetchPriority="high"
-            className="scale-[2.7] object-cover lg:hidden"
-            style={{ objectPosition: "50% 88%", transformOrigin: "50% 88%" }}
-          />
-          <Image
-            src={hero.photo.src}
-            alt=""
-            fill
-            sizes="200vw"
-            loading="eager"
-            fetchPriority="high"
-            className="hidden scale-[3.3] object-cover lg:block"
-            style={{ objectPosition: "50% 88%", transformOrigin: "50% 88%" }}
-          />
+        <div className="relative lg:col-start-2 lg:row-start-1 lg:flex lg:min-h-full lg:items-center">
+          <div className="relative aspect-[3.16/1] w-full overflow-hidden">
+            <Image
+              src={hero.photo.src}
+              alt={hero.photo.alt}
+              fill
+              sizes="(min-width: 1024px) 60vw, 100vw"
+              loading="eager"
+              fetchPriority="high"
+              className="object-cover"
+              style={{ objectPosition: "center bottom" }}
+            />
+          </div>
         </div>
         <div className="flex flex-col justify-center py-10 pr-[max(var(--gutter),env(safe-area-inset-right))] pl-wrap lg:col-start-1 lg:row-start-1 lg:py-20 lg:pr-16">
           <div className="flex max-w-[34rem] flex-col gap-6 lg:gap-8">

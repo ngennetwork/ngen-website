@@ -9,7 +9,7 @@ export const en = {
   meta: {
     title: "NGEN Global Fellowship",
     applyTitle: "Apply · NGEN Global Fellowship",
-    description: "A six-month startup program for students, building alongside Ivy League and top U.S. student founders. January to June 2027.",
+    description: "A six-month startup program for students, building alongside Ivy League students. January to June 2027.",
   },
   switcherLabel: "Language",
   name: "NGEN Global Fellowship",
@@ -27,8 +27,8 @@ export const en = {
   hero: {
     title: "NGEN Global Fellowship",
     eyebrow: "January — June 2027",
-    tagline: "A six-month startup program for students, building alongside Ivy League and top U.S. student founders.",
-    intro: "From January to June 2027, Fellows learn how a company works and build one. An Ivy League student founder is the mentor.",
+    tagline: "A six-month startup program for students, building alongside Ivy League students.",
+    intro: "From January to June 2027, Fellows learn how a company works and build one, mentored by Ivy League students.",
     photo: {
       src: "/home/hero-ngen-new-group.jpg",
       alt: "A large group of students at NGEN’s Trailblazers conference",
@@ -75,7 +75,7 @@ export const en = {
       position: "50% 55%",
     },
     items: [
-      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student who has built something of their own. The same mentor stays for the whole program." },
+      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student. The same mentor stays for the whole program." },
       { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Fellows finish with work they can show a school." },
       { icon: "workshop", title: "Live workshops", body: "Each month an operator joins the group live and answers questions." },
       { icon: "school", title: "A record for school", body: "Teachers can follow progress. Students who finish receive a certificate. Some schools use it as a class, club, or internship credit." },
@@ -105,7 +105,7 @@ export const en = {
   mentors: {
     title: "Mentors",
     intro:
-      "Each mentor is a current student at an Ivy League university and a founder. They meet their Fellow on a regular call and review the work before it is submitted.",
+      "Each mentor is an Ivy League student. They meet their Fellow on a regular call and review the work before it is submitted.",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "Where our mentors study. NGEN is an independent nonprofit and is not part of these universities.",
     points: [
@@ -201,7 +201,7 @@ export const en = {
       "A parent or guardian applies.",
       "Online from January to June 2027.",
     ],
-    cta: "Apply for a Fellow",
+    cta: "Apply now",
   },
 
   ngen: {
@@ -250,7 +250,7 @@ export const en = {
   },
 
   apply: {
-    title: "Apply for a Fellow",
+    title: "Apply now",
     intro: "For families of students in grades 9 to 12. Use a parent or guardian email. We write back to that address.",
     cta: "Start the form",
     formTitle: "Application",
