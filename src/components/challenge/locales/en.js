@@ -227,6 +227,8 @@ export const en = {
       phone: "WhatsApp or phone (optional)",
       gradeOrAge: "Student grade or age",
       gradePlaceholder: "e.g. Grade 11, Form 5, or age 16",
+      callLanguage: "Preferred language for our call",
+      callLanguages: { english: "English", mandarin: "Mandarin", cantonese: "Cantonese" },
       note: "Anything you would like us to know",
     },
     errors: {
