@@ -74,8 +74,8 @@ export const zhHans = {
     intro: "每月一个目标，每次都有完成的成果。",
     photo: {
       src: "/startup-challenge/speaker-conversation.jpg",
-      alt: "一位讲者在 NGEN 活动中与几名学生交谈",
-      caption: "学生在 NGEN 活动中与讲者交流。",
+      alt: "The Motley Fool 联合创始人兼首席执行官 Tom Gardner 在 NGEN 会议上与学生交谈",
+      caption: "学生在 NGEN 会议上向 The Motley Fool 联合创始人兼首席执行官 Tom Gardner 提问。",
       position: "50% 35%",
     },
     steps: [
