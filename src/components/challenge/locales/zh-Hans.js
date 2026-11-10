@@ -219,7 +219,7 @@ export const zhHans = {
     fields: {
       parentName: "家长姓名",
       email: "家长邮箱",
-      phone: "WhatsApp 或电话（选填）",
+      phone: "微信或 WhatsApp（选填）",
       gradeOrAge: "学生年级或年龄",
       gradePlaceholder: "例如：11年级、高二，或16岁",
       callLanguage: "通话语言",

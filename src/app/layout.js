@@ -29,11 +29,14 @@ export const metadata = {
     title: DEFAULT_TITLE,
     description: site.description,
     url: SITE_URL,
+    // The link preview card (iMessage, WhatsApp, LinkedIn), 1200x630.
+    images: [{ url: "/home/og-ngen.jpg", width: 1200, height: 630, alt: "NGEN, the Ivy League entrepreneurship network" }],
   },
   twitter: {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description: site.description,
+    images: ["/home/og-ngen.jpg"],
   },
   icons: {
     // icon.svg swaps navy/white marks via an internal prefers-color-scheme

@@ -219,7 +219,7 @@ export const zhHant = {
     fields: {
       parentName: "家長姓名",
       email: "家長電郵",
-      phone: "WhatsApp 或電話（可選填）",
+      phone: "微信或 WhatsApp（可選填）",
       gradeOrAge: "學生年級或年齡",
       gradePlaceholder: "例如：11年級、中五，或16歲",
       callLanguage: "通話語言",
