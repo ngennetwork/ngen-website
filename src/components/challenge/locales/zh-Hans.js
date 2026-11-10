@@ -30,18 +30,6 @@ export const zhHans = {
     },
   },
 
-  trip: {
-    kicker: "给获选学人的机会",
-    title: "纽约之行",
-    body: "4月会选出4至6名学人前往纽约。行程包括 NGEN 的 Founder Trek，以及参加常春藤盟校创业会议。",
-    more: "看这四天的安排",
-    photo: {
-      src: "/startup-challenge/founder-trek-insight-partners.jpg",
-      alt: "学生围坐在纽约 Insight Partners 的会议桌旁，窗外是城市天际线，投影片写着 Invest in the Future of Technology with Insight Partners",
-      caption: "NGEN 创业者参访团拜访纽约 Insight Partners",
-      position: "center",
-    },
-  },
 
   glance: {
     title: "重点一览",
@@ -74,8 +62,8 @@ export const zhHans = {
     intro: "每月一个目标，每次都有完成的成果。",
     photo: {
       src: "/startup-challenge/speaker-conversation.jpg",
-      alt: "The Motley Fool 联合创始人兼首席执行官 Tom Gardner 在 NGEN 会议上与学生交谈",
-      caption: "学生在 NGEN 会议上向 The Motley Fool 联合创始人兼首席执行官 Tom Gardner 提问。",
+      alt: "The Motley Fool 联合创始人兼首席执行官 Tom Gardner 在 NGEN Trailblazers 会议上与学生交谈",
+      caption: "学生在 NGEN Trailblazers 会议上向 The Motley Fool 联合创始人兼首席执行官 Tom Gardner 提问。",
       position: "50% 35%",
     },
     steps: [
@@ -114,10 +102,10 @@ export const zhHans = {
       "我们会告知家庭谁前往纽约、每天的安排，以及如何保持联系。",
     ],
     photo: {
-      src: "/about/events/founder-treks.jpg",
-      alt: "学生坐在台下，在旧金山 NGEN 学生创业者峰会上听讲者发言",
-      caption: "学生参加 NGEN 在旧金山的学生创业者峰会。",
-      position: "50% 45%",
+      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      alt: "学生围坐在纽约 Insight Partners 的会议桌旁，窗外是城市天际线，投影片写着 Invest in the Future of Technology with Insight Partners",
+      caption: "NGEN 创业者参访团拜访纽约 Insight Partners",
+      position: "center",
     },
     itinerary: {
       label: "每天安排",

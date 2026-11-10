@@ -29,7 +29,7 @@ export default function ChallengeHome({ initialLang }) {
 
 function Home() {
   const { copy, lang } = useLocale();
-  const { hero, trip, glance, gets, months, mentors, capstone, gallery, join, ngen, apply } = copy;
+  const { hero, glance, gets, months, mentors, capstone, gallery, join, ngen, apply } = copy;
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
   const ivySchools = universities.filter((school) => school.ivy);
@@ -137,36 +137,6 @@ function Home() {
         </div>
         <figcaption className="wrap py-3 text-center text-small leading-relaxed text-slate">{gallery.lead.caption}</figcaption>
       </figure>
-
-      <section aria-labelledby="trip-title" className="bg-snow">
-        <div className="wrap pt-6 pb-8 lg:py-12">
-          <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-10">
-            <div className="flex flex-col justify-center rounded-xl bg-fog p-6 ring-1 ring-ink/10 max-lg:p-7 lg:p-8">
-              <p className="text-small font-medium text-[#1c3a2a]">{trip.kicker}</p>
-              <h2 id="trip-title" className="mt-2 font-display text-h3">
-                {trip.title}
-              </h2>
-              <p className="mt-3 text-base leading-relaxed text-slate">{trip.body}</p>
-              <a href="#capstone" className="link mt-4 inline-block text-base">
-                {trip.more}
-              </a>
-            </div>
-            <figure>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink/10">
-                <Image
-                  src={trip.photo.src}
-                  alt={trip.photo.alt}
-                  fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="object-cover"
-                  style={{ objectPosition: trip.photo.position }}
-                />
-              </div>
-              <figcaption className="mt-3 text-small text-slate">{trip.photo.caption}</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
 
       <section aria-labelledby="glance-title" className="bg-fog">
         <div className={SECTION}>
