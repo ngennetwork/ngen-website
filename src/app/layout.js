@@ -39,15 +39,13 @@ export const metadata = {
     images: ["/home/og-ngen.jpg"],
   },
   icons: {
-    // icon.svg swaps navy/white marks via an internal prefers-color-scheme
-    // query, the only dark-mode switch Chrome/Edge/Firefox honor for tab
-    // icons. It's listed last so Chrome prefers it; the media-tagged PNGs
-    // are the fallback for Safari (no SVG favicons).
+    // A white mountain on a solid navy tile, so the tab icon reads the same
+    // on light and dark browser themes. The fellowship layout swaps in green.
     icon: [
-      { url: "/icon-light.png", media: "(prefers-color-scheme: light)", type: "image/png" },
-      { url: "/icon-dark.png", media: "(prefers-color-scheme: dark)", type: "image/png" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
     ],
+    apple: "/icon-apple.png",
   },
 };
 
