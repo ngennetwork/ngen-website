@@ -125,8 +125,8 @@ export const en = {
       label: "Day by day",
       place: "April 15–18, 2027, New\u00a0York City",
       days: [
-        { when: "Apr 15", title: "Arrival and Columbia", body: "Day 1. Fellows arrive, hear the plan for the four days, and tour Columbia University." },
-        { when: "Apr 16", title: "Founder Trek and NYU", body: "Day 2. Visits to startups and investors in New\u00a0York, and a tour of NYU." },
+        { when: "Apr 15", title: "Arrival, Columbia and NYU", body: "Day 1. Fellows arrive, hear the plan for the four days, and tour Columbia University and NYU." },
+        { when: "Apr 16", title: "Founder Trek", body: "Day 2. A full day of visits to startups and investors in New\u00a0York." },
         {
           when: "Apr 17",
           title: "Ivy League Entrepreneurship Conference",
