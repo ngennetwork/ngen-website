@@ -56,10 +56,10 @@ export const zhHant = {
     title: "學人會得到什麼",
     intro: "清晰的進度、一個真實項目，以及一路陪同的導師。",
     photo: {
-      src: "/about/events/workshops.jpg",
-      alt: "學生在 NGEN 工作坊中小組討論",
-      caption: "NGEN 活動中的小組工作坊。",
-      position: "50% 55%",
+      src: "/about/events/Copy of DSC06515.jpg",
+      alt: "一名學生在紐約 NGEN Trailblazers 會議上拿着麥克風發言",
+      caption: "學生在紐約 NGEN Trailblazers 會議上提問。",
+      position: "50% 40%",
     },
     items: [
       { icon: "mentor", title: "六個月的導師", body: "導師是常春藤盟校學生，六個月裡定期通話。" },
@@ -72,12 +72,6 @@ export const zhHant = {
   months: {
     title: "六個月怎樣安排",
     intro: "每月一個目標，每次都有完成的成果。",
-    photo: {
-      src: "/about/events/Copy of DSC06515.jpg",
-      alt: "一名學生在 NGEN 紐約活動中拿着麥克風發言",
-      caption: "學生在 NGEN 活動中提問。",
-      position: "50% 40%",
-    },
     steps: [
       { when: "1月", title: "選定想法", body: "找出一個真實問題，並訪問有這個問題的人。" },
       { when: "2月", title: "做出產品和名字", body: "做一個別人能試用的簡單初版，並給它起個名字。" },
@@ -115,8 +109,8 @@ export const zhHant = {
     ],
     photo: {
       src: "/about/events/founder-treks.jpg",
-      alt: "學生坐在台下，聽講者在 NGEN 參訪中發言",
-      caption: "學生參加 NGEN 在紐約的創辦人參訪。",
+      alt: "學生坐在台下，在舊金山 NGEN 學生創業者峰會上聽講者發言",
+      caption: "學生參加 NGEN 在舊金山的學生創業者峰會。",
       position: "50% 45%",
     },
     itinerary: {
@@ -172,8 +166,8 @@ export const zhHant = {
       },
       {
         src: "/startup-challenge/spacetech-session.jpg",
-        alt: "觀眾坐在紐約 NGEN 太空科技會議的會場，螢幕上是 Trailblazers 的標題",
-        caption: "NGEN 太空科技會議論壇，紐約",
+        alt: "觀眾坐在紐約 NGEN Trailblazers 會議的會場，螢幕上是 Trailblazers 的標題",
+        caption: "NGEN Trailblazers 會議論壇，紐約",
       },
     ],
   },
