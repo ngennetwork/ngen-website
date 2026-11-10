@@ -179,11 +179,11 @@ export const zhHans = {
 
   ngen: {
     title: "谁主办",
-    body: "NGEN 是 501(c)(3) 非营利组织，由普林斯顿、宾夕法尼亚大学和布朗的学生领袖创立，并由常春藤盟校的学生和校友主持。NGEN 独立于这些大学。我们举办会议、Founder Treks 和公司参访。",
+    body: "NGEN 是常春藤盟校的创业网络。由普林斯顿、宾夕法尼亚大学和布朗的学生领袖创立，并由常春藤盟校的学生和校友主持，通过会议、参访团和公司参访，把各校的学生创业者联系起来。NGEN 是 501(c)(3) 非营利组织，独立于这些大学。",
     raised: "由 NGEN 初创公司筹得",
     reach: "网络中接触的学生",
-    universities: "网络中的大学",
-    events: "三年内的会议、Founder Treks 和公司参访",
+    partners: "由 NGEN 的风投合作伙伴投入学生和项目",
+    events: "三年内的会议、参访团和公司参访",
     more: { label: "关于 NGEN", href: "/" },
   },
 
