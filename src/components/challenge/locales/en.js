@@ -96,7 +96,7 @@ export const en = {
       { name: "Honest feedback", body: "The mentor says what is working and what is not." },
     ],
     speakersTitle: "Speakers at NGEN events in New\u00a0York",
-    speakersNote: "These guests have spoken at NGEN. They are not the one-to-one mentors for this program.",
+    speakersNote: "Founders and investors who have spoken at NGEN events.",
   },
 
   capstone: {
