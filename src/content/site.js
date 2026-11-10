@@ -35,6 +35,14 @@ export const site = {
     "NGEN brings together the brightest student innovators and founders across universities and gives them new connections and opportunities. It’s the center of gravity for student innovation.",
   email: "info@ngennetwork.org",
   ein: "93-2106846",
+  // Mailing address. Footer, contact, the phone menu, and JSON-LD read this.
+  address: {
+    street: "169 Madison Ave STE 30444",
+    city: "New York",
+    region: "NY",
+    postalCode: "10016",
+    country: "US",
+  },
 
   links: {
     luma: "https://luma.com/ngen",
@@ -44,6 +52,12 @@ export const site = {
     donateZeffy: "https://www.zeffy.com/en-US/donation-form/donate-to-empower-entrepreneurs",
     donateEmbed: "https://www.zeffy.com/embed/donation-form/donate-to-empower-entrepreneurs",
     giftZeffy: "https://www.zeffy.com/en-US/donation-form/power-the-intercollegiate-founder-ecosystem",
+  },
+
+  // Branded short links. next.config redirects these with a temporary 307.
+  shortLinks: {
+    zoom: "https://us06web.zoom.us/j/7659999275?pwd=1XrmP1IG5Qp5qdK00jP94Htl38csvO.1",
+    intro: "https://calendly.com/ngennetwork-info/start-up-challenge-intro-call",
   },
 
   labels: {
@@ -60,14 +74,7 @@ export const site = {
       { label: "Events", href: "/events" },
       { label: "Capital", href: "/capital-network/founders", match: "/capital-network" },
       { label: "Impact", href: "/impact" },
-      {
-        label: "About",
-        href: "/about",
-        children: [
-          { label: "Our story", href: "/about" },
-          { label: "Team", href: "/about/team" },
-        ],
-      },
+      { label: "About", href: "/about" },
     ],
     cta: { label: "Upcoming events", href: "/events" },
   },
@@ -339,27 +346,14 @@ export const pages = {
   },
 
   // The homepage carries the headline figures; Impact goes underneath them.
-  // Placeholder data lives in src/content/impact.js.
   impact: {
     title: "The record, three years in.",
     intro:
-      "What each event moves, what each cohort raised, how founders came through NGEN and where they are\u00a0now.",
+      "The startups on the record, the schools their founders come from, and the firms behind the people who spoke and backed\u00a0them.",
     action: "See every startup",
     startupsLabel: "startups on the record",
     startupsTitle: "Founders who came\u00a0through",
     startupsIntro: "Largest raise first, each with the press that covered it or, before there is any, the company’s own\u00a0site.",
-    perEventTitle: "Per event",
-    perEventNote: "Averaged over every NGEN conference, trek and pitch competition.",
-    cohortsTitle: "By cohort",
-    cohortsNote: "Founders grouped by the year they first came to an NGEN event.",
-    cohortColumns: { cohort: "Cohort", founders: "Founders", startups: "Startups", raised: "Raised" },
-    pathsTitle: "How founders came\u00a0through",
-    pathsNote: "Every founder on the record came in one of two ways.",
-    pathFounders: "founders",
-    pathRaised: "raised",
-    alumniTitle: "Where they are\u00a0now",
-    alumniNote: "Alumni and former team members, and what they do today.",
-    alumniColumns: { name: "Name", path: "Came through", now: "Now" },
     universitiesTitle: "Where founders come\u00a0from",
     universitiesIntro: "Student founders across the network come from these\u00a0schools.",
   },
@@ -395,7 +389,6 @@ export const pages = {
     intro: "Students and alumni across campuses who run NGEN’s conferences, Founder Treks and pitch\u00a0competitions.",
     caption: "On stage at NGEN’s first conference.",
     leadershipTitle: "Leadership",
-    teamTitle: "Team",
   },
 
   partner: {

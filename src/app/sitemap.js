@@ -5,10 +5,10 @@ import { programs } from "@/content/programs";
 // /startup-challenge and /startup-challenge/apply are reachable but
 // excluded from the sitemap on purpose — direct/shared links, not meant
 // for search indexing.
+// /zoom and /intro are temporary redirects (next.config); not indexed.
 const STATIC_ROUTES = [
   "",
   "/about",
-  "/about/team",
   "/impact",
   "/contact",
   "/programs",

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { site } from "@/content/site";
 import Logo from "@/components/brand/Logo";
 import PageLink from "@/components/ui/PageLink";
+import MailingAddress from "@/components/ui/MailingAddress";
 
 const { nav, labels } = site;
 
@@ -117,6 +118,7 @@ export default function SiteNav() {
           <a href={`mailto:${site.email}`} tabIndex={open ? undefined : -1} className="link text-small text-mist">
             {site.email}
           </a>
+          <MailingAddress className="text-small text-mist" />
         </div>
       </div>
 
