@@ -7,7 +7,7 @@ import { validateApplication, validateResume } from "@/lib/challengeApplication"
 import PageLink from "@/components/ui/PageLink";
 
 const fieldClass =
-  "min-h-11 w-full rounded-[0.375rem] bg-white px-4 text-base text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
+  "min-h-11 w-full rounded-[0.375rem] bg-white px-4 text-[16px] text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
 
 export default function ApplyForm() {
   const { lang, copy } = useLocale();

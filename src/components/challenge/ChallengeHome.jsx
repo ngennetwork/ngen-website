@@ -41,22 +41,22 @@ function Home() {
 
   return (
     <EligibilityState>
-      <header className="relative isolate overflow-hidden text-on-dark">
+      <header className="relative isolate overflow-hidden bg-[#1c3a2a] text-on-dark lg:bg-transparent">
         <Image
           src={hero.photo.src}
-          alt={hero.photo.alt}
+          alt=""
           fill
           sizes="100vw"
           loading="eager"
           fetchPriority="high"
-          className="object-cover"
+          className="hidden object-cover lg:block"
           style={{ objectPosition: hero.photo.position }}
         />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#0e110f]/93 via-[#1c3a2a]/68 to-[#0e110f]/30" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0e110f]/88 via-[#0e110f]/20 to-[#0e110f]/55" />
+        <div aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-r from-[#0e110f]/93 via-[#1c3a2a]/68 to-[#0e110f]/30 lg:block" />
+        <div aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-t from-[#0e110f]/88 via-[#0e110f]/20 to-[#0e110f]/55 lg:block" />
         <div className="relative">
-          <div className="wrap grid items-start gap-10 pt-36 pb-14 lg:grid-cols-12 lg:pt-40 lg:pb-16">
-            <div className="flex max-w-[40rem] flex-col items-start gap-5 lg:col-span-6">
+          <div className="wrap grid items-start gap-6 pt-6 pb-8 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
+            <div className="flex max-w-[40rem] flex-col items-start gap-3 lg:col-span-6 lg:gap-5">
               <p className="inline-flex max-w-full items-center rounded-full border border-dashed border-[#fbfaf7]/50 bg-[#0e110f]/30 px-3 py-1.5 text-small text-[#fbfaf7]">
                 {hero.eyebrow}
               </p>
@@ -64,15 +64,15 @@ function Home() {
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
                 {copy.deadlineLabel} {copy.deadline}
               </p>
-              <h1 id="challenge-title" className="max-w-[16ch] font-display text-[clamp(2.5rem,1.25rem+3.3vw,4.5rem)] leading-[1.02]">
+              <h1 id="challenge-title" className="max-w-[16ch] font-display text-[clamp(2.15rem,1.2rem+4vw,4.5rem)] leading-[1.05] lg:text-[clamp(2.5rem,1.25rem+3.3vw,4.5rem)] lg:leading-[1.02]">
                 {hero.title}
               </h1>
               <p className="max-w-[42ch] text-lead text-on-dark/90">{hero.intro}</p>
               <p className="font-medium text-on-dark">{copy.noIdea}</p>
               <p className="max-w-[40ch] text-base leading-relaxed text-on-dark/80">{copy.urgency}</p>
-              <p className="text-small text-on-dark/70">{hero.photo.caption}</p>
+              <p className="hidden text-small text-on-dark/70 lg:block">{hero.photo.caption}</p>
             </div>
-            <div className="lg:col-span-5 lg:col-start-8">
+            <div className="hidden lg:col-span-5 lg:col-start-8 lg:block">
               <EligibilityCheck instanceId="check-hero" />
             </div>
           </div>
@@ -80,17 +80,37 @@ function Home() {
       </header>
 
       <section aria-labelledby="schools-label" className="school-band border-y border-ink/10 bg-snow">
-        <div className="wrap py-8 sm:py-10">
+        <div className="wrap py-6 sm:py-10">
           <p id="schools-label" className="text-center text-small text-slate">
             {copy.schools.label}
           </p>
-          <ul className="mt-5 grid grid-cols-2 items-center justify-items-center gap-x-6 gap-y-6 [--logo-scale:0.72] sm:grid-cols-4 sm:[--logo-scale:0.8] lg:flex lg:flex-wrap lg:justify-center lg:gap-x-8 lg:[--logo-scale:0.84]">
+          <ul className="mt-4 grid grid-cols-4 items-center justify-items-center gap-x-2 gap-y-4 [--logo-scale:0.48] sm:gap-x-4 sm:[--logo-scale:0.7] lg:flex lg:flex-wrap lg:justify-center lg:gap-x-8 lg:[--logo-scale:0.84]">
             {ivySchools.map((school) => (
-              <li key={school.name} className="flex h-11 items-center justify-center">
+              <li key={school.name} className="flex h-10 items-center justify-center sm:h-11">
                 <UniversityLogo university={school} />
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <figure className="bg-snow lg:hidden">
+        <div className="relative aspect-[16/10]">
+          <Image
+            src={hero.photo.src}
+            alt={hero.photo.alt}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: hero.photo.position }}
+          />
+        </div>
+        <figcaption className="wrap py-2.5 text-center text-small text-slate">{hero.photo.caption}</figcaption>
+      </figure>
+
+      <section className="bg-snow lg:hidden">
+        <div className="wrap pb-8">
+          <EligibilityCheck instanceId="check-mobile" />
         </div>
       </section>
 

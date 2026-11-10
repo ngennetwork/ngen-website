@@ -30,7 +30,7 @@ const DIAL_CODES = [
 ];
 
 const fieldClass =
-  "min-h-11 w-full rounded-[0.375rem] bg-white px-3 text-base text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
+  "min-h-11 w-full rounded-[0.375rem] bg-white px-3 text-[16px] text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
 
 export function EligibilityState({ children }) {
   const [values, setValues] = useState({

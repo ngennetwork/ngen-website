@@ -22,7 +22,7 @@ function ApplyBody() {
   return (
     <>
       <header className="challenge-dark bg-ink-deep text-on-dark">
-        <div className="wrap grid items-start gap-10 pt-36 pb-14 lg:grid-cols-12 lg:pt-40 lg:pb-16">
+        <div className="wrap grid items-start gap-6 pt-6 pb-8 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
           <div className="flex flex-col items-start gap-6 lg:col-span-7">
             <p className="inline-flex max-w-full items-center rounded-full border border-dashed border-[#fbfaf7]/50 px-3 py-1.5 text-small text-[#fbfaf7]">
               {hero.eyebrow}
