@@ -57,7 +57,7 @@ export const zhHant = {
       { icon: "mentor", title: "六個月的導師", body: "導師是常春藤盟校學生，六個月裡每週見面。" },
       { icon: "build", title: "一個真實的公司項目", body: "從想法、初版產品到第一批客戶。學人完成後有可以給學校看的成果。" },
       { icon: "workshop", title: "每月直播工作坊", body: "每月有一位業界人士在線上加入，並回答問題。" },
-      { icon: "school", title: "升學申請的支持", body: "完成課程的學人會獲得證書，以及 NGEN 的推薦信。老師可以跟進進度。" },
+      { icon: "school", title: "升學申請的支持", body: "完成課程的學人會獲得證書，以及 NGEN 的推薦信。老師和家長都可以跟進進度。" },
     ],
   },
 
