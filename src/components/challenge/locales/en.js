@@ -201,7 +201,7 @@ export const en = {
     body: "NGEN is the Ivy League entrepreneurship network. Founded by student leaders at Princeton, Penn and Brown and run by Ivy League students and alumni, it brings student founders together through conferences, treks and company visits. NGEN is a 501(c)(3) nonprofit, independent of the universities.",
     raised: "raised by NGEN startups",
     reach: "students reached across the network",
-    partners: "put into students and programs by NGEN’s VC partners",
+    partners: "deployed into student founders and startups through NGEN",
     events: "conferences, treks and company visits in three years",
     more: { label: "About NGEN", href: "/" },
   },
