@@ -101,7 +101,13 @@
 .lang-option:active {
   transform: scale(0.96);
 }
+@media (max-width: 47.99rem) {
+  html:has(.challenge-apply-bar) body {
+    padding-bottom: calc(4.25rem + env(safe-area-inset-bottom));
+  }
+}
 @media (prefers-reduced-motion: reduce) {
+  .challenge-apply-bar,
   .challenge-lang-fade,
   .lang-pill,
   .lang-option {
