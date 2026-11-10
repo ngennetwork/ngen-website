@@ -36,18 +36,6 @@ export const en = {
     },
   },
 
-  trip: {
-    kicker: "For selected Fellows",
-    title: "A trip to New\u00a0York",
-    body: "In April, 4 to 6 Fellows are selected for a trip to New\u00a0York. The days include NGEN’s Founder Trek and the Ivy League Entrepreneurship Conference.",
-    more: "See the four days",
-    photo: {
-      src: "/startup-challenge/founder-trek-insight-partners.jpg",
-      alt: "Students around a boardroom table at Insight Partners in New York, with the skyline in the windows and a slide reading Invest in the Future of Technology with Insight Partners",
-      caption: "NGEN Founder Trek at Insight Partners, New York",
-      position: "center",
-    },
-  },
 
   glance: {
     title: "At a glance",
@@ -92,8 +80,8 @@ export const en = {
     intro: "One milestone a month. Each one ends with something finished.",
     photo: {
       src: "/startup-challenge/speaker-conversation.jpg",
-      alt: "Tom Gardner, cofounder and CEO of The Motley Fool, talking with a group of students at an NGEN conference",
-      caption: "Students ask questions of Tom Gardner, cofounder and CEO of The Motley Fool, at an NGEN conference.",
+      alt: "Tom Gardner, co-founder and CEO of The Motley Fool, talking with a group of students at an NGEN conference",
+      caption: "Students ask questions of Tom Gardner, co-founder and CEO of The Motley Fool, at an NGEN conference.",
       position: "50% 35%",
     },
     steps: [
@@ -133,10 +121,10 @@ export const en = {
       "We tell families who is travelling, the daily plan, and how we stay in touch.",
     ],
     photo: {
-      src: "/about/events/founder-treks.jpg",
-      alt: "Students seated at the NGEN Student Founder Summit in San Francisco, listening to a speaker on stage",
-      caption: "Students at the NGEN Student Founder Summit in San\u00a0Francisco.",
-      position: "50% 45%",
+      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      alt: "Students around a boardroom table at Insight Partners in New York, with the skyline in the windows and a slide reading Invest in the Future of Technology with Insight Partners",
+      caption: "NGEN Founder Trek at Insight Partners, New York",
+      position: "center",
     },
     itinerary: {
       label: "Day by day",

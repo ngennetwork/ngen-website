@@ -30,18 +30,6 @@ export const zhHant = {
     },
   },
 
-  trip: {
-    kicker: "給獲選學人的機會",
-    title: "紐約之行",
-    body: "4月會選出4至6位學人前往紐約。行程包括 NGEN 的 Founder Trek，以及參加常春藤盟校創業會議。",
-    more: "看這四天的安排",
-    photo: {
-      src: "/startup-challenge/founder-trek-insight-partners.jpg",
-      alt: "學生圍坐在紐約 Insight Partners 的會議桌旁，窗外是城市天際線，投影片寫著 Invest in the Future of Technology with Insight Partners",
-      caption: "NGEN 創業者參訪團拜訪紐約 Insight Partners",
-      position: "center",
-    },
-  },
 
   glance: {
     title: "重點一覽",
@@ -114,10 +102,10 @@ export const zhHant = {
       "我們會告知家庭誰前往紐約、每天的安排，以及如何保持聯絡。",
     ],
     photo: {
-      src: "/about/events/founder-treks.jpg",
-      alt: "學生坐在台下，在舊金山 NGEN 學生創業者峰會上聽講者發言",
-      caption: "學生參加 NGEN 在舊金山的學生創業者峰會。",
-      position: "50% 45%",
+      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      alt: "學生圍坐在紐約 Insight Partners 的會議桌旁，窗外是城市天際線，投影片寫著 Invest in the Future of Technology with Insight Partners",
+      caption: "NGEN 創業者參訪團拜訪紐約 Insight Partners",
+      position: "center",
     },
     itinerary: {
       label: "每天安排",
