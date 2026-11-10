@@ -35,8 +35,8 @@ export const zhHans = {
     title: "重点一览",
     items: [
       { icon: "who", title: "适合谁", body: "中学9至12年级，大约14至18岁。不需要已有公司或想法。" },
-      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月一次在线直播，两次之间有作业。" },
-      { icon: "laptop", title: "形式", body: "每月与常春藤盟校学生导师进行在线直播，在家参加，课间另有指导作业。" },
+      { icon: "calendar", title: "日期", body: "2027年1月至6月，每月一个目标。" },
+      { icon: "laptop", title: "形式", body: "每周一次与常春藤盟校学生导师的指导课，课与课之间有引导作业。学人会两两配对，以团队形式合作。" },
     ],
   },
 
@@ -50,7 +50,7 @@ export const zhHans = {
       position: "50% 40%",
     },
     items: [
-      { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生，六个月里定期通话。" },
+      { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生，六个月里每周见面。" },
       { icon: "build", title: "一个真实的公司项目", body: "从想法、第一版产品到第一批客户。学人完成后有可以给学校看的成果。" },
       { icon: "workshop", title: "每月在线工作坊", body: "每月有一位业界人士在线上加入，并回答问题。" },
       { icon: "school", title: "可以交给学校的记录", body: "老师可以跟进进度。完成的学生会收到证书。有些学校把它用作课堂、社团或实习学分。" },
@@ -79,7 +79,7 @@ export const zhHans = {
 
   mentors: {
     title: "导师",
-    intro: "每位导师都是常春藤盟校学生。他们定期与学人通话，并在作业提交前先看一遍。",
+    intro: "每位导师都是常春藤盟校学生。他们每周与学人见面，并在作业提交前先看一遍。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "导师就读的大学。NGEN 是独立非营利组织，并不属于这些大学。",
     points: [
@@ -179,11 +179,11 @@ export const zhHans = {
 
   ngen: {
     title: "谁主办",
-    body: "NGEN 是 501(c)(3) 非营利组织，由普林斯顿、宾夕法尼亚大学和布朗的学生领袖创立，并由常春藤盟校的学生和校友主持。NGEN 独立于这些大学。我们举办会议、Founder Treks 和公司参访。",
+    body: "NGEN 是常春藤盟校的创业网络。由普林斯顿、宾夕法尼亚大学和布朗的学生领袖创立，并由常春藤盟校的学生和校友主持，通过会议、参访团和公司参访，把各校的学生创业者联系起来。NGEN 是 501(c)(3) 非营利组织，独立于这些大学。",
     raised: "由 NGEN 初创公司筹得",
     reach: "网络中接触的学生",
-    universities: "网络中的大学",
-    events: "三年内的会议、Founder Treks 和公司参访",
+    partners: "由 NGEN 的风投合作伙伴投入学生和项目",
+    events: "三年内的会议、参访团和公司参访",
     more: { label: "关于 NGEN", href: "/" },
   },
 

@@ -34,9 +34,9 @@ function Home() {
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
   const ivySchools = universities.filter((school) => school.ivy);
   const stats = [
-    { value: "$30M+", label: ngen.raised },
+    { value: site.figures.raised.value, label: ngen.raised },
     { value: site.figures.reach.value, label: ngen.reach },
-    { value: site.figures.universities.value, label: ngen.universities },
+    { value: site.figures.partners.value, label: ngen.partners },
     { value: site.figures.events.value, label: ngen.events },
   ];
 
