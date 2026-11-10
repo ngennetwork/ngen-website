@@ -2,7 +2,7 @@
 export const zhHans = {
   meta: {
     title: "六个月创业挑战",
-    description: "面向中学生的六个月课程，最后一站是纽约的常春藤盟校创业会议。",
+    description: "面向中学生的六个月课程。2027年1月至6月，学生学习一家公司如何运作，并亲手完成项目，由常春藤大学的学生创办人担任导师。",
   },
   switcherLabel: "语言",
   name: "NGEN Start-Up Challenge",
@@ -10,7 +10,7 @@ export const zhHans = {
   applyPath: "/startup-challenge/apply",
   deadlineLabel: "截止日期：",
   deadline: "2026年12月14日（星期一）",
-  urgency: "课程1月开始。纽约之行只会选4至6名学生。",
+  urgency: "课程1月开始。",
   noIdea: "申请时不需要已有公司或想法。",
   feesNote: "课程费用和付款方式，会在个别咨询时说明。",
   schools: {
@@ -18,24 +18,29 @@ export const zhHans = {
   },
 
   hero: {
-    eyebrow: "以常春藤盟校创业会议作结 · 纽约",
     title: "六个月，建立一家真正的公司。",
-    intro:
-      "2027年1月至6月，学生学习一家公司如何运作，并亲手完成自己的项目。导师是常春藤大学的学生创办人。4月，获选学生会前往纽约四天。",
+    intro: "2027年1月至6月，学生学习一家公司如何运作，并亲手完成自己的项目。导师是常春藤大学的学生创办人。",
     photo: {
-      src: "/startup-challenge/hero-group.jpg",
-      alt: "学生和导师站在橙色 NGEN 标志前的舞台上",
-      caption: "NGEN 活动舞台上的合影。",
-      position: "50% 38%",
+      src: "/home/hero-ngen-new-group-3200.webp",
+      alt: "NGEN Trailblazers 会议上的一大群学生",
+      caption: "NGEN 活动中的学生合影。",
+      position: "50% 55%",
     },
+  },
+
+  trip: {
+    kicker: "给获选学生的机会",
+    title: "纽约之行",
+    body: "4月会选出4至6名学生前往纽约。行程包括 NGEN 的 Founder Trek，以及参加常春藤盟校创业会议。",
+    more: "看这四天的安排",
   },
 
   glance: {
     title: "重点一览",
     items: [
       { icon: "who", title: "适合谁", body: "中学9至12年级，大约14至18岁。申请时不需要已有公司或想法。" },
-      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月在线进行。4月，获选学生前往纽约四天。" },
-      { icon: "laptop", title: "形式", body: "每月在家上网完成。获选学生于4月前往纽约四天。" },
+      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月在线进行。" },
+      { icon: "laptop", title: "形式", body: "每月在家上网完成。" },
     ],
   },
 
@@ -69,7 +74,7 @@ export const zhHans = {
       { when: "1月", title: "选定想法", body: "找出一个真实问题，并访问有这个问题的人。" },
       { when: "2月", title: "做出第一版", body: "做一个简单的产品，和一个容易记住的名字。" },
       { when: "3月", title: "让人知道它", body: "选一种方式接触客户，并看结果。" },
-      { when: "4月", title: "完成第一笔销售", body: "请人付费，并把数字记下来。获选学生本月前往纽约。" },
+      { when: "4月", title: "完成第一笔销售", body: "请人付费，并把数字记下来。" },
       { when: "5月", title: "查看数字", body: "看看发生了什么，并决定哪些要继续做。" },
       { when: "6月", title: "写成记录", body: "为家庭和学校写一份简短的公司记录。" },
     ],
@@ -152,7 +157,7 @@ export const zhHans = {
       "9至12年级。",
       "申请时不需要已有公司或想法。",
       "由家长或监护人申请。",
-      "2027年1月至6月在线进行；4月获选学生前往纽约四天。",
+      "2027年1月至6月在线进行。",
     ],
     cta: "为学生申请",
   },

@@ -32,14 +32,11 @@ function ApplyBody() {
             loading="eager"
             fetchPriority="high"
             className="object-cover"
-            style={{ objectPosition: "50% 42%" }}
+            style={{ objectPosition: hero.photo.position }}
           />
         </div>
         <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
           <div className="flex flex-col items-start gap-6 lg:col-span-7">
-            <p className="inline-flex max-w-full items-center rounded-2xl border border-dashed border-[#fbfaf7]/50 px-4 py-3 text-left text-small leading-snug text-[#fbfaf7] lg:rounded-full lg:px-3 lg:py-1.5 lg:leading-normal">
-              {hero.eyebrow}
-            </p>
             <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-4 py-3 text-small leading-snug text-[#151815] lg:px-3 lg:py-1.5 lg:leading-normal">
               <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
               {copy.deadlineLabel} {copy.deadline}

@@ -28,7 +28,7 @@ export default function ChallengeHome({ initialLang }) {
 
 function Home() {
   const { copy } = useLocale();
-  const { hero, glance, gets, months, mentors, capstone, gallery, join, ngen, check } = copy;
+  const { hero, trip, glance, gets, months, mentors, capstone, gallery, join, ngen, check } = copy;
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
   const ivySchools = universities.filter((school) => school.ivy);
@@ -64,14 +64,11 @@ function Home() {
               loading="eager"
               fetchPriority="high"
               className="object-cover"
-              style={{ objectPosition: "50% 42%" }}
+              style={{ objectPosition: hero.photo.position }}
             />
           </div>
           <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
             <div className="flex max-w-[40rem] flex-col items-start gap-[1.125rem] lg:col-span-6 lg:gap-5">
-              <p className="inline-flex max-w-full items-center rounded-2xl border border-dashed border-[#fbfaf7]/50 bg-[#0e110f]/30 px-4 py-3 text-left text-small leading-snug text-[#fbfaf7] lg:rounded-full lg:px-3 lg:py-1.5 lg:leading-normal">
-                {hero.eyebrow}
-              </p>
               <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-4 py-3 text-small leading-snug text-[#151815] lg:px-3 lg:py-1.5 lg:leading-normal">
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
                 {copy.deadlineLabel} {copy.deadline}
@@ -121,6 +118,21 @@ function Home() {
         </div>
         <figcaption className="wrap py-3 text-center text-small leading-relaxed text-slate">{gallery.photos[0].caption}</figcaption>
       </figure>
+
+      <section aria-labelledby="trip-title" className="bg-snow">
+        <div className="wrap pt-6 pb-8 lg:py-10">
+          <div className="max-w-[40rem] rounded-xl bg-fog p-6 ring-1 ring-ink/10 max-lg:p-7 lg:p-8">
+            <p className="text-small font-medium text-[#1c3a2a]">{trip.kicker}</p>
+            <h2 id="trip-title" className="mt-2 font-display text-h3">
+              {trip.title}
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-slate">{trip.body}</p>
+            <a href="#capstone" className="link mt-4 inline-block text-base">
+              {trip.more}
+            </a>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-snow lg:hidden">
         <div className="wrap pt-2 pb-12">
@@ -263,7 +275,6 @@ function Home() {
                 </ExternalLink>{" "}
                 {capstone.introAfter}
               </p>
-              <p className="mt-4 text-base leading-relaxed text-[#fbfaf7]/85">{copy.urgency}</p>
               <h3 className="mt-6 font-display text-h3">{capstone.logisticsTitle}</h3>
               <ul className="mt-3 flex flex-col gap-3">
                 {capstone.logistics.map((item) => (
