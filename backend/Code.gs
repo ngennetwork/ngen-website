@@ -365,7 +365,7 @@ var LEAD_HEADERS = ["timestamp", "parentName", "parentEmail", "whatsapp", "grade
 var CALL_LANGUAGES = { english: "English", mandarin: "Mandarin", cantonese: "Cantonese" };
 var CONSULT_URL = "https://www.ngennetwork.org/intro";
 var ZOOM_URL = "https://www.ngennetwork.org/zoom";
-var APPLY_URL = "https://www.ngennetwork.org/startup-challenge/apply";
+var APPLY_URL = "https://www.ngennetwork.org/global-fellowship#request";
 
 function handleStartupChallengeLead(data) {
   var parentName = oneLine(data.parentName);
@@ -699,7 +699,7 @@ function leadWelcomeHtml(language, parentName, callLanguageKey) {
     section(language, true) + english +
     '<tr><td style="background:' + GREEN + ';padding:22px 36px;font:13px/1.6 ' + SANS + ';color:#c8d4cc;">' +
     '<span style="font:16px ' + SERIF + ';color:' + CREAM + ';">NGEN</span><br>' + escapeHtml(leadCopyFor(language).tagline) +
-    ' · <a href="https://www.ngennetwork.org/startup-challenge" style="color:#c8d4cc;">ngennetwork.org</a></td></tr>' +
+    ' · <a href="https://www.ngennetwork.org/global-fellowship" style="color:#c8d4cc;">ngennetwork.org</a></td></tr>' +
     '</table></td></tr></table></body></html>';
 }
 

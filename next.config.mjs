@@ -109,12 +109,17 @@ const nextConfig = {
         destination: "/about",
         permanent: false,
       },
-      // The consultation request is a form on the fellowship page now.
-      // Old links (welcome emails, shared links) land on it, ?lang= kept.
+      // The fellowship moved from /startup-challenge to /global-fellowship.
+      // Old links (emails, shared links) still land on it, ?lang= kept.
       {
         source: "/startup-challenge/apply",
-        destination: "/startup-challenge#request",
-        permanent: false,
+        destination: "/global-fellowship#request",
+        permanent: true,
+      },
+      {
+        source: "/startup-challenge",
+        destination: "/global-fellowship",
+        permanent: true,
       },
       {
         source: "/capital-network",

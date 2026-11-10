@@ -21,7 +21,7 @@ const pageLinks = nav.links.flatMap((link) => [link, ...(link.children ?? []).fi
  */
 export default function SiteFooter() {
   const pathname = usePathname();
-  const ivy = pathname === "/startup-challenge" || pathname.startsWith("/startup-challenge/");
+  const ivy = pathname === "/global-fellowship" || pathname.startsWith("/global-fellowship/");
   const year = new Date().getFullYear();
   // Two sentences, two lines on wide screens: who NGEN is, then what that
   // means for a gift, with the copyright closing the second.

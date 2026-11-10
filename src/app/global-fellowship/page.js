@@ -4,7 +4,7 @@ import { localeFrom, normalizeLang, pageMeta } from "@/components/challenge/cont
 export async function generateMetadata({ searchParams }) {
   const params = await searchParams;
   const copy = localeFrom(params?.lang);
-  return pageMeta({ title: copy.meta.title, description: copy.meta.description, path: "/startup-challenge" });
+  return pageMeta({ title: copy.meta.title, description: copy.meta.description, path: "/global-fellowship" });
 }
 
 export default async function StartupChallengePage({ searchParams }) {

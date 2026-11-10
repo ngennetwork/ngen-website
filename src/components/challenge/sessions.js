@@ -7,7 +7,7 @@
 export const sessions = {
   zoomUrl: "https://www.ngennetwork.org/zoom",
   consultUrl: "https://www.ngennetwork.org/intro",
-  applyUrl: "https://www.ngennetwork.org/startup-challenge/apply",
+  applyUrl: "https://www.ngennetwork.org/global-fellowship#request",
   durationMinutes: 30,
   options: [
     {
