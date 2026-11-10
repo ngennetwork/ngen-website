@@ -45,22 +45,13 @@ export const en = {
       position: "50% 40%",
     },
     title: "At a glance",
-    items: [
-      {
-        icon: "who",
-        title: "Who it is for",
-        body: "High school students in grades 9 to 12, about 14 to 18 years old. No company or idea is needed.",
-      },
-      {
-        icon: "calendar",
-        title: "Dates",
-        body: "January to June 2027, with one milestone each month.",
-      },
-      {
-        icon: "laptop",
-        title: "Format",
-        body: "One mentorship session a week with an Ivy League student mentor, plus guided work between sessions. Fellows are paired up and work as a team.",
-      },
+    facts: [
+      { label: "Who", value: "Grades 9 to 12", detail: "About 14 to 18 years old." },
+      { label: "When", value: "Jan to Jun 2027", detail: "Six months, one milestone a month." },
+      { label: "Where", value: "Online", detail: "Joined from home." },
+      { label: "Mentorship", value: "Weekly", detail: "One session a week with an Ivy League student mentor." },
+      { label: "Teams", value: "Paired up", detail: "Fellows work as a team, with guided work between sessions." },
+      { label: "To start", value: "No idea needed", detail: "No company or idea is needed." },
     ],
   },
 
