@@ -301,11 +301,8 @@ function Home() {
                   </div>
                   <div className="flex flex-1 flex-col gap-1 p-6">
                     <p className="font-medium leading-tight">{speaker.name}</p>
-                    {speaker.roles.map((role) => (
-                      <p key={role} className="text-small text-slate">
-                        {role}
-                      </p>
-                    ))}
+                    <p className="text-small text-slate">{speakerTitle(speaker)}</p>
+                    <p className="text-small text-ink">{speakerCompany(speaker)}</p>
                   </div>
                 </article>
               </li>
@@ -397,6 +394,15 @@ function Home() {
     </>
   );
 }
+
+// "Title, Company" split onto two lines: title first, company below.
+function speakerRole(speaker) {
+  const role = speaker.featuredRole || speaker.roles[0];
+  const at = role.indexOf(", ");
+  return at < 0 ? { title: role, company: "" } : { title: role.slice(0, at), company: role.slice(at + 2) };
+}
+const speakerTitle = (speaker) => speakerRole(speaker).title;
+const speakerCompany = (speaker) => speakerRole(speaker).company;
 
 function MobileApplyBar({ href, label }) {
   const shown = useApplyBar();

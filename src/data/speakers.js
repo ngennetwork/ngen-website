@@ -22,6 +22,8 @@ export const speakers = [
   {
     name: "Howard Morgan",
     roles: ["Co-Founder, B Capital", "Founding President, Renaissance Technologies"],
+    // The fellowship page shows this role alone.
+    featuredRole: "Founding President, Renaissance Technologies",
     affiliation: "Cornell PhD",
     bio: "Howard Morgan was the first president of Renaissance Technologies, co-founded First Round Capital, and chairs B Capital. Before investing, he taught decision sciences at the Wharton School and computer science at the University of Pennsylvania.",
     headshot: { src: "/speakers/howard-morgan.webp", width: 1080, height: 1350 },
