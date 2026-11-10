@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { speakers } from "@/data/speakers";
 import { universities } from "@/data/universities";
@@ -42,7 +43,7 @@ function Home() {
   return (
     <EligibilityState>
       <header className="bg-[#1c3a2a] text-[#fbfaf7] lg:grid lg:min-h-[44rem] lg:grid-cols-[minmax(0,45%)_minmax(0,55%)] lg:pt-28">
-        <div className="relative h-60 overflow-hidden lg:col-start-2 lg:row-start-1 lg:h-full lg:min-h-[36rem]">
+        <div className="relative h-60 overflow-hidden max-md:aspect-[6000/2180] max-md:h-auto lg:col-start-2 lg:row-start-1 lg:h-full lg:min-h-[36rem]">
           <Image
             src={hero.photo.src}
             alt={hero.photo.alt}
@@ -50,7 +51,17 @@ function Home() {
             sizes="100vw"
             loading="eager"
             fetchPriority="high"
-            className="origin-bottom scale-[1.32] object-cover lg:hidden"
+            className="object-cover md:hidden"
+            style={{ objectPosition: "50% 63.74%" }}
+          />
+          <Image
+            src={hero.photo.src}
+            alt={hero.photo.alt}
+            fill
+            sizes="100vw"
+            loading="eager"
+            fetchPriority="high"
+            className="hidden origin-bottom scale-[1.32] object-cover md:block lg:hidden"
             style={{ objectPosition: "center bottom" }}
           />
           <Image
@@ -64,27 +75,27 @@ function Home() {
             style={{ objectPosition: "center bottom" }}
           />
         </div>
-        <div className="flex flex-col justify-center py-10 pr-[max(var(--gutter),env(safe-area-inset-right))] pl-wrap lg:col-start-1 lg:row-start-1 lg:py-20 lg:pr-16">
-          <div className="flex max-w-[34rem] flex-col gap-6 lg:gap-8">
-            <div className="flex flex-col gap-4 lg:gap-5">
+        <div className="flex flex-col justify-center py-10 pr-[max(var(--gutter),env(safe-area-inset-right))] pl-wrap max-md:py-5 lg:col-start-1 lg:row-start-1 lg:py-20 lg:pr-16">
+          <div className="flex max-w-[34rem] flex-col gap-6 max-md:gap-3.5 lg:gap-8">
+            <div className="flex flex-col gap-4 max-md:gap-2.5 lg:gap-5">
               <p className={`text-[0.72rem] font-medium text-[#fbfaf7]/65 ${lang === "en" ? "uppercase tracking-[0.22em]" : "tracking-[0.06em]"}`}>
                 {hero.eyebrow}
               </p>
-              <h1 id="challenge-title" className={`font-display text-[clamp(2.75rem,1.5rem+2.2vw,4.4rem)] leading-[1.02] ${lang === "en" ? "max-w-[11ch]" : ""}`}>
+              <h1 id="challenge-title" className={`font-display text-[clamp(2.75rem,1.5rem+2.2vw,4.4rem)] leading-[1.02] max-md:text-[2.375rem] max-md:leading-[1.05] ${lang === "en" ? "max-w-[11ch]" : ""}`}>
                 {hero.title}
               </h1>
               <div aria-hidden="true" className="h-px w-10 bg-[#fbfaf7]/40" />
             </div>
-            <div className="flex flex-col gap-4">
-              <p className="max-w-[34ch] text-lead leading-relaxed text-[#fbfaf7]/92">{hero.tagline}</p>
-              <p className="max-w-[38ch] text-base leading-relaxed text-[#fbfaf7]/72">{hero.intro}</p>
+            <div className="flex flex-col gap-4 max-md:contents">
+              <p className="max-w-[34ch] text-lead leading-relaxed text-[#fbfaf7]/92 max-md:max-w-none max-md:text-base max-md:leading-snug">{hero.tagline}</p>
+              <p className="max-w-[38ch] text-base leading-relaxed text-[#fbfaf7]/72 max-md:order-2 max-md:max-w-none">{hero.intro}</p>
             </div>
-            <div className="flex flex-col items-start gap-5">
+            <div className="flex flex-col items-start gap-5 max-md:order-1 max-md:gap-3">
               <p className="text-small text-[#fbfaf7]/60">
                 {copy.deadlineLabel} {copy.deadline}
               </p>
               <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
-                <PageLink href={copy.applyPath} className="btn btn-on-dark">
+                <PageLink id="hero-apply" href={copy.applyPath} className="btn btn-on-dark">
                   {join.cta}
                 </PageLink>
                 <a href="#eligibility" className="link text-small text-[#fbfaf7]/85">
@@ -95,6 +106,7 @@ function Home() {
           </div>
         </div>
       </header>
+      <MobileApplyBar href={copy.applyPath} label={join.cta} />
 
       <section aria-labelledby="schools-label" className="school-band border-y border-ink/10 bg-snow">
         <div className="wrap py-8 lg:py-10">
@@ -142,7 +154,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-snow lg:hidden">
+      <section data-challenge-form className="bg-snow lg:hidden">
         <div className="wrap pt-2 pb-12">
           <EligibilityCheck instanceId="check-mobile" />
         </div>
@@ -387,7 +399,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="eligibility" aria-labelledby="eligibility-title" className="bg-snow">
+      <section id="eligibility" data-challenge-form aria-labelledby="eligibility-title" className="bg-snow">
         <div className={`${SECTION} grid items-start gap-8 lg:grid-cols-12`}>
           <div className="lg:col-span-5">
             <h2 id="eligibility-title" className="font-display text-h2">
@@ -408,6 +420,64 @@ function Home() {
       </section>
     </EligibilityState>
   );
+}
+
+function MobileApplyBar({ href, label }) {
+  const shown = useApplyBar();
+
+  return (
+    <div
+      className={`challenge-apply-bar fixed inset-x-0 bottom-0 z-40 border-t border-[#1c3a2a]/15 bg-[#f3f1ec]/80 px-[max(1rem,env(safe-area-inset-left))] pt-2.5 pr-[max(1rem,env(safe-area-inset-right))] pb-[calc(0.625rem+env(safe-area-inset-bottom))] shadow-[0_-12px_28px_-20px_rgb(21_24_21/0.55)] backdrop-blur-md motion-safe:transition-opacity motion-safe:duration-200 md:hidden ${shown ? "opacity-100" : "pointer-events-none opacity-0"}`}
+      aria-hidden={shown ? undefined : true}
+      inert={shown ? undefined : true}
+    >
+      <PageLink href={href} className="btn h-12 min-h-12 w-full bg-[#1c3a2a] text-[#fbfaf7] hover:bg-[#274e39]">
+        {label}
+      </PageLink>
+    </div>
+  );
+}
+
+function useApplyBar() {
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById("hero-apply");
+    const forms = document.querySelectorAll("[data-challenge-form]");
+    if (!hero) return undefined;
+
+    let heroVisible = true;
+    const formsVisible = new Set();
+    const sync = () => setShown(!heroVisible && formsVisible.size === 0);
+
+    const heroObserver = new IntersectionObserver(
+      (entries) => {
+        heroVisible = entries.some((entry) => entry.isIntersecting);
+        sync();
+      },
+      { rootMargin: "0px 0px -72px 0px", threshold: 0.6 },
+    );
+    heroObserver.observe(hero);
+
+    const formObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) formsVisible.add(entry.target);
+          else formsVisible.delete(entry.target);
+        }
+        sync();
+      },
+      { threshold: 0.12 },
+    );
+    forms.forEach((form) => formObserver.observe(form));
+
+    return () => {
+      heroObserver.disconnect();
+      formObserver.disconnect();
+    };
+  }, []);
+
+  return shown;
 }
 
 function AdmitTicket({ ticket, href }) {
