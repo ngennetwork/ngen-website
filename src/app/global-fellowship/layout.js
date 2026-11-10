@@ -15,6 +15,17 @@ const sans = Hanken_Grotesk({
   display: "swap",
 });
 
+// The fellowship tab icon: the same mountain on the page's forest green.
+export const metadata = {
+  icons: {
+    icon: [
+      { url: "/icon-fellowship.ico", sizes: "any" },
+      { url: "/icon-fellowship.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/icon-fellowship-apple.png",
+  },
+};
+
 const LANG_BOOT = `(function(){try{var q=new URLSearchParams(location.search).get("lang");var s=localStorage.getItem("ngen-challenge-lang");var l=q||s||"en";if(l==="zh-TW"||l==="zh-HK")l="zh-Hant";else if(l==="zh-CN"||l==="zh")l="zh-Hans";if(l!=="en"&&l!=="zh-Hant"&&l!=="zh-Hans")l="en";document.documentElement.setAttribute("data-challenge-lang",l);if(l!=="en"){var e=document.createElement("style");e.id="challenge-lang-boot";e.textContent=".challenge-lang-fade{opacity:0}";document.head.appendChild(e);}}catch(err){}})();`;
 
 export default function StartupChallengeLayout({ children }) {
