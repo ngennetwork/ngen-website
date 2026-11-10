@@ -147,19 +147,15 @@ function Home() {
               </h2>
               <Photo src={glance.photo.src} alt={glance.photo.alt} caption={glance.photo.caption} position={glance.photo.position} ratio="aspect-[4/3]" />
             </div>
-            <ul className="flex flex-col gap-4 lg:col-span-7 lg:pt-[4.25rem]">
-              {glance.items.map((item) => (
-                <li key={item.title} className={`flex flex-row gap-4 ${CHROME}`}>
-                  <span className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#1c3a2a]">
-                    <Icon name={item.icon} className="size-6 text-[#fbfaf7]" />
-                  </span>
-                  <div>
-                    <h3 className="font-display text-[1.35rem] leading-tight">{item.title}</h3>
-                    <p className={`mt-2 ${MUTED}`}>{item.body}</p>
-                  </div>
-                </li>
+            <dl className="grid overflow-hidden rounded-xl bg-ink/10 shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10 [gap:1px] sm:grid-cols-2 lg:col-span-7 lg:mt-[4.25rem]">
+              {glance.facts.map((fact) => (
+                <div key={fact.label} className="flex flex-col gap-1.5 bg-paper p-6 max-lg:p-7">
+                  <dt className="text-small font-medium text-[#1c3a2a]">{fact.label}</dt>
+                  <dd className="font-display text-[1.6rem] leading-tight">{fact.value}</dd>
+                  <dd className="text-base leading-relaxed text-slate">{fact.detail}</dd>
+                </div>
               ))}
-            </ul>
+            </dl>
           </div>
         </div>
       </section>

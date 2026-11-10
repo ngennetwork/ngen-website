@@ -39,10 +39,13 @@ export const zhHant = {
       position: "50% 40%",
     },
     title: "重點一覽",
-    items: [
-      { icon: "who", title: "適合誰", body: "中學9至12年級，大約14至18歲。不需要已有公司或想法。" },
-      { icon: "calendar", title: "日期", body: "2027年1月至6月，每月一個目標。" },
-      { icon: "laptop", title: "形式", body: "每週一次與常春藤盟校學生導師的指導課，課與課之間有引導作業。學人會兩兩配對，以團隊形式合作。" },
+    facts: [
+      { label: "對象", value: "9至12年級", detail: "約14至18歲。" },
+      { label: "時間", value: "2027年1月至6月", detail: "為期六個月，每月一個目標。" },
+      { label: "地點", value: "線上", detail: "在家參加。" },
+      { label: "導師指導", value: "每週一次", detail: "每週與常春藤盟校學生導師上一次指導課。" },
+      { label: "團隊", value: "兩兩配對", detail: "學人以團隊形式合作，課與課之間有引導作業。" },
+      { label: "入門要求", value: "無需創業點子", detail: "不需要已有公司或想法。" },
     ],
   },
 
@@ -74,7 +77,7 @@ export const zhHant = {
       { when: "5月", title: "檢視數字", body: "看看發生了什麼，並決定哪些要繼續做。" },
       { when: "6月", title: "寫成紀錄", body: "為家庭和學校寫一份簡短的公司紀錄。" },
     ],
-    note: "暑期可以選擇參加 NGEN 的後續實習，全程上網。",
+    note: "之後，學人可以選擇參加線上暑期實習，直接與 NGEN 團隊一起推動社群建設和 NGEN 的拓展。詳情會在諮詢時說明。",
   },
 
   mentors: {

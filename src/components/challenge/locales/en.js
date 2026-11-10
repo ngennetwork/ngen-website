@@ -45,22 +45,13 @@ export const en = {
       position: "50% 40%",
     },
     title: "At a glance",
-    items: [
-      {
-        icon: "who",
-        title: "Who it is for",
-        body: "High school students in grades 9 to 12, about 14 to 18 years old. No company or idea is needed.",
-      },
-      {
-        icon: "calendar",
-        title: "Dates",
-        body: "January to June 2027, with one milestone each month.",
-      },
-      {
-        icon: "laptop",
-        title: "Format",
-        body: "One mentorship session a week with an Ivy League student mentor, plus guided work between sessions. Fellows are paired up and work as a team.",
-      },
+    facts: [
+      { label: "Who", value: "Grades 9 to 12", detail: "About 14 to 18 years old." },
+      { label: "When", value: "Jan to Jun 2027", detail: "Six months, one milestone a month." },
+      { label: "Where", value: "Online", detail: "Joined from home." },
+      { label: "Mentorship", value: "Weekly", detail: "One session a week with an Ivy League student mentor." },
+      { label: "Teams", value: "Paired up", detail: "Fellows work as a team, with guided work between sessions." },
+      { label: "To start", value: "No idea needed", detail: "No company or idea is needed." },
     ],
   },
 
@@ -92,7 +83,7 @@ export const en = {
       { when: "May", title: "Review the numbers", body: "Look at what happened, and decide what to keep doing." },
       { when: "June", title: "Write it up", body: "A short account of the company, for the family and the school." },
     ],
-    note: "An optional summer follow-on internship with NGEN, online.",
+    note: "Afterward, Fellows can join an optional online summer internship, working directly alongside the NGEN team on community building and NGEN’s expansion. Details are shared during your consultation.",
   },
 
   mentors: {
