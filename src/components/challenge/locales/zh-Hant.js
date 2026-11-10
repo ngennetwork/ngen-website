@@ -87,6 +87,7 @@ export const zhHant = {
     schoolsNote: "導師就讀的大學。NGEN 是獨立非營利組織，並不屬於這些大學。",
     points: [
       { name: "坦白的回應", body: "導師會說明什麼做得好，什麼需要改。" },
+      { name: "親身的創業經驗", body: "導師有自己的創業經驗，會把學到的東西直接分享給每位學人。" },
     ],
     speakersTitle: "曾在 NGEN 紐約活動演講的嘉賓",
     speakersNote: "曾在 NGEN 活動演講的創辦人和投資人。",

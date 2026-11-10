@@ -94,6 +94,7 @@ export const en = {
     schoolsNote: "Where our mentors study. NGEN is an independent nonprofit and is not part of these universities.",
     points: [
       { name: "Honest feedback", body: "The mentor says what is working and what is not." },
+      { name: "Experience to pass on", body: "Mentors bring their own entrepreneurial experience and share what they learned directly with each Fellow." },
     ],
     speakersTitle: "Speakers at NGEN events in New\u00a0York",
     speakersNote: "Founders and investors who have spoken at NGEN events.",
