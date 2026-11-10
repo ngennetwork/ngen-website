@@ -291,7 +291,7 @@ function Home() {
           <ul className="mt-6 grid auto-rows-fr grid-cols-2 items-stretch gap-4 sm:grid-cols-3 lg:grid-cols-6">
             {speakers.slice(0, 6).map((speaker) => (
               <li key={speaker.name} className="h-full">
-                {/* Headshots are black and white (one source photo is), and turn to color on hover. */}
+                {/* Headshots show in black and white and turn to color on hover. */}
                 <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-paper text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10 motion-safe:transition-[transform,box-shadow] motion-safe:duration-300 hover:shadow-[0_30px_60px_-30px_rgb(21_24_21/0.4)] motion-safe:hover:-translate-y-1">
                   <div className="relative aspect-[4/5] overflow-hidden">
                     <Image
