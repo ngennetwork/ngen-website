@@ -143,7 +143,7 @@ export default function ApplyForm() {
         )}
       </div>
 
-      <button type="submit" disabled={status === "loading"} className="btn btn-ink w-full whitespace-normal px-4 text-center disabled:opacity-60 sm:w-auto">
+      <button type="submit" disabled={status === "loading"} className="btn w-full bg-[#1c3a2a] text-[#fbfaf7] shadow-none hover:bg-[#274e39] whitespace-normal px-4 text-center disabled:opacity-60 sm:w-auto">
         {status === "loading" ? apply.submitting : apply.submit}
       </button>
       <p className="text-small leading-relaxed text-slate">{apply.reassure}</p>
