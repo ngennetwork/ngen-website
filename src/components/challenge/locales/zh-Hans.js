@@ -72,6 +72,12 @@ export const zhHans = {
   months: {
     title: "六个月如何安排",
     intro: "每月一个目标，每次都有完成的成果。",
+    photo: {
+      src: "/startup-challenge/speaker-conversation.jpg",
+      alt: "一位讲者在 NGEN 活动中与几名学生交谈",
+      caption: "学生在 NGEN 活动中与讲者交流。",
+      position: "50% 35%",
+    },
     steps: [
       { when: "1月", title: "选定想法", body: "找出一个真实问题，并访问有这个问题的人。" },
       { when: "2月", title: "做出产品和名字", body: "做一个别人能试用的简单初版，并给它起个名字。" },

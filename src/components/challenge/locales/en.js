@@ -90,6 +90,12 @@ export const en = {
   months: {
     title: "The six months",
     intro: "One milestone a month. Each one ends with something finished.",
+    photo: {
+      src: "/startup-challenge/speaker-conversation.jpg",
+      alt: "A speaker talking with a small group of students at an NGEN event",
+      caption: "Students talk with a speaker at an NGEN event.",
+      position: "50% 35%",
+    },
     steps: [
       { when: "January", title: "Choose an idea", body: "Find a real problem and talk to people who have it." },
       { when: "February", title: "Build a product and a name", body: "A simple first version people can try, and a name for it." },

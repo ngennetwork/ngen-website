@@ -72,6 +72,12 @@ export const zhHant = {
   months: {
     title: "六個月怎樣安排",
     intro: "每月一個目標，每次都有完成的成果。",
+    photo: {
+      src: "/startup-challenge/speaker-conversation.jpg",
+      alt: "一位講者在 NGEN 活動中與幾名學生交談",
+      caption: "學生在 NGEN 活動中與講者交流。",
+      position: "50% 35%",
+    },
     steps: [
       { when: "1月", title: "選定想法", body: "找出一個真實問題，並訪問有這個問題的人。" },
       { when: "2月", title: "做出產品和名字", body: "做一個別人能試用的簡單初版，並給它起個名字。" },
