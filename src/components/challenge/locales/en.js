@@ -38,6 +38,12 @@ export const en = {
 
 
   glance: {
+    photo: {
+      src: "/about/events/Copy of DSC06515.jpg",
+      alt: "A student speaking into a microphone at the NGEN Trailblazers Conference in New York",
+      caption: "A student asks a question at the NGEN Trailblazers Conference.",
+      position: "50% 40%",
+    },
     title: "At a glance",
     items: [
       {
@@ -61,12 +67,6 @@ export const en = {
   gets: {
     title: "What Fellows get",
     intro: "A clear plan, a real project, and a mentor for all six months.",
-    photo: {
-      src: "/about/events/Copy of DSC06515.jpg",
-      alt: "A student speaking into a microphone at the NGEN Trailblazers Conference in New York",
-      caption: "A student asks a question at the NGEN Trailblazers Conference.",
-      position: "50% 40%",
-    },
     items: [
       { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student, meeting weekly through the six months." },
       { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Fellows finish with work they can show a school." },
@@ -164,8 +164,8 @@ export const en = {
     photos: [
       {
         src: "/startup-challenge/student-founder-summit-sf.jpg",
-        alt: "Students gathered in a bright loft with green sofas at the Student Founder Summit in San Francisco",
-        caption: "Student Founder Summit, San Francisco",
+        alt: "Students gathered in a bright loft with green sofas at the NGEN Student Founder Summit in San Francisco",
+        caption: "NGEN Student Founder Summit, San Francisco",
       },
       {
         src: "/startup-challenge/keynote-geoff-ralston.jpg",
@@ -201,7 +201,7 @@ export const en = {
     body: "NGEN is the Ivy League entrepreneurship network. Founded by student leaders at Princeton, Penn and Brown and run by Ivy League students and alumni, it brings student founders together through conferences, treks and company visits. NGEN is a 501(c)(3) nonprofit, independent of the universities.",
     raised: "raised by NGEN startups",
     reach: "students reached across the network",
-    partners: "put into students and programs by NGEN’s VC partners",
+    partners: "deployed into student founders and startups through NGEN",
     events: "conferences, treks and company visits in three years",
     more: { label: "About NGEN", href: "/" },
   },

@@ -81,12 +81,12 @@ export const site = {
 
   /** Figures from NGEN's bio. Each appears once per page at most. */
   figures: {
-    // $25M+ confirmed by Juan (October 2026), replacing the earlier $30M+.
+    // $30M+ and $1M+ confirmed by Jackson (November 2026), replacing $25M+ and $500K+.
     // Every page reads this one value.
-    raised: { value: "$25M+", label: "raised by NGEN founders" },
+    raised: { value: "$30M+", label: "raised by NGEN founders" },
     reach: { value: "20,000", label: "students reached across the network" },
     universities: { value: "15", label: "universities across the\u00a0network" },
-    partners: { value: "$500K+", label: "put into students and programs by NGEN’s VC partners" },
+    partners: { value: "$1M+", label: "deployed into student founders and startups through NGEN" },
     events: { value: "20+", label: "conferences, treks and pitch competitions in three years" },
   },
 
@@ -108,7 +108,7 @@ export const site = {
   },
 };
 
-// The raised figure as prose uses it ("more than $25M"), from the one source above.
+// The raised figure as prose uses it ("more than $30M"), from the one source above.
 const RAISED = site.figures.raised.value.replace("+", "");
 
 /* ---------------------------------------------------------------------------
