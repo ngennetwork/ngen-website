@@ -4,7 +4,6 @@ import Image from "next/image";
 import { site } from "@/content/site";
 import ApplyForm from "@/components/challenge/ApplyForm";
 import ChallengeShell, { useLocale } from "@/components/challenge/ChallengeShell";
-import Photo from "@/components/layout/Photo";
 import PageLink from "@/components/ui/PageLink";
 
 export default function ApplyScreen({ initialLang }) {
@@ -23,16 +22,16 @@ function ApplyBody() {
   return (
     <>
       <header className="challenge-dark bg-ink-deep text-on-dark">
-        <div className="relative h-[12.5rem] w-full overflow-hidden lg:hidden">
+        <div className="relative h-[13.75rem] w-full overflow-hidden lg:hidden">
           <Image
             src={hero.photo.src}
             alt={hero.photo.alt}
             fill
-            sizes="140vw"
+            sizes="220vw"
             loading="eager"
             fetchPriority="high"
-            className="scale-[1.35] object-cover"
-            style={{ objectPosition: "50% 48%", transformOrigin: "50% 48%" }}
+            className="scale-[2.7] object-cover"
+            style={{ objectPosition: "50% 88%", transformOrigin: "50% 88%" }}
           />
         </div>
         <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
@@ -53,7 +52,21 @@ function ApplyBody() {
             </a>
           </div>
           <div className="hidden lg:col-span-5 lg:block">
-            <Photo src={hero.photo.src} alt={hero.photo.alt} caption={hero.photo.caption} position={hero.photo.position} priority />
+            <figure className="flex flex-col gap-3">
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src={hero.photo.src}
+                  alt={hero.photo.alt}
+                  fill
+                  sizes="200vw"
+                  loading="eager"
+                  fetchPriority="high"
+                  className="scale-[3.3] object-cover"
+                  style={{ objectPosition: "50% 88%", transformOrigin: "50% 88%" }}
+                />
+              </div>
+              <figcaption className="text-small text-[#fbfaf7]/60">{hero.photo.caption}</figcaption>
+            </figure>
           </div>
         </div>
       </header>

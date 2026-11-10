@@ -46,7 +46,7 @@ export default function LanguageSwitcher({ lang, label, onChoose }) {
   }
 
   return (
-    <div className="pointer-events-none z-40 nav:fixed nav:top-[5.75rem] nav:right-[max(var(--gutter),calc((100vw-82rem)/2+var(--gutter)))] max-nav:flex max-nav:w-full max-nav:justify-center max-nav:border-b max-nav:border-[#151815]/10 max-nav:bg-[#f3f1ec]/95 max-nav:px-[max(1rem,env(safe-area-inset-right))] max-nav:py-1.5 max-nav:pl-[max(1rem,env(safe-area-inset-left))] max-nav:backdrop-blur-md">
+    <div className="pointer-events-none z-40 nav:fixed nav:top-[5.75rem] nav:left-[max(var(--gutter),calc((100vw-82rem)/2+var(--gutter)))] max-nav:flex max-nav:w-full max-nav:justify-center max-nav:border-b max-nav:border-[#151815]/10 max-nav:bg-[#f3f1ec]/95 max-nav:px-[max(1rem,env(safe-area-inset-right))] max-nav:py-1.5 max-nav:pl-[max(1rem,env(safe-area-inset-left))] max-nav:backdrop-blur-md">
       <div className="pointer-events-auto max-nav:w-full max-nav:max-w-[22rem]">
         <div
           ref={groupRef}

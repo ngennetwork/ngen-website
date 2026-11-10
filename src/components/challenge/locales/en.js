@@ -26,6 +26,7 @@ export const en = {
 
   hero: {
     title: "NGEN Global Fellowship",
+    eyebrow: "January — June 2027",
     tagline: "A six-month startup program for students, building alongside Ivy League and top U.S. student founders.",
     intro: "From January to June 2027, Fellows learn how a company works and build one. An Ivy League student founder is the mentor.",
     photo: {

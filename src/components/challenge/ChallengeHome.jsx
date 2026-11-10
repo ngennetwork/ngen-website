@@ -27,7 +27,7 @@ export default function ChallengeHome({ initialLang }) {
 }
 
 function Home() {
-  const { copy } = useLocale();
+  const { copy, lang } = useLocale();
   const { hero, trip, glance, gets, months, mentors, capstone, gallery, join, ngen, check } = copy;
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
@@ -41,49 +41,56 @@ function Home() {
 
   return (
     <EligibilityState>
-      <header className="relative isolate overflow-hidden bg-[#1c3a2a] text-on-dark lg:bg-transparent">
-        <Image
-          src={hero.photo.src}
-          alt=""
-          fill
-          sizes="140vw"
-          loading="eager"
-          fetchPriority="high"
-          className="hidden scale-[1.35] object-cover lg:block"
-          style={{ objectPosition: "50% 48%", transformOrigin: "50% 48%" }}
-        />
-        <div aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-r from-[#0e110f]/93 via-[#1c3a2a]/68 to-[#0e110f]/30 lg:block" />
-        <div aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-t from-[#0e110f]/88 via-[#0e110f]/20 to-[#0e110f]/55 lg:block" />
-        <div className="relative">
-          <div className="relative h-[12.5rem] w-full overflow-hidden lg:hidden">
-            <Image
-              src={hero.photo.src}
-              alt={hero.photo.alt}
-              fill
-              sizes="140vw"
-              loading="eager"
-              fetchPriority="high"
-              className="scale-[1.35] object-cover"
-              style={{ objectPosition: "50% 48%", transformOrigin: "50% 48%" }}
-            />
-          </div>
-          <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
-            <div className="flex max-w-[40rem] flex-col items-start gap-[1.125rem] lg:col-span-6 lg:gap-5">
-              <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-4 py-3 text-small leading-snug text-[#151815] lg:px-3 lg:py-1.5 lg:leading-normal">
-                <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
-                {copy.deadlineLabel} {copy.deadline}
+      <header className="bg-[#1c3a2a] text-[#fbfaf7] lg:grid lg:min-h-[40rem] lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:pt-28">
+        <div className="relative h-[13.75rem] overflow-hidden lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-full">
+          <Image
+            src={hero.photo.src}
+            alt={hero.photo.alt}
+            fill
+            sizes="220vw"
+            loading="eager"
+            fetchPriority="high"
+            className="scale-[2.7] object-cover lg:hidden"
+            style={{ objectPosition: "50% 88%", transformOrigin: "50% 88%" }}
+          />
+          <Image
+            src={hero.photo.src}
+            alt=""
+            fill
+            sizes="200vw"
+            loading="eager"
+            fetchPriority="high"
+            className="hidden scale-[3.3] object-cover lg:block"
+            style={{ objectPosition: "50% 88%", transformOrigin: "50% 88%" }}
+          />
+        </div>
+        <div className="flex flex-col justify-center py-10 pr-[max(var(--gutter),env(safe-area-inset-right))] pl-wrap lg:col-start-1 lg:row-start-1 lg:py-20 lg:pr-16">
+          <div className="flex max-w-[34rem] flex-col gap-6 lg:gap-8">
+            <div className="flex flex-col gap-4 lg:gap-5">
+              <p className={`text-[0.72rem] font-medium text-[#fbfaf7]/65 ${lang === "en" ? "uppercase tracking-[0.22em]" : "tracking-[0.06em]"}`}>
+                {hero.eyebrow}
               </p>
-              <h1 id="challenge-title" className="max-w-[14ch] font-display text-[clamp(2.15rem,1.2rem+4vw,4.5rem)] leading-[1.05] lg:text-[clamp(2.5rem,1.25rem+3.3vw,4.5rem)] lg:leading-[1.02]">
+              <h1 id="challenge-title" className={`font-display text-[clamp(2.75rem,1.5rem+2.2vw,4.4rem)] leading-[1.02] ${lang === "en" ? "max-w-[11ch]" : ""}`}>
                 {hero.title}
               </h1>
-              <p className="max-w-[36ch] text-lead text-on-dark/90">{hero.tagline}</p>
-              <p className="max-w-[42ch] text-base leading-relaxed text-on-dark/85">{hero.intro}</p>
-              <p className="font-medium text-on-dark">{copy.noIdea}</p>
-              <p className="max-w-[40ch] text-base leading-relaxed text-on-dark/80">{copy.urgency}</p>
-              <p className="hidden text-small text-on-dark/70 lg:block">{hero.photo.caption}</p>
+              <div aria-hidden="true" className="h-px w-10 bg-[#fbfaf7]/40" />
             </div>
-            <div className="hidden lg:col-span-5 lg:col-start-8 lg:block">
-              <EligibilityCheck instanceId="check-hero" />
+            <div className="flex flex-col gap-4">
+              <p className="max-w-[34ch] text-lead leading-relaxed text-[#fbfaf7]/92">{hero.tagline}</p>
+              <p className="max-w-[38ch] text-base leading-relaxed text-[#fbfaf7]/72">{hero.intro}</p>
+            </div>
+            <div className="flex flex-col items-start gap-5">
+              <p className="text-small text-[#fbfaf7]/60">
+                {copy.deadlineLabel} {copy.deadline}
+              </p>
+              <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
+                <PageLink href={copy.applyPath} className="btn btn-on-dark">
+                  {join.cta}
+                </PageLink>
+                <a href="#eligibility" className="link text-small text-[#fbfaf7]/85">
+                  {check.submit}
+                </a>
+              </div>
             </div>
           </div>
         </div>
