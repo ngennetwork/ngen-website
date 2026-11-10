@@ -41,20 +41,18 @@ function Home() {
 
   return (
     <EligibilityState>
-      <header className="bg-[#1c3a2a] text-[#fbfaf7] lg:grid lg:min-h-[40rem] lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:pt-28">
-        <div className="relative lg:col-start-2 lg:row-start-1 lg:flex lg:min-h-full lg:items-center">
-          <div className="relative aspect-[3.16/1] w-full overflow-hidden">
-            <Image
-              src={hero.photo.src}
-              alt={hero.photo.alt}
-              fill
-              sizes="(min-width: 1024px) 60vw, 100vw"
-              loading="eager"
-              fetchPriority="high"
-              className="object-cover"
-              style={{ objectPosition: "center bottom" }}
-            />
-          </div>
+      <header className="bg-[#1c3a2a] text-[#fbfaf7] lg:grid lg:min-h-[44rem] lg:grid-cols-[minmax(0,45%)_minmax(0,55%)] lg:pt-28">
+        <div className="relative h-60 overflow-hidden lg:col-start-2 lg:row-start-1 lg:h-full lg:min-h-[36rem]">
+          <Image
+            src={hero.photo.src}
+            alt={hero.photo.alt}
+            fill
+            sizes="(min-width: 1024px) 55vw, 100vw"
+            loading="eager"
+            fetchPriority="high"
+            className="object-cover"
+            style={{ objectPosition: "50% 36%" }}
+          />
         </div>
         <div className="flex flex-col justify-center py-10 pr-[max(var(--gutter),env(safe-area-inset-right))] pl-wrap lg:col-start-1 lg:row-start-1 lg:py-20 lg:pr-16">
           <div className="flex max-w-[34rem] flex-col gap-6 lg:gap-8">

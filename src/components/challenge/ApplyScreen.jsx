@@ -22,7 +22,7 @@ function ApplyBody() {
   return (
     <>
       <header className="challenge-dark bg-ink-deep text-on-dark">
-        <div className="relative aspect-[3.16/1] w-full overflow-hidden lg:hidden">
+        <div className="relative h-60 w-full overflow-hidden lg:hidden">
           <Image
             src={hero.photo.src}
             alt={hero.photo.alt}
@@ -31,7 +31,7 @@ function ApplyBody() {
             loading="eager"
             fetchPriority="high"
             className="object-cover"
-            style={{ objectPosition: "center bottom" }}
+            style={{ objectPosition: "50% 36%" }}
           />
         </div>
         <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
@@ -62,7 +62,7 @@ function ApplyBody() {
                   loading="eager"
                   fetchPriority="high"
                   className="object-cover"
-                  style={{ objectPosition: "center bottom" }}
+                  style={{ objectPosition: "50% 36%" }}
                 />
               </div>
               <figcaption className="text-small text-[#fbfaf7]/60">{hero.photo.caption}</figcaption>
