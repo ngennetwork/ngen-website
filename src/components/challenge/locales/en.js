@@ -80,8 +80,8 @@ export const en = {
     intro: "One milestone a month. Each one ends with something finished.",
     photo: {
       src: "/startup-challenge/speaker-conversation.jpg",
-      alt: "Tom Gardner, co-founder and CEO of The Motley Fool, talking with a group of students at an NGEN conference",
-      caption: "Students ask questions of Tom Gardner, co-founder and CEO of The Motley Fool, at an NGEN conference.",
+      alt: "Tom Gardner, co-founder and CEO of The Motley Fool, talking with a group of students at the NGEN Trailblazers Conference",
+      caption: "Students ask questions of Tom Gardner, co-founder and CEO of The Motley Fool, at the NGEN Trailblazers Conference.",
       position: "50% 35%",
     },
     steps: [
