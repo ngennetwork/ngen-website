@@ -2,9 +2,9 @@ import { SITE_URL } from "@/lib/site";
 import { programs } from "@/content/programs";
 
 // /admin/* and /api/* are excluded via robots.js.
-// /startup-challenge is reachable but excluded from the sitemap on
+// /global-fellowship is reachable but excluded from the sitemap on
 // purpose — direct/shared links, not meant for search indexing.
-// /startup-challenge/apply redirects to its request form.
+// The old /startup-challenge addresses redirect to it.
 // /zoom and /intro are temporary redirects (next.config); not indexed.
 const STATIC_ROUTES = [
   "",

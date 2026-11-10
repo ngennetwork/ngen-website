@@ -69,7 +69,7 @@ export default function SiteNav() {
   }, [open]);
 
   const isActive = (link) => pathname === link.href || pathname.startsWith(`${link.match ?? link.href}/`) || pathname === link.match;
-  const ivy = pathname === "/startup-challenge" || pathname.startsWith("/startup-challenge/");
+  const ivy = pathname === "/global-fellowship" || pathname.startsWith("/global-fellowship/");
   const pill = scrolled && !open;
   const frost =
     "bg-paper/72 shadow-[0_10px_30px_-14px_rgb(0_0_0/0.5)] ring-1 ring-ink/6 backdrop-blur-xl backdrop-saturate-150";
