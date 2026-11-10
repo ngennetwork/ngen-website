@@ -13,8 +13,8 @@ import UniversityLogo from "@/components/brand/UniversityLogo";
 import ExternalLink from "@/components/ui/ExternalLink";
 import PageLink from "@/components/ui/PageLink";
 
-const SECTION = "wrap py-20 lg:py-[clamp(3.5rem,7vw,5.5rem)]";
-const CHROME = "h-full rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10 max-lg:p-8";
+const SECTION = "wrap py-[4.25rem] lg:py-[clamp(3.5rem,7vw,5.5rem)]";
+const CHROME = "h-full rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10 max-lg:p-7";
 const CARD = `flex flex-col ${CHROME}`;
 const MUTED = "text-base leading-relaxed text-slate";
 
@@ -55,8 +55,20 @@ function Home() {
         <div aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-r from-[#0e110f]/93 via-[#1c3a2a]/68 to-[#0e110f]/30 lg:block" />
         <div aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-t from-[#0e110f]/88 via-[#0e110f]/20 to-[#0e110f]/55 lg:block" />
         <div className="relative">
-          <div className="wrap grid items-start gap-6 pt-12 pb-16 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
-            <div className="flex max-w-[40rem] flex-col items-start gap-6 lg:col-span-6 lg:gap-5">
+          <div className="relative h-[12.5rem] w-full lg:hidden">
+            <Image
+              src={hero.photo.src}
+              alt={hero.photo.alt}
+              fill
+              sizes="100vw"
+              loading="eager"
+              fetchPriority="high"
+              className="object-cover"
+              style={{ objectPosition: "50% 42%" }}
+            />
+          </div>
+          <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
+            <div className="flex max-w-[40rem] flex-col items-start gap-[1.125rem] lg:col-span-6 lg:gap-5">
               <p className="inline-flex max-w-full items-center rounded-2xl border border-dashed border-[#fbfaf7]/50 bg-[#0e110f]/30 px-4 py-3 text-left text-small leading-snug text-[#fbfaf7] lg:rounded-full lg:px-3 lg:py-1.5 lg:leading-normal">
                 {hero.eyebrow}
               </p>
@@ -80,7 +92,7 @@ function Home() {
       </header>
 
       <section aria-labelledby="schools-label" className="school-band border-y border-ink/10 bg-snow">
-        <div className="wrap py-14 lg:py-10">
+        <div className="wrap py-8 lg:py-10">
           <p id="schools-label" className="text-center text-small text-slate">
             {copy.schools.label}
           </p>
@@ -95,21 +107,23 @@ function Home() {
       </section>
 
       <figure className="bg-snow lg:hidden">
-        <div className="relative aspect-[16/10]">
-          <Image
-            src={hero.photo.src}
-            alt={hero.photo.alt}
-            fill
-            sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition: hero.photo.position }}
-          />
+        <div className="wrap pt-2">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
+            <Image
+              src={gallery.photos[0].src}
+              alt={gallery.photos[0].alt}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              style={{ objectPosition: "50% 42%" }}
+            />
+          </div>
         </div>
-        <figcaption className="wrap py-4 text-center text-small leading-relaxed text-slate">{hero.photo.caption}</figcaption>
+        <figcaption className="wrap py-3 text-center text-small leading-relaxed text-slate">{gallery.photos[0].caption}</figcaption>
       </figure>
 
       <section className="bg-snow lg:hidden">
-        <div className="wrap pt-4 pb-16">
+        <div className="wrap pt-2 pb-12">
           <EligibilityCheck instanceId="check-mobile" />
         </div>
       </section>
