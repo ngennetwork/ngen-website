@@ -224,7 +224,7 @@ export const en = {
     fields: {
       parentName: "Parent name",
       email: "Parent email",
-      phone: "WhatsApp or phone (optional)",
+      phone: "WeChat or WhatsApp (optional)",
       gradeOrAge: "Student grade or age",
       gradePlaceholder: "e.g. Grade 11, Form 5, or age 16",
       callLanguage: "Preferred language for our call",
