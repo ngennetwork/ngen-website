@@ -70,6 +70,149 @@
   --font-sans: var(--font-albert-sans), "Helvetica Neue", Arial, sans-serif;
 }
 
+.challenge-i18n[lang="zh-Hant"],
+.challenge-i18n[lang="zh-Hant"] .font-display {
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", var(--font-albert-sans), sans-serif;
+}
+.challenge-i18n[lang="zh-Hans"],
+.challenge-i18n[lang="zh-Hans"] .font-display {
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", var(--font-albert-sans), sans-serif;
+}
+
+.challenge-lang-fade {
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+.challenge-lang-fade[data-shown="false"] {
+  opacity: 0;
+  transform: translateY(5px);
+}
+.lang-pill {
+  width: var(--pill-w, 0px);
+  transform: translateX(var(--pill-x, 0px));
+  transition:
+    transform 280ms cubic-bezier(0.22, 1.15, 0.36, 1),
+    width 280ms cubic-bezier(0.22, 1.15, 0.36, 1);
+}
+.lang-option {
+  transition: color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .challenge-lang-fade,
+  .lang-pill,
+  .lang-option {
+    transition: none;
+  }
+}
+
+/* Start-Up Challenge only: the Ivy League Entrepreneurship Conference palette.
+   Stone grounds, paper cards, forest accents, Caslon display, Hanken text.
+   The shared header and footer stay on the site theme; they are not inside
+   .challenge-pages. */
+.challenge-pages {
+  --color-snow: #f3f1ec;
+  --color-fog: #e9e6df;
+  --color-paper: #fbfaf7;
+  --color-ink: #151815;
+  --color-ink-deep: #0e110f;
+  --color-ink-night: #0e110f;
+  --color-slate: #5d625d;
+  --color-mist: #a7ada6;
+  --color-signal: #1c3a2a;
+  --color-signal-deep: #274e39;
+  --color-on-dark: #fbfaf7;
+  --radius-btn: 0.375rem;
+  --text-small: 0.875rem;
+  --text-base: 1rem;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --text-h3: clamp(1.5rem, 1.25rem + 0.8vw, 1.75rem);
+  --text-h2: clamp(2rem, 1.4rem + 2vw, 2.75rem);
+  --text-h1: clamp(2.5rem, 1.6rem + 2.8vw, 4rem);
+  background: #f3f1ec;
+  color: #151815;
+  color-scheme: light;
+  font-family: var(--font-ilec-sans), "Helvetica Neue", Arial, sans-serif;
+}
+.challenge-pages .font-display {
+  font-family: var(--font-ilec-display), "Iowan Old Style", Palatino, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.challenge-pages .btn-ink {
+  background: #151815;
+  color: #fbfaf7;
+  box-shadow: none;
+}
+.challenge-pages .btn-ink:hover {
+  background: #2a2e2a;
+  box-shadow: none;
+}
+.challenge-pages .btn-on-dark {
+  background: #fbfaf7;
+  color: #151815;
+  box-shadow: none;
+}
+.challenge-pages .btn-on-dark:hover {
+  background: #fff;
+  box-shadow: none;
+}
+.challenge-pages .btn-ghost:hover {
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.challenge-pages ::selection {
+  background: #1c3a2a;
+  color: #fbfaf7;
+}
+.challenge-pages .uni-logo {
+  filter: brightness(0);
+}
+.challenge-pages .school-band .uni-logo {
+  opacity: 0.72;
+}
+.challenge-pages .challenge-dark figcaption {
+  color: color-mix(in srgb, #fbfaf7 72%, transparent);
+}
+@media (max-width: 59.99rem) {
+  html:has(.challenge-pages) {
+    scroll-padding-bottom: 5.5rem;
+  }
+  body:has(.challenge-pages) footer {
+    padding-bottom: 5.5rem;
+  }
+}
+
+/* Header and footer on the Start-Up Challenge routes only. */
+.ivy-btn,
+.ivy-btn-light {
+  box-shadow: none;
+}
+.ivy-btn {
+  background: #1c3a2a;
+  color: #fbfaf7;
+}
+.ivy-btn:hover {
+  background: #274e39;
+  box-shadow: none;
+}
+.ivy-btn-light {
+  background: #fbfaf7;
+  color: #1c3a2a;
+}
+.ivy-btn-light:hover {
+  background: #fff;
+  box-shadow: none;
+}
+footer.ivy-chrome .text-mist {
+  color: #d5ddd4;
+}
+footer.ivy-chrome .footer-link {
+  color: #fbfaf7e0;
+}
+footer.ivy-chrome .footer-link:hover {
+  color: #fff;
+}
+
 @layer base {
   html {
     color-scheme: dark;

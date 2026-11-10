@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { site } from "@/content/site";
 import Logo from "@/components/brand/Logo";
 import PageLink from "@/components/ui/PageLink";
@@ -17,19 +20,21 @@ const pageLinks = nav.links.flatMap((link) => [link, ...(link.children ?? []).fi
  * The last column ends on the right margin, in line with the nav.
  */
 export default function SiteFooter() {
+  const pathname = usePathname();
+  const ivy = pathname === "/startup-challenge" || pathname.startsWith("/startup-challenge/");
   const year = new Date().getFullYear();
   // Two sentences, two lines on wide screens: who NGEN is, then what that
   // means for a gift, with the copyright closing the second.
   const [registered, deductible] = footer.legal.split(/(?<=\)\.)\s/);
 
   return (
-    <footer className="grain bg-ink-night text-on-dark">
+    <footer className={ivy ? "ivy-chrome bg-[#1c3a2a] text-[#fbfaf7]" : "grain bg-ink-night text-on-dark"}>
       <div className="wrap pt-[clamp(4rem,8vw,6rem)] pb-10">
         <div className="grid gap-x-8 gap-y-14 sm:grid-cols-3 lg:grid-cols-12">
           <div className="flex flex-col items-start gap-6 sm:col-span-3 lg:col-span-4">
             <Logo tone="light" className="h-16" />
             <p className="max-w-[28ch] text-lead text-on-dark/80">{site.mission}</p>
-            <PageLink href={nav.cta.href} className="btn btn-paper">
+            <PageLink href={nav.cta.href} className={`btn ${ivy ? "ivy-btn-light" : "btn-paper"}`}>
               {nav.cta.label}
             </PageLink>
           </div>

@@ -69,12 +69,21 @@ export default function SiteNav() {
   }, [open]);
 
   const isActive = (link) => pathname === link.href || pathname.startsWith(`${link.match ?? link.href}/`) || pathname === link.match;
+  const ivy = pathname === "/startup-challenge" || pathname.startsWith("/startup-challenge/");
   const pill = scrolled && !open;
   const frost =
     "bg-paper/72 shadow-[0_10px_30px_-14px_rgb(0_0_0/0.5)] ring-1 ring-ink/6 backdrop-blur-xl backdrop-saturate-150";
+  const ivyBar =
+    "bg-[#fbfaf7]/92 text-[#151815] shadow-[0_10px_30px_-14px_rgb(21_24_21/0.28)] ring-1 ring-[#151815]/10 backdrop-blur-xl";
+  const linkClass = ivy
+    ? "flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-small text-[#151815]/75 transition-colors hover:bg-[#151815]/6 hover:text-[#151815] aria-[current=page]:bg-[#151815]/8 aria-[current=page]:text-[#151815]"
+    : "flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-small text-ink/75 transition-colors hover:bg-ink/6 hover:text-ink aria-[current=page]:bg-ink/8 aria-[current=page]:text-ink";
+  const childClass = ivy
+    ? "block rounded-lg px-3.5 py-2 text-small whitespace-nowrap text-[#151815]/75 transition-colors hover:bg-[#151815]/6 hover:text-[#151815] aria-[current=page]:text-[#151815]"
+    : "block rounded-lg px-3.5 py-2 text-small whitespace-nowrap text-ink/75 transition-colors hover:bg-ink/6 hover:text-ink aria-[current=page]:text-ink";
 
   return (
-    <header className="site-header fixed inset-x-0 top-0 z-50 text-ink">
+    <header className={`site-header fixed inset-x-0 top-0 z-50 ${ivy ? "ivy-chrome text-[#151815]" : "text-ink"}`}>
       <div
         id="mobile-menu"
         role="dialog"
@@ -82,7 +91,7 @@ export default function SiteNav() {
         aria-label="Menu"
         aria-hidden={!open}
         data-open={open ? "" : undefined}
-        className="mobile-menu grain fixed inset-0 flex flex-col justify-between overflow-y-auto bg-ink-deep px-5 pt-28 pb-10 text-on-dark nav:hidden"
+        className={`mobile-menu fixed inset-0 flex flex-col justify-between overflow-y-auto px-5 pt-28 pb-10 nav:hidden ${ivy ? "bg-[#f3f1ec] text-[#151815]" : "grain bg-ink-deep text-on-dark"}`}
       >
         <ul className="flex flex-col gap-1">
           {mobileLinks.map((link, i) => (
@@ -103,7 +112,7 @@ export default function SiteNav() {
           ))}
         </ul>
         <div className="flex flex-col items-start gap-5">
-          <PageLink href={nav.cta.href} tabIndex={open ? undefined : -1} onClick={() => setOpen(false)} className="btn btn-paper">
+          <PageLink href={nav.cta.href} tabIndex={open ? undefined : -1} onClick={() => setOpen(false)} className={`btn ${ivy ? "ivy-btn" : "btn-paper"}`}>
             {nav.cta.label}
           </PageLink>
           <a href={`mailto:${site.email}`} tabIndex={open ? undefined : -1} className="link text-small text-mist">
@@ -116,8 +125,8 @@ export default function SiteNav() {
       <nav aria-label="Primary" className={`wrap transition-[padding] duration-500 ease-out ${pill ? "pt-3" : "pt-5"}`}>
         <div
           className={`relative flex h-14 items-center justify-between gap-6 rounded-2xl transition-[background-color,box-shadow,padding] duration-500 ease-out ${
-            pill ? `${frost} pr-2 pl-4` : "px-0"
-          } ${open ? "text-on-dark" : ""}`}
+            ivy ? `${ivyBar} pr-2 pl-4` : pill ? `${frost} pr-2 pl-4` : "px-0"
+          } ${open && !ivy ? "text-on-dark" : ""}`}
         >
           <PageLink href="/" aria-label="NGEN home" className="relative block h-12 w-24" onClick={() => setOpen(false)}>
             <span
@@ -125,21 +134,21 @@ export default function SiteNav() {
                 pill ? "pointer-events-none -translate-y-1 opacity-0" : "opacity-100"
               }`}
             >
-              <Logo priority className="h-12" />
+              <Logo priority tone={ivy ? "navy" : "light"} className="h-12" />
             </span>
             <span
               className={`absolute inset-y-0 left-0 flex items-center transition-[opacity,transform] duration-500 ease-out ${
                 pill ? "opacity-100" : "pointer-events-none translate-y-1 opacity-0"
               }`}
             >
-              <Logo shape="mark" className="h-6" />
+              <Logo shape="mark" tone={ivy ? "navy" : "light"} className="h-6" />
             </span>
           </PageLink>
 
           <div className="flex items-center gap-2">
             <ul
               className={`hidden items-center gap-0.5 rounded-xl p-1 transition-[background-color,box-shadow] duration-500 nav:flex ${
-                pill ? "" : frost
+                ivy ? "" : pill ? "" : frost
               }`}
             >
               {nav.links.map((link) => (
@@ -147,7 +156,7 @@ export default function SiteNav() {
                   <PageLink
                     href={link.href}
                     aria-current={isActive(link) ? "page" : undefined}
-                    className="flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-small text-ink/75 transition-colors hover:bg-ink/6 hover:text-ink aria-[current=page]:bg-ink/8 aria-[current=page]:text-ink"
+                    className={linkClass}
                   >
                     {link.label}
                     {link.children && (
@@ -158,13 +167,13 @@ export default function SiteNav() {
                   </PageLink>
                   {link.children && (
                     <div className="invisible absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 transition-[opacity,visibility] duration-200 group-focus-within/sub:visible group-focus-within/sub:opacity-100 group-hover/sub:visible group-hover/sub:opacity-100">
-                      <ul className="min-w-40 rounded-xl bg-paper/95 p-1 shadow-[0_10px_30px_-14px_rgb(0_0_0/0.5)] ring-1 ring-ink/6 backdrop-blur-xl backdrop-saturate-150">
+                      <ul className={`min-w-40 rounded-xl p-1 shadow-[0_10px_30px_-14px_rgb(21_24_21/0.28)] backdrop-blur-xl ${ivy ? "bg-[#fbfaf7] ring-1 ring-[#151815]/10" : "bg-paper/95 ring-1 ring-ink/6 backdrop-saturate-150"}`}>
                         {link.children.map((child) => (
                           <li key={child.href}>
                             <PageLink
                               href={child.href}
                               aria-current={pathname === child.href ? "page" : undefined}
-                              className="block rounded-lg px-3.5 py-2 text-small whitespace-nowrap text-ink/75 transition-colors hover:bg-ink/6 hover:text-ink aria-[current=page]:text-ink"
+                              className={childClass}
                             >
                               {child.label}
                             </PageLink>
@@ -178,14 +187,14 @@ export default function SiteNav() {
             </ul>
             <PageLink
               href={nav.cta.href}
-              className="btn btn-ink min-h-10 px-4 text-small max-nav:hidden"
+              className={`btn min-h-10 px-4 text-small max-nav:hidden ${ivy ? "ivy-btn" : "btn-ink"}`}
             >
               {nav.cta.label}
             </PageLink>
             <button
               ref={toggleRef}
               type="button"
-              className={`flex size-11 items-center justify-center rounded-xl nav:hidden ${pill || open ? "" : frost}`}
+              className={`flex size-11 items-center justify-center rounded-xl nav:hidden ${ivy || pill || open ? "" : frost}`}
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? labels.menuClose : labels.menuOpen}
