@@ -15,12 +15,20 @@ export function localeFrom(value) {
   return locales[normalizeLang(value)] || en;
 }
 
+// The link preview card (iMessage, WhatsApp, WeChat, social), 1200x630.
+const OG_IMAGE = {
+  url: "/startup-challenge/og-fellowship.jpg",
+  width: 1200,
+  height: 630,
+  alt: "NGEN Global Fellowship, January to June 2027",
+};
+
 export function pageMeta({ title, description, path }) {
   return {
     title: { absolute: title },
     description,
-    openGraph: { title, description, url: path, siteName: "NGEN" },
-    twitter: { card: "summary_large_image", title, description },
+    openGraph: { title, description, url: path, siteName: "NGEN", images: [OG_IMAGE] },
+    twitter: { card: "summary_large_image", title, description, images: [OG_IMAGE.url] },
   };
 }
 

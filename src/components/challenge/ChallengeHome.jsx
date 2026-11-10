@@ -162,23 +162,19 @@ function Home() {
 
       <section aria-labelledby="gets-title" className="bg-snow">
         <div className={SECTION}>
-          <div className="grid items-start gap-8 lg:grid-cols-12">
-            <div className="lg:col-span-5">
-              <h2 id="gets-title" className="font-display text-h2">
-                {gets.title}
-              </h2>
-              <p className="mt-3 text-lead text-slate">{gets.intro}</p>
-            </div>
-            <ul className="grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:col-span-7">
-              {gets.items.map((item) => (
-                <li key={item.title} className={CARD}>
-                  <Icon name={item.icon} />
-                  <h3 className="mt-4 font-display text-[1.35rem] leading-tight">{item.title}</h3>
-                  <p className={`mt-2 ${MUTED}`}>{item.body}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <h2 id="gets-title" className="font-display text-h2">
+            {gets.title}
+          </h2>
+          <p className="mt-3 max-w-[42rem] text-lead text-slate">{gets.intro}</p>
+          <ul className="mt-8 grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {gets.items.map((item) => (
+              <li key={item.title} className={CARD}>
+                <Icon name={item.icon} />
+                <h3 className="mt-4 font-display text-[1.35rem] leading-tight">{item.title}</h3>
+                <p className={`mt-2 ${MUTED}`}>{item.body}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -305,11 +301,8 @@ function Home() {
                   </div>
                   <div className="flex flex-1 flex-col gap-1 p-6">
                     <p className="font-medium leading-tight">{speaker.name}</p>
-                    {speaker.roles.map((role) => (
-                      <p key={role} className="text-small text-slate">
-                        {role}
-                      </p>
-                    ))}
+                    <p className="text-small text-slate">{speakerTitle(speaker)}</p>
+                    <p className="text-small text-ink">{speakerCompany(speaker)}</p>
                   </div>
                 </article>
               </li>
@@ -401,6 +394,15 @@ function Home() {
     </>
   );
 }
+
+// "Title, Company" split onto two lines: title first, company below.
+function speakerRole(speaker) {
+  const role = speaker.featuredRole || speaker.roles[0];
+  const at = role.indexOf(", ");
+  return at < 0 ? { title: role, company: "" } : { title: role.slice(0, at), company: role.slice(at + 2) };
+}
+const speakerTitle = (speaker) => speakerRole(speaker).title;
+const speakerCompany = (speaker) => speakerRole(speaker).company;
 
 function MobileApplyBar({ href, label }) {
   const shown = useApplyBar();
