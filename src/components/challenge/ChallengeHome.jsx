@@ -222,9 +222,11 @@ function Home() {
                 {months.title}
               </h2>
               <p className="mt-3 text-lead text-slate">{months.intro}</p>
-              <div className="mt-6">
-                <Photo src={months.photo.src} alt={months.photo.alt} caption={months.photo.caption} position={months.photo.position} ratio="aspect-[4/3]" />
-              </div>
+              {months.photo && (
+                <div className="mt-6">
+                  <Photo src={months.photo.src} alt={months.photo.alt} caption={months.photo.caption} position={months.photo.position} ratio="aspect-[4/3]" />
+                </div>
+              )}
             </div>
             <div className={`${CARD} lg:col-span-7`}>
               <Timeline items={months.steps.map((step) => ({ label: step.when, title: step.title, body: step.body }))} />

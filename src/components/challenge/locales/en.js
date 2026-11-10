@@ -72,12 +72,12 @@ export const en = {
 
   gets: {
     title: "What Fellows get",
-    intro: "A clear plan, a real project, and adults who stay with them.",
+    intro: "A clear plan, a real project, and a mentor for all six months.",
     photo: {
-      src: "/about/events/workshops.jpg",
-      alt: "Students talking in a small group at an NGEN workshop",
-      caption: "A small-group workshop at an NGEN event.",
-      position: "50% 55%",
+      src: "/about/events/Copy of DSC06515.jpg",
+      alt: "A student speaking into a microphone at the NGEN Trailblazers Conference in New York",
+      caption: "A student asks a question at the NGEN Trailblazers Conference.",
+      position: "50% 40%",
     },
     items: [
       { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student, on a regular call through the six months." },
@@ -90,12 +90,6 @@ export const en = {
   months: {
     title: "The six months",
     intro: "One milestone a month. Each one ends with something finished.",
-    photo: {
-      src: "/about/events/Copy of DSC06515.jpg",
-      alt: "A student speaking into a microphone at an NGEN event in New York",
-      caption: "A student asks a question at an NGEN event.",
-      position: "50% 40%",
-    },
     steps: [
       { when: "January", title: "Choose an idea", body: "Find a real problem and talk to people who have it." },
       { when: "February", title: "Build a product and a name", body: "A simple first version people can try, and a name for it." },
@@ -134,8 +128,8 @@ export const en = {
     ],
     photo: {
       src: "/about/events/founder-treks.jpg",
-      alt: "Students seated at an NGEN visit, listening to a speaker on stage",
-      caption: "Students at an NGEN founder visit in New\u00a0York.",
+      alt: "Students seated at the NGEN Student Founder Summit in San Francisco, listening to a speaker on stage",
+      caption: "Students at the NGEN Student Founder Summit in San\u00a0Francisco.",
       position: "50% 45%",
     },
     itinerary: {
@@ -191,8 +185,8 @@ export const en = {
       },
       {
         src: "/startup-challenge/spacetech-session.jpg",
-        alt: "An audience seated for a session at the NGEN Spacetech Conference in New York, with the Trailblazers title on the screen",
-        caption: "Conference session at the NGEN Spacetech Conference, New York",
+        alt: "An audience seated for a session at the NGEN Trailblazers Conference in New York, with the Trailblazers title on the screen",
+        caption: "Conference session at the NGEN Trailblazers Conference, New York",
       },
     ],
   },

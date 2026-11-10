@@ -56,10 +56,10 @@ export const zhHans = {
     title: "学人会得到什么",
     intro: "清楚的进度、一个真实项目，以及一路陪伴的导师。",
     photo: {
-      src: "/about/events/workshops.jpg",
-      alt: "学生在 NGEN 工作坊中分组讨论",
-      caption: "NGEN 活动中的小组工作坊。",
-      position: "50% 55%",
+      src: "/about/events/Copy of DSC06515.jpg",
+      alt: "一名学生在纽约 NGEN Trailblazers 会议上拿着麦克风发言",
+      caption: "学生在纽约 NGEN Trailblazers 会议上提问。",
+      position: "50% 40%",
     },
     items: [
       { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生，六个月里定期通话。" },
@@ -72,12 +72,6 @@ export const zhHans = {
   months: {
     title: "六个月如何安排",
     intro: "每月一个目标，每次都有完成的成果。",
-    photo: {
-      src: "/about/events/Copy of DSC06515.jpg",
-      alt: "一名学生在 NGEN 纽约活动中拿着麦克风发言",
-      caption: "学生在 NGEN 活动中提问。",
-      position: "50% 40%",
-    },
     steps: [
       { when: "1月", title: "选定想法", body: "找出一个真实问题，并访问有这个问题的人。" },
       { when: "2月", title: "做出产品和名字", body: "做一个别人能试用的简单初版，并给它起个名字。" },
@@ -115,8 +109,8 @@ export const zhHans = {
     ],
     photo: {
       src: "/about/events/founder-treks.jpg",
-      alt: "学生坐在台下，听讲者在 NGEN 参访中发言",
-      caption: "学生参加 NGEN 在纽约的创办人参访。",
+      alt: "学生坐在台下，在旧金山 NGEN 学生创业者峰会上听讲者发言",
+      caption: "学生参加 NGEN 在旧金山的学生创业者峰会。",
       position: "50% 45%",
     },
     itinerary: {
@@ -172,8 +166,8 @@ export const zhHans = {
       },
       {
         src: "/startup-challenge/spacetech-session.jpg",
-        alt: "观众坐在纽约 NGEN 太空科技会议的会场，屏幕上是 Trailblazers 的标题",
-        caption: "NGEN 太空科技会议论坛，纽约",
+        alt: "观众坐在纽约 NGEN Trailblazers 会议的会场，屏幕上是 Trailblazers 的标题",
+        caption: "NGEN Trailblazers 会议论坛，纽约",
       },
     ],
   },
