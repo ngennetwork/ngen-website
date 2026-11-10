@@ -32,6 +32,12 @@ export const zhHans = {
 
 
   glance: {
+    photo: {
+      src: "/about/events/Copy of DSC06515.jpg",
+      alt: "一名学生在纽约 NGEN Trailblazers 会议上拿着麦克风发言",
+      caption: "学生在纽约 NGEN Trailblazers 会议上提问。",
+      position: "50% 40%",
+    },
     title: "重点一览",
     items: [
       { icon: "who", title: "适合谁", body: "中学9至12年级，大约14至18岁。不需要已有公司或想法。" },
@@ -43,12 +49,6 @@ export const zhHans = {
   gets: {
     title: "学人会得到什么",
     intro: "清楚的进度、一个真实项目，以及一路陪伴的导师。",
-    photo: {
-      src: "/about/events/Copy of DSC06515.jpg",
-      alt: "一名学生在纽约 NGEN Trailblazers 会议上拿着麦克风发言",
-      caption: "学生在纽约 NGEN Trailblazers 会议上提问。",
-      position: "50% 40%",
-    },
     items: [
       { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生，六个月里每周见面。" },
       { icon: "build", title: "一个真实的公司项目", body: "从想法、第一版产品到第一批客户。学人完成后有可以给学校看的成果。" },
@@ -145,8 +145,8 @@ export const zhHans = {
     photos: [
       {
         src: "/startup-challenge/student-founder-summit-sf.jpg",
-        alt: "学生在旧金山学生创业者峰会的明亮空间里聚谈，绿色沙发围成一圈",
-        caption: "学生创业者峰会，旧金山",
+        alt: "学生在旧金山 NGEN 学生创业者峰会的明亮空间里聚谈，绿色沙发围成一圈",
+        caption: "NGEN 学生创业者峰会，旧金山",
       },
       {
         src: "/startup-challenge/keynote-geoff-ralston.jpg",

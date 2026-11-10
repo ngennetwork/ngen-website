@@ -140,22 +140,27 @@ function Home() {
 
       <section aria-labelledby="glance-title" className="bg-fog">
         <div className={SECTION}>
-          <h2 id="glance-title" className="font-display text-h2">
-            {glance.title}
-          </h2>
-          <ul className="mt-8 grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {glance.items.map((item) => (
-              <li key={item.title} className={`flex flex-row gap-4 sm:max-lg:last:col-span-2 ${CHROME}`}>
-                <span className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#1c3a2a]">
-                  <Icon name={item.icon} className="size-6 text-[#fbfaf7]" />
-                </span>
-                <div>
-                  <h3 className="font-display text-[1.35rem] leading-tight">{item.title}</h3>
-                  <p className={`mt-2 ${MUTED}`}>{item.body}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div className="grid items-start gap-8 lg:grid-cols-12">
+            <div className="flex flex-col gap-6 lg:col-span-5">
+              <h2 id="glance-title" className="font-display text-h2">
+                {glance.title}
+              </h2>
+              <Photo src={glance.photo.src} alt={glance.photo.alt} caption={glance.photo.caption} position={glance.photo.position} ratio="aspect-[4/3]" />
+            </div>
+            <ul className="flex flex-col gap-4 lg:col-span-7 lg:pt-[4.25rem]">
+              {glance.items.map((item) => (
+                <li key={item.title} className={`flex flex-row gap-4 ${CHROME}`}>
+                  <span className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#1c3a2a]">
+                    <Icon name={item.icon} className="size-6 text-[#fbfaf7]" />
+                  </span>
+                  <div>
+                    <h3 className="font-display text-[1.35rem] leading-tight">{item.title}</h3>
+                    <p className={`mt-2 ${MUTED}`}>{item.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -167,9 +172,6 @@ function Home() {
                 {gets.title}
               </h2>
               <p className="mt-3 text-lead text-slate">{gets.intro}</p>
-              <div className="mt-6">
-                <Photo src={gets.photo.src} alt={gets.photo.alt} caption={gets.photo.caption} position={gets.photo.position} ratio="aspect-[4/3]" />
-              </div>
             </div>
             <ul className="grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:col-span-7">
               {gets.items.map((item) => (
@@ -238,20 +240,25 @@ function Home() {
             <ul className="mt-6 grid auto-rows-fr grid-cols-2 items-stretch gap-4 sm:grid-cols-3 lg:grid-cols-6">
               {speakers.slice(0, 6).map((speaker) => (
                 <li key={speaker.name} className="h-full">
-                  <article className="flex h-full flex-col overflow-hidden rounded-xl bg-paper text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10">
-                    <div className="relative aspect-[4/5]">
+                  {/* Headshots are black and white (one source photo is), and turn to color on hover. */}
+                  <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-paper text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10 motion-safe:transition-[transform,box-shadow] motion-safe:duration-300 hover:shadow-[0_30px_60px_-30px_rgb(21_24_21/0.4)] motion-safe:hover:-translate-y-1">
+                    <div className="relative aspect-[4/5] overflow-hidden">
                       <Image
                         src={speaker.headshot.src}
                         alt={speaker.name}
                         fill
                         sizes="(min-width: 1024px) 14vw, 45vw"
-                        className="object-cover"
+                        className="object-cover grayscale motion-safe:transition-[filter,transform] motion-safe:duration-500 group-hover:grayscale-0 motion-safe:group-hover:scale-[1.04]"
                         style={{ objectPosition: speaker.headshot.position || "center" }}
                       />
                     </div>
                     <div className="flex flex-1 flex-col gap-1 p-6">
                       <p className="font-medium leading-tight">{speaker.name}</p>
-                      <p className="text-small text-slate">{speaker.roles[0]}</p>
+                      {speaker.roles.map((role) => (
+                        <p key={role} className="text-small text-slate">
+                          {role}
+                        </p>
+                      ))}
                     </div>
                   </article>
                 </li>
