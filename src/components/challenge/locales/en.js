@@ -48,12 +48,12 @@ export const en = {
       {
         icon: "calendar",
         title: "Dates",
-        body: "January to June 2027. One live session each month, with work to do between them.",
+        body: "January to June 2027, with one milestone each month.",
       },
       {
         icon: "laptop",
         title: "Format",
-        body: "Live online sessions each month with an Ivy League student mentor, joined from home, plus guided work between sessions.",
+        body: "One mentorship session a week with an Ivy League student mentor, plus guided work between sessions. Fellows are paired up and work as a team.",
       },
     ],
   },
@@ -68,7 +68,7 @@ export const en = {
       position: "50% 40%",
     },
     items: [
-      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student, on a regular call through the six months." },
+      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student, meeting weekly through the six months." },
       { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Fellows finish with work they can show a school." },
       { icon: "workshop", title: "Live workshops", body: "Each month an operator joins the group live and answers questions." },
       { icon: "school", title: "A record for school", body: "Teachers can follow progress. Students who finish receive a certificate. Some schools use it as a class, club, or internship credit." },
@@ -98,7 +98,7 @@ export const en = {
   mentors: {
     title: "Mentors",
     intro:
-      "Each mentor is an Ivy League student. They meet their Fellow on a regular call and review the work before it is submitted.",
+      "Each mentor is an Ivy League student. They meet their Fellows each week and review the work before it is submitted.",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "Where our mentors study. NGEN is an independent nonprofit and is not part of these universities.",
     points: [
