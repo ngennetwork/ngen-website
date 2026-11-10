@@ -1,3 +1,5 @@
+import { DEFAULT_APPS_SCRIPT_URL } from "@/lib/appsScriptUrl";
+
 /**
  * Shared submit function for the newsletter form (/founders). Posts JSON
  * to the same Google Apps Script
@@ -6,13 +8,10 @@
  * text/plain body counts as a "simple request" so the browser skips
  * the CORS preflight that would otherwise fail against Apps Script.
  *
- * The endpoint URL lives in NEXT_PUBLIC_APPS_SCRIPT_URL (see
- * .env.example). Until that's set (build step 5, once the backend
- * exists), this throws a clear, catchable error instead of trying to
- * fetch an empty URL.
+ * Env vars override the built-in deployment URL.
  */
 export async function submitToAppsScript(payload) {
-  const url = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL;
+  const url = process.env.APPS_SCRIPT_URL || process.env.NEXT_PUBLIC_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_URL;
 
   if (!url) {
     throw new Error(

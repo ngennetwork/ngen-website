@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { sessionById, sessionCatalog } from "@/components/challenge/sessions";
+import { DEFAULT_APPS_SCRIPT_URL } from "@/lib/appsScriptUrl";
 import { normalizeLeadLanguage, validateLead } from "@/lib/challengeLead";
 
 export const runtime = "nodejs";
@@ -8,7 +9,7 @@ export const runtime = "nodejs";
  * Eligibility leads for the Start-Up Challenge.
  * formType "startupChallengeLead" saves the lead.
  * formType "startupChallengeSession" updates that lead when a session is chosen.
- * The script URL is APPS_SCRIPT_URL or NEXT_PUBLIC_APPS_SCRIPT_URL, same as the apply route.
+ * The script URL is APPS_SCRIPT_URL, NEXT_PUBLIC_APPS_SCRIPT_URL, or the built-in default.
  */
 export async function POST(request) {
   if (!originAllowed(request)) {
@@ -81,7 +82,7 @@ async function updateSession(body) {
 }
 
 function scriptUrl() {
-  return process.env.APPS_SCRIPT_URL || process.env.NEXT_PUBLIC_APPS_SCRIPT_URL || "";
+  return process.env.APPS_SCRIPT_URL || process.env.NEXT_PUBLIC_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_URL;
 }
 
 function originAllowed(request) {
