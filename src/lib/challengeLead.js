@@ -83,6 +83,14 @@ function cnNumber(token) {
 }
 
 /** Short consultation request. Phone is optional. Rows use the lead field names. */
+// The language the family wants for the consultation call. Mandarin calls
+// need a Mandarin speaker on the team, so the request records it.
+export const CALL_LANGUAGES = ["english", "mandarin", "cantonese"];
+
+export function defaultCallLanguage(siteLanguage) {
+  return siteLanguage === "en" ? "english" : "mandarin";
+}
+
 export function validateConsultation(input) {
   const language = normalizeLeadLanguage(input.language);
   const copy = localeFrom(language).apply.errors;
@@ -91,6 +99,7 @@ export function validateConsultation(input) {
   const phone = String(input.phone || input.whatsapp || "").trim();
   const gradeOrAge = String(input.gradeOrAge || "").trim();
   const note = String(input.note || "").trim();
+  const callLanguage = CALL_LANGUAGES.includes(input.callLanguage) ? input.callLanguage : defaultCallLanguage(language);
   const errors = {};
 
   if (parentName.length < 2 || parentName.length > 120) errors.parentName = copy.parentName;
@@ -102,7 +111,7 @@ export function validateConsultation(input) {
   return {
     ok: Object.keys(errors).length === 0,
     errors,
-    value: { parentName, parentEmail, whatsapp: phone, gradeOrAge, note, language, eligible: "yes" },
+    value: { parentName, parentEmail, whatsapp: phone, gradeOrAge, note, language, callLanguage, eligible: "yes" },
   };
 }
 

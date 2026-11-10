@@ -222,6 +222,8 @@ export const zhHant = {
       phone: "WhatsApp 或電話（可選填）",
       gradeOrAge: "學生年級或年齡",
       gradePlaceholder: "例如：11年級、中五，或16歲",
+      callLanguage: "通話語言",
+      callLanguages: { english: "英語", mandarin: "普通話", cantonese: "粵語" },
       note: "還有什麼想讓我們知道的",
     },
     errors: {

@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { site } from "@/content/site";
 import { useLocale } from "@/components/challenge/ChallengeShell";
-import { validateConsultation } from "@/lib/challengeLead";
+import { CALL_LANGUAGES, defaultCallLanguage, validateConsultation } from "@/lib/challengeLead";
 
 const fieldClass =
   "min-h-11 w-full rounded-[0.375rem] bg-white px-4 text-[16px] text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
@@ -56,6 +56,7 @@ export default function ApplyForm() {
       phone: data.get("phone"),
       gradeOrAge: data.get("gradeOrAge"),
       note: data.get("note"),
+      callLanguage: data.get("callLanguage"),
       language: lang,
     });
     if (!parsed.ok) {
@@ -124,6 +125,20 @@ export default function ApplyForm() {
         required
         error={fields.gradeOrAge}
       />
+      <fieldset className="flex flex-col gap-2">
+        <legend className="text-small font-medium">{apply.fields.callLanguage}</legend>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {CALL_LANGUAGES.map((value) => (
+            <label
+              key={value}
+              className="flex min-h-11 cursor-pointer items-center gap-2 rounded-[0.375rem] bg-white px-4 text-base ring-1 ring-ink/15 has-[:checked]:ring-2 has-[:checked]:ring-[#1c3a2a] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#1c3a2a]"
+            >
+              <input type="radio" name="callLanguage" value={value} defaultChecked={value === defaultCallLanguage(lang)} className="accent-[#1c3a2a]" />
+              {apply.fields.callLanguages[value]}
+            </label>
+          ))}
+        </div>
+      </fieldset>
       <div className="flex flex-col gap-2">
         <label htmlFor={`${formId}-note`} className="text-small font-medium">
           {apply.fields.note}

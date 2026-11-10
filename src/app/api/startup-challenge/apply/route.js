@@ -43,6 +43,7 @@ export async function POST(request) {
     eligible: "yes",
     language: parsed.value.language,
     note: parsed.value.note,
+    callLanguage: parsed.value.callLanguage,
     sessionOptions: sessionCatalog(),
   };
 
