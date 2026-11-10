@@ -196,7 +196,7 @@ export const zhHans = {
     reach: "网络中接触的学生",
     universities: "网络中的大学",
     events: "三年内的会议、Founder Treks 和公司参访",
-    more: { label: "关于 NGEN", href: "/about" },
+    more: { label: "关于 NGEN", href: "/" },
   },
 
 

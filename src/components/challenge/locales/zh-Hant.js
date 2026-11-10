@@ -196,7 +196,7 @@ export const zhHant = {
     reach: "網絡內接觸的學生",
     universities: "網絡內的大學",
     events: "三年內的會議、Founder Treks 和公司參訪",
-    more: { label: "關於 NGEN", href: "/about" },
+    more: { label: "關於 NGEN", href: "/" },
   },
 
 

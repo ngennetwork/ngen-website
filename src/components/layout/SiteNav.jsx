@@ -129,7 +129,7 @@ export default function SiteNav() {
           } ${open && !ivy ? "text-on-dark" : ""}`}
         >
           <PageLink href="/" aria-label="NGEN home" className="flex h-12 shrink-0 items-center" onClick={() => setOpen(false)}>
-            <Logo priority shape="horizontal" tone={ivy ? "navy" : "light"} className={`h-8 ${ivy ? "ivy-logo-mono max-nav:h-7" : ""}`} />
+            <Logo priority shape="mark" tone={ivy ? "navy" : "light"} className={`h-8 ${ivy ? "ivy-logo-mono max-nav:h-7" : ""}`} />
           </PageLink>
 
           <div className="flex items-center gap-2">

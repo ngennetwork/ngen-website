@@ -215,7 +215,7 @@ export const en = {
     reach: "students reached across the network",
     universities: "universities across the network",
     events: "conferences, Founder Treks and company visits in three years",
-    more: { label: "About NGEN", href: "/about" },
+    more: { label: "About NGEN", href: "/" },
   },
 
 
