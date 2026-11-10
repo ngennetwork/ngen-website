@@ -6,7 +6,6 @@ import { speakers } from "@/data/speakers";
 import { universities } from "@/data/universities";
 import { site } from "@/content/site";
 import ChallengeShell, { useLocale } from "@/components/challenge/ChallengeShell";
-import EligibilityCheck, { EligibilityState } from "@/components/challenge/EligibilityCheck";
 import Icon from "@/components/challenge/Icons";
 import Timeline from "@/components/challenge/Timeline";
 import Photo from "@/components/layout/Photo";
@@ -29,8 +28,7 @@ export default function ChallengeHome({ initialLang }) {
 
 function Home() {
   const { copy, lang } = useLocale();
-  const { hero, trip, glance, gets, months, mentors, capstone, gallery, join, ngen, check } = copy;
-  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
+  const { hero, trip, glance, gets, months, mentors, capstone, gallery, join, ngen } = copy;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
   const ivySchools = universities.filter((school) => school.ivy);
   const stats = [
@@ -41,7 +39,7 @@ function Home() {
   ];
 
   return (
-    <EligibilityState>
+    <>
       <header className="bg-[#1c3a2a] text-[#fbfaf7] lg:grid lg:min-h-[44rem] lg:grid-cols-[minmax(0,45%)_minmax(0,55%)] lg:pt-28">
         <div className="relative h-60 max-md:aspect-[6000/2180] max-md:h-auto lg:col-start-2 lg:row-start-1 lg:h-full lg:min-h-[36rem]">
           <div className="absolute inset-0 overflow-hidden lg:top-[var(--gutter)] lg:right-[var(--gutter)] lg:bottom-[var(--gutter)] lg:rounded-2xl lg:shadow-[0_24px_48px_-28px_rgb(0_0_0/0.55)] lg:ring-1 lg:ring-[#fbfaf7]/30">
@@ -97,12 +95,9 @@ function Home() {
                 {copy.deadlineLabel} {copy.deadline}
               </p>
               <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
-                <PageLink id="hero-apply" href={copy.applyPath} className="btn btn-on-dark">
+                <PageLink id="hero-apply" href={copy.applyPath} className="btn btn-on-dark whitespace-normal text-center">
                   {join.cta}
                 </PageLink>
-                <a href="#eligibility" className="link text-small text-[#fbfaf7]/85">
-                  {check.submit}
-                </a>
               </div>
             </div>
           </div>
@@ -129,8 +124,8 @@ function Home() {
         <div className="wrap pt-2">
           <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
             <Image
-              src={gallery.photos[0].src}
-              alt={gallery.photos[0].alt}
+              src={gallery.lead.src}
+              alt={gallery.lead.alt}
               fill
               sizes="100vw"
               className="object-cover"
@@ -138,7 +133,7 @@ function Home() {
             />
           </div>
         </div>
-        <figcaption className="wrap py-3 text-center text-small leading-relaxed text-slate">{gallery.photos[0].caption}</figcaption>
+        <figcaption className="wrap py-3 text-center text-small leading-relaxed text-slate">{gallery.lead.caption}</figcaption>
       </figure>
 
       <section aria-labelledby="trip-title" className="bg-snow">
@@ -168,12 +163,6 @@ function Home() {
               <figcaption className="mt-3 text-small text-slate">{trip.photo.caption}</figcaption>
             </figure>
           </div>
-        </div>
-      </section>
-
-      <section data-challenge-form className="bg-snow lg:hidden">
-        <div className="wrap pt-2 pb-12">
-          <EligibilityCheck instanceId="check-mobile" />
         </div>
       </section>
 
@@ -353,14 +342,14 @@ function Home() {
             {gallery.title}
           </h2>
           <p className="mt-3 max-w-[36rem] text-lead text-slate">{gallery.intro}</p>
-          <ul tabIndex={0} aria-label={gallery.title} className="mt-6 flex snap-x gap-4 overflow-x-auto pb-1">
+          <ul className="mt-8 grid gap-8 md:grid-cols-2 md:gap-x-8 md:gap-y-10">
             {gallery.photos.map((photo) => (
-              <li key={photo.src} className="w-[min(78vw,18rem)] shrink-0 snap-start">
+              <li key={photo.src}>
                 <figure>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                    <Image src={photo.src} alt={photo.alt} fill sizes="288px" className="object-cover" />
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                    <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" />
                   </div>
-                  <figcaption className="mt-2 text-small text-slate">{photo.caption}</figcaption>
+                  <figcaption className="mt-3 text-small leading-relaxed text-slate">{photo.caption}</figcaption>
                 </figure>
               </li>
             ))}
@@ -381,11 +370,8 @@ function Home() {
             ))}
           </ul>
           <p className="mt-6 max-w-[40rem] text-small text-slate">{copy.feesNote}</p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a href="#eligibility" className="btn btn-ink">
-              {check.title}
-            </a>
-            <PageLink href={copy.applyPath} className="btn btn-ghost">
+          <div className="mt-6">
+            <PageLink id="join-request" href={copy.applyPath} className="btn btn-ink whitespace-normal text-center">
               {join.cta}
             </PageLink>
           </div>
@@ -416,26 +402,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="eligibility" data-challenge-form aria-labelledby="eligibility-title" className="bg-snow">
-        <div className={`${SECTION} grid items-start gap-8 lg:grid-cols-12`}>
-          <div className="lg:col-span-5">
-            <h2 id="eligibility-title" className="font-display text-h2">
-              {check.title}
-            </h2>
-            <p className="mt-3 text-lead text-slate">{check.intro}</p>
-            <p className="mt-4 text-small text-slate">
-              {check.orEmail}{" "}
-              <a href={mailto} className="link text-ink">
-                {site.email}
-              </a>
-            </p>
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7">
-            <EligibilityCheck instanceId="check-bottom" showTitle={false} />
-          </div>
-        </div>
-      </section>
-    </EligibilityState>
+    </>
   );
 }
 
@@ -448,7 +415,7 @@ function MobileApplyBar({ href, label }) {
       aria-hidden={shown ? undefined : true}
       inert={shown ? undefined : true}
     >
-      <PageLink href={href} className="btn h-12 min-h-12 w-full bg-[#1c3a2a] text-[#fbfaf7] hover:bg-[#274e39]">
+      <PageLink href={href} className="btn h-12 min-h-12 w-full whitespace-normal px-3 text-center leading-snug bg-[#1c3a2a] text-[#fbfaf7] hover:bg-[#274e39]">
         {label}
       </PageLink>
     </div>
@@ -459,39 +426,25 @@ function useApplyBar() {
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    const hero = document.getElementById("hero-apply");
-    const forms = document.querySelectorAll("[data-challenge-form]");
-    if (!hero) return undefined;
+    const buttons = [document.getElementById("hero-apply"), document.getElementById("join-request")].filter(Boolean);
+    if (!buttons.length) return undefined;
 
-    let heroVisible = true;
-    const formsVisible = new Set();
-    const sync = () => setShown(!heroVisible && formsVisible.size === 0);
+    const visible = new Set(buttons);
+    const sync = () => setShown(visible.size === 0);
 
-    const heroObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
-        heroVisible = entries.some((entry) => entry.isIntersecting);
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target);
+          else visible.delete(entry.target);
+        }
         sync();
       },
       { rootMargin: "0px 0px -72px 0px", threshold: 0.6 },
     );
-    heroObserver.observe(hero);
+    buttons.forEach((button) => observer.observe(button));
 
-    const formObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) formsVisible.add(entry.target);
-          else formsVisible.delete(entry.target);
-        }
-        sync();
-      },
-      { threshold: 0.12 },
-    );
-    forms.forEach((form) => formObserver.observe(form));
-
-    return () => {
-      heroObserver.disconnect();
-      formObserver.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return shown;

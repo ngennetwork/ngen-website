@@ -4,6 +4,8 @@
  * The grade-or-age box accepts a grade, an age, or a common Hong Kong form.
  */
 
+import { localeFrom } from "@/components/challenge/content";
+
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const CN_DIGIT = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9 };
 
@@ -78,6 +80,30 @@ function cnNumber(token) {
   const tens = CN_DIGIT[token.slice(0, ten)] || 1;
   const ones = CN_DIGIT[token.slice(ten + 1)] || 0;
   return tens * 10 + ones;
+}
+
+/** Short consultation request. Phone is optional. Rows use the lead field names. */
+export function validateConsultation(input) {
+  const language = normalizeLeadLanguage(input.language);
+  const copy = localeFrom(language).apply.errors;
+  const parentName = String(input.parentName || "").trim();
+  const parentEmail = String(input.email || input.parentEmail || "").trim();
+  const phone = String(input.phone || input.whatsapp || "").trim();
+  const gradeOrAge = String(input.gradeOrAge || "").trim();
+  const note = String(input.note || "").trim();
+  const errors = {};
+
+  if (parentName.length < 2 || parentName.length > 120) errors.parentName = copy.parentName;
+  if (!EMAIL.test(parentEmail) || parentEmail.length > 200) errors.email = copy.email;
+  if (phone.length > 80) errors.phone = copy.phone;
+  if (gradeOrAge.length < 1 || gradeOrAge.length > 80) errors.gradeOrAge = copy.gradeOrAge;
+  if (note.length > 2000) errors.note = copy.note;
+
+  return {
+    ok: Object.keys(errors).length === 0,
+    errors,
+    value: { parentName, parentEmail, whatsapp: phone, gradeOrAge, note, language, eligible: "yes" },
+  };
 }
 
 export function validateLead(input) {

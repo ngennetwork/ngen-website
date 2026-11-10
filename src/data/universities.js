@@ -30,7 +30,9 @@ export const universities = [
   { name: "MIT", file: "mit", w: 800, h: 189, fill: 0.33 },
   { name: "NYU", file: "nyu", w: 440, h: 76, fill: 0.247 },
   { name: "Penn", file: "penn", ivy: true, w: 796, h: 259, fill: 0.262 },
-  { name: "Princeton", file: "princeton", ivy: true, w: 797, h: 218, fill: 0.245 },
+  // Shield only: open book (Vet Nov Tes / Tam Tvm) and chevron. The old ink
+  // file was the wide wordmark, and its shield had been flattened solid.
+  { name: "Princeton", file: "princeton", ivy: true, w: 331, h: 420, fill: 0.378 },
   { name: "Stanford", file: "stanford", w: 667, h: 162, fill: 0.282 },
   { name: "UCLA", file: "ucla", w: 800, h: 258, fill: 0.401 },
   { name: "Yale", file: "yale", ivy: true, w: 797, h: 193, fill: 0.19 },

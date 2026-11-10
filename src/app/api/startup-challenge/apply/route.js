@@ -1,60 +1,32 @@
 import { NextResponse } from "next/server";
-import { localeFrom } from "@/components/challenge/content";
+import { sessionCatalog } from "@/components/challenge/sessions";
+import { validateConsultation } from "@/lib/challengeLead";
 import { DEFAULT_APPS_SCRIPT_URL } from "@/lib/appsScriptUrl";
-import { resumeKind, validateApplication, validateResume } from "@/lib/challengeApplication";
 
 export const runtime = "nodejs";
 
 /**
- * Student applications for the Start-Up Challenge.
- * Validates the form, then forwards it to the Apps Script backend
- * (formType "startup-challenge"), which stores a sheet row, files the
- * resume in Drive, and emails info@ngennetwork.org. See backend/Code.gs.
- * The script URL is APPS_SCRIPT_URL, NEXT_PUBLIC_APPS_SCRIPT_URL, or the built-in default.
+ * Consultation requests for the Global Fellowship.
+ * Posts to the same Apps Script web app as the other challenge forms.
+ * formType "startupChallengeLead" is the shape that sheet already stores
+ * (parentName, parentEmail, whatsapp, gradeOrAge). A blank phone is sent
+ * as an em dash so a script that still requires the column will accept the row.
  */
 export async function POST(request) {
   if (!originAllowed(request)) {
     return NextResponse.json({ ok: false, error: "generic" }, { status: 403 });
   }
 
-  let form;
+  let body;
   try {
-    form = await request.formData();
+    body = await request.json();
   } catch {
     return NextResponse.json({ ok: false, error: "generic" }, { status: 400 });
   }
 
-  const language = form.get("language");
-  const parsed = validateApplication({
-    parentName: form.get("parentName"),
-    email: form.get("email"),
-    phone: form.get("phone"),
-    countryCity: form.get("countryCity"),
-    name: form.get("studentName") || form.get("name"),
-    age: form.get("age"),
-    school: form.get("school"),
-    grade: form.get("grade"),
-    interests: form.get("interests"),
-    guardian: form.get("guardian"),
-    language,
-  });
-
-  const resume = form.get("resume");
-  const resumeCheck = validateResume(resume, language);
-  const fields = { ...parsed.fields };
-  if (!resumeCheck.ok) fields.resume = resumeCheck.error;
-
-  if (Object.keys(fields).length > 0) {
-    return NextResponse.json({ ok: false, error: "invalid", fields }, { status: 400 });
-  }
-
-  const bytes = Buffer.from(await resume.arrayBuffer());
-  const kind = resumeKind(bytes);
-  if (kind !== resumeCheck.ext) {
-    return NextResponse.json(
-      { ok: false, error: "invalid", fields: { resume: localeFrom(language).apply.errors.resumeType } },
-      { status: 400 },
-    );
+  const parsed = validateConsultation(body || {});
+  if (!parsed.ok) {
+    return NextResponse.json({ ok: false, error: "invalid", fields: parsed.errors }, { status: 400 });
   }
 
   const url = process.env.APPS_SCRIPT_URL || process.env.NEXT_PUBLIC_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_URL;
@@ -63,10 +35,15 @@ export async function POST(request) {
   }
 
   const payload = {
-    formType: "startup-challenge",
-    ...parsed.value,
-    resumeBase64: bytes.toString("base64"),
-    resumeFileName: safeFileName(parsed.value.name, resumeCheck.ext),
+    formType: "startupChallengeLead",
+    parentName: parsed.value.parentName,
+    parentEmail: parsed.value.parentEmail,
+    whatsapp: parsed.value.whatsapp || "—",
+    gradeOrAge: parsed.value.gradeOrAge,
+    eligible: "yes",
+    language: parsed.value.language,
+    note: parsed.value.note,
+    sessionOptions: sessionCatalog(),
   };
 
   try {
@@ -104,13 +81,4 @@ async function postToAppsScript(url, payload) {
     throw new Error(`Status ${res.status}`);
   }
   return data;
-}
-
-function safeFileName(name, ext) {
-  const slug = name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0, 40);
-  return `${slug || "student"}-resume.${ext}`;
 }
