@@ -5,6 +5,7 @@ import Image from "next/image";
 import { speakers } from "@/data/speakers";
 import { universities } from "@/data/universities";
 import { site } from "@/content/site";
+import ApplyForm from "@/components/challenge/ApplyForm";
 import ChallengeShell, { useLocale } from "@/components/challenge/ChallengeShell";
 import Icon from "@/components/challenge/Icons";
 import Timeline from "@/components/challenge/Timeline";
@@ -28,7 +29,8 @@ export default function ChallengeHome({ initialLang }) {
 
 function Home() {
   const { copy, lang } = useLocale();
-  const { hero, trip, glance, gets, months, mentors, capstone, gallery, join, ngen } = copy;
+  const { hero, trip, glance, gets, months, mentors, capstone, gallery, join, ngen, apply } = copy;
+  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
   const ivySchools = universities.filter((school) => school.ivy);
   const stats = [
@@ -95,9 +97,9 @@ function Home() {
                 {copy.deadlineLabel} {copy.deadline}
               </p>
               <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
-                <PageLink id="hero-apply" href={copy.applyPath} className="btn btn-on-dark whitespace-normal text-center">
+                <a id="hero-apply" href={copy.applyPath} className="btn btn-on-dark whitespace-normal text-center">
                   {join.cta}
-                </PageLink>
+                </a>
               </div>
             </div>
           </div>
@@ -357,23 +359,37 @@ function Home() {
         </div>
       </section>
 
-      <section aria-labelledby="join-title" className="bg-snow">
-        <div className={SECTION}>
-          <h2 id="join-title" className="font-display text-h2">
-            {join.title}
-          </h2>
-          <ul className="mt-6 grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2">
-            {join.points.map((point) => (
-              <li key={point} className={`${CARD} text-base leading-relaxed`}>
-                {point}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 max-w-[40rem] text-small text-slate">{copy.feesNote}</p>
-          <div className="mt-6">
-            <PageLink id="join-request" href={copy.applyPath} className="btn btn-ink whitespace-normal text-center">
-              {join.cta}
-            </PageLink>
+      <section id="request" aria-labelledby="join-title" className="bg-snow">
+        <div className={`${SECTION} grid items-start gap-y-8 lg:grid-cols-12 lg:gap-x-8`}>
+          <div className="flex flex-col gap-5 lg:col-span-5">
+            <h2 id="join-title" className="font-display text-h2">
+              {join.title}
+            </h2>
+            <ul className="flex flex-col gap-3">
+              {join.points.map((point) => (
+                <li key={point} className="flex items-start gap-3 text-base leading-relaxed">
+                  <span aria-hidden="true" className="mt-[0.6em] size-1.5 shrink-0 rounded-full bg-[#1c3a2a]" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <p className="font-medium">
+              {copy.deadlineLabel} {copy.deadline}
+            </p>
+            <p className="text-small text-slate">{copy.feesNote}</p>
+            <p className="text-small text-slate">
+              {apply.emailInstead}{" "}
+              <a href={mailto} className="link text-ink">
+                {site.email}
+              </a>
+            </p>
+          </div>
+          <div id="request-form" className="flex flex-col gap-5 lg:col-span-7">
+            <div className="flex flex-col gap-2">
+              <h3 className="font-display text-h3">{apply.formTitle}</h3>
+              <p className="text-base text-slate">{apply.formIntro}</p>
+            </div>
+            <ApplyForm />
           </div>
         </div>
       </section>
@@ -415,9 +431,9 @@ function MobileApplyBar({ href, label }) {
       aria-hidden={shown ? undefined : true}
       inert={shown ? undefined : true}
     >
-      <PageLink href={href} className="btn h-12 min-h-12 w-full whitespace-normal px-3 text-center leading-snug bg-[#1c3a2a] text-[#fbfaf7] hover:bg-[#274e39]">
+      <a href={href} className="btn h-12 min-h-12 w-full whitespace-normal px-3 text-center leading-snug bg-[#1c3a2a] text-[#fbfaf7] hover:bg-[#274e39]">
         {label}
-      </PageLink>
+      </a>
     </div>
   );
 }
@@ -425,26 +441,35 @@ function MobileApplyBar({ href, label }) {
 function useApplyBar() {
   const [shown, setShown] = useState(false);
 
+  // Hidden while the hero button or any part of the request form is on screen.
   useEffect(() => {
-    const buttons = [document.getElementById("hero-apply"), document.getElementById("join-request")].filter(Boolean);
-    if (!buttons.length) return undefined;
+    const hero = document.getElementById("hero-apply");
+    const form = document.getElementById("request-form");
+    const targets = [hero, form].filter(Boolean);
+    if (!targets.length) return undefined;
 
-    const visible = new Set(buttons);
-    const sync = () => setShown(visible.size === 0);
+    const visible = new Set(targets);
+    const track = (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      }
+      setShown(visible.size === 0);
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) visible.add(entry.target);
-          else visible.delete(entry.target);
-        }
-        sync();
-      },
-      { rootMargin: "0px 0px -72px 0px", threshold: 0.6 },
-    );
-    buttons.forEach((button) => observer.observe(button));
+    const observers = [];
+    if (hero) {
+      const o = new IntersectionObserver(track, { rootMargin: "0px 0px -72px 0px", threshold: 0.6 });
+      o.observe(hero);
+      observers.push(o);
+    }
+    if (form) {
+      const o = new IntersectionObserver(track, { rootMargin: "0px 0px -72px 0px", threshold: 0 });
+      o.observe(form);
+      observers.push(o);
+    }
 
-    return () => observer.disconnect();
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   return shown;

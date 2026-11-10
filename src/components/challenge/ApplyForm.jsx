@@ -4,7 +4,6 @@ import { useEffect, useId, useRef, useState } from "react";
 import { site } from "@/content/site";
 import { useLocale } from "@/components/challenge/ChallengeShell";
 import { validateConsultation } from "@/lib/challengeLead";
-import PageLink from "@/components/ui/PageLink";
 
 const fieldClass =
   "min-h-11 w-full rounded-[0.375rem] bg-white px-4 text-[16px] text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
@@ -97,9 +96,6 @@ export default function ApplyForm() {
       <div id="application-received" ref={successRef} tabIndex={-1} role="status" className="flex flex-col items-start gap-5 rounded-xl bg-paper p-6 text-ink ring-1 ring-ink/10 outline-none max-lg:p-7">
         <h3 className="font-display text-h3">{apply.successTitle}</h3>
         <p className="text-base leading-relaxed text-slate">{apply.successBody}</p>
-        <PageLink href="/startup-challenge" className="btn btn-ghost">
-          {apply.back}
-        </PageLink>
       </div>
     );
   }
