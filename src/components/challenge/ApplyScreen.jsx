@@ -30,8 +30,8 @@ function ApplyBody() {
             sizes="100vw"
             loading="eager"
             fetchPriority="high"
-            className="object-cover"
-            style={{ objectPosition: "50% 36%" }}
+            className="origin-bottom scale-[1.32] object-cover"
+            style={{ objectPosition: "center bottom" }}
           />
         </div>
         <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">

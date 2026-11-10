@@ -47,11 +47,21 @@ function Home() {
             src={hero.photo.src}
             alt={hero.photo.alt}
             fill
-            sizes="(min-width: 1024px) 55vw, 100vw"
+            sizes="100vw"
             loading="eager"
             fetchPriority="high"
-            className="object-cover"
-            style={{ objectPosition: "50% 36%" }}
+            className="origin-bottom scale-[1.32] object-cover lg:hidden"
+            style={{ objectPosition: "center bottom" }}
+          />
+          <Image
+            src={hero.photo.src}
+            alt={hero.photo.alt}
+            fill
+            sizes="80vw"
+            loading="eager"
+            fetchPriority="high"
+            className="hidden origin-bottom scale-[1.41] object-cover lg:block"
+            style={{ objectPosition: "center bottom" }}
           />
         </div>
         <div className="flex flex-col justify-center py-10 pr-[max(var(--gutter),env(safe-area-inset-right))] pl-wrap lg:col-start-1 lg:row-start-1 lg:py-20 lg:pr-16">
