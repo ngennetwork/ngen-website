@@ -97,7 +97,7 @@ export const en = {
       { name: "Honest feedback", body: "The mentor says what is working and what is not." },
       { name: "Experience to pass on", body: "Mentors bring their own entrepreneurial experience and share what they learned directly with each Fellow." },
       { name: "Chosen from our network", body: "Mentors come from NGEN’s own Ivy League network. We meet each one before they are matched, and our team stays involved through all six months." },
-      { name: "Updates for parents", body: "Parents hear from our team regularly. Sessions are in English, and our team speaks with parents in Mandarin. Cantonese can be arranged." },
+      { name: "Updates for parents", body: "Parents receive a monthly update letter from our team. Sessions are in English, and our team speaks with parents in Mandarin. Cantonese can be arranged." },
     ],
     speakersTitle: "Speakers at NGEN events in New\u00a0York",
     speakersNote: "Founders and investors who have spoken at NGEN events.",
