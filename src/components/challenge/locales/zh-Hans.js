@@ -87,6 +87,7 @@ export const zhHans = {
     schoolsNote: "导师就读的大学。NGEN 是独立非营利组织，并不属于这些大学。",
     points: [
       { name: "坦白的反馈", body: "导师会说明什么做得好，什么需要改。" },
+      { name: "亲身的创业经验", body: "导师有自己的创业经验，会把学到的东西直接分享给每位学人。" },
     ],
     speakersTitle: "曾在 NGEN 纽约活动演讲的嘉宾",
     speakersNote: "曾在 NGEN 活动演讲的创始人和投资人。",
