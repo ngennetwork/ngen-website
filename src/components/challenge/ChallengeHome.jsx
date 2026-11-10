@@ -230,37 +230,6 @@ function Home() {
               <figcaption className="mt-3 text-small text-slate">{mentors.schoolsNote}</figcaption>
             </figure>
           </div>
-          <div className="mt-10">
-            <h3 className="font-display text-h3">{mentors.speakersTitle}</h3>
-            <p className="mt-2 max-w-[40rem] text-lead text-slate">{mentors.speakersNote}</p>
-            <ul className="mt-6 grid auto-rows-fr grid-cols-2 items-stretch gap-4 sm:grid-cols-3 lg:grid-cols-6">
-              {speakers.slice(0, 6).map((speaker) => (
-                <li key={speaker.name} className="h-full">
-                  {/* Headshots are black and white (one source photo is), and turn to color on hover. */}
-                  <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-paper text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10 motion-safe:transition-[transform,box-shadow] motion-safe:duration-300 hover:shadow-[0_30px_60px_-30px_rgb(21_24_21/0.4)] motion-safe:hover:-translate-y-1">
-                    <div className="relative aspect-[4/5] overflow-hidden">
-                      <Image
-                        src={speaker.headshot.src}
-                        alt={speaker.name}
-                        fill
-                        sizes="(min-width: 1024px) 14vw, 45vw"
-                        className="object-cover grayscale motion-safe:transition-[filter,transform] motion-safe:duration-500 group-hover:grayscale-0 motion-safe:group-hover:scale-[1.04]"
-                        style={{ objectPosition: speaker.headshot.position || "center" }}
-                      />
-                    </div>
-                    <div className="flex flex-1 flex-col gap-1 p-6">
-                      <p className="font-medium leading-tight">{speaker.name}</p>
-                      {speaker.roles.map((role) => (
-                        <p key={role} className="text-small text-slate">
-                          {role}
-                        </p>
-                      ))}
-                    </div>
-                  </article>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -310,6 +279,42 @@ function Home() {
               <AdmitTicket ticket={capstone.ticket} href={capstone.conferenceHref} />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="speakers-title" className="bg-snow">
+        <div className={SECTION}>
+          <h2 id="speakers-title" className="font-display text-h2">
+            {mentors.speakersTitle}
+          </h2>
+          <p className="mt-3 max-w-[42rem] text-lead text-slate">{mentors.speakersNote}</p>
+          <ul className="mt-6 grid auto-rows-fr grid-cols-2 items-stretch gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {speakers.slice(0, 6).map((speaker) => (
+              <li key={speaker.name} className="h-full">
+                {/* Headshots are black and white (one source photo is), and turn to color on hover. */}
+                <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-paper text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10 motion-safe:transition-[transform,box-shadow] motion-safe:duration-300 hover:shadow-[0_30px_60px_-30px_rgb(21_24_21/0.4)] motion-safe:hover:-translate-y-1">
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <Image
+                      src={speaker.headshot.src}
+                      alt={speaker.name}
+                      fill
+                      sizes="(min-width: 1024px) 14vw, 45vw"
+                      className="object-cover grayscale motion-safe:transition-[filter,transform] motion-safe:duration-500 group-hover:grayscale-0 motion-safe:group-hover:scale-[1.04]"
+                      style={{ objectPosition: speaker.headshot.position || "center" }}
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col gap-1 p-6">
+                    <p className="font-medium leading-tight">{speaker.name}</p>
+                    {speaker.roles.map((role) => (
+                      <p key={role} className="text-small text-slate">
+                        {role}
+                      </p>
+                    ))}
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

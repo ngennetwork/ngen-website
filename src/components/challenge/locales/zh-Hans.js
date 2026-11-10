@@ -89,7 +89,7 @@ export const zhHans = {
       { name: "坦白的反馈", body: "导师会说明什么做得好，什么需要改。" },
     ],
     speakersTitle: "曾在 NGEN 纽约活动演讲的嘉宾",
-    speakersNote: "他们曾在 NGEN 活动演讲，不是这个课程的一对一导师。",
+    speakersNote: "曾在 NGEN 活动演讲的创始人和投资人。",
   },
 
   capstone: {

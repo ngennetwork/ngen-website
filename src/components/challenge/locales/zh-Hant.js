@@ -89,7 +89,7 @@ export const zhHant = {
       { name: "坦白的回應", body: "導師會說明什麼做得好，什麼需要改。" },
     ],
     speakersTitle: "曾在 NGEN 紐約活動演講的嘉賓",
-    speakersNote: "他們曾在 NGEN 活動演講，不是這個課程的一對一導師。",
+    speakersNote: "曾在 NGEN 活動演講的創辦人和投資人。",
   },
 
   capstone: {
