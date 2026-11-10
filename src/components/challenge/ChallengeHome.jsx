@@ -216,7 +216,7 @@ function Home() {
               ))}
             </ul>
             {/* On wide screens the logos spread over the full height of the two card rows. */}
-            <figure className="flex flex-col lg:col-span-5">
+            <figure className="flex flex-col lg:col-span-5 lg:pl-8">
               <ul className="grid grid-cols-4 items-center gap-3 [--logo-scale:0.62] lg:flex-1 lg:grid-cols-2 lg:grid-rows-4 lg:gap-x-8 lg:gap-y-2 lg:[--logo-scale:0.85]">
                 {mentorSchools.map((u) => (
                   <li key={u.name} className="flex h-10 items-center justify-center lg:h-full">
