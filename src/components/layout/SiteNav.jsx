@@ -128,21 +128,8 @@ export default function SiteNav() {
             ivy ? `ivy-nav-bar ${ivyBar} pr-2 pl-4` : pill ? `${frost} pr-2 pl-4` : "px-0"
           } ${open && !ivy ? "text-on-dark" : ""}`}
         >
-          <PageLink href="/" aria-label="NGEN home" className="relative block h-12 w-24" onClick={() => setOpen(false)}>
-            <span
-              className={`absolute inset-y-0 left-0 flex items-center transition-[opacity,transform] duration-500 ease-out ${
-                pill ? "pointer-events-none -translate-y-1 opacity-0" : "opacity-100"
-              }`}
-            >
-              <Logo priority tone={ivy ? "navy" : "light"} className={`h-12 ${ivy ? "ivy-logo-mono max-nav:h-9" : ""}`} />
-            </span>
-            <span
-              className={`absolute inset-y-0 left-0 flex items-center transition-[opacity,transform] duration-500 ease-out ${
-                pill ? "opacity-100" : "pointer-events-none translate-y-1 opacity-0"
-              }`}
-            >
-              <Logo shape="mark" tone={ivy ? "navy" : "light"} className="h-6" />
-            </span>
+          <PageLink href="/" aria-label="NGEN home" className="flex h-12 shrink-0 items-center" onClick={() => setOpen(false)}>
+            <Logo priority shape="horizontal" tone={ivy ? "navy" : "light"} className={`h-8 ${ivy ? "ivy-logo-mono max-nav:h-7" : ""}`} />
           </PageLink>
 
           <div className="flex items-center gap-2">

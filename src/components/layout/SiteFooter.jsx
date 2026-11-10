@@ -32,7 +32,7 @@ export default function SiteFooter() {
       <div className="wrap pt-[clamp(4rem,8vw,6rem)] pb-10">
         <div className="grid gap-x-8 gap-y-14 sm:grid-cols-3 lg:grid-cols-12">
           <div className="flex flex-col items-start gap-6 sm:col-span-3 lg:col-span-4">
-            <Logo tone="light" className="h-16" />
+            <Logo tone="white" className="h-16" />
             <p className="max-w-[28ch] text-lead text-on-dark/80">{site.mission}</p>
             <PageLink href={nav.cta.href} className={`btn ${ivy ? "ivy-btn-light" : "btn-paper"}`}>
               {nav.cta.label}
