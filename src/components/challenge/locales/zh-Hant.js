@@ -67,7 +67,7 @@ export const zhHant = {
     photo: {
       src: "/startup-challenge/speaker-conversation.jpg",
       alt: "The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 在 NGEN Trailblazers 會議上與學生交談",
-      caption: "學生在 NGEN Trailblazers 會議上向 The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 提問。",
+      caption: "學生在 NGEN Trailblazers 會議上與 The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 交流。",
       position: "50% 35%",
     },
     steps: [
