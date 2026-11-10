@@ -52,7 +52,7 @@ export const speakers = [
     roles: ["Partner, General Catalyst"],
     affiliation: "ESCP MSc",
     bio: "Max Rimpel is a Partner at General Catalyst, where he sits on the board of Mercor.",
-    headshot: { src: "/speakers/max-rimpel.webp", width: 1042, height: 1302 },
+    headshot: { src: "/speakers/max-rimpel.webp", width: 480, height: 600 },
   },
   {
     name: "Issam Freiha",
