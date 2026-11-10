@@ -125,15 +125,15 @@ export const en = {
       label: "Day by day",
       place: "April 15–18, 2027, New\u00a0York City",
       days: [
-        { when: "Apr 15", title: "Arrival and orientation", body: "Day 1. Fellows arrive and hear the plan for the four days." },
-        { when: "Apr 16", title: "Founder Trek", body: "Day 2. Visits to startups and companies in New\u00a0York." },
+        { when: "Apr 15", title: "Arrival and Columbia", body: "Day 1. Fellows arrive, hear the plan for the four days, and tour Columbia University." },
+        { when: "Apr 16", title: "Founder Trek and NYU", body: "Day 2. Visits to startups and investors in New\u00a0York, and a tour of NYU." },
         {
           when: "Apr 17",
           title: "Ivy League Entrepreneurship Conference",
           body: "Day 3. Fellows attend the conference.",
           href: "https://ivyleagueconference.org/",
         },
-        { when: "Apr 18", title: "Wrap-up and departure", body: "Day 4. A short close, then students depart." },
+        { when: "Apr 18", title: "Princeton and closing workshop", body: "Day 4. A tour of Princeton University, an hour from New\u00a0York, and a closing workshop before Fellows depart." },
       ],
       note: "Dates around the conference may shift slightly. Travel and accommodation are separate.",
     },
