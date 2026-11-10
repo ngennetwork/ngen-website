@@ -7,6 +7,8 @@ const nextConfig = {
   devIndicators: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // The fellowship hero zooms into the full group file, so it needs a larger source than the default 3840.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840, 6000],
   },
   experimental: {
     // Page changes cross-fade (see ::view-transition rules in globals.css).

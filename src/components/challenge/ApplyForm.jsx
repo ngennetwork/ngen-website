@@ -7,7 +7,7 @@ import { validateApplication, validateResume } from "@/lib/challengeApplication"
 import PageLink from "@/components/ui/PageLink";
 
 const fieldClass =
-  "min-h-11 w-full rounded-[0.375rem] bg-white px-4 text-base text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
+  "min-h-11 w-full rounded-[0.375rem] bg-white px-4 text-[16px] text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
 
 export default function ApplyForm() {
   const { lang, copy } = useLocale();
@@ -101,7 +101,7 @@ export default function ApplyForm() {
 
   if (status === "success") {
     return (
-      <div id="application-received" ref={successRef} tabIndex={-1} role="status" className="flex flex-col items-start gap-5 rounded-xl bg-paper p-6 text-ink ring-1 ring-ink/10 outline-none">
+      <div id="application-received" ref={successRef} tabIndex={-1} role="status" className="flex flex-col items-start gap-5 rounded-xl bg-paper p-6 text-ink ring-1 ring-ink/10 outline-none max-lg:p-7">
         <h3 className="font-display text-h3">{apply.successTitle}</h3>
         <p className="text-base leading-relaxed text-slate">{apply.successBody}</p>
         <PageLink href="/startup-challenge" className="btn btn-ghost">
@@ -112,7 +112,7 @@ export default function ApplyForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} onChange={onFormChange} noValidate aria-busy={status === "loading"} className="flex flex-col gap-8 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10">
+    <form onSubmit={handleSubmit} onChange={onFormChange} noValidate aria-busy={status === "loading"} className="flex flex-col gap-8 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10 max-lg:p-7">
       <input type="hidden" name="language" value={lang} />
       {status === "error" && (
         <div ref={alertRef} tabIndex={-1} role="alert" className="rounded-xl bg-white px-5 py-4 outline-none">

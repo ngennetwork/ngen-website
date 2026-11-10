@@ -1,5 +1,5 @@
 /**
- * The Start-Up Challenge: every word in one place.
+ * NGEN Global Fellowship: every word in one place.
  * Written for families. The deadline string is the one
  * line a client can change without touching the layout.
  * Info-session dates live in src/components/challenge/sessions.js.
@@ -7,16 +7,17 @@
 
 export const en = {
   meta: {
-    title: "6-Month Start-Up Challenge",
-    description: "A six-month program for high school students, culminating in New York at the Ivy League Entrepreneurship Conference.",
+    title: "NGEN Global Fellowship",
+    applyTitle: "Apply · NGEN Global Fellowship",
+    description: "A six-month startup program for students, building alongside Ivy League students. January to June 2027.",
   },
   switcherLabel: "Language",
-  name: "NGEN Start-Up Challenge",
-  emailSubject: "NGEN Start-Up Challenge",
+  name: "NGEN Global Fellowship",
+  emailSubject: "NGEN Global Fellowship",
   applyPath: "/startup-challenge/apply",
   deadlineLabel: "Apply by",
   deadline: "Monday, December 14, 2026",
-  urgency: "The program starts in January. Only 4 to 6 students are selected for the New York trip.",
+  urgency: "The program starts in January.",
   noIdea: "No company or idea needed to apply.",
   feesNote: "Program fees and payment options are shared during your private consultation.",
   schools: {
@@ -24,16 +25,23 @@ export const en = {
   },
 
   hero: {
-    eyebrow: "Culminating at the Ivy League Entrepreneurship Conference · New York",
-    title: "Students build a real startup in six\u00a0months.",
-    intro:
-      "From January to June 2027, students learn how a company works and build one. An Ivy League student founder is the mentor. In April, selected students spend four days in New\u00a0York.",
+    title: "NGEN Global Fellowship",
+    eyebrow: "January — June 2027",
+    tagline: "A six-month startup program for students, building alongside Ivy League students.",
+    intro: "From January to June 2027, Fellows learn how a company works and build one, mentored by Ivy League students.",
     photo: {
-      src: "/startup-challenge/hero-group.jpg",
-      alt: "Students and mentors on stage in front of the orange NGEN logo",
-      caption: "The group on stage at an NGEN event.",
-      position: "50% 38%",
+      src: "/home/hero-ngen-new-group.jpg",
+      alt: "A large group of students at NGEN’s Trailblazers conference",
+      caption: "Students at an NGEN conference.",
+      position: "50% 55%",
     },
+  },
+
+  trip: {
+    kicker: "For selected Fellows",
+    title: "A trip to New\u00a0York",
+    body: "In April, 4 to 6 Fellows are selected for a trip to New\u00a0York. The days include NGEN’s Founder Trek and the Ivy League Entrepreneurship Conference.",
+    more: "See the four days",
   },
 
   glance: {
@@ -47,18 +55,18 @@ export const en = {
       {
         icon: "calendar",
         title: "Dates",
-        body: "January to June 2027. Online each month. Selected students spend four days in New\u00a0York in April.",
+        body: "January to June 2027. Online each month.",
       },
       {
         icon: "laptop",
         title: "Format",
-        body: "Online each month from home. Four days in New\u00a0York in April for selected students.",
+        body: "Online each month from home.",
       },
     ],
   },
 
   gets: {
-    title: "What students get",
+    title: "What Fellows get",
     intro: "A clear plan, a real project, and adults who stay with them.",
     photo: {
       src: "/about/events/workshops.jpg",
@@ -67,8 +75,8 @@ export const en = {
       position: "50% 55%",
     },
     items: [
-      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student who has built something of their own. The same mentor stays for the whole program." },
-      { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Students finish with work they can show a school." },
+      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student. The same mentor stays for the whole program." },
+      { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Fellows finish with work they can show a school." },
       { icon: "workshop", title: "Live workshops", body: "Each month an operator joins the group live and answers questions." },
       { icon: "school", title: "A record for school", body: "Teachers can follow progress. Students who finish receive a certificate. Some schools use it as a class, club, or internship credit." },
     ],
@@ -87,7 +95,7 @@ export const en = {
       { when: "January", title: "Choose an idea", body: "Find a real problem and talk to people who have it." },
       { when: "February", title: "Make a first version", body: "Build a simple product and a name people can remember." },
       { when: "March", title: "Tell people about it", body: "Pick one way to reach customers and read the results." },
-      { when: "April", title: "Make a first sale", body: "Ask someone to pay, and write down the numbers. Selected students are in New\u00a0York this month." },
+      { when: "April", title: "Make a first sale", body: "Ask someone to pay, and write down the numbers." },
       { when: "May", title: "Review the numbers", body: "Look at what happened, and decide what to keep doing." },
       { when: "June", title: "Write it up", body: "A short account of the company, for the family and the school." },
     ],
@@ -97,7 +105,7 @@ export const en = {
   mentors: {
     title: "Mentors",
     intro:
-      "Each mentor is a current student at an Ivy League university and a founder. They meet their student on a regular call and review the work before it is submitted.",
+      "Each mentor is an Ivy League student. They meet their Fellow on a regular call and review the work before it is submitted.",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "Where our mentors study. NGEN is an independent nonprofit and is not part of these universities.",
     points: [
@@ -110,7 +118,7 @@ export const en = {
 
   capstone: {
     title: "Four days in New\u00a0York · the Ivy League Entrepreneurship Conference",
-    introBefore: "Selected students spend four days in New\u00a0York, tied to NGEN’s",
+    introBefore: "Selected Fellows spend four days in New\u00a0York, tied to NGEN’s",
     conferenceLabel: "Ivy League Entrepreneurship Conference",
     introAfter: "on April 17, 2027. They also join NGEN’s Founder Trek the day before, on April 16.",
     conferenceHref: "https://ivyleagueconference.org/",
@@ -130,12 +138,12 @@ export const en = {
       label: "Day by day",
       place: "April 15–18, 2027, New\u00a0York City",
       days: [
-        { when: "Apr 15", title: "Arrival and orientation", body: "Day 1. Students arrive and hear the plan for the four days." },
+        { when: "Apr 15", title: "Arrival and orientation", body: "Day 1. Fellows arrive and hear the plan for the four days." },
         { when: "Apr 16", title: "Founder Trek", body: "Day 2. Visits to startups and companies in New\u00a0York." },
         {
           when: "Apr 17",
           title: "Ivy League Entrepreneurship Conference",
-          body: "Day 3. Students attend the conference.",
+          body: "Day 3. Fellows attend the conference.",
           href: "https://ivyleagueconference.org/",
         },
         { when: "Apr 18", title: "Wrap-up and departure", body: "Day 4. A short close, then students depart." },
@@ -191,9 +199,9 @@ export const en = {
       "Grades 9 to 12.",
       "No company or idea needed to apply.",
       "A parent or guardian applies.",
-      "Online from January to June 2027, with four days in New\u00a0York in April for selected students.",
+      "Online from January to June 2027.",
     ],
-    cta: "Apply for a student",
+    cta: "Apply now",
   },
 
   ngen: {
@@ -218,7 +226,7 @@ export const en = {
     submit: "Check eligibility",
     submitting: "Sending\u2026",
     eligibleTitle: "Your student is eligible.",
-    eligibleBody: "Students in grades 9 to 12, or ages 14 to 18, can join. Two ways to take the next step.",
+    eligibleBody: "Students in grades 9 to 12, or ages 14 to 18, can join as Fellows. Two ways to take the next step.",
     ineligibleTitle: "Thank you. We will be in touch.",
     ineligibleBody: "This program is for students in grades 9 to 12, or ages 14 to 18. We saved your note and will write if something fits better.",
     consult: "Book a 20-minute private consultation",
@@ -242,7 +250,7 @@ export const en = {
   },
 
   apply: {
-    title: "Apply for a student",
+    title: "Apply now",
     intro: "For families of students in grades 9 to 12. Use a parent or guardian email. We write back to that address.",
     cta: "Start the form",
     formTitle: "Application",

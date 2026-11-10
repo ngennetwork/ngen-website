@@ -30,7 +30,7 @@ const DIAL_CODES = [
 ];
 
 const fieldClass =
-  "min-h-11 w-full rounded-[0.375rem] bg-white px-3 text-base text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
+  "min-h-11 w-full rounded-[0.375rem] bg-white px-3 text-[16px] text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
 
 export function EligibilityState({ children }) {
   const [values, setValues] = useState({
@@ -184,7 +184,7 @@ export default function EligibilityCheck({ instanceId, showTitle = true }) {
       }}
       noValidate
       aria-busy={state.status === "loading"}
-      className="flex flex-col gap-4 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-28px_rgb(21_24_21/0.35)] ring-1 ring-ink/10"
+      className="flex flex-col gap-5 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-28px_rgb(21_24_21/0.35)] ring-1 ring-ink/10 max-lg:p-7"
     >
       {showTitle && (
         <div>
@@ -284,7 +284,7 @@ function ThankYou({ instanceId }) {
       tabIndex={-1}
       role={state.submittedFrom === instanceId ? "status" : undefined}
       data-eligibility={eligible ? "eligible" : "ineligible"}
-      className="flex flex-col gap-5 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-28px_rgb(21_24_21/0.35)] ring-1 ring-ink/10 outline-none"
+      className="flex flex-col gap-5 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-28px_rgb(21_24_21/0.35)] ring-1 ring-ink/10 outline-none max-lg:p-7"
     >
       <div>
         <h2 className="font-display text-[1.65rem] leading-tight">{eligible ? check.eligibleTitle : check.ineligibleTitle}</h2>

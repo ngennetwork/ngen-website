@@ -1,16 +1,17 @@
 /** Simplified Chinese, written for parents. */
 export const zhHans = {
   meta: {
-    title: "六个月创业挑战",
-    description: "面向中学生的六个月课程，最后一站是纽约的常春藤盟校创业会议。",
+    title: "NGEN 全球学人计划",
+    applyTitle: "申请 · NGEN 全球学人计划",
+    description: "面向学生的六个月创业课程，与常春藤盟校学生一同建立项目。2027年1月至6月。",
   },
   switcherLabel: "语言",
-  name: "NGEN Start-Up Challenge",
-  emailSubject: "NGEN Start-Up Challenge",
+  name: "NGEN 全球学人计划",
+  emailSubject: "NGEN 全球学人计划",
   applyPath: "/startup-challenge/apply",
   deadlineLabel: "截止日期：",
   deadline: "2026年12月14日（星期一）",
-  urgency: "课程1月开始。纽约之行只会选4至6名学生。",
+  urgency: "课程1月开始。",
   noIdea: "申请时不需要已有公司或想法。",
   feesNote: "课程费用和付款方式，会在个别咨询时说明。",
   schools: {
@@ -18,29 +19,36 @@ export const zhHans = {
   },
 
   hero: {
-    eyebrow: "以常春藤盟校创业会议作结 · 纽约",
-    title: "六个月，建立一家真正的公司。",
-    intro:
-      "2027年1月至6月，学生学习一家公司如何运作，并亲手完成自己的项目。导师是常春藤大学的学生创办人。4月，获选学生会前往纽约四天。",
+    title: "NGEN 全球学人计划",
+    eyebrow: "2027年1月至6月",
+    tagline: "面向学生的六个月创业课程，与常春藤盟校学生一同建立项目。",
+    intro: "2027年1月至6月，学人学习一家公司如何运作，并亲手完成自己的项目，由常春藤盟校学生担任导师。",
     photo: {
-      src: "/startup-challenge/hero-group.jpg",
-      alt: "学生和导师站在橙色 NGEN 标志前的舞台上",
-      caption: "NGEN 活动舞台上的合影。",
-      position: "50% 38%",
+      src: "/home/hero-ngen-new-group.jpg",
+      alt: "NGEN Trailblazers 会议上的一大群学生",
+      caption: "NGEN 活动中的学生合影。",
+      position: "50% 55%",
     },
+  },
+
+  trip: {
+    kicker: "给获选学人的机会",
+    title: "纽约之行",
+    body: "4月会选出4至6名学人前往纽约。行程包括 NGEN 的 Founder Trek，以及参加常春藤盟校创业会议。",
+    more: "看这四天的安排",
   },
 
   glance: {
     title: "重点一览",
     items: [
       { icon: "who", title: "适合谁", body: "中学9至12年级，大约14至18岁。申请时不需要已有公司或想法。" },
-      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月在线进行。4月，获选学生前往纽约四天。" },
-      { icon: "laptop", title: "形式", body: "每月在家上网完成。获选学生于4月前往纽约四天。" },
+      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月在线进行。" },
+      { icon: "laptop", title: "形式", body: "每月在家上网完成。" },
     ],
   },
 
   gets: {
-    title: "学生会得到什么",
+    title: "学人会得到什么",
     intro: "清楚的进度、一个真实项目，以及一路陪伴的导师。",
     photo: {
       src: "/about/events/workshops.jpg",
@@ -49,8 +57,8 @@ export const zhHans = {
       position: "50% 55%",
     },
     items: [
-      { icon: "mentor", title: "六个月的导师", body: "导师是自己创办过项目的常春藤学生。同一位导师会陪完整个课程。" },
-      { icon: "build", title: "一个真实的公司项目", body: "从想法、第一版产品到第一批客户。完成后有可以给学校看的成果。" },
+      { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生。同一位导师会陪完整个课程。" },
+      { icon: "build", title: "一个真实的公司项目", body: "从想法、第一版产品到第一批客户。学人完成后有可以给学校看的成果。" },
       { icon: "workshop", title: "每月在线工作坊", body: "每月有一位业界人士在线上加入，并回答问题。" },
       { icon: "school", title: "可以交给学校的记录", body: "老师可以跟进进度。完成的学生会收到证书。有些学校把它用作课堂、社团或实习学分。" },
     ],
@@ -69,7 +77,7 @@ export const zhHans = {
       { when: "1月", title: "选定想法", body: "找出一个真实问题，并访问有这个问题的人。" },
       { when: "2月", title: "做出第一版", body: "做一个简单的产品，和一个容易记住的名字。" },
       { when: "3月", title: "让人知道它", body: "选一种方式接触客户，并看结果。" },
-      { when: "4月", title: "完成第一笔销售", body: "请人付费，并把数字记下来。获选学生本月前往纽约。" },
+      { when: "4月", title: "完成第一笔销售", body: "请人付费，并把数字记下来。" },
       { when: "5月", title: "查看数字", body: "看看发生了什么，并决定哪些要继续做。" },
       { when: "6月", title: "写成记录", body: "为家庭和学校写一份简短的公司记录。" },
     ],
@@ -78,7 +86,7 @@ export const zhHans = {
 
   mentors: {
     title: "导师",
-    intro: "每位导师都是常春藤大学的在读学生，也是创办人。他们定期与学生通话，并在作业提交前先看一遍。",
+    intro: "每位导师都是常春藤盟校学生。他们定期与学人通话，并在作业提交前先看一遍。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "导师就读的大学。NGEN 是独立非营利组织，并不属于这些大学。",
     points: [
@@ -91,7 +99,7 @@ export const zhHans = {
 
   capstone: {
     title: "纽约四天 · 常春藤盟校创业会议",
-    introBefore: "获选学生会在纽约四天。行程配合 NGEN 的",
+    introBefore: "获选学人会在纽约四天。行程配合 NGEN 的",
     conferenceLabel: "常春藤盟校创业会议（Ivy League Entrepreneurship Conference）",
     introAfter: "，于2027年4月17日举行，并可在前一天（4月16日）参加 NGEN 的 Founder Trek。",
     conferenceHref: "https://ivyleagueconference.org/",
@@ -111,12 +119,12 @@ export const zhHans = {
       label: "每天安排",
       place: "2027年4月15日至18日，纽约",
       days: [
-        { when: "4月15日", title: "抵达与介绍", body: "第1天。学生抵达，并听取这四天的安排。" },
+        { when: "4月15日", title: "抵达与介绍", body: "第1天。学人抵达，并听取这四天的安排。" },
         { when: "4月16日", title: "Founder Trek", body: "第2天。参访纽约的初创公司和公司。" },
         {
           when: "4月17日",
           title: "常春藤盟校创业会议",
-          body: "第3天。学生参加会议。",
+          body: "第3天。学人参加会议。",
           href: "https://ivyleagueconference.org/",
         },
         { when: "4月18日", title: "总结与离开", body: "第4天。简短总结，然后离开。" },
@@ -152,9 +160,9 @@ export const zhHans = {
       "9至12年级。",
       "申请时不需要已有公司或想法。",
       "由家长或监护人申请。",
-      "2027年1月至6月在线进行；4月获选学生前往纽约四天。",
+      "2027年1月至6月在线进行。",
     ],
-    cta: "为学生申请",
+    cta: "立即申请",
   },
 
   ngen: {
@@ -179,7 +187,7 @@ export const zhHans = {
     submit: "查看资格",
     submitting: "发送中…",
     eligibleTitle: "这位学生符合资格。",
-    eligibleBody: "9至12年级，或14至18岁，可以参加。接下来有两个选择。",
+    eligibleBody: "9至12年级，或14至18岁，可以参加并成为学人。接下来有两个选择。",
     ineligibleTitle: "谢谢。我们会再联络您。",
     ineligibleBody: "本课程适合9至12年级，或14至18岁的学生。我们已记下资料，若有更合适的安排会再写信给您。",
     consult: "预约20分钟个别咨询",
@@ -203,7 +211,7 @@ export const zhHans = {
   },
 
   apply: {
-    title: "为学生申请",
+    title: "立即申请",
     intro: "供9至12年级学生的家庭填写。请用家长或监护人的邮箱，我们会回复该地址。",
     cta: "开始填写",
     formTitle: "申请表",

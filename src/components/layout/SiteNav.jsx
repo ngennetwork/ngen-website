@@ -122,10 +122,10 @@ export default function SiteNav() {
         </div>
       </div>
 
-      <nav aria-label="Primary" className={`wrap transition-[padding] duration-500 ease-out ${pill ? "pt-3" : "pt-5"}`}>
+      <nav aria-label="Primary" className={`${ivy ? "ivy-nav wrap" : "wrap"} transition-[padding] duration-500 ease-out ${pill && !ivy ? "pt-3" : ivy ? "nav:pt-5" : "pt-5"}`}>
         <div
           className={`relative flex h-14 items-center justify-between gap-6 rounded-2xl transition-[background-color,box-shadow,padding] duration-500 ease-out ${
-            ivy ? `${ivyBar} pr-2 pl-4` : pill ? `${frost} pr-2 pl-4` : "px-0"
+            ivy ? `ivy-nav-bar ${ivyBar} pr-2 pl-4` : pill ? `${frost} pr-2 pl-4` : "px-0"
           } ${open && !ivy ? "text-on-dark" : ""}`}
         >
           <PageLink href="/" aria-label="NGEN home" className="relative block h-12 w-24" onClick={() => setOpen(false)}>
@@ -134,7 +134,7 @@ export default function SiteNav() {
                 pill ? "pointer-events-none -translate-y-1 opacity-0" : "opacity-100"
               }`}
             >
-              <Logo priority tone={ivy ? "navy" : "light"} className="h-12" />
+              <Logo priority tone={ivy ? "navy" : "light"} className={`h-12 ${ivy ? "ivy-logo-mono max-nav:h-9" : ""}`} />
             </span>
             <span
               className={`absolute inset-y-0 left-0 flex items-center transition-[opacity,transform] duration-500 ease-out ${

@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { site } from "@/content/site";
 import ApplyForm from "@/components/challenge/ApplyForm";
 import ChallengeShell, { useLocale } from "@/components/challenge/ChallengeShell";
-import Photo from "@/components/layout/Photo";
 import PageLink from "@/components/ui/PageLink";
 
 export default function ApplyScreen({ initialLang }) {
@@ -22,12 +22,22 @@ function ApplyBody() {
   return (
     <>
       <header className="challenge-dark bg-ink-deep text-on-dark">
-        <div className="wrap grid items-start gap-10 pt-36 pb-14 lg:grid-cols-12 lg:pt-40 lg:pb-16">
+        <div className="relative h-60 w-full overflow-hidden lg:hidden">
+          <Image
+            src={hero.photo.src}
+            alt={hero.photo.alt}
+            fill
+            sizes="100vw"
+            loading="eager"
+            fetchPriority="high"
+            className="origin-bottom scale-[1.32] object-cover"
+            style={{ objectPosition: "center bottom" }}
+          />
+        </div>
+        <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
           <div className="flex flex-col items-start gap-6 lg:col-span-7">
-            <p className="inline-flex max-w-full items-center rounded-full border border-dashed border-[#fbfaf7]/50 px-3 py-1.5 text-small text-[#fbfaf7]">
-              {hero.eyebrow}
-            </p>
-            <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-3 py-1.5 text-small text-[#151815]">
+            <p className="text-small font-medium text-[#fbfaf7]/80">{copy.name}</p>
+            <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-4 py-3 text-small leading-snug text-[#151815] lg:px-3 lg:py-1.5 lg:leading-normal">
               <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
               {copy.deadlineLabel} {copy.deadline}
             </p>
@@ -41,8 +51,22 @@ function ApplyBody() {
               {apply.cta}
             </a>
           </div>
-          <div className="lg:col-span-5">
-            <Photo src={hero.photo.src} alt={hero.photo.alt} caption={hero.photo.caption} position={hero.photo.position} priority />
+          <div className="hidden lg:col-span-5 lg:block">
+            <figure className="flex flex-col gap-3">
+              <div className="relative aspect-[3.16/1] overflow-hidden">
+                <Image
+                  src={hero.photo.src}
+                  alt={hero.photo.alt}
+                  fill
+                  sizes="40vw"
+                  loading="eager"
+                  fetchPriority="high"
+                  className="object-cover"
+                  style={{ objectPosition: "50% 36%" }}
+                />
+              </div>
+              <figcaption className="text-small text-[#fbfaf7]/60">{hero.photo.caption}</figcaption>
+            </figure>
           </div>
         </div>
       </header>

@@ -13,8 +13,8 @@ import UniversityLogo from "@/components/brand/UniversityLogo";
 import ExternalLink from "@/components/ui/ExternalLink";
 import PageLink from "@/components/ui/PageLink";
 
-const SECTION = "wrap py-[clamp(3.5rem,7vw,5.5rem)]";
-const CHROME = "h-full rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10";
+const SECTION = "wrap py-[4.25rem] lg:py-[clamp(3.5rem,7vw,5.5rem)]";
+const CHROME = "h-full rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10 max-lg:p-7";
 const CARD = `flex flex-col ${CHROME}`;
 const MUTED = "text-base leading-relaxed text-slate";
 
@@ -27,8 +27,8 @@ export default function ChallengeHome({ initialLang }) {
 }
 
 function Home() {
-  const { copy } = useLocale();
-  const { hero, glance, gets, months, mentors, capstone, gallery, join, ngen, check } = copy;
+  const { copy, lang } = useLocale();
+  const { hero, trip, glance, gets, months, mentors, capstone, gallery, join, ngen, check } = copy;
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
   const ivySchools = universities.filter((school) => school.ivy);
@@ -41,56 +41,110 @@ function Home() {
 
   return (
     <EligibilityState>
-      <header className="relative isolate overflow-hidden text-on-dark">
-        <Image
-          src={hero.photo.src}
-          alt={hero.photo.alt}
-          fill
-          sizes="100vw"
-          loading="eager"
-          fetchPriority="high"
-          className="object-cover"
-          style={{ objectPosition: hero.photo.position }}
-        />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#0e110f]/93 via-[#1c3a2a]/68 to-[#0e110f]/30" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0e110f]/88 via-[#0e110f]/20 to-[#0e110f]/55" />
-        <div className="relative">
-          <div className="wrap grid items-start gap-10 pt-36 pb-14 lg:grid-cols-12 lg:pt-40 lg:pb-16">
-            <div className="flex max-w-[40rem] flex-col items-start gap-5 lg:col-span-6">
-              <p className="inline-flex max-w-full items-center rounded-full border border-dashed border-[#fbfaf7]/50 bg-[#0e110f]/30 px-3 py-1.5 text-small text-[#fbfaf7]">
+      <header className="bg-[#1c3a2a] text-[#fbfaf7] lg:grid lg:min-h-[44rem] lg:grid-cols-[minmax(0,45%)_minmax(0,55%)] lg:pt-28">
+        <div className="relative h-60 overflow-hidden lg:col-start-2 lg:row-start-1 lg:h-full lg:min-h-[36rem]">
+          <Image
+            src={hero.photo.src}
+            alt={hero.photo.alt}
+            fill
+            sizes="100vw"
+            loading="eager"
+            fetchPriority="high"
+            className="origin-bottom scale-[1.32] object-cover lg:hidden"
+            style={{ objectPosition: "center bottom" }}
+          />
+          <Image
+            src={hero.photo.src}
+            alt={hero.photo.alt}
+            fill
+            sizes="80vw"
+            loading="eager"
+            fetchPriority="high"
+            className="hidden origin-bottom scale-[1.41] object-cover lg:block"
+            style={{ objectPosition: "center bottom" }}
+          />
+        </div>
+        <div className="flex flex-col justify-center py-10 pr-[max(var(--gutter),env(safe-area-inset-right))] pl-wrap lg:col-start-1 lg:row-start-1 lg:py-20 lg:pr-16">
+          <div className="flex max-w-[34rem] flex-col gap-6 lg:gap-8">
+            <div className="flex flex-col gap-4 lg:gap-5">
+              <p className={`text-[0.72rem] font-medium text-[#fbfaf7]/65 ${lang === "en" ? "uppercase tracking-[0.22em]" : "tracking-[0.06em]"}`}>
                 {hero.eyebrow}
               </p>
-              <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-3 py-1.5 text-small text-[#151815]">
-                <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
-                {copy.deadlineLabel} {copy.deadline}
-              </p>
-              <h1 id="challenge-title" className="max-w-[16ch] font-display text-[clamp(2.5rem,1.25rem+3.3vw,4.5rem)] leading-[1.02]">
+              <h1 id="challenge-title" className={`font-display text-[clamp(2.75rem,1.5rem+2.2vw,4.4rem)] leading-[1.02] ${lang === "en" ? "max-w-[11ch]" : ""}`}>
                 {hero.title}
               </h1>
-              <p className="max-w-[42ch] text-lead text-on-dark/90">{hero.intro}</p>
-              <p className="font-medium text-on-dark">{copy.noIdea}</p>
-              <p className="max-w-[40ch] text-base leading-relaxed text-on-dark/80">{copy.urgency}</p>
-              <p className="text-small text-on-dark/70">{hero.photo.caption}</p>
+              <div aria-hidden="true" className="h-px w-10 bg-[#fbfaf7]/40" />
             </div>
-            <div className="lg:col-span-5 lg:col-start-8">
-              <EligibilityCheck instanceId="check-hero" />
+            <div className="flex flex-col gap-4">
+              <p className="max-w-[34ch] text-lead leading-relaxed text-[#fbfaf7]/92">{hero.tagline}</p>
+              <p className="max-w-[38ch] text-base leading-relaxed text-[#fbfaf7]/72">{hero.intro}</p>
+            </div>
+            <div className="flex flex-col items-start gap-5">
+              <p className="text-small text-[#fbfaf7]/60">
+                {copy.deadlineLabel} {copy.deadline}
+              </p>
+              <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
+                <PageLink href={copy.applyPath} className="btn btn-on-dark">
+                  {join.cta}
+                </PageLink>
+                <a href="#eligibility" className="link text-small text-[#fbfaf7]/85">
+                  {check.submit}
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </header>
 
       <section aria-labelledby="schools-label" className="school-band border-y border-ink/10 bg-snow">
-        <div className="wrap py-8 sm:py-10">
+        <div className="wrap py-8 lg:py-10">
           <p id="schools-label" className="text-center text-small text-slate">
             {copy.schools.label}
           </p>
-          <ul className="mt-5 grid grid-cols-2 items-center justify-items-center gap-x-6 gap-y-6 [--logo-scale:0.72] sm:grid-cols-4 sm:[--logo-scale:0.8] lg:flex lg:flex-wrap lg:justify-center lg:gap-x-8 lg:[--logo-scale:0.84]">
+          <ul className="mt-4 grid grid-cols-4 items-center justify-items-center gap-x-2 gap-y-4 [--logo-scale:0.48] sm:gap-x-4 sm:[--logo-scale:0.7] lg:flex lg:flex-wrap lg:justify-center lg:gap-x-8 lg:[--logo-scale:0.84]">
             {ivySchools.map((school) => (
-              <li key={school.name} className="flex h-11 items-center justify-center">
+              <li key={school.name} className="flex h-10 items-center justify-center sm:h-11">
                 <UniversityLogo university={school} />
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <figure className="bg-snow lg:hidden">
+        <div className="wrap pt-2">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
+            <Image
+              src={gallery.photos[0].src}
+              alt={gallery.photos[0].alt}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              style={{ objectPosition: "50% 42%" }}
+            />
+          </div>
+        </div>
+        <figcaption className="wrap py-3 text-center text-small leading-relaxed text-slate">{gallery.photos[0].caption}</figcaption>
+      </figure>
+
+      <section aria-labelledby="trip-title" className="bg-snow">
+        <div className="wrap pt-6 pb-8 lg:py-10">
+          <div className="max-w-[40rem] rounded-xl bg-fog p-6 ring-1 ring-ink/10 max-lg:p-7 lg:p-8">
+            <p className="text-small font-medium text-[#1c3a2a]">{trip.kicker}</p>
+            <h2 id="trip-title" className="mt-2 font-display text-h3">
+              {trip.title}
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-slate">{trip.body}</p>
+            <a href="#capstone" className="link mt-4 inline-block text-base">
+              {trip.more}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-snow lg:hidden">
+        <div className="wrap pt-2 pb-12">
+          <EligibilityCheck instanceId="check-mobile" />
         </div>
       </section>
 
@@ -229,7 +283,6 @@ function Home() {
                 </ExternalLink>{" "}
                 {capstone.introAfter}
               </p>
-              <p className="mt-4 text-base leading-relaxed text-[#fbfaf7]/85">{copy.urgency}</p>
               <h3 className="mt-6 font-display text-h3">{capstone.logisticsTitle}</h3>
               <ul className="mt-3 flex flex-col gap-3">
                 {capstone.logistics.map((item) => (
