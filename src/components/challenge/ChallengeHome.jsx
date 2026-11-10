@@ -43,37 +43,39 @@ function Home() {
   return (
     <EligibilityState>
       <header className="bg-[#1c3a2a] text-[#fbfaf7] lg:grid lg:min-h-[44rem] lg:grid-cols-[minmax(0,45%)_minmax(0,55%)] lg:pt-28">
-        <div className="relative h-60 overflow-hidden max-md:aspect-[6000/2180] max-md:h-auto lg:col-start-2 lg:row-start-1 lg:h-full lg:min-h-[36rem]">
-          <Image
-            src={hero.photo.src}
-            alt={hero.photo.alt}
-            fill
-            sizes="100vw"
-            loading="eager"
-            fetchPriority="high"
-            className="object-cover md:hidden"
-            style={{ objectPosition: "50% 63.74%" }}
-          />
-          <Image
-            src={hero.photo.src}
-            alt={hero.photo.alt}
-            fill
-            sizes="100vw"
-            loading="eager"
-            fetchPriority="high"
-            className="hidden origin-bottom scale-[1.32] object-cover md:block lg:hidden"
-            style={{ objectPosition: "center bottom" }}
-          />
-          <Image
-            src={hero.photo.src}
-            alt={hero.photo.alt}
-            fill
-            sizes="80vw"
-            loading="eager"
-            fetchPriority="high"
-            className="hidden origin-bottom scale-[1.41] object-cover lg:block"
-            style={{ objectPosition: "center bottom" }}
-          />
+        <div className="relative h-60 max-md:aspect-[6000/2180] max-md:h-auto lg:col-start-2 lg:row-start-1 lg:h-full lg:min-h-[36rem]">
+          <div className="absolute inset-0 overflow-hidden lg:top-[var(--gutter)] lg:right-[var(--gutter)] lg:bottom-[var(--gutter)] lg:rounded-2xl lg:shadow-[0_24px_48px_-28px_rgb(0_0_0/0.55)] lg:ring-1 lg:ring-[#fbfaf7]/30">
+            <Image
+              src={hero.photo.src}
+              alt={hero.photo.alt}
+              fill
+              sizes="100vw"
+              loading="eager"
+              fetchPriority="high"
+              className="object-cover md:hidden"
+              style={{ objectPosition: "50% 63.74%" }}
+            />
+            <Image
+              src={hero.photo.src}
+              alt={hero.photo.alt}
+              fill
+              sizes="100vw"
+              loading="eager"
+              fetchPriority="high"
+              className="hidden origin-bottom scale-[1.32] object-cover md:block lg:hidden"
+              style={{ objectPosition: "center bottom" }}
+            />
+            <Image
+              src={hero.photo.src}
+              alt={hero.photo.alt}
+              fill
+              sizes="80vw"
+              loading="eager"
+              fetchPriority="high"
+              className="hidden origin-bottom scale-[1.41] object-cover lg:block"
+              style={{ objectPosition: "center bottom" }}
+            />
+          </div>
         </div>
         <div className="flex flex-col justify-center py-10 pr-[max(var(--gutter),env(safe-area-inset-right))] pl-wrap max-md:py-5 lg:col-start-1 lg:row-start-1 lg:py-20 lg:pr-16">
           <div className="flex max-w-[34rem] flex-col gap-6 max-md:gap-3.5 lg:gap-8">
@@ -140,16 +142,31 @@ function Home() {
       </figure>
 
       <section aria-labelledby="trip-title" className="bg-snow">
-        <div className="wrap pt-6 pb-8 lg:py-10">
-          <div className="max-w-[40rem] rounded-xl bg-fog p-6 ring-1 ring-ink/10 max-lg:p-7 lg:p-8">
-            <p className="text-small font-medium text-[#1c3a2a]">{trip.kicker}</p>
-            <h2 id="trip-title" className="mt-2 font-display text-h3">
-              {trip.title}
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-slate">{trip.body}</p>
-            <a href="#capstone" className="link mt-4 inline-block text-base">
-              {trip.more}
-            </a>
+        <div className="wrap pt-6 pb-8 lg:py-12">
+          <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-10">
+            <div className="flex flex-col justify-center rounded-xl bg-fog p-6 ring-1 ring-ink/10 max-lg:p-7 lg:p-8">
+              <p className="text-small font-medium text-[#1c3a2a]">{trip.kicker}</p>
+              <h2 id="trip-title" className="mt-2 font-display text-h3">
+                {trip.title}
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-slate">{trip.body}</p>
+              <a href="#capstone" className="link mt-4 inline-block text-base">
+                {trip.more}
+              </a>
+            </div>
+            <figure>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink/10">
+                <Image
+                  src={trip.photo.src}
+                  alt={trip.photo.alt}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover"
+                  style={{ objectPosition: trip.photo.position }}
+                />
+              </div>
+              <figcaption className="mt-3 text-small text-slate">{trip.photo.caption}</figcaption>
+            </figure>
           </div>
         </div>
       </section>

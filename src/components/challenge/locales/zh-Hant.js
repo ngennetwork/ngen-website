@@ -36,14 +36,20 @@ export const zhHant = {
     title: "紐約之行",
     body: "4月會選出4至6位學人前往紐約。行程包括 NGEN 的 Founder Trek，以及參加常春藤盟校創業會議。",
     more: "看這四天的安排",
+    photo: {
+      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      alt: "學生圍坐在紐約 Insight Partners 的會議桌旁，窗外是城市天際線，投影片寫著 Invest in the Future of Technology with Insight Partners",
+      caption: "NGEN 創業者參訪團拜訪紐約 Insight Partners",
+      position: "center",
+    },
   },
 
   glance: {
     title: "重點一覽",
     items: [
       { icon: "who", title: "適合誰", body: "中學9至12年級，大約14至18歲。申請時不需要已有公司或想法。" },
-      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月上網進行。" },
-      { icon: "laptop", title: "形式", body: "每月在家上網完成。" },
+      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月一次線上直播，兩次之間有作業。" },
+      { icon: "laptop", title: "形式", body: "每月與常春藤盟校學生導師進行線上直播，在家參加，課間另有指導作業。" },
     ],
   },
 
@@ -57,7 +63,7 @@ export const zhHant = {
       position: "50% 55%",
     },
     items: [
-      { icon: "mentor", title: "六個月的導師", body: "導師是常春藤盟校學生。同一位導師會陪完整個課程。" },
+      { icon: "mentor", title: "六個月的導師", body: "導師是常春藤盟校學生，六個月裡定期通話。" },
       { icon: "build", title: "一個真實的公司項目", body: "從想法、初版產品到第一批客戶。學人完成後有可以給學校看的成果。" },
       { icon: "workshop", title: "每月直播工作坊", body: "每月有一位業界人士在線上加入，並回答問題。" },
       { icon: "school", title: "可交給學校的紀錄", body: "老師可以跟進進度。完成的學生會收到證書。有些學校把它用作課堂、學會或實習學分。" },
@@ -75,13 +81,13 @@ export const zhHant = {
     },
     steps: [
       { when: "1月", title: "選定想法", body: "找出一個真實問題，並訪問有這個問題的人。" },
-      { when: "2月", title: "做出第一版", body: "做一個簡單的產品，和一個容易記住的名字。" },
+      { when: "2月", title: "做出產品和名字", body: "做出一個產品，和一個讓人記得住的名字。" },
       { when: "3月", title: "讓人知道它", body: "選一種方式接觸客戶，並看結果。" },
       { when: "4月", title: "完成第一筆銷售", body: "請人付費，並把數字記下來。" },
       { when: "5月", title: "檢視數字", body: "看看發生了什麼，並決定哪些要繼續做。" },
       { when: "6月", title: "寫成紀錄", body: "為家庭和學校寫一份簡短的公司紀錄。" },
     ],
-    note: "暑期可以選擇繼續跟同一位導師，全程上網。",
+    note: "暑期可以選擇參加 NGEN 的後續實習，全程上網。",
   },
 
   mentors: {
@@ -91,7 +97,6 @@ export const zhHant = {
     schoolsNote: "導師就讀的大學。NGEN 是獨立非營利組織，並不屬於這些大學。",
     points: [
       { name: "坦白的回應", body: "導師會說明什麼做得好，什麼需要改。" },
-      { name: "同一位導師", body: "六個月都是同一個人，不會中途更換。" },
     ],
     speakersTitle: "曾在 NGEN 紐約活動演講的嘉賓",
     speakersNote: "他們曾在 NGEN 活動演講，不是這個課程的一對一導師。",

@@ -36,14 +36,20 @@ export const zhHans = {
     title: "纽约之行",
     body: "4月会选出4至6名学人前往纽约。行程包括 NGEN 的 Founder Trek，以及参加常春藤盟校创业会议。",
     more: "看这四天的安排",
+    photo: {
+      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      alt: "学生围坐在纽约 Insight Partners 的会议桌旁，窗外是城市天际线，投影片写着 Invest in the Future of Technology with Insight Partners",
+      caption: "NGEN 创业者参访团拜访纽约 Insight Partners",
+      position: "center",
+    },
   },
 
   glance: {
     title: "重点一览",
     items: [
       { icon: "who", title: "适合谁", body: "中学9至12年级，大约14至18岁。申请时不需要已有公司或想法。" },
-      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月在线进行。" },
-      { icon: "laptop", title: "形式", body: "每月在家上网完成。" },
+      { icon: "calendar", title: "日期", body: "2027年1月至6月。每月一次在线直播，两次之间有作业。" },
+      { icon: "laptop", title: "形式", body: "每月与常春藤盟校学生导师进行在线直播，在家参加，课间另有指导作业。" },
     ],
   },
 
@@ -57,7 +63,7 @@ export const zhHans = {
       position: "50% 55%",
     },
     items: [
-      { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生。同一位导师会陪完整个课程。" },
+      { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生，六个月里定期通话。" },
       { icon: "build", title: "一个真实的公司项目", body: "从想法、第一版产品到第一批客户。学人完成后有可以给学校看的成果。" },
       { icon: "workshop", title: "每月在线工作坊", body: "每月有一位业界人士在线上加入，并回答问题。" },
       { icon: "school", title: "可以交给学校的记录", body: "老师可以跟进进度。完成的学生会收到证书。有些学校把它用作课堂、社团或实习学分。" },
@@ -75,13 +81,13 @@ export const zhHans = {
     },
     steps: [
       { when: "1月", title: "选定想法", body: "找出一个真实问题，并访问有这个问题的人。" },
-      { when: "2月", title: "做出第一版", body: "做一个简单的产品，和一个容易记住的名字。" },
+      { when: "2月", title: "做出产品和名字", body: "做出一个产品，和一个让人记得住的名字。" },
       { when: "3月", title: "让人知道它", body: "选一种方式接触客户，并看结果。" },
       { when: "4月", title: "完成第一笔销售", body: "请人付费，并把数字记下来。" },
       { when: "5月", title: "查看数字", body: "看看发生了什么，并决定哪些要继续做。" },
       { when: "6月", title: "写成记录", body: "为家庭和学校写一份简短的公司记录。" },
     ],
-    note: "暑假可以选择继续跟随同一位导师，全程在线。",
+    note: "暑假可以选择参加 NGEN 的后续实习，全程在线。",
   },
 
   mentors: {
@@ -91,7 +97,6 @@ export const zhHans = {
     schoolsNote: "导师就读的大学。NGEN 是独立非营利组织，并不属于这些大学。",
     points: [
       { name: "坦白的反馈", body: "导师会说明什么做得好，什么需要改。" },
-      { name: "同一位导师", body: "六个月都是同一个人，不会中途更换。" },
     ],
     speakersTitle: "曾在 NGEN 纽约活动演讲的嘉宾",
     speakersNote: "他们曾在 NGEN 活动演讲，不是这个课程的一对一导师。",

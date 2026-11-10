@@ -42,6 +42,12 @@ export const en = {
     title: "A trip to New\u00a0York",
     body: "In April, 4 to 6 Fellows are selected for a trip to New\u00a0York. The days include NGEN’s Founder Trek and the Ivy League Entrepreneurship Conference.",
     more: "See the four days",
+    photo: {
+      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      alt: "Students around a boardroom table at Insight Partners in New York, with the skyline in the windows and a slide reading Invest in the Future of Technology with Insight Partners",
+      caption: "NGEN Founder Trek at Insight Partners, New York",
+      position: "center",
+    },
   },
 
   glance: {
@@ -55,12 +61,12 @@ export const en = {
       {
         icon: "calendar",
         title: "Dates",
-        body: "January to June 2027. Online each month.",
+        body: "January to June 2027. One live session each month, with work to do between them.",
       },
       {
         icon: "laptop",
         title: "Format",
-        body: "Online each month from home.",
+        body: "Live online sessions each month with an Ivy League student mentor, joined from home, plus guided work between sessions.",
       },
     ],
   },
@@ -75,7 +81,7 @@ export const en = {
       position: "50% 55%",
     },
     items: [
-      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student. The same mentor stays for the whole program." },
+      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student, on a regular call through the six months." },
       { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Fellows finish with work they can show a school." },
       { icon: "workshop", title: "Live workshops", body: "Each month an operator joins the group live and answers questions." },
       { icon: "school", title: "A record for school", body: "Teachers can follow progress. Students who finish receive a certificate. Some schools use it as a class, club, or internship credit." },
@@ -93,13 +99,13 @@ export const en = {
     },
     steps: [
       { when: "January", title: "Choose an idea", body: "Find a real problem and talk to people who have it." },
-      { when: "February", title: "Make a first version", body: "Build a simple product and a name people can remember." },
+      { when: "February", title: "Build a product and a name", body: "A product and a name people can remember." },
       { when: "March", title: "Tell people about it", body: "Pick one way to reach customers and read the results." },
       { when: "April", title: "Make a first sale", body: "Ask someone to pay, and write down the numbers." },
       { when: "May", title: "Review the numbers", body: "Look at what happened, and decide what to keep doing." },
       { when: "June", title: "Write it up", body: "A short account of the company, for the family and the school." },
     ],
-    note: "Summer with the same mentor is optional, and fully online.",
+    note: "An optional summer follow-on internship with NGEN, online.",
   },
 
   mentors: {
@@ -110,7 +116,6 @@ export const en = {
     schoolsNote: "Where our mentors study. NGEN is an independent nonprofit and is not part of these universities.",
     points: [
       { name: "Honest feedback", body: "The mentor says what is working and what is not." },
-      { name: "The same person", body: "One mentor stays for all six months." },
     ],
     speakersTitle: "Speakers at NGEN events in New\u00a0York",
     speakersNote: "These guests have spoken at NGEN. They are not the one-to-one mentors for this program.",
