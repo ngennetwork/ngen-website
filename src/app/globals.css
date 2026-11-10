@@ -106,6 +106,79 @@
   }
 }
 
+/* Start-Up Challenge only: the Ivy League Entrepreneurship Conference palette.
+   Stone grounds, paper cards, forest accents, Caslon display, Hanken text.
+   The shared header and footer stay on the site theme; they are not inside
+   .challenge-pages. */
+.challenge-pages {
+  --color-snow: #f3f1ec;
+  --color-fog: #e9e6df;
+  --color-paper: #fbfaf7;
+  --color-ink: #151815;
+  --color-ink-deep: #0e110f;
+  --color-ink-night: #0e110f;
+  --color-slate: #5d625d;
+  --color-mist: #a7ada6;
+  --color-signal: #1c3a2a;
+  --color-signal-deep: #274e39;
+  --color-on-dark: #fbfaf7;
+  --radius-btn: 0.375rem;
+  --text-small: 0.875rem;
+  --text-base: 1rem;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --text-h3: clamp(1.5rem, 1.25rem + 0.8vw, 1.75rem);
+  --text-h2: clamp(2rem, 1.4rem + 2vw, 2.75rem);
+  --text-h1: clamp(2.5rem, 1.6rem + 2.8vw, 4rem);
+  background: #f3f1ec;
+  color: #151815;
+  color-scheme: light;
+  font-family: var(--font-ilec-sans), "Helvetica Neue", Arial, sans-serif;
+}
+.challenge-pages .font-display {
+  font-family: var(--font-ilec-display), "Iowan Old Style", Palatino, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.challenge-pages .btn-ink {
+  background: #151815;
+  color: #fbfaf7;
+  box-shadow: none;
+}
+.challenge-pages .btn-ink:hover {
+  background: #2a2e2a;
+  box-shadow: none;
+}
+.challenge-pages .btn-on-dark {
+  background: #fbfaf7;
+  color: #151815;
+  box-shadow: none;
+}
+.challenge-pages .btn-on-dark:hover {
+  background: #fff;
+  box-shadow: none;
+}
+.challenge-pages .btn-ghost:hover {
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.challenge-pages ::selection {
+  background: #1c3a2a;
+  color: #fbfaf7;
+}
+.challenge-pages .uni-logo {
+  filter: brightness(0);
+}
+.challenge-pages .challenge-dark figcaption {
+  color: color-mix(in srgb, #fbfaf7 72%, transparent);
+}
+@media (max-width: 59.99rem) {
+  html:has(.challenge-pages) {
+    scroll-padding-bottom: 5.5rem;
+  }
+  body:has(.challenge-pages) footer {
+    padding-bottom: 5.5rem;
+  }
+}
+
 @layer base {
   html {
     color-scheme: dark;

@@ -34,11 +34,12 @@ export default function ChallengeShell({ initialLang, children }) {
 
   return (
     <LocaleContext.Provider value={value}>
-      <div lang={value.lang} className="challenge-i18n relative">
+      <div lang={value.lang} className="challenge-pages challenge-i18n relative">
         <LanguageSwitcher lang={value.lang} label={value.copy.switcherLabel} onChoose={onChoose} />
         <div className="challenge-lang-fade" data-shown={shown ? "true" : "false"}>
           {children}
         </div>
+        <div aria-hidden="true" className="h-24 nav:hidden" />
       </div>
     </LocaleContext.Provider>
   );

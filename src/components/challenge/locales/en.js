@@ -1,28 +1,28 @@
 /**
  * The Start-Up Challenge: every word in one place.
- * Written for families. The fee and the admissions line live here.
- * The Calendly widget uses embedUrl. The button uses url
- * (https://www.ngennetwork.org/intro).
+ * Written for families. The fee lives here. The deadline string is the one
+ * line a client can change without touching the layout.
+ * Info-session dates live in src/components/challenge/sessions.js.
  */
 
 export const en = {
   meta: {
     title: "6-Month Start-Up Challenge",
-    description:
-      "A six-month program for high school students. The fee is US$4,000 per student.",
+    description: "A six-month program for high school students. The fee is US$4,000 per student.",
   },
   switcherLabel: "Language",
   name: "NGEN Start-Up Challenge",
   emailSubject: "NGEN Start-Up Challenge",
   applyPath: "/startup-challenge/apply",
-  deadline: "Applications reviewed on a rolling basis · Limited spots",
+  deadlineLabel: "Apply by",
+  deadline: "Monday, December 14, 2026",
+  urgency: "The program starts in January. Only 4 to 6 students are selected for the New York trip.",
+  noIdea: "No company or idea needed to apply.",
 
   hero: {
     title: "Students build a real startup in six\u00a0months.",
     intro:
-      "From January to June 2027, students learn how a company works and build one. An Ivy League student founder is the mentor. In June, selected students spend four days in New\u00a0York.",
-    cta: "Book a 15-minute intro call",
-    applyCta: "Apply for a student",
+      "From January to June 2027, students learn how a company works and build one. An Ivy League student founder is the mentor. In April, selected students spend four days in New\u00a0York.",
     priceLead: "The fee is",
     priceMid: "per student.",
     photo: {
@@ -39,17 +39,17 @@ export const en = {
       {
         icon: "who",
         title: "Who it is for",
-        body: "High school students in grades 9 to 12, about 14 to 18 years old. No company or idea is needed.",
+        body: "High school students in grades 9 to 12, about 14 to 18 years old. No company or idea needed to apply.",
       },
       {
         icon: "calendar",
         title: "Dates",
-        body: "January to June 2027. Online each month, then four days in New\u00a0York.",
+        body: "January to June 2027. Online each month. Selected students spend four days in New\u00a0York in April.",
       },
       {
         icon: "laptop",
         title: "Format",
-        body: "Online each month from home. Then four days in New\u00a0York in June for selected students.",
+        body: "Online each month from home. Four days in New\u00a0York in April for selected students.",
       },
       {
         icon: "fee",
@@ -70,7 +70,7 @@ export const en = {
     },
     items: [
       { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student who has built something of their own. The same mentor stays for the whole program." },
-      { icon: "build", title: "A real company project", body: "An idea, a first product, real customers, and a short pitch. Students finish with work they can show." },
+      { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Students finish with work they can show a school." },
       { icon: "workshop", title: "Live workshops", body: "Each month an operator joins the group live and answers questions." },
       { icon: "school", title: "A record for school", body: "Teachers can follow progress. Students who finish receive a certificate. Some schools use it as a class, club, or internship credit." },
     ],
@@ -89,9 +89,9 @@ export const en = {
       { when: "January", title: "Choose an idea", body: "Find a real problem and talk to people who have it." },
       { when: "February", title: "Make a first version", body: "Build a simple product and a name people can remember." },
       { when: "March", title: "Tell people about it", body: "Pick one way to reach customers and read the results." },
-      { when: "April", title: "Make a first sale", body: "Ask someone to pay, and write down the numbers." },
-      { when: "May", title: "Prepare the pitch", body: "Turn the work into a short pitch and clear numbers." },
-      { when: "June", title: "New\u00a0York", body: "Selected students spend four days in the city. See the plan below." },
+      { when: "April", title: "Make a first sale", body: "Ask someone to pay, and write down the numbers. Selected students are in New\u00a0York this month." },
+      { when: "May", title: "Review the numbers", body: "Look at what happened, and decide what to keep doing." },
+      { when: "June", title: "Write it up", body: "A short account of the company, for the family and the school." },
     ],
     note: "Summer with the same mentor is optional, and fully online.",
   },
@@ -112,13 +112,15 @@ export const en = {
 
   capstone: {
     title: "Four days in New\u00a0York",
-    intro:
-      "In June, a school sends its top four to six students. NGEN organizes the days: office visits, a workshop, and a pitch on stage.",
+    introBefore: "Selected students spend four days in New\u00a0York, tied to NGEN’s",
+    conferenceLabel: "Ivy League Entrepreneurship Conference",
+    introAfter: "on April 17, 2027. They also join NGEN’s Founder Trek the day before, on April 16.",
+    conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "Travel and supervision",
     logistics: [
       "Travel and hotels are not included in the US$4,000 fee. Families budget them separately.",
-      "NGEN sets the schedule and stays with the group for the planned visits and the pitch.",
-      "On the intro call we walk through who travels, the daily plan, and how we stay in touch with parents.",
+      "NGEN sets the schedule and stays with the group for the visits and the conference.",
+      "We tell families who is travelling, the daily plan, and how we stay in touch.",
     ],
     photo: {
       src: "/about/events/founder-treks.jpg",
@@ -128,14 +130,28 @@ export const en = {
     },
     itinerary: {
       label: "Day by day",
-      place: "June 2027, New\u00a0York City",
+      place: "April 15–18, 2027, New\u00a0York City",
       days: [
-        { title: "Founder visits", body: "Meet investors in their offices, with Ivy League student founders who are raising money." },
-        { title: "Startup visits", body: "See how a small team works, and talk with the people who run product and sales." },
-        { title: "Practice the pitch", body: "Mentors review the product and the pitch before the last day." },
-        { title: "Pitch on stage", body: "Each team presents to investors and student founders." },
+        { when: "Apr 15", title: "Arrival and orientation", body: "Day 1. Students arrive and hear the plan for the four days." },
+        { when: "Apr 16", title: "Founder Trek", body: "Day 2. Visits to startups and companies in New\u00a0York." },
+        {
+          when: "Apr 17",
+          title: "Ivy League Entrepreneurship Conference",
+          body: "Day 3. Students attend the conference.",
+          href: "https://ivyleagueconference.org/",
+        },
+        { when: "Apr 18", title: "Wrap-up and departure", body: "Day 4. A short close, then students depart." },
       ],
-      note: "Travel and accommodation are separate from the program fee.",
+      note: "Dates around the conference may shift slightly. Travel and accommodation are separate from the program fee.",
+    },
+    ticket: {
+      kicker: "Admit one",
+      title: "Ivy League Entrepreneurship Conference",
+      dateLabel: "Date",
+      date: "April 17, 2027",
+      trekLabel: "Founder Trek",
+      trek: "April 16, 2027",
+      by: "Presented by NGEN",
     },
   },
 
@@ -195,11 +211,11 @@ export const en = {
     includedTitle: "Included",
     excludedTitle: "Not included",
     included: [
-      "Six months of milestones, January through May.",
+      "Six months of milestones, January through June.",
       "An Ivy League student founder as mentor.",
       "A live workshop each month.",
       "Progress notes and a certificate for students who finish.",
-      "The four-day New\u00a0York program for selected students.",
+      "The four-day New\u00a0York program in April for selected students.",
     ],
     excluded: [
       "Flights and hotels for New\u00a0York.",
@@ -210,77 +226,84 @@ export const en = {
       title: "Who can join",
       points: [
         "Grades 9 to 12.",
-        "No prior company required.",
+        "No company or idea needed to apply.",
         "A parent or guardian applies.",
-        "Online from January to June 2027, with New\u00a0York in June for selected students.",
+        "Online from January to June 2027, with four days in New\u00a0York in April for selected students.",
       ],
     },
     cta: "Apply for a student",
-    book: "Book a 15-minute intro call",
   },
 
   ngen: {
     title: "Who runs it",
-    body: "NGEN is a 501(c)(3) nonprofit started by student leaders. We run conferences, office visits, and pitch events across the Ivy League.",
+    body: "NGEN is a 501(c)(3) nonprofit started by student leaders. We run conferences, Founder Treks and company visits.",
+    raised: "raised by NGEN startups",
+    reach: "students reached across the network",
+    universities: "universities across the network",
+    events: "conferences, Founder Treks and company visits in three years",
     more: { label: "About NGEN", href: "/about" },
   },
 
-  recognition: {
-    title: "Recognition",
-    intro: "Awards for the team behind the program.",
-    awards: [
-      { name: "Social Entrepreneur of the Year", place: "Singapore", year: "2024" },
-      { name: "Best Entrepreneurship Education Project", place: "Singapore", year: "2023" },
-      { name: "Commonwealth Youth Awards, Asia finalist", place: "United Kingdom", year: "2023" },
-      { name: "President’s Innovation Challenge, semifinalist", place: "United States", year: "2022 and 2023" },
-      { name: "The Diana Award for Young Changemakers", place: "United Kingdom", year: "2019" },
-    ],
-  },
-
-  booking: {
-    title: "Talk with us for 15 minutes",
-    intro: "A short call for families. We cover the schedule, the fee, and the New\u00a0York trip. No preparation is needed.",
-    cta: "Book a 15-minute intro call",
-    url: "https://www.ngennetwork.org/intro",
-    embedUrl: "https://calendly.com/ngennetwork-info/start-up-challenge-intro-call",
-    embed: true,
-    iframeTitle: "Book a 15-minute intro call with NGEN",
-    or: "Or email",
-    apply: "Apply for a student",
-  },
-
-  close: {
-    title: "Next step",
-    body: "Book a 15-minute call, or send an application. We reply to the family email.",
-    cta: "Book a 15-minute intro call",
-    apply: "Apply for a student",
-    or: "Or email",
+  check: {
+    title: "Check if your student is eligible",
+    intro: "Four details. The result shows as soon as you send them.",
+    parentName: "Parent name",
+    parentEmail: "Parent email",
+    whatsapp: "WhatsApp number",
+    countryCode: "Country code",
+    gradeOrAge: "Student grade or age",
+    gradeHint: "For example, grade 11, Form 5, or age 16.",
+    submit: "Check eligibility",
+    submitting: "Sending\u2026",
+    eligibleTitle: "Your student is eligible.",
+    eligibleBody: "Students in grades 9 to 12, or ages 14 to 18, can join. Two ways to take the next step.",
+    ineligibleTitle: "Thank you. We will be in touch.",
+    ineligibleBody: "This program is for students in grades 9 to 12, or ages 14 to 18. We saved your note and will write if something fits better.",
+    consult: "Book a 20-minute private consultation",
+    sessionTitle: "Join our online info session",
+    sessionNote: "Each session is {minutes} minutes on Zoom.",
+    sessionSaving: "Saving\u2026",
+    sessionChosen: "You are signed up for this session.",
+    sessionError: "We could not save that session. Please try again.",
+    fullApply: "Or send the full application",
+    orEmail: "Or email",
+    errors: {
+      summary: "Please check the fields below and try again.",
+      parentName: "Enter the parent’s name.",
+      parentEmail: "Enter a valid parent email.",
+      whatsapp: "Enter a WhatsApp number, with the country code.",
+      gradeOrAge: "Enter the student’s grade or age.",
+      unavailable: "The form is not connected yet. Please email us and we will help.",
+      unreachable: "We could not send the form. Please email us and we will help.",
+      generic: "The form did not send. Please email us and we will help.",
+    },
   },
 
   apply: {
     title: "Apply for a student",
-    intro:
-      "For families of students in grades 9 to 12. Use a parent or guardian email. We write back to that address.",
+    intro: "For families of students in grades 9 to 12. Use a parent or guardian email. We write back to that address.",
     cta: "Start the form",
-    book: "Book a 15-minute intro call",
     formTitle: "Application",
     formIntro: "Two short sections: the parent or guardian, then the student. The résumé can be a PDF or Word file, up to 2\u00a0MB.",
     emailInstead: "If the form does not send, email",
+    copyNote: "A copy of the application is emailed to the parent and the school contact.",
     submit: "Submit application",
     submitting: "Sending\u2026",
     successTitle: "Application received.",
-    successBody: "Thank you. We will write to the parent email you entered.",
+    successBody: "Thank you. We emailed a copy to the parent and the school contact.",
     back: "Back to the program",
     parentLegend: "Parent or guardian",
     studentLegend: "Student",
     fields: {
-      parentName: "Your name",
-      email: "Your email",
+      parentName: "Parent name",
+      email: "Parent email",
       phone: "Phone, WeChat, or WhatsApp",
       countryCity: "Country and city",
       studentName: "Student’s name",
       age: "Age",
       school: "School",
+      schoolContactName: "School contact name (optional)",
+      schoolContactEmail: "School contact email",
       grade: "Grade",
       gradePlaceholder: "Select a grade",
       interests: "Interests",
@@ -292,13 +315,15 @@ export const en = {
     errors: {
       summary: "Please check the fields below and try again.",
       parentName: "Enter the parent or guardian’s name.",
-      email: "Enter a valid email address.",
+      email: "Enter a valid parent email.",
       phone: "Enter a phone number, WeChat, or WhatsApp.",
       countryCity: "Enter your country and city.",
       name: "Enter the student’s name.",
       age: "Enter an age from 12 to 20.",
       grade: "Choose a grade from 9 to 12.",
       school: "Enter the school name.",
+      schoolContactName: "Enter the school contact’s name, or leave this blank.",
+      schoolContactEmail: "Enter the school contact’s email.",
       interests: "Write a few sentences about the student’s interests.",
       guardian: "Please confirm you are the parent or guardian.",
       resume: "Attach a résumé as a PDF, DOC, or DOCX.",

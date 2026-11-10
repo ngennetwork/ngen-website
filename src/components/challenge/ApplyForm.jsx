@@ -7,7 +7,7 @@ import { validateApplication, validateResume } from "@/lib/challengeApplication"
 import PageLink from "@/components/ui/PageLink";
 
 const fieldClass =
-  "min-h-11 w-full rounded-[var(--radius-btn)] bg-white px-4 text-base text-[#050e26] ring-1 ring-[#050e26]/15 outline-none focus:ring-[#050e26] aria-invalid:ring-[#9f1239]";
+  "min-h-11 w-full rounded-[0.375rem] bg-white px-4 text-base text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
 
 export default function ApplyForm() {
   const { lang, copy } = useLocale();
@@ -63,6 +63,8 @@ export default function ApplyForm() {
       grade: data.get("grade"),
       interests: data.get("interests"),
       guardian: data.get("guardian"),
+      schoolContactName: data.get("schoolContactName"),
+      schoolContactEmail: data.get("schoolContactEmail"),
       language: lang,
     });
     const resumeCheck = validateResume(data.get("resume"), lang);
@@ -99,9 +101,9 @@ export default function ApplyForm() {
 
   if (status === "success") {
     return (
-      <div id="application-received" ref={successRef} tabIndex={-1} role="status" className="flex flex-col items-start gap-5 rounded-2xl bg-[#f6f3ec] p-6 text-[#050e26] outline-none sm:p-8">
+      <div id="application-received" ref={successRef} tabIndex={-1} role="status" className="flex flex-col items-start gap-5 rounded-xl bg-paper p-6 text-ink ring-1 ring-ink/10 outline-none">
         <h3 className="font-display text-h3">{apply.successTitle}</h3>
-        <p className="text-[1.075rem] leading-relaxed text-[#3e4d6e]">{apply.successBody}</p>
+        <p className="text-base leading-relaxed text-slate">{apply.successBody}</p>
         <PageLink href="/startup-challenge" className="btn btn-ghost">
           {apply.back}
         </PageLink>
@@ -110,7 +112,7 @@ export default function ApplyForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} onChange={onFormChange} noValidate aria-busy={status === "loading"} className="flex flex-col gap-8 rounded-2xl bg-[#f6f3ec] p-6 text-[#050e26] shadow-[0_22px_50px_-28px_rgb(5_14_38/0.65)] sm:p-8">
+    <form onSubmit={handleSubmit} onChange={onFormChange} noValidate aria-busy={status === "loading"} className="flex flex-col gap-8 rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10">
       <input type="hidden" name="language" value={lang} />
       {status === "error" && (
         <div ref={alertRef} tabIndex={-1} role="alert" className="rounded-xl bg-white px-5 py-4 outline-none">
@@ -147,7 +149,10 @@ export default function ApplyForm() {
               </option>
             ))}
           </SelectField>
+          <TextField id={`${formId}-school-contact`} name="schoolContactName" label={apply.fields.schoolContactName} autoComplete="name" error={fields.schoolContactName} />
+          <TextField id={`${formId}-school-email`} name="schoolContactEmail" type="email" label={apply.fields.schoolContactEmail} autoComplete="email" required error={fields.schoolContactEmail} />
         </div>
+        <p className="text-base leading-relaxed text-slate">{apply.copyNote}</p>
         <div className="flex flex-col gap-2">
           <label htmlFor={`${formId}-interests`} className="text-small font-medium">
             {apply.fields.interests}
@@ -166,7 +171,7 @@ export default function ApplyForm() {
               {fields.interests}
             </p>
           ) : (
-            <p id={`${formId}-interests-hint`} className="text-small text-[#3e4d6e]">
+            <p id={`${formId}-interests-hint`} className="text-small text-slate">
               {apply.fields.interestsHint}
             </p>
           )}
@@ -183,14 +188,14 @@ export default function ApplyForm() {
             accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
             aria-invalid={fields.resume ? true : undefined}
             aria-describedby={fields.resume ? `${formId}-resume-error` : `${formId}-resume-hint`}
-            className="block w-full text-small text-[#3e4d6e] file:mr-4 file:inline-flex file:min-h-11 file:items-center file:rounded-[var(--radius-btn)] file:border-0 file:bg-[#050e26] file:px-4 file:text-small file:font-medium file:text-white"
+            className="block w-full text-small text-slate file:mr-4 file:inline-flex file:min-h-11 file:items-center file:rounded-[0.375rem] file:border-0 file:bg-ink file:px-4 file:text-small file:font-medium file:text-[#fbfaf7]"
           />
           {fields.resume ? (
             <p id={`${formId}-resume-error`} className="text-small text-[#9f1239]">
               {fields.resume}
             </p>
           ) : (
-            <p id={`${formId}-resume-hint`} className="text-small text-[#3e4d6e]">
+            <p id={`${formId}-resume-hint`} className="text-small text-slate">
               {apply.fields.resumeHint}
             </p>
           )}
@@ -206,7 +211,7 @@ export default function ApplyForm() {
             required
             aria-invalid={fields.guardian ? true : undefined}
             aria-describedby={fields.guardian ? `${formId}-guardian-error` : undefined}
-            className="mt-1 size-4 accent-[#ff5a14]"
+            className="mt-1 size-4 accent-[#1c3a2a]"
           />
           <span>{apply.fields.guardian}</span>
         </label>

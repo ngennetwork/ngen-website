@@ -4,19 +4,21 @@ import Image from "next/image";
 import { speakers } from "@/data/speakers";
 import { universities } from "@/data/universities";
 import { site } from "@/content/site";
-import BookingCall from "@/components/challenge/BookingCall";
 import ChallengeShell, { useLocale } from "@/components/challenge/ChallengeShell";
+import EligibilityCheck, { EligibilityState } from "@/components/challenge/EligibilityCheck";
 import Icon from "@/components/challenge/Icons";
 import Pricing from "@/components/challenge/Pricing";
 import Timeline from "@/components/challenge/Timeline";
 import { formatUsd } from "@/components/challenge/money";
 import Photo from "@/components/layout/Photo";
 import UniversityLogo from "@/components/brand/UniversityLogo";
+import ExternalLink from "@/components/ui/ExternalLink";
 import PageLink from "@/components/ui/PageLink";
 
-const SECTION = "wrap py-[clamp(2.5rem,4.5vw,3.5rem)]";
-const CARD = "rounded-2xl bg-[#f6f3ec] text-[#050e26] shadow-[0_22px_50px_-28px_rgb(5_14_38/0.65)]";
-const MUTED = "text-[1.075rem] leading-relaxed text-[#3e4d6e]";
+const SECTION = "wrap py-[clamp(3.5rem,7vw,5.5rem)]";
+const CHROME = "h-full rounded-xl bg-paper p-6 text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10";
+const CARD = `flex flex-col ${CHROME}`;
+const MUTED = "text-base leading-relaxed text-slate";
 
 export default function ChallengeHome({ initialLang }) {
   return (
@@ -28,14 +30,19 @@ export default function ChallengeHome({ initialLang }) {
 
 function Home() {
   const { copy } = useLocale();
-  const { hero, glance, gets, months, mentors, capstone, gallery, ngen, recognition, booking, close } = copy;
+  const { hero, glance, gets, months, mentors, capstone, gallery, ngen, check } = copy;
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
-  const { raised, reach, universities: schoolsFigure, events } = site.figures;
+  const stats = [
+    { value: "$30M+", label: ngen.raised },
+    { value: site.figures.reach.value, label: ngen.reach },
+    { value: site.figures.universities.value, label: ngen.universities },
+    { value: site.figures.events.value, label: ngen.events },
+  ];
 
   return (
-    <>
-      <header className="relative isolate overflow-hidden bg-[#050e26] text-on-dark">
+    <EligibilityState>
+      <header className="relative isolate overflow-hidden text-on-dark">
         <Image
           src={hero.photo.src}
           alt={hero.photo.alt}
@@ -46,34 +53,31 @@ function Home() {
           className="object-cover"
           style={{ objectPosition: hero.photo.position }}
         />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#050e26]/92 via-[#050e26]/62 to-[#050e26]/25" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#050e26]/80 via-[#050e26]/15 to-[#050e26]/45" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#0e110f]/93 via-[#1c3a2a]/68 to-[#0e110f]/30" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0e110f]/88 via-[#0e110f]/20 to-[#0e110f]/55" />
         <div className="relative">
-          <div className="wrap pb-8 pt-32 lg:pb-10 lg:pt-36">
-            <div className="flex max-w-[40rem] flex-col items-start gap-6">
-              <p className="inline-flex items-center gap-2 rounded-full bg-[#f6f3ec] px-3 py-1.5 text-small text-[#050e26]">
-                <span aria-hidden="true" className="node" />
-                {copy.deadline}
+          <div className="wrap grid items-start gap-10 pt-36 pb-14 lg:grid-cols-12 lg:pt-40 lg:pb-16">
+            <div className="flex max-w-[40rem] flex-col items-start gap-5 lg:col-span-6">
+              <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-3 py-1.5 text-small text-[#151815]">
+                <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
+                {copy.deadlineLabel} {copy.deadline}
               </p>
-              <h1 id="challenge-title" className="max-w-[16ch] font-display text-[clamp(2.75rem,1.6rem+3vw,4.5rem)] leading-[1.02] tracking-[-0.036em]">
+              <h1 id="challenge-title" className="max-w-[16ch] font-display text-[clamp(2.5rem,1.25rem+3.3vw,4.5rem)] leading-[1.02]">
                 {hero.title}
               </h1>
               <p className="max-w-[42ch] text-lead text-on-dark/90">{hero.intro}</p>
-              <div className="flex flex-wrap gap-3">
-                <a href="#book" className="btn btn-ink">
-                  {hero.cta}
-                </a>
-                <PageLink href={copy.applyPath} className="btn btn-ghost">
-                  {hero.applyCta}
-                </PageLink>
-              </div>
+              <p className="font-medium text-on-dark">{copy.noIdea}</p>
+              <p className="max-w-[40ch] text-base leading-relaxed text-on-dark/80">{copy.urgency}</p>
               <p className="text-small text-on-dark/80">
                 <a href="#pricing" className="link">
                   {hero.priceLead} {formatUsd(copy.pricing.total)} {hero.priceMid}
                 </a>
               </p>
+              <p className="text-small text-on-dark/70">{hero.photo.caption}</p>
             </div>
-            <p className="mt-5 max-w-[36rem] text-small text-on-dark/70">{hero.photo.caption}</p>
+            <div className="lg:col-span-5 lg:col-start-8">
+              <EligibilityCheck instanceId="check-hero" />
+            </div>
           </div>
         </div>
       </header>
@@ -83,11 +87,11 @@ function Home() {
           <h2 id="glance-title" className="font-display text-h2">
             {glance.title}
           </h2>
-          <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+          <ul className="mt-8 grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2">
             {glance.items.map((item) => (
-              <li key={item.title} className={`${CARD} flex gap-4 p-6`}>
-                <span className="mt-1 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#050e26]">
-                  <Icon name={item.icon} />
+              <li key={item.title} className={`flex flex-row gap-4 ${CHROME}`}>
+                <span className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#1c3a2a]">
+                  <Icon name={item.icon} className="size-6 text-[#fbfaf7]" />
                 </span>
                 <div>
                   <h3 className="font-display text-[1.35rem] leading-tight">{item.title}</h3>
@@ -101,19 +105,19 @@ function Home() {
 
       <section aria-labelledby="gets-title" className="bg-snow">
         <div className={SECTION}>
-          <div className="grid items-start gap-6 lg:grid-cols-12">
+          <div className="grid items-start gap-8 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <h2 id="gets-title" className="font-display text-h2">
                 {gets.title}
               </h2>
               <p className="mt-3 text-lead text-slate">{gets.intro}</p>
-              <div className="mt-5">
+              <div className="mt-6">
                 <Photo src={gets.photo.src} alt={gets.photo.alt} caption={gets.photo.caption} position={gets.photo.position} ratio="aspect-[4/3]" />
               </div>
             </div>
-            <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+            <ul className="grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:col-span-7">
               {gets.items.map((item) => (
-                <li key={item.title} className={`${CARD} p-6`}>
+                <li key={item.title} className={CARD}>
                   <Icon name={item.icon} />
                   <h3 className="mt-4 font-display text-[1.35rem] leading-tight">{item.title}</h3>
                   <p className={`mt-2 ${MUTED}`}>{item.body}</p>
@@ -126,21 +130,19 @@ function Home() {
 
       <section aria-labelledby="months-title" className="bg-fog">
         <div className={SECTION}>
-          <div className="grid items-start gap-6 lg:grid-cols-12">
+          <div className="grid items-start gap-8 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <h2 id="months-title" className="font-display text-h2">
                 {months.title}
               </h2>
               <p className="mt-3 text-lead text-slate">{months.intro}</p>
-              <div className="mt-5">
+              <div className="mt-6">
                 <Photo src={months.photo.src} alt={months.photo.alt} caption={months.photo.caption} position={months.photo.position} ratio="aspect-[4/3]" />
               </div>
             </div>
-            <div className={`${CARD} p-6 sm:p-8 lg:col-span-7`}>
-              <Timeline
-                items={months.steps.map((step) => ({ label: step.when, title: step.title, body: step.body }))}
-              />
-              <p className={`mt-2 ${MUTED}`}>{months.note}</p>
+            <div className={`${CARD} lg:col-span-7`}>
+              <Timeline items={months.steps.map((step) => ({ label: step.when, title: step.title, body: step.body }))} />
+              <p className={`mt-4 ${MUTED}`}>{months.note}</p>
             </div>
           </div>
         </div>
@@ -152,12 +154,12 @@ function Home() {
             {mentors.title}
           </h2>
           <p className="mt-3 max-w-[42rem] text-lead text-slate">{mentors.intro}</p>
-          <div className="mt-5 grid items-start gap-4 lg:grid-cols-12">
-            <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+          <div className="mt-6 grid items-start gap-4 lg:grid-cols-12">
+            <ul className="grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:col-span-7">
               {mentors.points.map((point) => (
-                <li key={point.name} className={`${CARD} p-5`}>
+                <li key={point.name} className={CARD}>
                   <h3 className="font-display text-[1.25rem] leading-tight">{point.name}</h3>
-                  <p className={`mt-2 ${MUTED}`}>{point.body}</p>
+                  <p className={`mt-3 ${MUTED}`}>{point.body}</p>
                 </li>
               ))}
             </ul>
@@ -172,26 +174,28 @@ function Home() {
               <figcaption className="mt-3 text-small text-slate">{mentors.schoolsNote}</figcaption>
             </figure>
           </div>
-          <div className="mt-8">
+          <div className="mt-10">
             <h3 className="font-display text-h3">{mentors.speakersTitle}</h3>
             <p className="mt-2 max-w-[40rem] text-lead text-slate">{mentors.speakersNote}</p>
-            <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            <ul className="mt-6 grid auto-rows-fr grid-cols-2 items-stretch gap-4 sm:grid-cols-3 lg:grid-cols-6">
               {speakers.slice(0, 6).map((speaker) => (
-                <li key={speaker.name} className={`${CARD} overflow-hidden p-0`}>
-                  <div className="relative aspect-[4/5]">
-                    <Image
-                      src={speaker.headshot.src}
-                      alt={speaker.name}
-                      fill
-                      sizes="(min-width: 1024px) 14vw, 45vw"
-                      className="object-cover"
-                      style={{ objectPosition: speaker.headshot.position || "center" }}
-                    />
-                  </div>
-                  <div className="p-3">
-                    <p className="font-medium leading-tight">{speaker.name}</p>
-                    <p className="mt-1 text-small text-[#3e4d6e]">{speaker.roles[0]}</p>
-                  </div>
+                <li key={speaker.name} className="h-full">
+                  <article className="flex h-full flex-col overflow-hidden rounded-xl bg-paper text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10">
+                    <div className="relative aspect-[4/5]">
+                      <Image
+                        src={speaker.headshot.src}
+                        alt={speaker.name}
+                        fill
+                        sizes="(min-width: 1024px) 14vw, 45vw"
+                        className="object-cover"
+                        style={{ objectPosition: speaker.headshot.position || "center" }}
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col gap-1 p-6">
+                      <p className="font-medium leading-tight">{speaker.name}</p>
+                      <p className="text-small text-slate">{speaker.roles[0]}</p>
+                    </div>
+                  </article>
                 </li>
               ))}
             </ul>
@@ -199,40 +203,51 @@ function Home() {
         </div>
       </section>
 
-      <section id="capstone" aria-labelledby="capstone-title" className="bg-ink-deep text-on-dark">
+      <section id="capstone" aria-labelledby="capstone-title" className="challenge-dark bg-[#1c3a2a] text-[#fbfaf7]">
         <div className={SECTION}>
-          <div className="grid items-start gap-6 lg:grid-cols-12">
+          <div className="grid items-start gap-8 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <h2 id="capstone-title" className="font-display text-h2">
                 {capstone.title}
               </h2>
-              <p className="mt-3 text-lead text-on-dark/80">{capstone.intro}</p>
-              <h3 className="mt-5 font-display text-h3">{capstone.logisticsTitle}</h3>
+              <p className="mt-3 text-lead text-[#fbfaf7]/85">
+                {capstone.introBefore}{" "}
+                <ExternalLink href={capstone.conferenceHref} className="link">
+                  {capstone.conferenceLabel}
+                </ExternalLink>{" "}
+                {capstone.introAfter}
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-[#fbfaf7]/85">{copy.urgency}</p>
+              <h3 className="mt-6 font-display text-h3">{capstone.logisticsTitle}</h3>
               <ul className="mt-3 flex flex-col gap-3">
                 {capstone.logistics.map((item) => (
-                  <li key={item} className="flex gap-3 text-[1.075rem] leading-relaxed text-on-dark/80">
-                    <Icon name="shield" />
+                  <li key={item} className="flex gap-3 text-base leading-relaxed text-[#fbfaf7]/85">
+                    <Icon name="shield" className="mt-1 size-6 shrink-0 text-[#fbfaf7]" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-5">
+              <div className="mt-6">
                 <Photo src={capstone.photo.src} alt={capstone.photo.alt} caption={capstone.photo.caption} position={capstone.photo.position} ratio="aspect-[4/3]" />
               </div>
             </div>
-            <div className={`${CARD} p-6 sm:p-8 lg:col-span-7`}>
-              <p className="text-small font-medium text-[#c2410c]">{capstone.itinerary.label}</p>
-              <p className="mt-1 font-display text-[1.5rem] text-[#050e26]">{capstone.itinerary.place}</p>
-              <div className="mt-6">
-                <Timeline
-                  items={capstone.itinerary.days.map((day, index) => ({
-                    label: `${index + 1}`,
-                    title: day.title,
-                    body: day.body,
-                  }))}
-                />
+            <div className="flex flex-col gap-4 lg:col-span-7">
+              <div className={CARD}>
+                <p className="text-small font-medium text-[#1c3a2a]">{capstone.itinerary.label}</p>
+                <p className="mt-1 font-display text-[1.5rem] text-ink">{capstone.itinerary.place}</p>
+                <div className="mt-6">
+                  <Timeline
+                    items={capstone.itinerary.days.map((day) => ({
+                      label: day.when,
+                      title: day.title,
+                      body: day.body,
+                      href: day.href,
+                    }))}
+                  />
+                </div>
+                <p className={`mt-4 ${MUTED}`}>{capstone.itinerary.note}</p>
               </div>
-              <p className={`mt-2 ${MUTED}`}>{capstone.itinerary.note}</p>
+              <AdmitTicket ticket={capstone.ticket} href={capstone.conferenceHref} />
             </div>
           </div>
         </div>
@@ -244,15 +259,11 @@ function Home() {
             {gallery.title}
           </h2>
           <p className="mt-3 max-w-[36rem] text-lead text-slate">{gallery.intro}</p>
-          <ul
-            tabIndex={0}
-            aria-label={gallery.title}
-            className="mt-5 flex snap-x gap-4 overflow-x-auto pb-1"
-          >
+          <ul tabIndex={0} aria-label={gallery.title} className="mt-6 flex snap-x gap-4 overflow-x-auto pb-1">
             {gallery.photos.map((photo) => (
               <li key={photo.src} className="w-[min(78vw,18rem)] shrink-0 snap-start">
                 <figure>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                     <Image src={photo.src} alt={photo.alt} fill sizes="288px" className="object-cover" />
                   </div>
                   <figcaption className="mt-2 text-small text-slate">{photo.caption}</figcaption>
@@ -267,7 +278,7 @@ function Home() {
 
       <section aria-labelledby="ngen-title" className="bg-fog">
         <div className={SECTION}>
-          <div className="grid items-start gap-6 lg:grid-cols-12">
+          <div className="grid items-start gap-8 lg:grid-cols-12">
             <div className="lg:col-span-6">
               <h2 id="ngen-title" className="font-display text-h2">
                 {ngen.title}
@@ -277,25 +288,11 @@ function Home() {
                 {ngen.more.label}
               </PageLink>
             </div>
-            <dl className="grid gap-4 sm:grid-cols-2 lg:col-span-6">
-              {[raised, reach, schoolsFigure, events].map((item) => (
-                <div key={item.value} className={`${CARD} p-5`}>
-                  <dd className="font-display text-[1.75rem] leading-none tabular">{item.value}</dd>
-                  <dt className={`mt-2 ${MUTED}`}>{item.label}</dt>
-                </div>
-              ))}
-            </dl>
-          </div>
-          <div className="mt-8">
-            <h3 className="font-display text-h3">{recognition.title}</h3>
-            <p className="mt-2 text-lead text-slate">{recognition.intro}</p>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {recognition.awards.map((award) => (
-                <li key={award.name} className="flex items-baseline justify-between gap-4 rounded-xl bg-paper/60 px-4 py-3">
-                  <span>{award.name}</span>
-                  <span className="shrink-0 text-small text-slate">
-                    {award.place}, {award.year}
-                  </span>
+            <ul className="grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:col-span-6">
+              {stats.map((item) => (
+                <li key={item.label} className={`${CARD} gap-3`}>
+                  <p className="font-display text-[2.5rem] leading-none tabular">{item.value}</p>
+                  <p className="text-base leading-snug text-slate">{item.label}</p>
                 </li>
               ))}
             </ul>
@@ -303,47 +300,57 @@ function Home() {
         </div>
       </section>
 
-      <section id="book" aria-labelledby="book-title" className="bg-snow">
-        <div className={SECTION}>
-          <div className="grid items-end gap-6 lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              <h2 id="book-title" className="font-display text-h2">
-                {booking.title}
-              </h2>
-              <p className="mt-3 text-lead text-slate">{booking.intro}</p>
-            </div>
-            <p className="text-small text-slate lg:col-span-5 lg:text-right">
-              {booking.or}{" "}
+      <section id="eligibility" aria-labelledby="eligibility-title" className="bg-snow">
+        <div className={`${SECTION} grid items-start gap-8 lg:grid-cols-12`}>
+          <div className="lg:col-span-5">
+            <h2 id="eligibility-title" className="font-display text-h2">
+              {check.title}
+            </h2>
+            <p className="mt-3 text-lead text-slate">{check.intro}</p>
+            <p className="mt-4 text-small text-slate">
+              {check.orEmail}{" "}
               <a href={mailto} className="link text-ink">
                 {site.email}
               </a>
             </p>
           </div>
-          <div className="mt-5">
-            <BookingCall booking={booking} />
+          <div className="lg:col-span-6 lg:col-start-7">
+            <EligibilityCheck instanceId="check-bottom" showTitle={false} />
           </div>
         </div>
       </section>
+    </EligibilityState>
+  );
+}
 
-      <section aria-labelledby="close-title" className="bg-fog">
-        <div className={`${SECTION} grid items-end gap-6 lg:grid-cols-12`}>
-          <div className="lg:col-span-7">
-            <h2 id="close-title" className="font-display text-h2">
-              {close.title}
-            </h2>
-            <p className="mt-3 text-lead text-slate">{close.body}</p>
-            <p className="mt-3 text-small text-slate">{copy.deadline}</p>
-          </div>
-          <div className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
-            <a href="#book" className="btn btn-ink">
-              {close.cta}
-            </a>
-            <PageLink href={copy.applyPath} className="btn btn-ghost">
-              {close.apply}
-            </PageLink>
-          </div>
+function AdmitTicket({ ticket, href }) {
+  return (
+    <article aria-label={ticket.title} className="relative rounded-xl bg-paper text-ink shadow-[0_30px_60px_-24px_rgb(0_0_0/0.45)]">
+      <div className="flex items-start justify-between gap-4 p-6 pb-5">
+        <div>
+          <p className="text-small text-slate">{ticket.kicker}</p>
+          <p className="mt-1 font-display text-[1.35rem] leading-tight">{ticket.title}</p>
         </div>
-      </section>
-    </>
+        <span aria-hidden="true" className="mt-1 size-2.5 shrink-0 rounded-full bg-[#1c3a2a]" />
+      </div>
+      <dl className="grid grid-cols-2 gap-4 border-t border-ink/10 px-6 py-5 text-small">
+        <div>
+          <dt className="text-slate">{ticket.dateLabel}</dt>
+          <dd className="mt-1 font-medium">{ticket.date}</dd>
+        </div>
+        <div>
+          <dt className="text-slate">{ticket.trekLabel}</dt>
+          <dd className="mt-1 font-medium">{ticket.trek}</dd>
+        </div>
+      </dl>
+      <div className="relative flex items-center justify-between gap-4 border-t border-dashed border-ink/25 px-6 py-4">
+        <span aria-hidden="true" className="absolute -top-2.5 -left-2.5 size-5 rounded-full bg-[#1c3a2a]" />
+        <span aria-hidden="true" className="absolute -top-2.5 -right-2.5 size-5 rounded-full bg-[#1c3a2a]" />
+        <span className="text-small text-slate">{ticket.by}</span>
+        <ExternalLink href={href} className="link text-small">
+          ivyleagueconference.org
+        </ExternalLink>
+      </div>
+    </article>
   );
 }

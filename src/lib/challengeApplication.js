@@ -25,6 +25,8 @@ export function validateApplication(input) {
   const grade = String(input.grade || "").trim();
   const interests = String(input.interests || input.motivation || "").trim();
   const guardian = String(input.guardian || "").trim();
+  const schoolContactName = String(input.schoolContactName || "").trim();
+  const schoolContactEmail = String(input.schoolContactEmail || "").trim();
 
   if (parentName.length < 2 || parentName.length > 120) fields.parentName = copy.parentName;
   if (!EMAIL.test(email) || email.length > 200) fields.email = copy.email;
@@ -36,6 +38,12 @@ export function validateApplication(input) {
   if (school.length < 2 || school.length > 160) fields.school = copy.school;
   if (interests.length < 20 || interests.length > 2000) fields.interests = copy.interests;
   if (guardian !== "yes") fields.guardian = copy.guardian;
+  if (schoolContactName && (schoolContactName.length < 2 || schoolContactName.length > 120)) {
+    fields.schoolContactName = copy.schoolContactName;
+  }
+  if (!EMAIL.test(schoolContactEmail) || schoolContactEmail.length > 200) {
+    fields.schoolContactEmail = copy.schoolContactEmail;
+  }
 
   return {
     ok: Object.keys(fields).length === 0,
@@ -57,6 +65,8 @@ export function validateApplication(input) {
       countryCity,
       age,
       language,
+      schoolContactName,
+      schoolContactEmail,
     },
   };
 }

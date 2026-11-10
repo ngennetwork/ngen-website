@@ -10,9 +10,9 @@ const paths = {
   shield: "M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z",
 };
 
-export default function Icon({ name }) {
+export default function Icon({ name, className = "size-6 text-[#1c3a2a]" }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6 text-[#ff5a14]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d={paths[name] || paths.who} />
     </svg>
   );

@@ -3,7 +3,6 @@
 import { site } from "@/content/site";
 import ApplyForm from "@/components/challenge/ApplyForm";
 import ChallengeShell, { useLocale } from "@/components/challenge/ChallengeShell";
-import PageHero from "@/components/layout/PageHero";
 import Photo from "@/components/layout/Photo";
 import PageLink from "@/components/ui/PageLink";
 
@@ -22,35 +21,44 @@ function ApplyBody() {
 
   return (
     <>
-      <PageHero
-        id="apply-title"
-        title={apply.title}
-        intro={apply.intro}
-        action={
-          <div className="flex flex-wrap gap-3">
-            <a href="#application" className="btn btn-ink">
+      <header className="challenge-dark bg-ink-deep text-on-dark">
+        <div className="wrap grid items-start gap-10 pt-36 pb-14 lg:grid-cols-12 lg:pt-40 lg:pb-16">
+          <div className="flex flex-col items-start gap-6 lg:col-span-7">
+            <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-3 py-1.5 text-small text-[#151815]">
+              <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
+              {copy.deadlineLabel} {copy.deadline}
+            </p>
+            <h1 id="apply-title" className="max-w-[14ch] font-display text-[clamp(2.5rem,1.4rem+2.8vw,4rem)] leading-[1.02]">
+              {apply.title}
+            </h1>
+            <p className="max-w-[42ch] text-lead text-on-dark/80">{apply.intro}</p>
+            <p className="font-medium text-on-dark">{copy.noIdea}</p>
+            <a href="#application" className="btn btn-on-dark">
               {apply.cta}
             </a>
-            <PageLink href="/startup-challenge#book" className="btn btn-ghost">
-              {apply.book}
-            </PageLink>
           </div>
-        }
-        aside={<Photo src={hero.photo.src} alt={hero.photo.alt} caption={hero.photo.caption} position={hero.photo.position} />}
-      />
+          <div className="lg:col-span-5">
+            <Photo src={hero.photo.src} alt={hero.photo.alt} caption={hero.photo.caption} position={hero.photo.position} priority />
+          </div>
+        </div>
+      </header>
       <section id="application" aria-labelledby="application-title" className="bg-fog">
-        <div className="wrap grid items-start gap-y-8 py-[clamp(2.5rem,4.5vw,3.5rem)] lg:grid-cols-12 lg:gap-x-8">
+        <div className="wrap grid items-start gap-y-8 py-[clamp(3.5rem,7vw,5.5rem)] lg:grid-cols-12 lg:gap-x-8">
           <div className="flex flex-col gap-5 lg:col-span-4">
             <h2 id="application-title" className="font-display text-h2">
               {apply.formTitle}
             </h2>
             <p className="text-lead text-slate">{apply.formIntro}</p>
+            <p className="text-base text-slate">{copy.noIdea}</p>
             <p className="text-small text-slate">
               {apply.emailInstead}{" "}
               <a href={mailto} className="link text-ink">
                 {site.email}
               </a>
             </p>
+            <PageLink href="/startup-challenge#eligibility" className="link text-small">
+              {copy.check.title}
+            </PageLink>
           </div>
           <div className="lg:col-span-7 lg:col-start-6">
             <ApplyForm />
