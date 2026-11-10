@@ -46,25 +46,25 @@ function Home() {
           src={hero.photo.src}
           alt=""
           fill
-          sizes="100vw"
+          sizes="140vw"
           loading="eager"
           fetchPriority="high"
-          className="hidden object-cover lg:block"
-          style={{ objectPosition: hero.photo.position }}
+          className="hidden scale-[1.35] object-cover lg:block"
+          style={{ objectPosition: "50% 48%", transformOrigin: "50% 48%" }}
         />
         <div aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-r from-[#0e110f]/93 via-[#1c3a2a]/68 to-[#0e110f]/30 lg:block" />
         <div aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-t from-[#0e110f]/88 via-[#0e110f]/20 to-[#0e110f]/55 lg:block" />
         <div className="relative">
-          <div className="relative h-[12.5rem] w-full lg:hidden">
+          <div className="relative h-[12.5rem] w-full overflow-hidden lg:hidden">
             <Image
               src={hero.photo.src}
               alt={hero.photo.alt}
               fill
-              sizes="100vw"
+              sizes="140vw"
               loading="eager"
               fetchPriority="high"
-              className="object-cover"
-              style={{ objectPosition: hero.photo.position }}
+              className="scale-[1.35] object-cover"
+              style={{ objectPosition: "50% 48%", transformOrigin: "50% 48%" }}
             />
           </div>
           <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
@@ -73,10 +73,11 @@ function Home() {
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
                 {copy.deadlineLabel} {copy.deadline}
               </p>
-              <h1 id="challenge-title" className="max-w-[16ch] font-display text-[clamp(2.15rem,1.2rem+4vw,4.5rem)] leading-[1.05] lg:text-[clamp(2.5rem,1.25rem+3.3vw,4.5rem)] lg:leading-[1.02]">
+              <h1 id="challenge-title" className="max-w-[14ch] font-display text-[clamp(2.15rem,1.2rem+4vw,4.5rem)] leading-[1.05] lg:text-[clamp(2.5rem,1.25rem+3.3vw,4.5rem)] lg:leading-[1.02]">
                 {hero.title}
               </h1>
-              <p className="max-w-[42ch] text-lead text-on-dark/90">{hero.intro}</p>
+              <p className="max-w-[36ch] text-lead text-on-dark/90">{hero.tagline}</p>
+              <p className="max-w-[42ch] text-base leading-relaxed text-on-dark/85">{hero.intro}</p>
               <p className="font-medium text-on-dark">{copy.noIdea}</p>
               <p className="max-w-[40ch] text-base leading-relaxed text-on-dark/80">{copy.urgency}</p>
               <p className="hidden text-small text-on-dark/70 lg:block">{hero.photo.caption}</p>

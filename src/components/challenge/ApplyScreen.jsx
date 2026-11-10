@@ -23,20 +23,21 @@ function ApplyBody() {
   return (
     <>
       <header className="challenge-dark bg-ink-deep text-on-dark">
-        <div className="relative h-[12.5rem] w-full lg:hidden">
+        <div className="relative h-[12.5rem] w-full overflow-hidden lg:hidden">
           <Image
             src={hero.photo.src}
             alt={hero.photo.alt}
             fill
-            sizes="100vw"
+            sizes="140vw"
             loading="eager"
             fetchPriority="high"
-            className="object-cover"
-            style={{ objectPosition: hero.photo.position }}
+            className="scale-[1.35] object-cover"
+            style={{ objectPosition: "50% 48%", transformOrigin: "50% 48%" }}
           />
         </div>
         <div className="wrap grid items-start gap-6 pt-9 pb-12 lg:grid-cols-12 lg:gap-10 lg:pt-40 lg:pb-16">
           <div className="flex flex-col items-start gap-6 lg:col-span-7">
+            <p className="text-small font-medium text-[#fbfaf7]/80">{copy.name}</p>
             <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-4 py-3 text-small leading-snug text-[#151815] lg:px-3 lg:py-1.5 lg:leading-normal">
               <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
               {copy.deadlineLabel} {copy.deadline}
