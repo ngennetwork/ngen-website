@@ -83,7 +83,7 @@ export const en = {
       { when: "May", title: "Review the numbers", body: "Look at what happened, and decide what to keep doing." },
       { when: "June", title: "Write it up", body: "A short account of the company, for the family and the school." },
     ],
-    note: "An optional summer follow-on internship with NGEN, online.",
+    note: "Afterward, Fellows can join an optional online summer internship, working directly alongside the NGEN team on community building and NGEN’s expansion. Details are shared during your consultation.",
   },
 
   mentors: {
