@@ -84,9 +84,6 @@ function ApplyBody() {
                 {site.email}
               </a>
             </p>
-            <PageLink href="/startup-challenge#eligibility" className="link text-small">
-              {copy.check.title}
-            </PageLink>
           </div>
           <div className="lg:col-span-7 lg:col-start-6">
             <ApplyForm />
