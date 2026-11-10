@@ -94,7 +94,7 @@ function Home() {
             </div>
             <div className="flex flex-col items-start gap-5 max-md:order-1 max-md:gap-3">
               <p className="text-small text-[#fbfaf7]/60">
-                {copy.deadlineLabel} {copy.deadline}
+                {copy.cohortNote} {copy.deadlineLabel} {copy.deadline}
               </p>
               <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
                 <a id="hero-apply" href={copy.applyPath} className="btn btn-on-dark whitespace-normal text-center">
@@ -333,7 +333,22 @@ function Home() {
       </section>
 
       <section id="request" aria-labelledby="join-title" className="bg-snow">
-        <div className={`${SECTION} grid items-start gap-y-8 lg:grid-cols-12 lg:gap-x-8`}>
+        <div className={SECTION}>
+          <h2 id="steps-title" className="font-display text-h2">
+            {join.stepsTitle}
+          </h2>
+          <ol className="mt-6 grid gap-4 md:grid-cols-3">
+            {join.steps.map((step, i) => (
+              <li key={step.title} className={CARD}>
+                <span aria-hidden="true" className="flex size-9 items-center justify-center rounded-full bg-[#1c3a2a] text-small font-medium text-[#fbfaf7]">
+                  {i + 1}
+                </span>
+                <h3 className="mt-4 font-display text-[1.35rem] leading-tight">{step.title}</h3>
+                <p className={`mt-2 ${MUTED}`}>{step.body}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-16 grid items-start gap-y-8 lg:grid-cols-12 lg:gap-x-8">
           <div className="flex flex-col gap-5 lg:col-span-5">
             <h2 id="join-title" className="font-display text-h2">
               {join.title}
@@ -364,6 +379,7 @@ function Home() {
             </div>
             <ApplyForm />
           </div>
+  </div>
         </div>
       </section>
 
