@@ -62,7 +62,7 @@ export const en = {
       { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student, meeting weekly through the six months." },
       { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Fellows finish with work they can show a school." },
       { icon: "workshop", title: "Live workshops", body: "Each month an operator joins the group live and answers questions." },
-      { icon: "school", title: "A record for school", body: "Teachers can follow progress. Students who finish receive a certificate. Some schools use it as a class, club, or internship credit." },
+      { icon: "school", title: "Support for applications", body: "Fellows who finish receive a certificate and a letter of recommendation from NGEN. Teachers can follow progress, and some schools give class, club, or internship credit." },
     ],
   },
 
