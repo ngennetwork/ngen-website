@@ -294,6 +294,7 @@ function ThankYou({ instanceId }) {
         <ExternalLink href={sessions.consultUrl} className="btn btn-ink h-auto self-start whitespace-normal px-4 py-3 text-left">
           {check.consult}
         </ExternalLink>
+        <p className="text-small text-slate">{copy.feesNote}</p>
       </div>
       <div className="flex flex-col gap-3 border-t border-ink/10 pt-5">
         <h3 className="font-display text-[1.25rem] leading-tight">{check.sessionTitle}</h3>

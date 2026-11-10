@@ -1,6 +1,6 @@
 /**
  * The Start-Up Challenge: every word in one place.
- * Written for families. The fee lives here. The deadline string is the one
+ * Written for families. The deadline string is the one
  * line a client can change without touching the layout.
  * Info-session dates live in src/components/challenge/sessions.js.
  */
@@ -8,7 +8,7 @@
 export const en = {
   meta: {
     title: "6-Month Start-Up Challenge",
-    description: "A six-month program for high school students. The fee is US$4,000 per student.",
+    description: "A six-month program for high school students, culminating in New York at the Ivy League Entrepreneurship Conference.",
   },
   switcherLabel: "Language",
   name: "NGEN Start-Up Challenge",
@@ -18,13 +18,13 @@ export const en = {
   deadline: "Monday, December 14, 2026",
   urgency: "The program starts in January. Only 4 to 6 students are selected for the New York trip.",
   noIdea: "No company or idea needed to apply.",
+  feesNote: "Program fees and payment options are shared during your private consultation.",
 
   hero: {
+    eyebrow: "Culminating at the Ivy League Entrepreneurship Conference · New York",
     title: "Students build a real startup in six\u00a0months.",
     intro:
       "From January to June 2027, students learn how a company works and build one. An Ivy League student founder is the mentor. In April, selected students spend four days in New\u00a0York.",
-    priceLead: "The fee is",
-    priceMid: "per student.",
     photo: {
       src: "/startup-challenge/hero-group.jpg",
       alt: "Students and mentors on stage in front of the orange NGEN logo",
@@ -50,11 +50,6 @@ export const en = {
         icon: "laptop",
         title: "Format",
         body: "Online each month from home. Four days in New\u00a0York in April for selected students.",
-      },
-      {
-        icon: "fee",
-        title: "Fee",
-        body: "US$4,000 per student. Pay in full, or pay US$1,000 four times. Travel to New\u00a0York is separate.",
       },
     ],
   },
@@ -111,14 +106,14 @@ export const en = {
   },
 
   capstone: {
-    title: "Four days in New\u00a0York",
+    title: "Four days in New\u00a0York · the Ivy League Entrepreneurship Conference",
     introBefore: "Selected students spend four days in New\u00a0York, tied to NGEN’s",
     conferenceLabel: "Ivy League Entrepreneurship Conference",
     introAfter: "on April 17, 2027. They also join NGEN’s Founder Trek the day before, on April 16.",
     conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "Travel and supervision",
     logistics: [
-      "Travel and hotels are not included in the US$4,000 fee. Families budget them separately.",
+      "Travel and hotels are separate. Families budget them on their own.",
       "NGEN sets the schedule and stays with the group for the visits and the conference.",
       "We tell families who is travelling, the daily plan, and how we stay in touch.",
     ],
@@ -142,7 +137,7 @@ export const en = {
         },
         { when: "Apr 18", title: "Wrap-up and departure", body: "Day 4. A short close, then students depart." },
       ],
-      note: "Dates around the conference may shift slightly. Travel and accommodation are separate from the program fee.",
+      note: "Dates around the conference may shift slightly. Travel and accommodation are separate.",
     },
     ticket: {
       kicker: "Admit one",
@@ -187,56 +182,20 @@ export const en = {
     ],
   },
 
-  pricing: {
-    title: "Fee and payment plan",
-    intro: "One fee per student for January to June 2027.",
-    total: 4000,
-    per: "per student",
-    payInFull: {
-      name: "Pay in full",
-      amount: 4000,
-      detail: "One payment of US$4,000.",
-    },
-    installment: {
-      name: "Payment plan",
-      deposit: 1000,
-      depositLabel: "Deposit",
-      depositWhen: "Due when a student is accepted. This holds the place.",
-      payments: [
-        { amount: 1000, when: "January 2027" },
-        { amount: 1000, when: "February 2027" },
-        { amount: 1000, when: "March 2027" },
-      ],
-    },
-    includedTitle: "Included",
-    excludedTitle: "Not included",
-    included: [
-      "Six months of milestones, January through June.",
-      "An Ivy League student founder as mentor.",
-      "A live workshop each month.",
-      "Progress notes and a certificate for students who finish.",
-      "The four-day New\u00a0York program in April for selected students.",
+  join: {
+    title: "Who can join",
+    points: [
+      "Grades 9 to 12.",
+      "No company or idea needed to apply.",
+      "A parent or guardian applies.",
+      "Online from January to June 2027, with four days in New\u00a0York in April for selected students.",
     ],
-    excluded: [
-      "Flights and hotels for New\u00a0York.",
-      "The optional online summer.",
-      "Costs a student chooses to spend on their own product.",
-    ],
-    eligibility: {
-      title: "Who can join",
-      points: [
-        "Grades 9 to 12.",
-        "No company or idea needed to apply.",
-        "A parent or guardian applies.",
-        "Online from January to June 2027, with four days in New\u00a0York in April for selected students.",
-      ],
-    },
     cta: "Apply for a student",
   },
 
   ngen: {
     title: "Who runs it",
-    body: "NGEN is a 501(c)(3) nonprofit started by student leaders. We run conferences, Founder Treks and company visits.",
+    body: "NGEN is a 501(c)(3) nonprofit founded by student leaders from Princeton, Penn and Brown, and run by Ivy League students and alumni. It is independent of those universities. We run conferences, Founder Treks and company visits.",
     raised: "raised by NGEN startups",
     reach: "students reached across the network",
     universities: "universities across the network",

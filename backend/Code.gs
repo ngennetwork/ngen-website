@@ -532,8 +532,7 @@ function leadCopy(language, parentName, catalog) {
     lines.push("學生用六個月建立一間真實的公司，時間為2027年1月至6月，導師是常春藤大學的學生創辦人。");
     lines.push("申請時不需要已有公司或想法。家庭和學校都會收到進度。");
     lines.push("獲選學生於4月到紐約四天，包括4月16日的 Founder Trek，以及4月17日的常春藤創業會議。");
-    lines.push("費用為 US$4,000，或先付 US$1,000 訂金，再於2027年1月、2月和3月各付 US$1,000。");
-    lines.push("預約20分鐘個別諮詢：\n" + CONSULT_URL);
+    lines.push("課程費用和付款方式，會在個別諮詢時說明。\n" + CONSULT_URL);
     lines.push("網上簡介會（30分鐘，Zoom）：\n" + sessionsText + "\n" + ZOOM_URL);
     lines.push("完整申請表：\n" + APPLY_URL);
     lines.push("NGEN");
@@ -545,8 +544,7 @@ function leadCopy(language, parentName, catalog) {
     lines.push("学生用六个月建立一家真实的公司，时间为2027年1月至6月，导师是常春藤大学的学生创办人。");
     lines.push("申请时不需要已有公司或想法。家庭和学校都会收到进度。");
     lines.push("获选学生于4月前往纽约四天，包括4月16日的 Founder Trek，以及4月17日的常春藤创业会议。");
-    lines.push("费用为 US$4,000，或先付 US$1,000 定金，再于2027年1月、2月和3月各付 US$1,000。");
-    lines.push("预约20分钟个别咨询：\n" + CONSULT_URL);
+    lines.push("课程费用和付款方式，会在个别咨询时说明。\n" + CONSULT_URL);
     lines.push("网上简介会（30分钟，Zoom）：\n" + sessionsText + "\n" + ZOOM_URL);
     lines.push("完整申请表：\n" + APPLY_URL);
     lines.push("NGEN");
@@ -557,8 +555,7 @@ function leadCopy(language, parentName, catalog) {
   lines.push("Students build a real company over six months, from January to June 2027, with an Ivy League student founder as the mentor.");
   lines.push("No company or idea is needed to apply. Families and schools stay in the loop.");
   lines.push("Selected students spend four days in New York in April, including Founder Trek on April 16 and the Ivy League Entrepreneurship Conference on April 17.");
-  lines.push("The fee is US$4,000, or a US$1,000 deposit plus US$1,000 in each of January, February and March 2027.");
-  lines.push("Book a 20-minute private consultation:\n" + CONSULT_URL);
+  lines.push("Program fees and payment options are shared during your private consultation.\n" + CONSULT_URL);
   lines.push("Online info sessions, 30 minutes on Zoom:\n" + sessionsText + "\n" + ZOOM_URL);
   lines.push("Full application:\n" + APPLY_URL);
   lines.push("NGEN");
@@ -638,7 +635,7 @@ function applicationCopy(language, fields) {
       fields.parentName + " 您好：",
       "我們已收到 " + fields.name + " 的創業挑戰申請。這封信同時發給家長和學校聯絡人。",
       "學生：" + fields.name + "\n年齡：" + fields.age + "\n年級：" + fields.grade + "\n學校：" + fields.school + "\n學校聯絡人：" + schoolContact + "\n興趣：" + fields.motivation,
-      "接下來\n我們會閱讀申請，並以電郵回覆。\n課程由2027年1月進行至6月。\n費用為 US$4,000，或先付 US$1,000 訂金，再於2027年1月、2月和3月各付 US$1,000。\n獲選學生可能於4月到紐約四天。",
+      "接下來\n我們會閱讀申請，並以電郵回覆。\n課程由2027年1月進行至6月。\n課程費用和付款方式，會在個別諮詢時說明：\n" + CONSULT_URL + "\n獲選學生可能於4月到紐約四天。",
       "如有問題，直接回覆這封信即可。",
       "NGEN",
     ].join("\n\n");
@@ -648,7 +645,7 @@ function applicationCopy(language, fields) {
       fields.parentName + " 您好：",
       "我们已收到 " + fields.name + " 的创业挑战申请。这封信同时发给家长和学校联系人。",
       "学生：" + fields.name + "\n年龄：" + fields.age + "\n年级：" + fields.grade + "\n学校：" + fields.school + "\n学校联系人：" + schoolContact + "\n兴趣：" + fields.motivation,
-      "接下来\n我们会阅读申请，并以邮件回复。\n课程由2027年1月进行至6月。\n费用为 US$4,000，或先付 US$1,000 定金，再于2027年1月、2月和3月各付 US$1,000。\n获选学生可能于4月前往纽约四天。",
+      "接下来\n我们会阅读申请，并以邮件回复。\n课程由2027年1月进行至6月。\n课程费用和付款方式，会在个别咨询时说明：\n" + CONSULT_URL + "\n获选学生可能于4月前往纽约四天。",
       "如有问题，直接回复这封信即可。",
       "NGEN",
     ].join("\n\n");
@@ -657,7 +654,7 @@ function applicationCopy(language, fields) {
     "Hello " + fields.parentName + ",",
     "We received the Start-Up Challenge application for " + fields.name + ". This copy goes to the parent and the school contact.",
     "Student: " + fields.name + "\nAge: " + fields.age + "\nGrade: " + fields.grade + "\nSchool: " + fields.school + "\nSchool contact: " + schoolContact + "\nInterests: " + fields.motivation,
-    "What happens next\nWe read the application and reply by email.\nThe program runs from January to June 2027.\nThe fee is US$4,000, or a US$1,000 deposit plus US$1,000 in each of January, February and March 2027.\nSelected students may spend four days in New York in April.",
+    "What happens next\nWe read the application and reply by email.\nThe program runs from January to June 2027.\nProgram fees and payment options are shared during your private consultation:\n" + CONSULT_URL + "\nSelected students may spend four days in New York in April.",
     "Reply to this email if you have a question.",
     "NGEN",
   ].join("\n\n");

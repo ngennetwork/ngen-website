@@ -2,7 +2,7 @@
 export const zhHant = {
   meta: {
     title: "六個月創業挑戰",
-    description: "給中學生的六個月課程。費用為每位學生 US$4,000。",
+    description: "給中學生的六個月課程，最後在紐約的常春藤盟校創業會議。",
   },
   switcherLabel: "語言",
   name: "NGEN Start-Up Challenge",
@@ -12,13 +12,13 @@ export const zhHant = {
   deadline: "2026年12月14日（星期一）",
   urgency: "課程1月開始。紐約之行只會選4至6位學生。",
   noIdea: "申請時不需要已有公司或想法。",
+  feesNote: "課程費用和付款方式，會在個別諮詢時說明。",
 
   hero: {
+    eyebrow: "以常春藤盟校創業會議作結 · 紐約",
     title: "六個月，建立一間真正的公司。",
     intro:
       "2027年1月至6月，學生學習一間公司如何運作，並親手完成自己的項目。導師是常春藤大學的學生創辦人。4月，獲選學生會到紐約四天。",
-    priceLead: "費用為",
-    priceMid: "（每位學生）。",
     photo: {
       src: "/startup-challenge/hero-group.jpg",
       alt: "學生和導師站在橙色 NGEN 標誌前的舞台上",
@@ -33,7 +33,6 @@ export const zhHant = {
       { icon: "who", title: "適合誰", body: "中學9至12年級，大約14至18歲。申請時不需要已有公司或想法。" },
       { icon: "calendar", title: "日期", body: "2027年1月至6月。每月上網進行。4月，獲選學生到紐約四天。" },
       { icon: "laptop", title: "形式", body: "每月在家上網完成。獲選學生於4月到紐約四天。" },
-      { icon: "fee", title: "費用", body: "每位學生 US$4,000。可一次付清，或分四次，每次 US$1,000。紐約旅費另計。" },
     ],
   },
 
@@ -88,14 +87,14 @@ export const zhHant = {
   },
 
   capstone: {
-    title: "紐約四天",
+    title: "紐約四天 · 常春藤盟校創業會議",
     introBefore: "獲選學生會在紐約四天。行程配合 NGEN 的",
-    conferenceLabel: "常春藤創業會議（Ivy League Entrepreneurship Conference）",
+    conferenceLabel: "常春藤盟校創業會議（Ivy League Entrepreneurship Conference）",
     introAfter: "，於2027年4月17日舉行，並可在前一天（4月16日）參加 NGEN 的 Founder Trek。",
     conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "交通與陪同",
     logistics: [
-      "機票和酒店不包括在 US$4,000 內，由家庭另行預算。",
+      "機票和酒店另計，由家庭自行預算。",
       "NGEN 訂定行程，並在參訪和會議期間與學生同行。",
       "我們會告知家庭誰前往紐約、每天的安排，以及如何保持聯絡。",
     ],
@@ -113,17 +112,17 @@ export const zhHant = {
         { when: "4月16日", title: "Founder Trek", body: "第2天。參訪紐約的初創公司和公司。" },
         {
           when: "4月17日",
-          title: "常春藤創業會議",
+          title: "常春藤盟校創業會議",
           body: "第3天。學生參加會議。",
           href: "https://ivyleagueconference.org/",
         },
         { when: "4月18日", title: "總結與離開", body: "第4天。簡短總結，然後離開。" },
       ],
-      note: "會議前後的日期可能會稍作調整。交通和住宿不包括在課程費用內。",
+      note: "會議前後的日期可能會稍作調整。交通和住宿另計。",
     },
     ticket: {
       kicker: "入場券",
-      title: "常春藤創業會議",
+      title: "常春藤盟校創業會議",
       dateLabel: "日期",
       date: "2027年4月17日",
       trekLabel: "Founder Trek",
@@ -144,48 +143,20 @@ export const zhHant = {
     ],
   },
 
-  pricing: {
-    title: "費用與付款方式",
-    intro: "2027年1月至6月，每位學生一個費用。",
-    total: 4000,
-    per: "每位學生",
-    payInFull: { name: "一次付清", amount: 4000, detail: "一次支付 US$4,000。" },
-    installment: {
-      name: "分期付款",
-      deposit: 1000,
-      depositLabel: "訂金",
-      depositWhen: "學生獲錄取時支付，用以保留名額。",
-      payments: [
-        { amount: 1000, when: "2027年1月" },
-        { amount: 1000, when: "2027年2月" },
-        { amount: 1000, when: "2027年3月" },
-      ],
-    },
-    includedTitle: "費用包括",
-    excludedTitle: "費用不包括",
-    included: [
-      "1月至6月，六個月的每月目標。",
-      "一位常春藤學生創辦人擔任導師。",
-      "每月一次直播工作坊。",
-      "進度紀錄，以及完成學生的證書。",
-      "獲選學生於4月的紐約四天行程。",
+  join: {
+    title: "誰可以參加",
+    points: [
+      "9至12年級。",
+      "申請時不需要已有公司或想法。",
+      "由家長或監護人申請。",
+      "2027年1月至6月上網進行；4月獲選學生前往紐約四天。",
     ],
-    excluded: ["往返紐約的機票和酒店。", "可選擇的網上暑期。", "學生為自己的產品另外花費的錢。"],
-    eligibility: {
-      title: "誰可以參加",
-      points: [
-        "9至12年級。",
-        "申請時不需要已有公司或想法。",
-        "由家長或監護人申請。",
-        "2027年1月至6月上網進行；4月獲選學生前往紐約四天。",
-      ],
-    },
     cta: "為學生申請",
   },
 
   ngen: {
     title: "誰主辦",
-    body: "NGEN 是由學生領袖創立的 501(c)(3) 非營利組織。我們舉辦會議、Founder Treks 和公司參訪。",
+    body: "NGEN 是 501(c)(3) 非營利組織，由普林斯頓、賓夕法尼亞大學和布朗的學生領袖創立，並由常春藤盟校的學生和校友主持。NGEN 獨立於這些大學。我們舉辦會議、Founder Treks 和公司參訪。",
     raised: "由 NGEN 初創公司籌得",
     reach: "網絡內接觸的學生",
     universities: "網絡內的大學",

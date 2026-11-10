@@ -7,9 +7,7 @@ import { site } from "@/content/site";
 import ChallengeShell, { useLocale } from "@/components/challenge/ChallengeShell";
 import EligibilityCheck, { EligibilityState } from "@/components/challenge/EligibilityCheck";
 import Icon from "@/components/challenge/Icons";
-import Pricing from "@/components/challenge/Pricing";
 import Timeline from "@/components/challenge/Timeline";
-import { formatUsd } from "@/components/challenge/money";
 import Photo from "@/components/layout/Photo";
 import UniversityLogo from "@/components/brand/UniversityLogo";
 import ExternalLink from "@/components/ui/ExternalLink";
@@ -30,7 +28,7 @@ export default function ChallengeHome({ initialLang }) {
 
 function Home() {
   const { copy } = useLocale();
-  const { hero, glance, gets, months, mentors, capstone, gallery, ngen, check } = copy;
+  const { hero, glance, gets, months, mentors, capstone, gallery, join, ngen, check } = copy;
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
   const stats = [
@@ -58,6 +56,9 @@ function Home() {
         <div className="relative">
           <div className="wrap grid items-start gap-10 pt-36 pb-14 lg:grid-cols-12 lg:pt-40 lg:pb-16">
             <div className="flex max-w-[40rem] flex-col items-start gap-5 lg:col-span-6">
+              <p className="inline-flex max-w-full items-center rounded-full border border-dashed border-[#fbfaf7]/50 bg-[#0e110f]/30 px-3 py-1.5 text-small text-[#fbfaf7]">
+                {hero.eyebrow}
+              </p>
               <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-3 py-1.5 text-small text-[#151815]">
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
                 {copy.deadlineLabel} {copy.deadline}
@@ -68,11 +69,6 @@ function Home() {
               <p className="max-w-[42ch] text-lead text-on-dark/90">{hero.intro}</p>
               <p className="font-medium text-on-dark">{copy.noIdea}</p>
               <p className="max-w-[40ch] text-base leading-relaxed text-on-dark/80">{copy.urgency}</p>
-              <p className="text-small text-on-dark/80">
-                <a href="#pricing" className="link">
-                  {hero.priceLead} {formatUsd(copy.pricing.total)} {hero.priceMid}
-                </a>
-              </p>
               <p className="text-small text-on-dark/70">{hero.photo.caption}</p>
             </div>
             <div className="lg:col-span-5 lg:col-start-8">
@@ -87,9 +83,9 @@ function Home() {
           <h2 id="glance-title" className="font-display text-h2">
             {glance.title}
           </h2>
-          <ul className="mt-8 grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2">
+          <ul className="mt-8 grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {glance.items.map((item) => (
-              <li key={item.title} className={`flex flex-row gap-4 ${CHROME}`}>
+              <li key={item.title} className={`flex flex-row gap-4 sm:max-lg:last:col-span-2 ${CHROME}`}>
                 <span className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#1c3a2a]">
                   <Icon name={item.icon} className="size-6 text-[#fbfaf7]" />
                 </span>
@@ -274,7 +270,29 @@ function Home() {
         </div>
       </section>
 
-      <Pricing copy={copy} />
+      <section aria-labelledby="join-title" className="bg-snow">
+        <div className={SECTION}>
+          <h2 id="join-title" className="font-display text-h2">
+            {join.title}
+          </h2>
+          <ul className="mt-6 grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2">
+            {join.points.map((point) => (
+              <li key={point} className={`${CARD} text-base leading-relaxed`}>
+                {point}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 max-w-[40rem] text-small text-slate">{copy.feesNote}</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="#eligibility" className="btn btn-ink">
+              {check.title}
+            </a>
+            <PageLink href={copy.applyPath} className="btn btn-ghost">
+              {join.cta}
+            </PageLink>
+          </div>
+        </div>
+      </section>
 
       <section aria-labelledby="ngen-title" className="bg-fog">
         <div className={SECTION}>

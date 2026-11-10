@@ -179,6 +179,37 @@
   }
 }
 
+/* Header and footer on the Start-Up Challenge routes only. */
+.ivy-btn,
+.ivy-btn-light {
+  box-shadow: none;
+}
+.ivy-btn {
+  background: #1c3a2a;
+  color: #fbfaf7;
+}
+.ivy-btn:hover {
+  background: #274e39;
+  box-shadow: none;
+}
+.ivy-btn-light {
+  background: #fbfaf7;
+  color: #1c3a2a;
+}
+.ivy-btn-light:hover {
+  background: #fff;
+  box-shadow: none;
+}
+footer.ivy-chrome .text-mist {
+  color: #d5ddd4;
+}
+footer.ivy-chrome .footer-link {
+  color: #fbfaf7e0;
+}
+footer.ivy-chrome .footer-link:hover {
+  color: #fff;
+}
+
 @layer base {
   html {
     color-scheme: dark;

@@ -24,6 +24,9 @@ function ApplyBody() {
       <header className="challenge-dark bg-ink-deep text-on-dark">
         <div className="wrap grid items-start gap-10 pt-36 pb-14 lg:grid-cols-12 lg:pt-40 lg:pb-16">
           <div className="flex flex-col items-start gap-6 lg:col-span-7">
+            <p className="inline-flex max-w-full items-center rounded-full border border-dashed border-[#fbfaf7]/50 px-3 py-1.5 text-small text-[#fbfaf7]">
+              {hero.eyebrow}
+            </p>
             <p className="inline-flex items-center gap-2 rounded-full bg-[#fbfaf7] px-3 py-1.5 text-small text-[#151815]">
               <span aria-hidden="true" className="size-1.5 rounded-full bg-[#1c3a2a]" />
               {copy.deadlineLabel} {copy.deadline}
@@ -33,6 +36,7 @@ function ApplyBody() {
             </h1>
             <p className="max-w-[42ch] text-lead text-on-dark/80">{apply.intro}</p>
             <p className="font-medium text-on-dark">{copy.noIdea}</p>
+            <p className="max-w-[42ch] text-small text-on-dark/75">{copy.feesNote}</p>
             <a href="#application" className="btn btn-on-dark">
               {apply.cta}
             </a>
