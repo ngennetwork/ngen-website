@@ -97,7 +97,7 @@ export const zhHans = {
     title: "纽约四天 · 常春藤盟校创业会议",
     introBefore: "获选学人会在纽约四天。行程配合 NGEN 的",
     conferenceLabel: "常春藤盟校创业会议（Ivy League Entrepreneurship Conference）",
-    introAfter: "，于2027年4月17日举行，并可在前一天（4月16日）参加 NGEN 的 Founder Trek。",
+    introAfter: "，于2027年4月17日举行。这是仅限受邀者参加的聚会，汇聚常春藤盟校的顶尖学生创业者。学人还可在前一天（4月16日）参加 NGEN 的 Founder Trek。",
     conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "交通与陪同",
     logistics: [

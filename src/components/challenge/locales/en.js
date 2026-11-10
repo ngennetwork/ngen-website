@@ -104,7 +104,7 @@ export const en = {
     title: "Four days in New\u00a0York · the Ivy League Entrepreneurship Conference",
     introBefore: "Selected Fellows spend four days in New\u00a0York, tied to NGEN’s",
     conferenceLabel: "Ivy League Entrepreneurship Conference",
-    introAfter: "on April 17, 2027. They also join NGEN’s Founder Trek the day before, on April 16.",
+    introAfter: "on April 17, 2027, an invitation-only gathering of top student founders from across the Ivy League. They also join NGEN’s Founder Trek the day before, on April 16.",
     conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "Travel and supervision",
     logistics: [
