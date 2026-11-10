@@ -19,6 +19,9 @@ export const en = {
   urgency: "The program starts in January. Only 4 to 6 students are selected for the New York trip.",
   noIdea: "No company or idea needed to apply.",
   feesNote: "Program fees and payment options are shared during your private consultation.",
+  schools: {
+    label: "Founded and run by students and alumni of",
+  },
 
   hero: {
     eyebrow: "Culminating at the Ivy League Entrepreneurship Conference · New York",

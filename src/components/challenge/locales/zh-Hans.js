@@ -13,6 +13,9 @@ export const zhHans = {
   urgency: "课程1月开始。纽约之行只会选4至6名学生。",
   noIdea: "申请时不需要已有公司或想法。",
   feesNote: "课程费用和付款方式，会在个别咨询时说明。",
+  schools: {
+    label: "由以下大学的学生与校友创立及运营",
+  },
 
   hero: {
     eyebrow: "以常春藤盟校创业会议作结 · 纽约",

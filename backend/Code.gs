@@ -83,10 +83,9 @@ function handleNewsletter(data) {
   const sheet = getOrCreateSheet("Newsletter", ["Timestamp", "Email"]);
 
   // Skip exact duplicates so re-submitting doesn't pile up repeat rows.
-  const existingEmails = sheet
-    .getRange(2, 2, Math.max(sheet.getLastRow() - 1, 0), 1)
-    .getValues()
-    .flat();
+  // A header-only sheet has no data rows; getRange rejects a row count of 0.
+  const lastRow = sheet.getLastRow();
+  const existingEmails = lastRow > 1 ? sheet.getRange(2, 2, lastRow - 1, 1).getValues().flat() : [];
   if (existingEmails.some((e) => String(e).toLowerCase() === email.toLowerCase())) {
     return jsonResponse({ ok: true });
   }
@@ -307,9 +306,8 @@ function saveResume(base64, fileName) {
   var folder = DriveApp.getFolderById(DRIVE_FOLDER_ID);
   var file = folder.createFile(resumeBlob(base64, fileName));
 
-  // Anyone with the link can view it — lets whoever reads the sheet
-  // open the resume without needing Drive access to the folder itself.
-  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  // Leave the file on the folder's own sharing. Résumés stay private to
+  // whoever already has access to the info@ Drive folder.
   return file.getUrl();
 }
 

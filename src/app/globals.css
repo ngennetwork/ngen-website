@@ -167,6 +167,9 @@
 .challenge-pages .uni-logo {
   filter: brightness(0);
 }
+.challenge-pages .school-band .uni-logo {
+  opacity: 0.72;
+}
 .challenge-pages .challenge-dark figcaption {
   color: color-mix(in srgb, #fbfaf7 72%, transparent);
 }

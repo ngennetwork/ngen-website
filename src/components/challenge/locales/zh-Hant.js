@@ -13,6 +13,9 @@ export const zhHant = {
   urgency: "課程1月開始。紐約之行只會選4至6位學生。",
   noIdea: "申請時不需要已有公司或想法。",
   feesNote: "課程費用和付款方式，會在個別諮詢時說明。",
+  schools: {
+    label: "由以下大學的學生與校友創立及營運",
+  },
 
   hero: {
     eyebrow: "以常春藤盟校創業會議作結 · 紐約",

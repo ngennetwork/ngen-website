@@ -31,6 +31,7 @@ function Home() {
   const { hero, glance, gets, months, mentors, capstone, gallery, join, ngen, check } = copy;
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
+  const ivySchools = universities.filter((school) => school.ivy);
   const stats = [
     { value: "$30M+", label: ngen.raised },
     { value: site.figures.reach.value, label: ngen.reach },
@@ -77,6 +78,21 @@ function Home() {
           </div>
         </div>
       </header>
+
+      <section aria-labelledby="schools-label" className="school-band border-y border-ink/10 bg-snow">
+        <div className="wrap py-8 sm:py-10">
+          <p id="schools-label" className="text-center text-small text-slate">
+            {copy.schools.label}
+          </p>
+          <ul className="mt-5 grid grid-cols-2 items-center justify-items-center gap-x-6 gap-y-6 [--logo-scale:0.72] sm:grid-cols-4 sm:[--logo-scale:0.8] lg:flex lg:flex-wrap lg:justify-center lg:gap-x-8 lg:[--logo-scale:0.84]">
+            {ivySchools.map((school) => (
+              <li key={school.name} className="flex h-11 items-center justify-center">
+                <UniversityLogo university={school} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <section aria-labelledby="glance-title" className="bg-fog">
         <div className={SECTION}>
