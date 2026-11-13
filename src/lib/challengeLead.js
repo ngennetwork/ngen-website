@@ -85,7 +85,7 @@ function cnNumber(token) {
 /** Short consultation request. Phone is optional. Rows use the lead field names. */
 // The language the family wants for the consultation call. Mandarin calls
 // need a Mandarin speaker on the team, so the request records it.
-export const CALL_LANGUAGES = ["english", "mandarin", "cantonese"];
+export const CALL_LANGUAGES = ["english", "mandarin"];
 
 export function defaultCallLanguage(siteLanguage) {
   return siteLanguage === "en" ? "english" : "mandarin";

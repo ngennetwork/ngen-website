@@ -362,7 +362,7 @@ var DEFAULT_SESSIONS = [
 ];
 
 var LEAD_HEADERS = ["timestamp", "parentName", "parentEmail", "whatsapp", "gradeOrAge", "eligible", "language", "session", "note", "callLanguage"];
-var CALL_LANGUAGES = { english: "English", mandarin: "Mandarin", cantonese: "Cantonese" };
+var CALL_LANGUAGES = { english: "English", mandarin: "Mandarin" };
 var CONSULT_URL = "https://www.ngennetwork.org/intro";
 var ZOOM_URL = "https://www.ngennetwork.org/zoom";
 var APPLY_URL = "https://www.ngennetwork.org/global-fellowship#request";
@@ -533,17 +533,17 @@ var LEAD_COPY = {
     steps: [
       ["Book a time", "Choose a time for a private Zoom call with our team, or we will reach out within two business days."],
       ["Meet our team", "We answer your questions and share program fees and payment options."],
-      ["Confirm a place", "Once you confirm, your student is matched with a mentor and a team, ready for January."],
+      ["Confirm a place", "Once you confirm, your student is matched with a mentor, ready for January."],
     ],
     callIn: function (lang) { return "Your call will be in " + lang + "."; },
-    languages: { english: "English", mandarin: "Mandarin", cantonese: "Cantonese" },
+    languages: { english: "English", mandarin: "Mandarin" },
     book: "Book a consultation",
     cohort: "The first cohort has limited places. Requests close Monday, December 14, 2026.",
     glanceTitle: "The program at a glance",
     glance: [
       "Six months, January to June 2027, online from home, with an in-person trip to New York partway through.",
-      "Ten one-on-one sessions with an Ivy League student mentor, about every week and a half from January to May.",
-      "Fellows are paired up and work as a team, at least 2 hours a week.",
+      "Ten one-on-one sessions with an Ivy League student mentor, about three a month from January to March.",
+      "At least 2 hours a week. Fellows can work alone or in a team.",
       "A monthly update letter for parents.",
       "A capstone presentation in June, with a certificate and a letter of recommendation from NGEN.",
       "New York, April 15 to 18, open to every Fellow: tours of Columbia, NYU and Princeton, NGEN’s Founder Trek, and the invitation-only Ivy League Entrepreneurship Conference on Sunday, April 18. Travel and accommodation are separate.",
@@ -561,17 +561,17 @@ var LEAD_COPY = {
     steps: [
       ["预约时间", "选择一个时间，与我们的团队进行私人 Zoom 通话；我们也会在两个工作日内联系您。"],
       ["与团队见面", "我们会解答您的问题，并说明费用和付款方式。"],
-      ["确认名额", "确认后，我们会为学生配对导师和团队，一月正式开始。"],
+      ["确认名额", "确认后，我们会为学生配对导师，一月正式开始。"],
     ],
     callIn: function (lang) { return "通话语言：" + lang + "。"; },
-    languages: { english: "英语", mandarin: "普通话", cantonese: "粤语" },
+    languages: { english: "英语", mandarin: "普通话" },
     book: "预约咨询",
     cohort: "首届名额有限，申请截止日期为2026年12月14日（星期一）。",
     glanceTitle: "课程一览",
     glance: [
       "为期六个月，2027年1月至6月，在家线上参加，期间有一次纽约线下行程。",
-      "与常春藤盟校学生导师一对一指导共10次，1月至5月约每一周半一次。",
-      "学人两两配对，以团队形式合作，每周至少2小时。",
+      "与常春藤盟校学生导师一对一指导共10次，1月至3月每月约三次。",
+      "每周至少2小时。学人可以独自或组队完成项目。",
       "每月寄给家长的进度更新信。",
       "6月的结业展示，并获颁证书及 NGEN 推荐信。",
       "4月15日至18日在纽约，所有学人均可参加：参观哥伦比亚大学、纽约大学和普林斯顿大学，参加 NGEN Founder Trek，以及4月18日（星期日）仅限受邀者参加的常春藤盟校创业会议。交通和住宿另计。",
@@ -589,17 +589,17 @@ var LEAD_COPY = {
     steps: [
       ["預約時間", "選擇一個時間，與我們的團隊進行私人 Zoom 通話；我們也會在兩個工作天內聯絡您。"],
       ["與團隊會面", "我們會解答您的問題，並說明費用和付款方式。"],
-      ["確認名額", "確認後，我們會為學生配對導師和團隊，一月正式開始。"],
+      ["確認名額", "確認後，我們會為學生配對導師，一月正式開始。"],
     ],
     callIn: function (lang) { return "通話語言：" + lang + "。"; },
-    languages: { english: "英語", mandarin: "普通話", cantonese: "粵語" },
+    languages: { english: "英語", mandarin: "普通話" },
     book: "預約諮詢",
     cohort: "首屆名額有限，申請截止日期為2026年12月14日（星期一）。",
     glanceTitle: "課程一覽",
     glance: [
       "為期六個月，2027年1月至6月，在家線上參加，期間有一次紐約實體行程。",
-      "與常春藤盟校學生導師一對一指導共10次，1月至5月約每一週半一次。",
-      "學人兩兩配對，以團隊形式合作，每週至少2小時。",
+      "與常春藤盟校學生導師一對一指導共10次，1月至3月每月約三次。",
+      "每週至少2小時。學人可以獨自或組隊完成項目。",
       "每月寄給家長的進度更新信。",
       "6月的結業發表，並獲頒證書及 NGEN 推薦信。",
       "4月15日至18日在紐約，所有學人均可參加：參觀哥倫比亞大學、紐約大學和普林斯頓大學，參加 NGEN Founder Trek，以及4月18日（星期日）只限受邀者參加的常春藤盟校創業會議。交通和住宿另計。",
