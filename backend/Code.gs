@@ -541,12 +541,12 @@ var LEAD_COPY = {
     cohort: "The first cohort has limited places. Requests close Monday, December 14, 2026.",
     glanceTitle: "The program at a glance",
     glance: [
-      "Six months, January to June 2027, online from home.",
+      "Six months, January to June 2027, online from home, with an in-person trip to New York partway through.",
       "One mentorship session a week with an Ivy League student mentor.",
       "Fellows are paired up and work as a team, at least 2 hours a week.",
       "A monthly update letter for parents.",
       "A capstone presentation in June, with a certificate and a letter of recommendation from NGEN.",
-      "Four days in New York in April: NGEN’s Founder Trek on April 16 and the invitation-only Ivy League Entrepreneurship Conference on April 18. Travel and accommodation are separate.",
+      "New York, April 15 to 18, open to every Fellow: tours of Columbia, NYU and Princeton, NGEN’s Founder Trek, and the invitation-only Ivy League Entrepreneurship Conference on Sunday, April 18. Travel and accommodation are separate.",
     ],
     questions: "Questions? Just reply to this email.",
     sign: "The NGEN team",
@@ -569,12 +569,12 @@ var LEAD_COPY = {
     cohort: "首届名额有限，申请截止日期为2026年12月14日（星期一）。",
     glanceTitle: "课程一览",
     glance: [
-      "为期六个月，2027年1月至6月，在家线上参加。",
+      "为期六个月，2027年1月至6月，在家线上参加，期间有一次纽约线下行程。",
       "每周一次与常春藤盟校学生导师的指导课。",
       "学人两两配对，以团队形式合作，每周至少2小时。",
       "每月寄给家长的进度更新信。",
       "6月的结业展示，并获颁证书及 NGEN 推荐信。",
-      "4月在纽约四天：4月16日的 NGEN Founder Trek，以及4月18日仅限受邀者参加的常春藤盟校创业会议。交通和住宿另计。",
+      "4月15日至18日在纽约，所有学人均可参加：参观哥伦比亚大学、纽约大学和普林斯顿大学，参加 NGEN Founder Trek，以及4月18日（星期日）仅限受邀者参加的常春藤盟校创业会议。交通和住宿另计。",
     ],
     questions: "如有任何问题，直接回复这封邮件即可。",
     sign: "NGEN 团队",
@@ -597,12 +597,12 @@ var LEAD_COPY = {
     cohort: "首屆名額有限，申請截止日期為2026年12月14日（星期一）。",
     glanceTitle: "課程一覽",
     glance: [
-      "為期六個月，2027年1月至6月，在家線上參加。",
+      "為期六個月，2027年1月至6月，在家線上參加，期間有一次紐約實體行程。",
       "每週一次與常春藤盟校學生導師的指導課。",
       "學人兩兩配對，以團隊形式合作，每週至少2小時。",
       "每月寄給家長的進度更新信。",
       "6月的結業發表，並獲頒證書及 NGEN 推薦信。",
-      "4月在紐約四天：4月16日的 NGEN Founder Trek，以及4月18日只限受邀者參加的常春藤盟校創業會議。交通和住宿另計。",
+      "4月15日至18日在紐約，所有學人均可參加：參觀哥倫比亞大學、紐約大學和普林斯頓大學，參加 NGEN Founder Trek，以及4月18日（星期日）只限受邀者參加的常春藤盟校創業會議。交通和住宿另計。",
     ],
     questions: "如有任何問題，直接回覆這封電郵即可。",
     sign: "NGEN 團隊",
@@ -705,11 +705,12 @@ function leadWelcomeHtml(language, parentName, callLanguageKey) {
 
 // Run from the Apps Script editor to preview all three welcome emails in
 // the team inbox. Sends nothing to families.
-function sendWelcomeSamples() {
+function sendWelcomeSamples(to) {
+  to = to || CHALLENGE_INBOX;
   ["en", "zh-Hans", "zh-Hant"].forEach(function (lang) {
     var call = lang === "en" ? "english" : "mandarin";
     MailApp.sendEmail({
-      to: CHALLENGE_INBOX,
+      to: to,
       name: "NGEN",
       replyTo: CHALLENGE_INBOX,
       subject: "[Sample] " + leadSubject(lang),
@@ -717,6 +718,11 @@ function sendWelcomeSamples() {
       htmlBody: leadWelcomeHtml(lang, "Sample Parent", call),
     });
   });
+}
+
+// Run from the editor to preview the welcome email in Jackson's inbox.
+function sendWelcomeSamplesToJackson() {
+  sendWelcomeSamples("jackson@ngennetwork.org");
 }
 
 function sessionConfirmBody(language, parentName, localLine, englishLine) {
