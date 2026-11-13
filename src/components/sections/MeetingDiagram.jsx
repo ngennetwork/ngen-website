@@ -1,7 +1,7 @@
 /**
  * The conference site's diagram, at night: student founders, influential
  * leaders and sponsors as three circles, and where all three overlap, the
- * room itself: "Face to face", hatched and glowing in NGEN's orange.
+ * room itself: "Face to face", hatched in NGEN's orange.
  *
  * Drawn on a fixed 420x350 grid (the conference site's), so it scales as
  * one picture. Screen readers get one label for the whole drawing; the
@@ -26,10 +26,6 @@ export default function MeetingDiagram({ names, center, className = "" }) {
         <pattern id="meeting-hatch" width="5" height="10" patternUnits="userSpaceOnUse">
           <line x1="0.5" y1="0" x2="0.5" y2="10" stroke="var(--color-signal)" strokeWidth="0.9" />
         </pattern>
-        <radialGradient id="meeting-glow">
-          <stop offset="0%" stopColor="var(--color-signal)" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="var(--color-signal)" stopOpacity="0" />
-        </radialGradient>
         <clipPath id="meeting-a">
           <circle cx={CIRCLES[0].cx} cy={CIRCLES[0].cy} r={R} />
         </clipPath>
@@ -43,8 +39,7 @@ export default function MeetingDiagram({ names, center, className = "" }) {
         <circle key={`disc-${i}`} cx={c.cx} cy={c.cy} r={R} fill="var(--color-ink)" fillOpacity="0.035" />
       ))}
 
-      {/* Where all three meet: the glow, then the hatch */}
-      <circle cx="210" cy="194" r="70" fill="url(#meeting-glow)" />
+      {/* Where all three meet: the hatch */}
       <g clipPath="url(#meeting-a)">
         <g clipPath="url(#meeting-b)">
           <circle cx={CIRCLES[2].cx} cy={CIRCLES[2].cy} r={R} fill="url(#meeting-hatch)" opacity="0.75" />

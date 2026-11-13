@@ -17,7 +17,7 @@ export default function StartupPicture({ startup, sizes, className = "", markCla
           alt={photo.alt}
           fill
           sizes={sizes}
-          className="object-cover group-hover:scale-[1.04]"
+          className="object-cover"
           style={{ objectPosition: photo.position ?? "center" }}
         />
         {children}

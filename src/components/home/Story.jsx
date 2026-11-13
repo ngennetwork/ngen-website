@@ -50,13 +50,13 @@ export default function Story() {
           <figure className="group flex flex-col gap-3 lg:col-span-5 lg:col-start-8">
             {/* TODO(photo): replace with a photo of the three founders at the
                 first conference, without the old Trailblazers banner. */}
-            <div className="duo relative aspect-[4/3] overflow-hidden rounded-2xl lg:aspect-auto lg:min-h-[18rem] lg:flex-1">
+            <div className="duo relative aspect-[4/3] overflow-hidden rounded-lg lg:aspect-auto lg:min-h-[18rem] lg:flex-1">
               <Image
                 src="/about/events/Copy of DSC06515.jpg"
                 alt="Students in the audience at NGEN’s first conference in New York, one of them asking a question into a microphone"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover object-[78%_50%] group-hover:scale-[1.03]"
+                className="object-cover object-[78%_50%]"
               />
             </div>
             <figcaption className="text-small text-slate">{story.caption}</figcaption>

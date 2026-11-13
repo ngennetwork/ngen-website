@@ -86,13 +86,13 @@ export default function SpeakerGrid({ items, layout = "grid", columns = "grid-co
         ref={dialog}
         aria-labelledby="speaker-dialog-name"
         onClick={(e) => e.target === e.currentTarget && dialog.current?.close()}
-        className="speaker-dialog m-auto w-[min(56rem,calc(100vw-2rem))] max-w-none overflow-hidden rounded-2xl bg-paper p-0 text-ink shadow-2xl backdrop:bg-ink-night/60 backdrop:backdrop-blur-sm"
+        className="speaker-dialog m-auto w-[min(56rem,calc(100vw-2rem))] max-w-none overflow-hidden rounded-lg bg-paper p-0 text-ink ring-1 ring-ink/12 backdrop:bg-ink-night/70"
       >
         {current && (
           <div className="grid md:grid-cols-[0.9fr_1.1fr]">
             <Portrait speaker={current} sizes="(min-width: 768px) 420px, 100vw" still />
             <div className="flex flex-col gap-5 p-7 md:p-10">
-              {current.affiliation && <span className="self-start rounded-full bg-ink/6 px-3 py-1 text-small">{current.affiliation}</span>}
+              {current.affiliation && <span className="self-start text-small text-slate">{current.affiliation}</span>}
               <div>
                 <h3 id="speaker-dialog-name" className="font-display text-h2">
                   {current.name}
@@ -134,14 +134,14 @@ function Portrait({ speaker, sizes, still = false, tagClass = "", frame = "aspec
     .join("");
 
   return (
-    <span className={`relative block ${frame} w-full overflow-hidden ${still ? "bg-fog max-md:aspect-[5/4]" : "duo rounded-xl"}`}>
+    <span className={`relative block ${frame} w-full overflow-hidden ${still ? "bg-fog max-md:aspect-[5/4]" : "duo rounded-lg"}`}>
       {speaker.headshot ? (
         <Image
           src={speaker.headshot.src}
           alt={still ? speaker.name : ""}
           fill
           sizes={sizes}
-          className={`object-cover ${still ? "" : "group-hover:scale-[1.03]"}`}
+          className="object-cover"
           style={{ objectPosition: speaker.headshot.position ?? "center top" }}
         />
       ) : (
@@ -150,7 +150,7 @@ function Portrait({ speaker, sizes, still = false, tagClass = "", frame = "aspec
         </span>
       )}
       {!still && speaker.affiliation && (
-        <span className={`absolute bottom-3 left-3 z-[2] rounded-full bg-paper/90 px-3 py-1 text-small backdrop-blur ${tagClass}`}>
+        <span className={`absolute bottom-3 left-3 z-[2] bg-paper px-2 py-0.5 text-small ${tagClass}`}>
           {speaker.affiliation}
         </span>
       )}

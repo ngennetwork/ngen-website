@@ -16,20 +16,20 @@ export default function StartupCards({ showFounders = false }) {
     <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-4">
       {startups.map((s) => (
         <li key={s.id}>
-          <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-paper ring-1 ring-ink/6 transition-shadow duration-500 hover:shadow-[0_24px_50px_-28px_rgb(21_39_71/0.4)]">
+          <article className="group flex h-full flex-col overflow-hidden rounded-lg bg-paper ring-1 ring-ink/12">
             <StartupPicture
               startup={s}
               sizes="(min-width: 1280px) 300px, (min-width: 640px) 50vw, 100vw"
               className="aspect-[4/3]"
               markClassName="w-[30%]"
             >
-              <span className="absolute top-3 left-3 z-[2] rounded-full bg-paper/90 px-3 py-1 text-small font-medium backdrop-blur">
+              <span className="absolute top-3 left-3 z-[2] bg-paper px-2 py-0.5 text-small font-medium">
                 {s.badge}
               </span>
             </StartupPicture>
             <div className="flex flex-1 flex-col gap-3 p-5">
               <div className="flex items-center gap-3">
-                <span className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-ink/8">
+                <span className="flex size-10 shrink-0 items-center justify-center overflow-hidden bg-white ring-1 ring-ink/12">
                   <Image
                     src={s.logo.src}
                     alt=""

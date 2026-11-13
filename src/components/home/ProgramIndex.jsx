@@ -77,7 +77,7 @@ export default function ProgramIndex() {
         </ol>
 
         <figure className="hidden flex-col gap-4 lg:col-span-6 lg:flex">
-          <div className="relative min-h-[18rem] flex-1 overflow-hidden rounded-2xl bg-ink/5">
+          <div className="relative min-h-[18rem] flex-1 overflow-hidden rounded-lg bg-ink/5">
             {ITEMS.map((item, i) => (
               <Image
                 key={item.key}
@@ -85,9 +85,7 @@ export default function ProgramIndex() {
                 alt={active === i ? item.photo.alt : ""}
                 fill
                 sizes="(min-width: 1024px) 45vw, 1px"
-                className={`object-cover transition-[opacity,transform] duration-700 ease-out ${
-                  active === i ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"
-                }`}
+                className={`object-cover ${active === i ? "opacity-100" : "opacity-0"}`}
                 style={{ objectPosition: item.photo.position ?? "50% 50%" }}
               />
             ))}

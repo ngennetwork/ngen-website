@@ -49,7 +49,7 @@ export const metadata = {
   },
 };
 
-// One version: NGEN at night (deep navy, glowing orange).
+// One version: NGEN at night (deep navy, solid orange).
 export const viewport = {
   themeColor: "#050e26",
   colorScheme: "dark",
@@ -58,11 +58,6 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={albertSans.variable}>
-      <head>
-        <noscript>
-          <style>{`.reveal{opacity:1!important;transform:none!important}.timeline-line,.timeline-node{opacity:1!important;transform:none!important}`}</style>
-        </noscript>
-      </head>
       {/* Extensions like Grammarly add attributes to <body> before React loads; ignore just those. */}
       <body suppressHydrationWarning>
         <a
