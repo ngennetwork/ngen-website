@@ -44,7 +44,7 @@ export const zhHans = {
       { label: "对象", value: "9至12年级", detail: "约14至18岁。" },
       { label: "时间", value: "2027年1月至6月", detail: "为期六个月，每月一个目标。" },
       { label: "时间", value: "每周至少2小时", detail: "平台上的任务，加上定期与导师一对一。院士可以按个人时间分配及兴趣投入更多时间。" },
-      { label: "导师指导", value: "10次一对一", detail: "每次30分钟，与常春藤盟校学生导师线上一对一，1月至3月每月约三次。" },
+      { label: "导师指导", value: "10次一对一", detail: "每次30分钟，与常春藤盟校学生导师线上一对一，前三个月每月约三次。" },
       { label: "团队", value: "自由选择", detail: "院士可以独自或组队完成项目。每人有自己的账户，并各自提交作业。" },
       { label: "入门要求", value: "无需创业点子", detail: "没门槛，只要坚定承诺" },
     ],
@@ -83,7 +83,7 @@ export const zhHans = {
 
   mentors: {
     title: "导师",
-    intro: "每位导师都是常春藤盟校学生。他们与每位院士一对一见面共10次，1月至3月每月约三次，并在作业提交前作出期末复习和最终评审。",
+    intro: "每位导师都是常春藤盟校学生。他们与每位院士一对一见面共10次，前三个月每月约三次，并在作业提交前作出期末复习和最终评审。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "导师就读的大学。NGEN 是毕业生创办的独立非牟利组织，跟这些大学没有关系的。",
     points: [

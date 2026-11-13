@@ -44,7 +44,7 @@ export const zhHant = {
       { label: "對象", value: "9至12年級", detail: "約14至18歲。" },
       { label: "時間", value: "2027年1月至6月", detail: "為期六個月，每月一個目標。" },
       { label: "時間", value: "每週至少2小時", detail: "平台上的任務，加上定期與導師一對一。學人可以按興趣投入更多時間。" },
-      { label: "導師指導", value: "10次一對一", detail: "每次30分鐘，與常春藤盟校學生導師網上一對一，1月至3月每月約三次。" },
+      { label: "導師指導", value: "10次一對一", detail: "每次30分鐘，與常春藤盟校學生導師網上一對一，前三個月每月約三次。" },
       { label: "團隊", value: "自由選擇", detail: "學人可以獨自或組隊完成項目。每人有自己的帳戶，並各自提交作業。" },
       { label: "入門要求", value: "無需創業點子", detail: "不需要已有公司或想法。" },
     ],
@@ -83,7 +83,7 @@ export const zhHant = {
 
   mentors: {
     title: "導師",
-    intro: "每位導師都是常春藤盟校學生。他們與每位學人一對一見面共10次，1月至3月每月約三次，並在作業提交前先看一遍。",
+    intro: "每位導師都是常春藤盟校學生。他們與每位學人一對一見面共10次，前三個月每月約三次，並在作業提交前先看一遍。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "導師就讀的大學。NGEN 是獨立非營利組織，並不屬於這些大學。",
     points: [
