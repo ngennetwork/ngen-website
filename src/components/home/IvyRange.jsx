@@ -72,16 +72,6 @@ function Range({ geo, className, narrow = false, active, take, release }) {
           ))}
         </svg>
 
-        {schools.map((s) => (
-          <span
-            key={s.file}
-            aria-hidden="true"
-            className="range-node"
-            data-ivy={s.ivy ? "" : undefined}
-            style={{ left: pct(s.x / W), top: pct(s.y / H) }}
-          />
-        ))}
-
         {schools.map((s) => {
           const at = s.x / W;
           // Near the edges the card leans inward so it never leaves the screen.

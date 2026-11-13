@@ -412,13 +412,12 @@ footer.ivy-chrome .footer-link:hover {
     font-variant-numeric: tabular-nums lining-nums;
   }
 
-  /* A node: a solid orange dot, used as a marker. */
+  /* A node: a short orange rule, used as a text marker. */
   .node {
     display: inline-block;
     flex-shrink: 0;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 9999px;
+    width: 12px;
+    height: 2px;
     background: var(--color-signal);
   }
 
@@ -493,10 +492,10 @@ footer.ivy-chrome .footer-link:hover {
 .range-seg {
   stroke-width: 2.5;
   opacity: 0;
-  transition: opacity 0.35s ease;
 }
 .range-seg[data-on] {
   opacity: 1;
+  stroke: var(--color-signal);
 }
 .range-trail {
   fill: none;
@@ -506,23 +505,6 @@ footer.ivy-chrome .footer-link:hover {
   stroke-dasharray: 2 6;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
-}
-.range-node {
-  position: absolute;
-  z-index: 1;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-radius: 9999px;
-  background: var(--color-snow);
-  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--color-ink) 55%, transparent);
-  transform: translate(-50%, -50%);
-}
-/* Ivy summits carry a solid orange dot. */
-.range-node[data-ivy] {
-  width: 1rem;
-  height: 1rem;
-  background: var(--color-signal);
-  box-shadow: none;
 }
 .range-card {
   position: absolute;
@@ -561,7 +543,7 @@ footer.ivy-chrome .footer-link:hover {
   animation: fade-in 1.2s ease 2.5s backwards;
 }
 
-/* The story trail (home). A static line with a solid dot at each milestone.
+/* The story trail (home). A static line with a short orange dash at each milestone.
    It runs down the left below 1280px and across the page from xl up, where
    four columns are wide enough for the step titles. */
 .timeline-line {
@@ -576,10 +558,9 @@ footer.ivy-chrome .footer-link:hover {
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
-  width: 1rem;
-  height: 1rem;
-  margin: -0.5rem 0 0 -0.5rem;
-  border-radius: 9999px;
+  width: 12px;
+  height: 2px;
+  margin: -1px 0 0 -6px;
   background: var(--color-signal);
 }
 @media (min-width: 80rem) {
