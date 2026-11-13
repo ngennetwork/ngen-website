@@ -56,7 +56,7 @@ export const zhHans = {
     items: [
       { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生，整个课程共10次一对一指导。" },
       { icon: "build", title: "一个真实的公司理念项目", body: "从构思想法、第一批产品至第一批客户。院士完成后可以给同学们及学校分享的成果。" },
-      { icon: "workshop", title: "每月在线工作坊", body: "每月有一位业界人士在线上加入，并回答问题。" },
+      { icon: "workshop", title: "在线工作坊", body: "由专家主持的在线工作坊，另设答疑时间。" },
       { icon: "school", title: "升学申请的支持", body: "完成课程的学人会获得证书，以及 NGEN 的推荐信。老师和家长都可以跟进进度。" },
     ],
   },
@@ -104,7 +104,7 @@ export const zhHans = {
     conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "交通与陪同",
     logistics: [
-      "行程向所有院士开放，无需选拔。",
+      "这是另行收费的可选行程，由 NGEN 统筹安排，让院士亲身认识常春藤盟校。所有院士均可参加，无需选拔。",
       "未满18岁的院士须由家长陪同，或由家长书面指定的成年监护人陪同。",
       "收费不包括机票/交通和酒店住宿饮食，所有其它离港参加费用由家长自行安排。",
       "NGEN 负责制定行程，并在参访和会议期间与院士同行。",

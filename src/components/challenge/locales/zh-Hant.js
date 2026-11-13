@@ -56,7 +56,7 @@ export const zhHant = {
     items: [
       { icon: "mentor", title: "六個月的導師", body: "導師是常春藤盟校學生，整個課程共10次一對一指導。" },
       { icon: "build", title: "一個真實的公司項目", body: "從想法、初版產品到第一批客戶。學人完成後有可以給學校看的成果。" },
-      { icon: "workshop", title: "每月直播工作坊", body: "每月有一位業界人士在線上加入，並回答問題。" },
+      { icon: "workshop", title: "網上工作坊", body: "由專家主持的網上工作坊，另設答疑時間。" },
       { icon: "school", title: "升學申請的支持", body: "完成課程的學人會獲得證書，以及 NGEN 的推薦信。老師和家長都可以跟進進度。" },
     ],
   },
@@ -104,7 +104,7 @@ export const zhHant = {
     conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "交通與陪同",
     logistics: [
-      "行程向所有學人開放，無需甄選。",
+      "這是另行收費的可選行程，由 NGEN 統籌安排，讓學人親身認識常春藤盟校。所有學人均可參加，無需甄選。",
       "未滿18歲的學人須由家長陪同，或由家長書面指定的成年監護人陪同。",
       "機票和酒店另計，由家庭自行預算。",
       "NGEN 訂定行程，並在參訪和會議期間與學生同行。",
