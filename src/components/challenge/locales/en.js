@@ -62,7 +62,7 @@ export const en = {
     items: [
       { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student, with 10 one-on-one sessions across the program." },
       { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Fellows finish with work they can show a school." },
-      { icon: "workshop", title: "Live workshops", body: "Each month an operator joins the group live and answers questions." },
+      { icon: "workshop", title: "Live workshops", body: "Live online workshops with experts, plus office hours for questions." },
       { icon: "school", title: "Support for applications", body: "Fellows who finish receive a certificate and a letter of recommendation from NGEN. Teachers and parents can follow progress." },
     ],
   },
@@ -111,7 +111,7 @@ export const en = {
     conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "Travel and supervision",
     logistics: [
-      "The trip is open to every Fellow, with no selection.",
+      "An optional add-on with its own fee, organized and run by NGEN, to meet the Ivy League in person. Open to every Fellow, with no selection.",
       "Fellows under 18 travel with a parent, or with an adult guardian the parent names in writing.",
       "Travel and hotels are separate. Families budget them on their own.",
       "NGEN sets the schedule and stays with the group for the visits and the conference.",
