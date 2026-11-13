@@ -13,7 +13,7 @@
 export const conference = {
   name: "Ivy League Entrepreneurship Conference",
   // Noon keeps the date right in any time zone; the start time is TBD.
-  startsAt: "2027-04-17T12:00:00-04:00",
+  startsAt: "2027-04-18T12:00:00-04:00",
   dateLabel: "April 17, 2027",
   city: "New York City",
   format: "Invite-only",
