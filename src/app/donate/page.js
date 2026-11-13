@@ -56,7 +56,7 @@ export default function DonatePage() {
           title={copy.formTitle}
           aside={<p className="text-small text-slate">EIN: {site.ein}</p>}
         >
-          <div className="relative h-[760px] overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8">
+          <div className="relative h-[760px] overflow-hidden rounded-lg bg-white ring-1 ring-ink/12">
             <iframe
               title="Donation form, powered by Zeffy"
               src={site.links.donateEmbed}

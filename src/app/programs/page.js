@@ -19,7 +19,7 @@ const isExternal = (href) => href.startsWith("http");
 /**
  * The four programs as stacked statements: each one's photo on the left,
  * its name, line and two ways in on the right; then SpaceTech, highlighted
- * with the ticket's glow and a way to its own site. Then the Capital
+ * with a plain card and a way to its own site. Then the Capital
  * Network, set apart, for founders who are already raising.
  */
 export default function ProgramsPage() {
@@ -50,7 +50,7 @@ export default function ProgramsPage() {
         <ol className="wrap flex flex-col gap-[clamp(4rem,8vw,6rem)] pt-[clamp(4rem,8vw,7rem)] pb-[clamp(4rem,8vw,6rem)]">
           {programs.map((p, i) => (
             <li key={p.slug} className="grid items-center gap-x-8 gap-y-8 lg:grid-cols-12">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-ink/5 lg:col-span-6">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-ink/5 lg:col-span-6">
                 <Image
                   src={p.photo.src}
                   alt={p.photo.alt}
@@ -91,11 +91,10 @@ export default function ProgramsPage() {
           ))}
         </ol>
 
-        {/* SpaceTech, highlighted: the one card on the page that glows */}
         <div className="wrap pb-[clamp(4rem,8vw,7rem)]">
           <article
             aria-labelledby="spacetech-title"
-            className="glow-card grid items-end gap-x-8 gap-y-8 rounded-2xl bg-paper px-[clamp(1.5rem,4vw,3.5rem)] py-[clamp(2rem,5vw,3.5rem)] lg:grid-cols-12"
+            className="grid items-end gap-x-8 gap-y-8 rounded-lg bg-paper px-[clamp(1.5rem,4vw,3.5rem)] py-[clamp(2rem,5vw,3.5rem)] ring-1 ring-ink/12 lg:grid-cols-12"
           >
             <div className="flex flex-col items-start gap-4 lg:col-span-8">
               <p className="flex items-center gap-2.5 text-small text-slate">

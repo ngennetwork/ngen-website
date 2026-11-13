@@ -38,7 +38,7 @@ export default function CapitalNetworkInvestorsPage() {
             </h2>
             <ol className="flex flex-col gap-3">
               {copy.steps.map((step, i) => (
-                <li key={step.title} className="grid grid-cols-[2.5rem_1fr] gap-x-4 rounded-xl bg-paper p-5 ring-1 ring-ink/6">
+                <li key={step.title} className="grid grid-cols-[2.5rem_1fr] gap-x-4 rounded-lg bg-paper p-5 ring-1 ring-ink/12">
                   <span className="font-display text-[1.375rem] leading-tight text-slate tabular">{String(i + 1).padStart(2, "0")}</span>
                   <span className="flex flex-col gap-1">
                     <span className="font-medium">{step.title}</span>
@@ -59,7 +59,7 @@ export default function CapitalNetworkInvestorsPage() {
           aside={<p className="text-small text-slate">{copy.formIntro}</p>}
           tone="band"
         >
-          <div className="rounded-2xl bg-white p-[clamp(1rem,3vw,2rem)] ring-1 ring-ink/6">
+          <div className="rounded-lg bg-white p-[clamp(1rem,3vw,2rem)] ring-1 ring-ink/12">
             <TallyEmbed formId="vG84j4" title="Join the NGEN Capital Network as an investor" />
           </div>
         </PageSection>

@@ -42,7 +42,7 @@ export default function AboutPage() {
             <h2 id="letter-title" className="font-display text-[1.75rem] leading-tight tracking-[-0.025em] lg:col-span-3 lg:pt-2">
               {about.letterTitle}
             </h2>
-            <article className="rounded-2xl bg-paper px-[clamp(1.5rem,4vw,3.5rem)] py-[clamp(2rem,5vw,3.5rem)] md:max-lg:px-[14%] shadow-[0_24px_60px_-40px_rgb(21_39_71/0.35)] ring-1 ring-ink/6 lg:col-span-6">
+            <article className="rounded-lg bg-paper px-[clamp(1.5rem,4vw,3.5rem)] py-[clamp(2rem,5vw,3.5rem)] ring-1 ring-ink/10 md:max-lg:px-[14%] lg:col-span-6">
               <div className="flex flex-col gap-5 text-lead text-ink/90 [&>p]:[text-wrap:pretty]">
                 {about.letter.map((paragraph) => (
                   <p key={paragraph.slice(0, 32)}>{paragraph}</p>
@@ -52,7 +52,7 @@ export default function AboutPage() {
               <p className="mt-1 font-display text-h3">{about.signature}</p>
             </article>
             <figure className="flex flex-col gap-3 self-start lg:sticky lg:top-28 lg:col-span-3">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-ink/5">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-ink/5">
                 {/* TODO(photo): this first-conference photo is used on four pages; replace
                     with a new one of the founders (see public/about/founders-photo.jpeg,
                     which still shows the old Trailblazers banner). */}

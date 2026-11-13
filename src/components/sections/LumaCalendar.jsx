@@ -12,7 +12,7 @@ export default function LumaCalendar({ className = "", frameClassName = "h-[380p
   const src = site.links.lumaEmbed.replace("lt=light", "lt=dark");
 
   return (
-    <div className={`luma-frame overflow-hidden rounded-2xl bg-paper ring-1 ring-ink/8 ${className}`}>
+    <div className={`luma-frame overflow-hidden rounded-lg bg-paper ring-1 ring-ink/12 ${className}`}>
       <iframe
         src={src}
         title="NGEN events calendar on Luma"
