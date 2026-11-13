@@ -127,9 +127,9 @@ export const en = {
       label: "Day by day",
       place: "April 15–18, 2027, New\u00a0York City",
       days: [
-        { when: "Apr 15", title: "Columbia and NYU", body: "Day 1. Families arrive the day before. Fellows hear the plan for the four days and tour Columbia University and NYU." },
+        { when: "Apr 15", title: "Columbia", body: "Day 1. Families arrive the day before. A short welcome, then a visit to Columbia University." },
         { when: "Apr 16", title: "Founder Trek", body: "Day 2. A full day of visits to startups and investors in New\u00a0York." },
-        { when: "Apr 17", title: "Princeton and pitch workshop", body: "Day 3. A tour of Princeton University, an hour from New\u00a0York, and a workshop to sharpen each Fellow’s pitch." },
+        { when: "Apr 17", title: "Princeton and Penn", body: "Day 3. Campus visits at Princeton University and the University of Pennsylvania, by train from New\u00a0York." },
         {
           when: "Apr 18",
           title: "Ivy League Entrepreneurship Conference",
