@@ -661,7 +661,7 @@ function leadWelcomeHtml(language, parentName, callLanguageKey) {
       var extra = "";
       if (i === 1 && c.languages[callLanguageKey]) extra = " " + escapeHtml(c.callIn(c.languages[callLanguageKey]));
       return '<tr><td valign="top" style="padding:0 14px 16px 0;width:30px;">' +
-        '<div style="width:28px;height:28px;line-height:28px;border-radius:14px;background:' + GREEN + ';color:' + CREAM + ';text-align:center;font:600 13px ' + SANS + ';">' + (i + 1) + '</div></td>' +
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="28" height="28" align="center" valign="middle" bgcolor="' + GREEN + '" style="width:28px;height:28px;border-radius:14px;background:' + GREEN + ';color:' + CREAM + ';font:600 13px/28px ' + SANS + ';">' + (i + 1) + '</td></tr></table></td>' +
         '<td valign="top" style="padding:2px 0 16px;font:15px/1.55 ' + SANS + ';color:' + SLATE + ';">' +
         '<span style="font:17px ' + SERIF + ';color:' + INK + ';">' + escapeHtml(step[0]) + '</span><br>' + escapeHtml(step[1]) + extra + '</td></tr>';
     }).join("");
@@ -671,18 +671,18 @@ function leadWelcomeHtml(language, parentName, callLanguageKey) {
     }).join("");
     var banner = withBanner
       ? '<tr><td><img src="' + FELLOWSHIP_BANNER + '" width="600" alt="' + escapeHtml(c.program + ", " + c.dates) + '" style="display:block;width:100%;max-width:600px;height:auto;border:0;"></td></tr>'
-      : '<tr><td style="background:' + GREEN + ';padding:28px 36px;"><div style="font:28px/1.15 ' + SERIF + ';color:' + CREAM + ';">' + escapeHtml(c.program) + '</div>' +
+      : '<tr><td bgcolor="' + GREEN + '" style="background:' + GREEN + ';padding:28px 36px;"><div style="font:28px/1.15 ' + SERIF + ';color:' + CREAM + ';">' + escapeHtml(c.program) + '</div>' +
         '<div style="margin-top:8px;font:12px ' + SANS + ';letter-spacing:1px;text-transform:uppercase;color:#c8d4cc;">' + escapeHtml(c.dates) + '</div></td></tr>';
     return banner +
-      '<tr><td style="background:' + CREAM + ';padding:32px 36px 12px;">' +
+      '<tr><td bgcolor="' + CREAM + '" style="background:' + CREAM + ';padding:32px 36px 12px;">' +
       '<p style="margin:0 0 14px;font:16px/1.6 ' + SANS + ';color:' + INK + ';">' + escapeHtml(c.hello(parentName)) + '</p>' +
       '<p style="margin:0 0 28px;font:16px/1.6 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.thanks) + '</p>' +
       '<div style="margin:0 0 16px;font:24px/1.2 ' + SERIF + ';color:' + INK + ';">' + escapeHtml(c.nextTitle) + '</div>' +
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">' + steps + '</table>' +
-      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 14px;"><tr><td style="background:' + GREEN + ';border-radius:8px;">' +
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 14px;"><tr><td bgcolor="' + GREEN + '" style="background:' + GREEN + ';border-radius:8px;">' +
       '<a href="' + CONSULT_URL + '" style="display:inline-block;padding:13px 22px;font:600 15px ' + SANS + ';color:' + CREAM + ';text-decoration:none;">' + escapeHtml(c.book) + '</a></td></tr></table>' +
       '<p style="margin:0 0 32px;font:14px/1.55 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.cohort) + '</p>' +
-      '<div style="height:1px;background:#e3e0d8;margin:0 0 28px;"></div>' +
+      '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 28px;"><tr><td height="1" bgcolor="#e3e0d8" style="height:1px;line-height:1px;font-size:1px;background:#e3e0d8;">&nbsp;</td></tr></table>' +
       '<div style="margin:0 0 16px;font:24px/1.2 ' + SERIF + ';color:' + INK + ';">' + escapeHtml(c.glanceTitle) + '</div>' +
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">' + glance + '</table>' +
       '<p style="margin:18px 0 6px;font:15px/1.6 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.questions) + '</p>' +
@@ -691,13 +691,13 @@ function leadWelcomeHtml(language, parentName, callLanguageKey) {
   }
 
   var english = language === "en" ? "" :
-    '<tr><td style="height:24px;background:' + PAGE + ';"></td></tr>' + section("en", false);
+    '<tr><td height="24" bgcolor="' + PAGE + '" style="height:24px;background:' + PAGE + ';"></td></tr>' + section("en", false);
 
-  return '<!doctype html><html><body style="margin:0;padding:0;background:' + PAGE + ';">' +
-    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:' + PAGE + ';"><tr><td align="center" style="padding:24px 12px;">' +
+  return '<!doctype html><html><head><meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light only"></head><body bgcolor="' + PAGE + '" style="margin:0;padding:0;background:' + PAGE + ';">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="' + PAGE + '" style="background:' + PAGE + ';"><tr><td align="center" style="padding:24px 12px;">' +
     '<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;border-radius:14px;overflow:hidden;">' +
     section(language, true) + english +
-    '<tr><td style="background:' + GREEN + ';padding:22px 36px;font:13px/1.6 ' + SANS + ';color:#c8d4cc;">' +
+    '<tr><td bgcolor="' + GREEN + '" style="background:' + GREEN + ';padding:22px 36px;font:13px/1.6 ' + SANS + ';color:#c8d4cc;">' +
     '<span style="font:16px ' + SERIF + ';color:' + CREAM + ';">NGEN</span><br>' + escapeHtml(leadCopyFor(language).tagline) +
     ' · <a href="https://www.ngennetwork.org/global-fellowship" style="color:#c8d4cc;">ngennetwork.org</a></td></tr>' +
     '</table></td></tr></table></body></html>';
