@@ -542,7 +542,7 @@ var LEAD_COPY = {
     glanceTitle: "The program at a glance",
     glance: [
       "Six months, January to June 2027, online from home, with an in-person trip to New York partway through.",
-      "One mentorship session a week with an Ivy League student mentor.",
+      "Ten one-on-one sessions with an Ivy League student mentor, about every week and a half from January to May.",
       "Fellows are paired up and work as a team, at least 2 hours a week.",
       "A monthly update letter for parents.",
       "A capstone presentation in June, with a certificate and a letter of recommendation from NGEN.",
@@ -570,7 +570,7 @@ var LEAD_COPY = {
     glanceTitle: "课程一览",
     glance: [
       "为期六个月，2027年1月至6月，在家线上参加，期间有一次纽约线下行程。",
-      "每周一次与常春藤盟校学生导师的指导课。",
+      "与常春藤盟校学生导师一对一指导共10次，1月至5月约每一周半一次。",
       "学人两两配对，以团队形式合作，每周至少2小时。",
       "每月寄给家长的进度更新信。",
       "6月的结业展示，并获颁证书及 NGEN 推荐信。",
@@ -598,7 +598,7 @@ var LEAD_COPY = {
     glanceTitle: "課程一覽",
     glance: [
       "為期六個月，2027年1月至6月，在家線上參加，期間有一次紐約實體行程。",
-      "每週一次與常春藤盟校學生導師的指導課。",
+      "與常春藤盟校學生導師一對一指導共10次，1月至5月約每一週半一次。",
       "學人兩兩配對，以團隊形式合作，每週至少2小時。",
       "每月寄給家長的進度更新信。",
       "6月的結業發表，並獲頒證書及 NGEN 推薦信。",
