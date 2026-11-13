@@ -43,8 +43,8 @@ export const zhHans = {
     facts: [
       { label: "对象", value: "9至12年级", detail: "约14至18岁。" },
       { label: "时间", value: "2027年1月至6月", detail: "为期六个月，每月一个目标。" },
-      { label: "时间", value: "每周至少2小时", detail: "每周一次指导课，加上课后作业。院士可以按个人时间分配及兴趣投入更多时间。" },
-      { label: "导师指导", value: "每周一次", detail: "每周一次线上指导课，与常春藤盟校学生导师线上参加。" },
+      { label: "时间", value: "每周至少2小时", detail: "平台上的任务，加上定期与导师一对一。院士可以按个人时间分配及兴趣投入更多时间。" },
+      { label: "导师指导", value: "10次一对一", detail: "每次30分钟，与常春藤盟校学生导师线上一对一，1月至5月约每一周半一次。" },
       { label: "团队", value: "两两配对", detail: "院士以团队形式合作，课与课之间有引导作业。" },
       { label: "入门要求", value: "无需创业点子", detail: "没门槛，只要坚定承诺" },
     ],
@@ -54,7 +54,7 @@ export const zhHans = {
     title: "院士会有什么收获？",
     intro: "清楚的进度、一个真实项目，以及一路陪伴的导师。",
     items: [
-      { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生，六个月里每周见面一次。" },
+      { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生，整个课程共10次一对一指导。" },
       { icon: "build", title: "一个真实的公司理念项目", body: "从构思想法、第一批产品至第一批客户。院士完成后可以给同学们及学校分享的成果。" },
       { icon: "workshop", title: "每月在线工作坊", body: "每月有一位业界人士在线上加入，并回答问题。" },
       { icon: "school", title: "升学申请的支持", body: "完成课程的学人会获得证书，以及 NGEN 的推荐信。老师和家长都可以跟进进度。" },
@@ -83,7 +83,7 @@ export const zhHans = {
 
   mentors: {
     title: "导师",
-    intro: "每位导师都是常春藤盟校学生。他们每周与院士见面，并在作业提交前作出期末复习和最终评审。",
+    intro: "每位导师都是常春藤盟校学生。他们与每位院士一对一见面共10次，约每一周半一次，并在作业提交前作出期末复习和最终评审。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "导师就读的大学。NGEN 是毕业生创办的独立非牟利组织，跟这些大学没有关系的。",
     points: [

@@ -43,8 +43,8 @@ export const zhHant = {
     facts: [
       { label: "對象", value: "9至12年級", detail: "約14至18歲。" },
       { label: "時間", value: "2027年1月至6月", detail: "為期六個月，每月一個目標。" },
-      { label: "時間", value: "每週至少2小時", detail: "每週一次指導課，加上課後作業。學人可以按興趣投入更多時間。" },
-      { label: "導師指導", value: "每週一次", detail: "每週一次線上指導課，與常春藤盟校學生導師在家參加。" },
+      { label: "時間", value: "每週至少2小時", detail: "平台上的任務，加上定期與導師一對一。學人可以按興趣投入更多時間。" },
+      { label: "導師指導", value: "10次一對一", detail: "每次30分鐘，與常春藤盟校學生導師網上一對一，1月至5月約每一週半一次。" },
       { label: "團隊", value: "兩兩配對", detail: "學人以團隊形式合作，課與課之間有引導作業。" },
       { label: "入門要求", value: "無需創業點子", detail: "不需要已有公司或想法。" },
     ],
@@ -54,7 +54,7 @@ export const zhHant = {
     title: "學人會得到什麼",
     intro: "清晰的進度、一個真實項目，以及一路陪同的導師。",
     items: [
-      { icon: "mentor", title: "六個月的導師", body: "導師是常春藤盟校學生，六個月裡每週見面。" },
+      { icon: "mentor", title: "六個月的導師", body: "導師是常春藤盟校學生，整個課程共10次一對一指導。" },
       { icon: "build", title: "一個真實的公司項目", body: "從想法、初版產品到第一批客戶。學人完成後有可以給學校看的成果。" },
       { icon: "workshop", title: "每月直播工作坊", body: "每月有一位業界人士在線上加入，並回答問題。" },
       { icon: "school", title: "升學申請的支持", body: "完成課程的學人會獲得證書，以及 NGEN 的推薦信。老師和家長都可以跟進進度。" },
@@ -83,7 +83,7 @@ export const zhHant = {
 
   mentors: {
     title: "導師",
-    intro: "每位導師都是常春藤盟校學生。他們每週與學人見面，並在作業提交前先看一遍。",
+    intro: "每位導師都是常春藤盟校學生。他們與每位學人一對一見面共10次，約每一週半一次，並在作業提交前先看一遍。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "導師就讀的大學。NGEN 是獨立非營利組織，並不屬於這些大學。",
     points: [
