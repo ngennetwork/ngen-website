@@ -24,10 +24,7 @@ export default function Statement() {
               {mission.title}
             </h2>
             <p className="text-lead text-slate">{mission.body}</p>
-            <p className="flex items-center gap-3 text-lead">
-              <span aria-hidden="true" className="node" />
-              {mission.line}
-            </p>
+            <p className="text-lead">{mission.line}</p>
             <PageLink href={mission.cta.href} className="btn btn-ink mt-2">
               {mission.cta.label}
             </PageLink>

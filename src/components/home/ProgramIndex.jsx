@@ -57,15 +57,12 @@ export default function ProgramIndex() {
                   onFocus={() => setActive(i)}
                   className="group flex flex-col gap-1.5"
                 >
-                  <span className="flex items-center gap-4">
-                    <span
-                      className={`font-display text-[clamp(1.75rem,0.6rem+2.4vw,2.75rem)] leading-[1.06] tracking-[-0.032em] transition-colors duration-300 ${
-                        on ? "text-ink" : "lg:text-ink/40 lg:group-hover:text-ink"
-                      }`}
-                    >
-                      {item.name}
-                    </span>
-                    <span aria-hidden="true" className={`node hidden transition-opacity duration-300 lg:inline-block ${on ? "opacity-100" : "opacity-0"}`} />
+                  <span
+                    className={`font-display text-[clamp(1.75rem,0.6rem+2.4vw,2.75rem)] leading-[1.06] tracking-[-0.032em] transition-colors duration-300 ${
+                      on ? "text-ink" : "lg:text-ink/40 lg:group-hover:text-ink"
+                    }`}
+                  >
+                    {item.name}
                   </span>
                   <span className="text-base text-slate lg:hidden">
                     <ProgramSummary program={item} />

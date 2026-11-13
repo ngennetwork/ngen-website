@@ -29,10 +29,7 @@ export default function NewsletterForm({ id = "alerts-email", tone = "light" }) 
 
   if (status === "success") {
     return (
-      <p role="status" className="flex items-center gap-2.5 text-lead">
-        <span aria-hidden="true" className="node" />
-        You’re on the list. We’ll write when the next cycle opens.
-      </p>
+      <p role="status" className="text-lead">You’re on the list. We’ll write when the next cycle opens.</p>
     );
   }
 

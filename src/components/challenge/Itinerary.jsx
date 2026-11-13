@@ -17,7 +17,6 @@ export default function Itinerary({ label, place, days, note, className = "" }) 
             <p className="text-small text-slate">{label}</p>
             <p className="font-display text-h3">{place}</p>
           </div>
-          <span aria-hidden="true" className="node mt-2" />
         </header>
 
         <ol className="flex flex-1 flex-col justify-around gap-2 px-6 py-4 sm:px-8">

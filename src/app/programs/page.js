@@ -61,10 +61,7 @@ export default function ProgramsPage() {
                 />
               </div>
               <div className="flex flex-col items-start gap-5 lg:col-span-6 lg:col-start-7">
-                <p className="flex items-center gap-2.5 text-small text-slate tabular">
-                  <span aria-hidden="true" className="node" />
-                  {String(i + 1).padStart(2, "0")}
-                </p>
+                <p className="text-small text-slate tabular">{String(i + 1).padStart(2, "0")}</p>
                 <h2 className="font-display text-[clamp(2rem,3.4vw,2.75rem)] leading-[1.05] tracking-[-0.03em]">
                   {p.name}
                 </h2>
@@ -97,10 +94,7 @@ export default function ProgramsPage() {
             className="grid items-end gap-x-8 gap-y-8 rounded-lg bg-paper px-[clamp(1.5rem,4vw,3.5rem)] py-[clamp(2rem,5vw,3.5rem)] ring-1 ring-ink/12 lg:grid-cols-12"
           >
             <div className="flex flex-col items-start gap-4 lg:col-span-8">
-              <p className="flex items-center gap-2.5 text-small text-slate">
-                <span aria-hidden="true" className="node" />
-                {copy.spaceTech.kicker}
-              </p>
+              <p className="text-small text-slate">{copy.spaceTech.kicker}</p>
               <h2 id="spacetech-title" className="font-display text-h2">
                 {copy.spaceTech.name}
               </h2>

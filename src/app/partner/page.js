@@ -57,10 +57,7 @@ export default function PartnerPage() {
                 <p className="text-base text-slate">{group.body}</p>
                 <ul className="mt-2 flex flex-col gap-2">
                   {group.points.map((point) => (
-                    <li key={point} className="flex items-baseline gap-3 text-base text-ink/85">
-                      <span aria-hidden="true" className="node relative top-[-0.1em]" />
-                      {point}
-                    </li>
+                    <li key={point} className="text-base text-ink/85">{point}</li>
                   ))}
                 </ul>
               </li>

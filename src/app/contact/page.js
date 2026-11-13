@@ -39,10 +39,7 @@ export default function ContactPage() {
           aria-label={`${contact.emailCta}: ${site.email}`}
           className="flex flex-col rounded-lg bg-paper text-ink ring-1 ring-ink/12 lg:flex-1"
         >
-          <p className="flex items-center gap-2.5 border-b border-ink/10 px-6 py-4 text-small text-slate">
-            <span aria-hidden="true" className="node" />
-            {contact.draft.label}
-          </p>
+          <p className="border-b border-ink/10 px-6 py-4 text-small text-slate">{contact.draft.label}</p>
           <dl className="px-6 text-small">
             <div className="flex gap-4 border-b border-ink/10 py-3">
               <dt className="w-16 shrink-0 text-slate">{contact.draft.to}</dt>
