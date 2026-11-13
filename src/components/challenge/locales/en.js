@@ -112,6 +112,7 @@ export const en = {
     logisticsTitle: "Travel and supervision",
     logistics: [
       "The trip is open to every Fellow, with no selection.",
+      "Fellows under 18 travel with a parent, or with an adult guardian the parent names in writing.",
       "Travel and hotels are separate. Families budget them on their own.",
       "NGEN sets the schedule and stays with the group for the visits and the conference.",
       "We tell families who is travelling, the daily plan, and how we stay in touch.",
