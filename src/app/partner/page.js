@@ -5,6 +5,7 @@ import PageSection from "@/components/layout/PageSection";
 import Photo from "@/components/layout/Photo";
 import BrandLogo from "@/components/brand/BrandLogo";
 import MeetingDiagram from "@/components/sections/MeetingDiagram";
+import PeakMark from "@/components/brand/PeakMark";
 
 const copy = pages.partner;
 
@@ -58,7 +59,7 @@ export default function PartnerPage() {
                 <ul className="mt-2 flex flex-col gap-2">
                   {group.points.map((point) => (
                     <li key={point} className="flex items-baseline gap-3 text-base text-ink/85">
-                      <span aria-hidden="true" className="node relative top-[-0.1em]" />
+                      <PeakMark className="relative top-[-0.05em]" />
                       {point}
                     </li>
                   ))}

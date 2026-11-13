@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { submitToAppsScript } from "@/lib/submitToAppsScript";
 import { site } from "@/content/site";
+import PeakMark from "@/components/brand/PeakMark";
 
 /**
  * One email field for application alerts. Submits to the Apps Script
@@ -30,7 +31,7 @@ export default function NewsletterForm({ id = "alerts-email", tone = "light" }) 
   if (status === "success") {
     return (
       <p role="status" className="flex items-center gap-2.5 text-lead">
-        <span aria-hidden="true" className="node" />
+        <PeakMark />
         You’re on the list. We’ll write when the next cycle opens.
       </p>
     );

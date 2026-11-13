@@ -6,6 +6,7 @@ import Photo from "@/components/layout/Photo";
 import PageLink from "@/components/ui/PageLink";
 import ProgramSummary from "@/components/ui/ProgramSummary";
 import ExternalLink from "@/components/ui/ExternalLink";
+import PeakMark from "@/components/brand/PeakMark";
 
 const copy = pages.programs;
 
@@ -62,7 +63,7 @@ export default function ProgramsPage() {
               </div>
               <div className="flex flex-col items-start gap-5 lg:col-span-6 lg:col-start-7">
                 <p className="flex items-center gap-2.5 text-small text-slate tabular">
-                  <span aria-hidden="true" className="node" />
+                  <PeakMark />
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h2 className="font-display text-[clamp(2rem,3.4vw,2.75rem)] leading-[1.05] tracking-[-0.03em]">
@@ -98,7 +99,7 @@ export default function ProgramsPage() {
           >
             <div className="flex flex-col items-start gap-4 lg:col-span-8">
               <p className="flex items-center gap-2.5 text-small text-slate">
-                <span aria-hidden="true" className="node" />
+                <PeakMark />
                 {copy.spaceTech.kicker}
               </p>
               <h2 id="spacetech-title" className="font-display text-h2">

@@ -1,5 +1,6 @@
 import { home } from "@/content/site";
 import PageLink from "@/components/ui/PageLink";
+import PeakMark from "@/components/brand/PeakMark";
 import IvyRange from "./IvyRange";
 
 const { hero } = home;
@@ -16,7 +17,7 @@ export default function HomeHero() {
     <section aria-labelledby="hero-title" className="relative flex min-h-[100svh] flex-col overflow-hidden bg-snow text-ink">
       <div className="wrap flex flex-1 flex-col justify-end gap-7 pt-[clamp(6.5rem,13svh,8rem)] pb-[clamp(2rem,5svh,3.5rem)] md:flex-none">
         <p className="flex items-center gap-2.5 text-small text-slate">
-          <span aria-hidden="true" className="node" />
+          <PeakMark />
           {hero.kicker}
         </p>
         <h1 id="hero-title" className="font-display text-[clamp(3rem,1.1rem+5vw,6.25rem)] leading-[0.98] tracking-[-0.04em]">

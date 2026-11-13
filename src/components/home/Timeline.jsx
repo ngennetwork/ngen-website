@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { conference, home } from "@/content/site";
 import Section from "@/components/layout/Section";
+import PeakMark from "@/components/brand/PeakMark";
 
 const { timeline } = home;
 
@@ -22,7 +23,9 @@ export default function Timeline() {
             key={step.title}
             className="group relative flex flex-col gap-4 pl-10 md:grid md:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] md:content-start md:gap-x-8 md:gap-y-2 xl:flex xl:pt-10 xl:pl-0"
           >
-            <span aria-hidden="true" className="timeline-node" />
+            <span aria-hidden="true" className="timeline-node">
+              <PeakMark className="h-full w-full" />
+            </span>
             <p className="flex gap-2 text-small text-mist tabular md:col-start-2 xl:col-start-auto">
               <span>{String(i + 1).padStart(2, "0")}</span>
               <span aria-hidden="true">·</span>

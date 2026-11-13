@@ -8,6 +8,7 @@ import Section from "@/components/layout/Section";
 import PageLink from "@/components/ui/PageLink";
 import ProgramSummary from "@/components/ui/ProgramSummary";
 import ConferenceOnPhoto from "@/components/brand/ConferenceOnPhoto";
+import PeakMark from "@/components/brand/PeakMark";
 
 const { programs: copy } = home;
 
@@ -65,7 +66,7 @@ export default function ProgramIndex() {
                     >
                       {item.name}
                     </span>
-                    <span aria-hidden="true" className={`node hidden transition-opacity duration-300 lg:inline-block ${on ? "opacity-100" : "opacity-0"}`} />
+                    <PeakMark className={`hidden lg:inline-block ${on ? "opacity-100" : "opacity-0"}`} />
                   </span>
                   <span className="text-base text-slate lg:hidden">
                     <ProgramSummary program={item} />

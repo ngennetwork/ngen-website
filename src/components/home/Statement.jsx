@@ -1,5 +1,6 @@
 import { home, site } from "@/content/site";
 import PageLink from "@/components/ui/PageLink";
+import PeakMark from "@/components/brand/PeakMark";
 
 const { mission } = home;
 const { reach, partners, raised } = site.figures;
@@ -25,7 +26,7 @@ export default function Statement() {
             </h2>
             <p className="text-lead text-slate">{mission.body}</p>
             <p className="flex items-center gap-3 text-lead">
-              <span aria-hidden="true" className="node" />
+              <PeakMark />
               {mission.line}
             </p>
             <PageLink href={mission.cta.href} className="btn btn-ink mt-2">
