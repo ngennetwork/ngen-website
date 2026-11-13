@@ -44,8 +44,8 @@ export const zhHant = {
       { label: "對象", value: "9至12年級", detail: "約14至18歲。" },
       { label: "時間", value: "2027年1月至6月", detail: "為期六個月，每月一個目標。" },
       { label: "時間", value: "每週至少2小時", detail: "平台上的任務，加上定期與導師一對一。學人可以按興趣投入更多時間。" },
-      { label: "導師指導", value: "10次一對一", detail: "每次30分鐘，與常春藤盟校學生導師網上一對一，1月至5月約每一週半一次。" },
-      { label: "團隊", value: "兩兩配對", detail: "學人以團隊形式合作，課與課之間有引導作業。" },
+      { label: "導師指導", value: "10次一對一", detail: "每次30分鐘，與常春藤盟校學生導師網上一對一，1月至3月每月約三次。" },
+      { label: "團隊", value: "自由選擇", detail: "學人可以獨自或組隊完成項目。每人有自己的帳戶，並各自提交作業。" },
       { label: "入門要求", value: "無需創業點子", detail: "不需要已有公司或想法。" },
     ],
   },
@@ -83,14 +83,14 @@ export const zhHant = {
 
   mentors: {
     title: "導師",
-    intro: "每位導師都是常春藤盟校學生。他們與每位學人一對一見面共10次，約每一週半一次，並在作業提交前先看一遍。",
+    intro: "每位導師都是常春藤盟校學生。他們與每位學人一對一見面共10次，1月至3月每月約三次，並在作業提交前先看一遍。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "導師就讀的大學。NGEN 是獨立非營利組織，並不屬於這些大學。",
     points: [
       { name: "坦白的回應", body: "導師會說明什麼做得好，什麼需要改。" },
       { name: "親身的創業經驗", body: "導師有自己的創業經驗，會把學到的東西直接分享給每位學人。" },
       { name: "來自我們的網絡", body: "導師來自 NGEN 自己的常春藤盟校網絡。配對前我們會先與每位導師見面，六個月裡我們的團隊也會全程參與。" },
-      { name: "給家長的更新", body: "我們的團隊每月會寄給家長一封進度更新信。課程以英語進行，我們的團隊可用普通話與家長溝通，也可安排粵語。" },
+      { name: "給家長的更新", body: "我們的團隊每月會寄給家長一封進度更新信。課程以英語進行，我們的團隊可用英語或普通話與家長溝通。" },
     ],
     speakersTitle: "曾在 NGEN 紐約活動演講的嘉賓",
     speakersNote: "曾在 NGEN 活動演講的創辦人和投資人。",
@@ -130,7 +130,7 @@ export const zhHant = {
           href: "https://ivyleagueconference.org/",
         },
       ],
-      note: "會議前後的日期可能會稍作調整。交通和住宿另計。",
+      note: "行程可能會有調整，如有需要，活動或會改為網上進行。交通和住宿另計。",
     },
     ticket: {
       kicker: "入場券",
@@ -188,7 +188,7 @@ export const zhHant = {
     steps: [
       { title: "預約諮詢", body: "填寫下方的簡短表格，只需一分鐘。" },
       { title: "與團隊會面", body: "與我們的團隊進行一次私人 Zoom 通話，可用英語或普通話。我們會解答問題，並說明費用和付款方式。" },
-      { title: "確認名額", body: "確認後，我們會為學生配對導師和團隊，一月正式開始。" },
+      { title: "確認名額", body: "確認後，我們會為學生配對導師，一月正式開始。" },
     ],
     cta: "預約諮詢",
   },
@@ -225,7 +225,7 @@ export const zhHant = {
       gradeOrAge: "學生年級或年齡",
       gradePlaceholder: "例如：11年級、中五，或16歲",
       callLanguage: "通話語言",
-      callLanguages: { english: "英語", mandarin: "普通話", cantonese: "粵語" },
+      callLanguages: { english: "英語", mandarin: "普通話" },
       note: "還有什麼想讓我們知道的",
     },
     errors: {

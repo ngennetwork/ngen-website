@@ -50,8 +50,8 @@ export const en = {
       { label: "Who", value: "Grades 9 to 12", detail: "About 14 to 18 years old." },
       { label: "When", value: "Jan to Jun 2027", detail: "Six months, one milestone a month." },
       { label: "Time", value: "2+ hours a week", detail: "Missions between sessions, plus regular one-on-ones with a mentor. Fellows can always do more." },
-      { label: "Mentorship", value: "10 one-on-ones", detail: "30 minutes each with an Ivy League student mentor, about every week and a half from January to May." },
-      { label: "Teams", value: "Paired up", detail: "Fellows work as a team, with guided work between sessions." },
+      { label: "Mentorship", value: "10 one-on-ones", detail: "30 minutes each with an Ivy League student mentor, about three a month from January to March." },
+      { label: "Teams", value: "Optional", detail: "Fellows can work alone or in a team. Each has their own account and submits their own work." },
       { label: "To start", value: "No idea needed", detail: "No company or idea is needed." },
     ],
   },
@@ -90,14 +90,14 @@ export const en = {
   mentors: {
     title: "Mentors",
     intro:
-      "Each mentor is an Ivy League student. They meet each Fellow one-on-one 10 times, about every week and a half, and review the work before it is submitted.",
+      "Each mentor is an Ivy League student. They meet each Fellow one-on-one 10 times, about three a month from January to March, and review the work before it is submitted.",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "Where our mentors study. NGEN is an independent nonprofit and is not part of these universities.",
     points: [
       { name: "Honest feedback", body: "The mentor says what is working and what is not." },
       { name: "Experience to pass on", body: "Mentors bring their own entrepreneurial experience and share what they learned directly with each Fellow." },
       { name: "Chosen from our network", body: "Mentors come from NGEN’s own Ivy League network. We meet each one before they are matched, and our team stays involved through all six months." },
-      { name: "Updates for parents", body: "Parents receive a monthly update letter from our team. Sessions are in English, and our team speaks with parents in Mandarin. Cantonese can be arranged." },
+      { name: "Updates for parents", body: "Parents receive a monthly update letter from our team. Sessions are in English, and our team speaks with parents in English or Mandarin." },
     ],
     speakersTitle: "Speakers at NGEN events in New\u00a0York",
     speakersNote: "Founders and investors who have spoken at NGEN events.",
@@ -137,7 +137,7 @@ export const en = {
           href: "https://ivyleagueconference.org/",
         },
       ],
-      note: "Dates around the conference may shift slightly. Travel and accommodation are separate.",
+      note: "The schedule may change, and events may move online if needed. Travel and accommodation are separate.",
     },
     ticket: {
       kicker: "Admit one",
@@ -195,7 +195,7 @@ export const en = {
     steps: [
       { title: "Request a consultation", body: "Send the short form below. It takes a minute." },
       { title: "Meet our team", body: "A private Zoom call with our team, in English or Mandarin. We answer your questions and share fees and payment options." },
-      { title: "Confirm a place", body: "Once you confirm, your student is matched with a mentor and a team, ready for January." },
+      { title: "Confirm a place", body: "Once you confirm, your student is matched with a mentor, ready for January." },
     ],
     cta: "Request a consultation",
   },
@@ -230,7 +230,7 @@ export const en = {
       gradeOrAge: "Student grade or age",
       gradePlaceholder: "e.g. Grade 11, Form 5, or age 16",
       callLanguage: "Preferred language for our call",
-      callLanguages: { english: "English", mandarin: "Mandarin", cantonese: "Cantonese" },
+      callLanguages: { english: "English", mandarin: "Mandarin" },
       note: "Anything you would like us to know",
     },
     errors: {

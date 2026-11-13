@@ -44,8 +44,8 @@ export const zhHans = {
       { label: "对象", value: "9至12年级", detail: "约14至18岁。" },
       { label: "时间", value: "2027年1月至6月", detail: "为期六个月，每月一个目标。" },
       { label: "时间", value: "每周至少2小时", detail: "平台上的任务，加上定期与导师一对一。院士可以按个人时间分配及兴趣投入更多时间。" },
-      { label: "导师指导", value: "10次一对一", detail: "每次30分钟，与常春藤盟校学生导师线上一对一，1月至5月约每一周半一次。" },
-      { label: "团队", value: "两两配对", detail: "院士以团队形式合作，课与课之间有引导作业。" },
+      { label: "导师指导", value: "10次一对一", detail: "每次30分钟，与常春藤盟校学生导师线上一对一，1月至3月每月约三次。" },
+      { label: "团队", value: "自由选择", detail: "院士可以独自或组队完成项目。每人有自己的账户，并各自提交作业。" },
       { label: "入门要求", value: "无需创业点子", detail: "没门槛，只要坚定承诺" },
     ],
   },
@@ -83,14 +83,14 @@ export const zhHans = {
 
   mentors: {
     title: "导师",
-    intro: "每位导师都是常春藤盟校学生。他们与每位院士一对一见面共10次，约每一周半一次，并在作业提交前作出期末复习和最终评审。",
+    intro: "每位导师都是常春藤盟校学生。他们与每位院士一对一见面共10次，1月至3月每月约三次，并在作业提交前作出期末复习和最终评审。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "导师就读的大学。NGEN 是毕业生创办的独立非牟利组织，跟这些大学没有关系的。",
     points: [
       { name: "真诚坦白的反馈", body: "导师会说明什么做得好，什么需要改。" },
       { name: "亲身的创业经验", body: "导师会分享自己的创业经验。" },
       { name: "来自我们的网络", body: "导师来自 NGEN 自己的常春藤盟校网络。配对前我们会先与每位导师见面，六个月里我们的团队也会全程参与。" },
-      { name: "给家长的按时更新（每月一次）", body: "我们的团队每月会给家长一封英语进度更新电邮。课程以英语进行，我们的团队可用普通话与家长沟通，也可安排粤语。" },
+      { name: "给家长的按时更新（每月一次）", body: "我们的团队每月会给家长一封英语进度更新电邮。课程以英语进行，我们的团队可用英语或普通话与家长沟通。" },
     ],
     speakersTitle: "曾在 NGEN 纽约活动演讲的嘉宾",
     speakersNote: "曾在 NGEN 活动演讲的创始人和投资人。",
@@ -130,7 +130,7 @@ export const zhHans = {
           href: "https://ivyleagueconference.org/",
         },
       ],
-      note: "会议前后的日期可能会稍作调整。交通和住宿另计。",
+      note: "行程可能会有调整，如有需要，活动或会改为线上进行。交通和住宿另计。",
     },
     ticket: {
       kicker: "入场券",
@@ -188,7 +188,7 @@ export const zhHans = {
     steps: [
       { title: "预约咨询", body: "填写下方的简短表格，只需一分钟。" },
       { title: "与团队见面", body: "与我们的团队进行一次私人 Zoom 通话，可用英语或普通话。我们会解答问题，并说明费用和付款方式。" },
-      { title: "确认名额", body: "确认后，我们会为学生配对导师和团队，一月正式开始。" },
+      { title: "确认名额", body: "确认后，我们会为学生配对导师，一月正式开始。" },
     ],
     cta: "预约咨询",
   },
@@ -225,7 +225,7 @@ export const zhHans = {
       gradeOrAge: "学生年级或年龄",
       gradePlaceholder: "例如：11年级、高二，或16岁",
       callLanguage: "通话语言",
-      callLanguages: { english: "英语", mandarin: "普通话", cantonese: "粤语" },
+      callLanguages: { english: "英语", mandarin: "普通话" },
       note: "其它问题？",
     },
     errors: {
