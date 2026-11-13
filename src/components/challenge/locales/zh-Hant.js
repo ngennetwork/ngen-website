@@ -14,6 +14,7 @@ export const zhHant = {
   urgency: "課程1月開始。",
   noIdea: "不需要已有公司或想法。",
   feesNote: "課程費用和付款方式，會在個別諮詢時說明。",
+  policiesLink: "費用、退款及條款",
   schools: {
     label: "由以下大學的學生與校友創立及營運",
   },
@@ -43,7 +44,7 @@ export const zhHant = {
     facts: [
       { label: "對象", value: "9至12年級", detail: "約14至18歲。" },
       { label: "時間", value: "2027年1月至6月", detail: "為期六個月，每月一個目標。" },
-      { label: "時間", value: "每週至少2小時", detail: "平台上的任務，加上定期與導師一對一。學人可以按興趣投入更多時間。" },
+      { label: "投入", value: "每週至少2小時", detail: "平台上的任務，加上定期與導師一對一。學人可以按興趣投入更多時間。" },
       { label: "導師指導", value: "10次一對一", detail: "每次30分鐘，與常春藤盟校學生導師網上一對一，前三個月每月約三次。" },
       { label: "團隊", value: "自由選擇", detail: "學人可以獨自或組隊完成項目。每人有自己的帳戶，並各自提交作業。" },
       { label: "入門要求", value: "無需創業點子", detail: "不需要已有公司或想法。" },
@@ -94,6 +95,28 @@ export const zhHant = {
     ],
     speakersTitle: "曾在 NGEN 紐約活動演講的嘉賓",
     speakersNote: "曾在 NGEN 活動演講的創辦人和投資人。",
+  },
+
+  team: {
+    title: "我們的團隊",
+    intro: "NGEN 團隊負責營運學人計劃，並與每個家庭溝通。",
+    people: [
+      {
+        name: "Jackson Lehner",
+        photo: "/startup-challenge/team/jackson.jpg",
+        bio: "NGEN 聯合創辦人。普林斯頓大學2024屆，曾任普林斯頓創業俱樂部主席。負責學人計劃及紐約行程。",
+      },
+      {
+        name: "Sabrina Chann",
+        photo: "/startup-challenge/team/sabrina.jpg",
+        bio: "賓夕法尼亞大學，香港弘立書院（ISF）校友。負責報名事宜及每次家庭諮詢的準備。",
+      },
+      {
+        name: "Alex Ren",
+        photo: "/startup-challenge/team/alex.jpg",
+        bio: "加州大學柏克萊分校，香港弘立書院（ISF）校友。負責以普通話與家長溝通。",
+      },
+    ],
   },
 
   capstone: {
@@ -215,7 +238,8 @@ export const zhHant = {
     submit: "送出",
     submitting: "發送中…",
     successTitle: "已收到。",
-    successBody: "謝謝。我們會在兩個工作天內回覆，安排一次個別諮詢。",
+    successBody: "謝謝。您可以現在選擇諮詢時間，或等我們在兩個工作天內回覆。",
+    bookNow: "預約會面",
     parentLegend: "家長或監護人",
     studentLegend: "學生",
     fields: {

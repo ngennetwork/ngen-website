@@ -1,12 +1,12 @@
 /** Simplified Chinese, written for parents. */
 export const zhHans = {
   meta: {
-    title: "NGEN 全球学人计划",
+    title: "NGEN 全球院士计划",
     description: "引导院士六个月创业课程，与常春藤盟校学生一同构思与建立项目。2027年1月至6月。",
   },
   switcherLabel: "语言",
-  name: "NGEN 全球学人计划",
-  emailSubject: "NGEN 全球学人计划",
+  name: "NGEN 全球院士计划",
+  emailSubject: "NGEN 全球院士计划",
   applyPath: "#request",
   cohortNote: "首届收生名额有限。",
   deadlineLabel: "截止日期：",
@@ -14,6 +14,7 @@ export const zhHans = {
   urgency: "课程1月开始。",
   noIdea: "不需要已有公司或想法。",
   feesNote: "课程费用和付款方式，会在个别咨询时说明。",
+  policiesLink: "费用、退款及条款",
   schools: {
     label: "由以下大学的学生与校友创立及运营",
   },
@@ -43,7 +44,7 @@ export const zhHans = {
     facts: [
       { label: "对象", value: "9至12年级", detail: "约14至18岁。" },
       { label: "时间", value: "2027年1月至6月", detail: "为期六个月，每月一个目标。" },
-      { label: "时间", value: "每周至少2小时", detail: "平台上的任务，加上定期与导师一对一。院士可以按个人时间分配及兴趣投入更多时间。" },
+      { label: "投入", value: "每周至少2小时", detail: "平台上的任务，加上定期与导师一对一。院士可以按个人时间分配及兴趣投入更多时间。" },
       { label: "导师指导", value: "10次一对一", detail: "每次30分钟，与常春藤盟校学生导师线上一对一，前三个月每月约三次。" },
       { label: "团队", value: "自由选择", detail: "院士可以独自或组队完成项目。每人有自己的账户，并各自提交作业。" },
       { label: "入门要求", value: "无需创业点子", detail: "没门槛，只要坚定承诺" },
@@ -57,7 +58,7 @@ export const zhHans = {
       { icon: "mentor", title: "六个月的导师", body: "导师是常春藤盟校学生，整个课程共10次一对一指导。" },
       { icon: "build", title: "一个真实的公司理念项目", body: "从构思想法、第一批产品至第一批客户。院士完成后可以给同学们及学校分享的成果。" },
       { icon: "workshop", title: "在线工作坊", body: "由专家主持的在线工作坊，另设答疑时间。" },
-      { icon: "school", title: "升学申请的支持", body: "完成课程的学人会获得证书，以及 NGEN 的推荐信。老师和家长都可以跟进进度。" },
+      { icon: "school", title: "升学申请的支持", body: "完成课程的院士会获得证书，以及 NGEN 的推荐信。老师和家长都可以跟进进度。" },
     ],
   },
 
@@ -76,9 +77,9 @@ export const zhHans = {
       { when: "3月", title: "把概念或产品推广", body: "选一种方式接触客户，并看他们对产品的评价。" },
       { when: "4月", title: "完成第一笔销售", body: "定下付费条款，并记录收款明细表" },
       { when: "5月", title: "查看数字", body: "持续监测，决定下一步" },
-      { when: "6月", title: "结业展示", body: "学人在 Zoom 上向家长、导师和 NGEN 团队展示自己的成果和心得，并获颁证书。" },
+      { when: "6月", title: "结业展示", body: "院士在 Zoom 上向家长、导师和 NGEN 团队展示自己的成果和心得，并获颁证书。" },
     ],
-    note: "之后，学人可以选择参加线上暑期实习，直接与 NGEN 团队一起推动社群建设和 NGEN 的拓展。详情会在咨询时说明。",
+    note: "之后，院士可以选择参加线上暑期实习，直接与 NGEN 团队一起推动社群建设和 NGEN 的拓展。详情会在咨询时说明。",
   },
 
   mentors: {
@@ -94,6 +95,28 @@ export const zhHans = {
     ],
     speakersTitle: "曾在 NGEN 纽约活动演讲的嘉宾",
     speakersNote: "曾在 NGEN 活动演讲的创始人和投资人。",
+  },
+
+  team: {
+    title: "我们的团队",
+    intro: "NGEN 团队负责运营院士计划，并与每个家庭沟通。",
+    people: [
+      {
+        name: "Jackson Lehner",
+        photo: "/startup-challenge/team/jackson.jpg",
+        bio: "NGEN 联合创始人。普林斯顿大学2024届，曾任普林斯顿创业俱乐部主席。负责院士计划及纽约行程。",
+      },
+      {
+        name: "Sabrina Chann",
+        photo: "/startup-challenge/team/sabrina.jpg",
+        bio: "宾夕法尼亚大学，香港弘立书院（ISF）校友。负责报名事宜及每次家庭咨询的准备。",
+      },
+      {
+        name: "Alex Ren",
+        photo: "/startup-challenge/team/alex.jpg",
+        bio: "加州大学伯克利分校，香港弘立书院（ISF）校友。负责以普通话与家长沟通。",
+      },
+    ],
   },
 
   capstone: {
@@ -215,7 +238,8 @@ export const zhHans = {
     submit: "提交",
     submitting: "发送中…",
     successTitle: "已收到。",
-    successBody: "谢谢。我们会在两个工作日内回复，安排一次个别咨询。",
+    successBody: "谢谢。您可以现在选择咨询时间，或等我们在两个工作日内回复。",
+    bookNow: "预约会面",
     parentLegend: "家长或监护人",
     studentLegend: "学生",
     fields: {

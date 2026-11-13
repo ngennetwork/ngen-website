@@ -97,6 +97,9 @@ export default function ApplyForm() {
       <div id="application-received" ref={successRef} tabIndex={-1} role="status" className="flex flex-col items-start gap-5 rounded-xl bg-paper p-6 text-ink ring-1 ring-ink/10 outline-none max-lg:p-7">
         <h3 className="font-display text-h3">{apply.successTitle}</h3>
         <p className="text-base leading-relaxed text-slate">{apply.successBody}</p>
+        <a href="/intro" className="btn whitespace-normal text-center bg-[#1c3a2a] text-[#fbfaf7] hover:bg-[#274e39]">
+          {apply.bookNow}
+        </a>
       </div>
     );
   }

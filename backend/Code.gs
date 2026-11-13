@@ -537,7 +537,14 @@ var LEAD_COPY = {
     ],
     callIn: function (lang) { return "Your call will be in " + lang + "."; },
     languages: { english: "English", mandarin: "Mandarin" },
-    book: "Book a consultation",
+    book: "Book a meeting",
+    bookIntro: "The fastest next step: choose a time for a 20-minute Zoom call with our team.",
+    networkTitle: "Part of the Ivy League’s student founder network",
+    network: [
+      "NGEN was founded by students at Princeton, Penn and Brown, and has reached 20,000 students across its network.",
+      "Fellows are mentored by Ivy League students, and meet founders and investors on NGEN’s Founder Trek in New York.",
+      "NGEN runs the Ivy League Entrepreneurship Conference, its flagship event, in New York on Sunday, April 18, 2027.",
+    ],
     cohort: "The first cohort has limited places. Requests close Monday, December 14, 2026.",
     glanceTitle: "The program at a glance",
     glance: [
@@ -565,7 +572,14 @@ var LEAD_COPY = {
     ],
     callIn: function (lang) { return "通话语言：" + lang + "。"; },
     languages: { english: "英语", mandarin: "普通话" },
-    book: "预约咨询",
+    book: "预约会面",
+    bookIntro: "最快的下一步：选择时间，与我们的团队进行20分钟的 Zoom 通话。",
+    networkTitle: "加入常春藤盟校的学生创业网络",
+    network: [
+      "NGEN 由普林斯顿、宾夕法尼亚大学和布朗大学的学生创立，网络已接触20,000名学生。",
+      "学人由常春藤盟校学生担任导师，并在纽约的 NGEN Founder Trek 与创业者和投资人见面。",
+      "NGEN 主办常春藤盟校创业会议，这是我们的旗舰活动，将于2027年4月18日（星期日）在纽约举行。",
+    ],
     cohort: "首届名额有限，申请截止日期为2026年12月14日（星期一）。",
     glanceTitle: "课程一览",
     glance: [
@@ -593,7 +607,14 @@ var LEAD_COPY = {
     ],
     callIn: function (lang) { return "通話語言：" + lang + "。"; },
     languages: { english: "英語", mandarin: "普通話" },
-    book: "預約諮詢",
+    book: "預約會面",
+    bookIntro: "最快的下一步：選擇時間，與我們的團隊進行20分鐘的 Zoom 通話。",
+    networkTitle: "加入常春藤盟校的學生創業網絡",
+    network: [
+      "NGEN 由普林斯頓、賓夕法尼亞大學和布朗大學的學生創立，網絡已接觸20,000名學生。",
+      "學人由常春藤盟校學生擔任導師，並在紐約的 NGEN Founder Trek 與創業者和投資人會面。",
+      "NGEN 主辦常春藤盟校創業會議，這是我們的旗艦活動，將於2027年4月18日（星期日）在紐約舉行。",
+    ],
     cohort: "首屆名額有限，申請截止日期為2026年12月14日（星期一）。",
     glanceTitle: "課程一覽",
     glance: [
@@ -624,7 +645,7 @@ function leadWelcomeBody(language, parentName, callLanguageKey) {
 
 function leadPlainText(language, parentName, callLanguageKey) {
   var c = leadCopyFor(language);
-  var lines = [c.hello(parentName), c.thanks, c.nextTitle];
+  var lines = [c.hello(parentName), c.thanks, c.bookIntro + "\n" + c.book + ": " + CONSULT_URL, c.nextTitle];
   c.steps.forEach(function (step, i) {
     var text = (i + 1) + ". " + step[0] + ": " + step[1];
     if (i === 0) text += "\n" + CONSULT_URL;
@@ -632,6 +653,7 @@ function leadPlainText(language, parentName, callLanguageKey) {
     lines.push(text);
   });
   lines.push(c.cohort);
+  lines.push(c.networkTitle + "\n" + c.network.map(function (item) { return "• " + item; }).join("\n"));
   lines.push(c.glanceTitle + "\n" + c.glance.map(function (item) { return "• " + item; }).join("\n"));
   lines.push(c.questions);
   lines.push(c.sign + "\n" + c.tagline);
@@ -669,6 +691,14 @@ function leadWelcomeHtml(language, parentName, callLanguageKey) {
       return '<tr><td valign="top" style="padding:0 10px 10px 0;color:' + GREEN + ';font:15px/1.55 ' + SANS + ';">&#9679;</td>' +
         '<td style="padding:0 0 10px;font:15px/1.55 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(item) + '</td></tr>';
     }).join("");
+    var network = c.network.map(function (item) {
+      return '<tr><td valign="top" style="padding:0 10px 10px 0;color:' + GREEN + ';font:15px/1.55 ' + SANS + ';">&#9679;</td>' +
+        '<td style="padding:0 0 10px;font:15px/1.55 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(item) + '</td></tr>';
+    }).join("");
+    function bookButton(margin) {
+      return '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:' + margin + ';"><tr><td bgcolor="' + GREEN + '" style="background:' + GREEN + ';border-radius:8px;">' +
+        '<a href="' + CONSULT_URL + '" style="display:inline-block;padding:14px 26px;font:600 16px ' + SANS + ';color:' + CREAM + ';text-decoration:none;">' + escapeHtml(c.book) + '</a></td></tr></table>';
+    }
     var banner = withBanner
       ? '<tr><td><img src="' + FELLOWSHIP_BANNER + '" width="600" alt="' + escapeHtml(c.program + ", " + c.dates) + '" style="display:block;width:100%;max-width:600px;height:auto;border:0;"></td></tr>'
       : '<tr><td bgcolor="' + GREEN + '" style="background:' + GREEN + ';padding:28px 36px;"><div style="font:28px/1.15 ' + SERIF + ';color:' + CREAM + ';">' + escapeHtml(c.program) + '</div>' +
@@ -676,13 +706,16 @@ function leadWelcomeHtml(language, parentName, callLanguageKey) {
     return banner +
       '<tr><td bgcolor="' + CREAM + '" style="background:' + CREAM + ';padding:32px 36px 12px;">' +
       '<p style="margin:0 0 14px;font:16px/1.6 ' + SANS + ';color:' + INK + ';">' + escapeHtml(c.hello(parentName)) + '</p>' +
-      '<p style="margin:0 0 28px;font:16px/1.6 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.thanks) + '</p>' +
+      '<p style="margin:0 0 18px;font:16px/1.6 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.thanks) + '</p>' +
+      '<p style="margin:0 0 12px;font:16px/1.6 ' + SANS + ';color:' + INK + ';">' + escapeHtml(c.bookIntro) + '</p>' +
+      bookButton("0 0 32px") +
       '<div style="margin:0 0 16px;font:24px/1.2 ' + SERIF + ';color:' + INK + ';">' + escapeHtml(c.nextTitle) + '</div>' +
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">' + steps + '</table>' +
-      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 14px;"><tr><td bgcolor="' + GREEN + '" style="background:' + GREEN + ';border-radius:8px;">' +
-      '<a href="' + CONSULT_URL + '" style="display:inline-block;padding:13px 22px;font:600 15px ' + SANS + ';color:' + CREAM + ';text-decoration:none;">' + escapeHtml(c.book) + '</a></td></tr></table>' +
+      bookButton("4px 0 14px") +
       '<p style="margin:0 0 32px;font:14px/1.55 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.cohort) + '</p>' +
       '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 28px;"><tr><td height="1" bgcolor="#e3e0d8" style="height:1px;line-height:1px;font-size:1px;background:#e3e0d8;">&nbsp;</td></tr></table>' +
+      '<div style="margin:0 0 16px;font:24px/1.2 ' + SERIF + ';color:' + INK + ';">' + escapeHtml(c.networkTitle) + '</div>' +
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0 0 18px;">' + network + '</table>' +
       '<div style="margin:0 0 16px;font:24px/1.2 ' + SERIF + ';color:' + INK + ';">' + escapeHtml(c.glanceTitle) + '</div>' +
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">' + glance + '</table>' +
       '<p style="margin:18px 0 6px;font:15px/1.6 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.questions) + '</p>' +
