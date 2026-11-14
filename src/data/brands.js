@@ -21,14 +21,14 @@ export const firms = [
 
 /**
  * Companies that have supported NGEN events. Official logo files are
- * still needed for M31 Capital, Honors Fund and Blue & Gold Ventures;
+ * still needed for M31 Capital and Blue & Gold Ventures;
  * their names show until then.
  */
 export const supporters = [
   { name: "Mercury", logo: { src: "/logos/firms/mercury.svg", width: 139, height: 32 } },
   { name: "M31 Capital" },
   { name: "OVO Fund", logo: { src: "/logos/firms/ovo-fund.png", width: 268, height: 160 } },
-  { name: "Honors Fund" },
+  { name: "Honors Fund", logo: { src: "/logos/firms/honors-fund.png", width: 1010, height: 219 } },
   { name: "BullMont Capital", logo: { src: "/logos/firms/bullmont-capital.png", width: 706, height: 124 } },
   { name: "Blue & Gold Ventures" },
   { name: "ProtoPie", logo: { src: "/logos/firms/protopie.svg", width: 70, height: 14 } },

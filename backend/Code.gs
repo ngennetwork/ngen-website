@@ -80,17 +80,20 @@ function handleNewsletter(data) {
     return jsonResponse({ ok: false, error: "Email is required." });
   }
 
-  const sheet = getOrCreateSheet("Newsletter", ["Timestamp", "Email"]);
+  // Which page the signup came from ("Pitch" from the pitch page; blank for general alerts).
+  const source = (data.source || "").trim();
+  const sheet = getOrCreateSheet("Newsletter", ["Timestamp", "Email", "Source"]);
+  if (sheet.getRange(1, 3).getValue() === "") sheet.getRange(1, 3).setValue("Source");
 
-  // Skip exact duplicates so re-submitting doesn't pile up repeat rows.
+  // Skip exact duplicates (same email and source) so re-submitting doesn't pile up repeat rows.
   // A header-only sheet has no data rows; getRange rejects a row count of 0.
   const lastRow = sheet.getLastRow();
-  const existingEmails = lastRow > 1 ? sheet.getRange(2, 2, lastRow - 1, 1).getValues().flat() : [];
-  if (existingEmails.some((e) => String(e).toLowerCase() === email.toLowerCase())) {
+  const rows = lastRow > 1 ? sheet.getRange(2, 2, lastRow - 1, 2).getValues() : [];
+  if (rows.some((r) => String(r[0]).toLowerCase() === email.toLowerCase() && String(r[1] || "") === source)) {
     return jsonResponse({ ok: true });
   }
 
-  sheet.appendRow([new Date(), email]);
+  sheet.appendRow([new Date(), email, source]);
   return jsonResponse({ ok: true });
 }
 
