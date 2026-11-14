@@ -19,8 +19,8 @@ export const conference = {
   format: "Invite-only",
   // The conference's fixed motto, verbatim.
   motto: "Connecting world-class student entrepreneurs with today’s most influential leaders.",
-  // The conference site's production address. Swap for its custom domain once connected.
-  url: "https://ngen-five.vercel.app",
+  // The conference site's custom domain.
+  url: "https://ivyleagueconference.org",
   // The conference's official wordmark (set in white on the site).
   wordmark: { src: "/logos/conference/ilec-wordmark.png", width: 2000, height: 548 },
 };
