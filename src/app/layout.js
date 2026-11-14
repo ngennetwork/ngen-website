@@ -5,6 +5,7 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import StructuredData from "@/components/StructuredData";
 import { SITE_URL } from "@/lib/site";
 import { site } from "@/content/site";
+import { Analytics } from "@vercel/analytics/next";
 
 // NGEN's one family: 400 for headlines and reading, 500 for labels and buttons.
 const albertSans = Albert_Sans({
@@ -75,6 +76,7 @@ export default function RootLayout({ children }) {
         <SiteNav />
         <main id="main">{children}</main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );

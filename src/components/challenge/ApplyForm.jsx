@@ -3,7 +3,25 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { site } from "@/content/site";
 import { useLocale } from "@/components/challenge/ChallengeShell";
-import { CALL_LANGUAGES, defaultCallLanguage, validateConsultation } from "@/lib/challengeLead";
+import { CALL_LANGUAGES, defaultCallLanguage, normalizeSource, validateConsultation } from "@/lib/challengeLead";
+
+const SOURCE_KEY = "ngen-fellowship-source";
+
+// The tag from a link like ?utm_source=flyer, kept for the visit so it
+// survives a language switch or a second page.
+function readSource() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = normalizeSource(params.get("utm_source") || params.get("src"));
+    if (fromUrl) {
+      window.sessionStorage.setItem(SOURCE_KEY, fromUrl);
+      return fromUrl;
+    }
+    return normalizeSource(window.sessionStorage.getItem(SOURCE_KEY));
+  } catch {
+    return "";
+  }
+}
 
 const fieldClass =
   "min-h-11 w-full rounded-[0.375rem] bg-white px-4 text-[16px] text-ink ring-1 ring-ink/15 outline-none focus:ring-2 focus:ring-[#1c3a2a] aria-invalid:ring-[#9f1239]";
@@ -19,6 +37,10 @@ export default function ApplyForm() {
   const [fields, setFields] = useState({});
   const [attempt, setAttempt] = useState(0);
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
+
+  useEffect(() => {
+    readSource();
+  }, []);
 
   useEffect(() => {
     if (!attempt) return;
@@ -57,6 +79,7 @@ export default function ApplyForm() {
       gradeOrAge: data.get("gradeOrAge"),
       note: data.get("note"),
       callLanguage: data.get("callLanguage"),
+      source: readSource(),
       language: lang,
     });
     if (!parsed.ok) {

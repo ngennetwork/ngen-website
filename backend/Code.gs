@@ -361,7 +361,7 @@ var DEFAULT_SESSIONS = [
   },
 ];
 
-var LEAD_HEADERS = ["timestamp", "parentName", "parentEmail", "whatsapp", "gradeOrAge", "eligible", "language", "session", "note", "callLanguage"];
+var LEAD_HEADERS = ["timestamp", "parentName", "parentEmail", "whatsapp", "gradeOrAge", "eligible", "language", "session", "note", "callLanguage", "source"];
 var CALL_LANGUAGES = { english: "English", mandarin: "Mandarin" };
 var CONSULT_URL = "https://www.ngennetwork.org/intro";
 var ZOOM_URL = "https://www.ngennetwork.org/zoom";
@@ -377,6 +377,7 @@ function handleStartupChallengeLead(data) {
   var callLanguage = CALL_LANGUAGES[oneLine(data.callLanguage).toLowerCase()] || "";
   var eligible = String(data.eligible || "").toLowerCase() === "yes" ? "yes" : "no";
   var language = oneLine(data.language) || "en";
+  var source = oneLine(data.source).toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 40);
 
   if (!parentName || !isEmailAddress(parentEmail) || !gradeOrAge) {
     return jsonResponse({ ok: false, error: "Please fill in all required fields." });
@@ -384,7 +385,7 @@ function handleStartupChallengeLead(data) {
 
   var sheet = getOrCreateSheet("Start-Up Challenge Leads", LEAD_HEADERS);
   ensureTrailingHeaders(sheet, LEAD_HEADERS);
-  sheet.appendRow([new Date(), parentName, parentEmail, whatsapp, gradeOrAge, eligible, language, "", note, callLanguage]);
+  sheet.appendRow([new Date(), parentName, parentEmail, whatsapp, gradeOrAge, eligible, language, "", note, callLanguage, source]);
   var row = sheet.getLastRow();
 
   try {
@@ -401,6 +402,7 @@ function handleStartupChallengeLead(data) {
         "Grade or age: " + gradeOrAge,
         "Note: " + (note || "—"),
         "Call language: " + (callLanguage || "—"),
+        "Source: " + (source || "direct"),
         "Eligible: " + eligible,
         "Language: " + language,
       ].join("\n"),
