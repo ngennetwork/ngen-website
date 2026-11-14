@@ -64,7 +64,7 @@ export const zhHans = {
 
   months: {
     title: "六个月如何安排",
-    intro: "每月一个目标，每次都有达标的成积。",
+    intro: "每月一个目标，每次都有达标的成绩。",
     photo: {
       src: "/startup-challenge/speaker-conversation.jpg",
       alt: "The Motley Fool 联合创始人兼首席执行官 Tom Gardner 在 NGEN Trailblazers 会议上与学生交谈",

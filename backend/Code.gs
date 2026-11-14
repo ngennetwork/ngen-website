@@ -509,8 +509,8 @@ function sessionLine(option, language) {
 }
 
 function leadSubject(language) {
-  if (language === "zh-Hant") return "NGEN 全球學人計劃：已收到您的諮詢申請";
-  if (language === "zh-Hans") return "NGEN 全球学人计划：已收到您的咨询申请";
+  if (language === "zh-Hant") return "NGEN 全球院士計劃：已收到您的諮詢申請";
+  if (language === "zh-Hans") return "NGEN 全球院士计划：已收到您的咨询申请";
   return "NGEN Global Fellowship: we received your request";
 }
 
@@ -560,10 +560,10 @@ var LEAD_COPY = {
     tagline: "The Ivy League entrepreneurship network",
   },
   "zh-Hans": {
-    program: "NGEN 全球学人计划",
+    program: "NGEN 全球院士计划",
     dates: "2027年1月至6月",
     hello: function (name) { return name + " 您好："; },
-    thanks: "感谢您关注 NGEN 全球学人计划。我们已收到您的咨询申请。",
+    thanks: "感谢您关注 NGEN 全球院士计划。我们已收到您的咨询申请。",
     nextTitle: "接下来",
     steps: [
       ["预约时间", "选择一个时间，与我们的团队进行私人 Zoom 通话；我们也会在两个工作日内联系您。"],
@@ -577,7 +577,7 @@ var LEAD_COPY = {
     networkTitle: "加入常春藤盟校的学生创业网络",
     network: [
       "NGEN 由普林斯顿、宾夕法尼亚大学和布朗大学的学生创立，网络已接触20,000名学生。",
-      "学人由常春藤盟校学生担任导师，并在纽约的 NGEN Founder Trek 与创业者和投资人见面。",
+      "院士由常春藤盟校学生担任导师，并在纽约的 NGEN Founder Trek 与创业者和投资人见面。",
       "NGEN 主办常春藤盟校创业会议，这是我们的旗舰活动，将于2027年4月18日（星期日）在纽约举行。",
     ],
     cohort: "首届名额有限，申请截止日期为2026年12月14日（星期一）。",
@@ -585,20 +585,20 @@ var LEAD_COPY = {
     glance: [
       "为期六个月，2027年1月至6月，在家线上参加，期间有一次纽约线下行程。",
       "与常春藤盟校学生导师一对一指导共10次，前三个月每月约三次。",
-      "每周至少2小时。学人可以独自或组队完成项目。",
+      "每周至少2小时。院士可以独自或组队完成项目。",
       "每月寄给家长的进度更新信。",
       "6月的结业展示，并获颁证书及 NGEN 推荐信。",
-      "4月15日至18日在纽约：另行收费的可选行程，所有学人均可参加。包括大学参访、NGEN Founder Trek，以及4月18日（星期日）仅限受邀者参加的常春藤盟校创业会议。交通和住宿另计。",
+      "4月15日至18日在纽约：另行收费的可选行程，所有院士均可参加。包括大学参访、NGEN Founder Trek，以及4月18日（星期日）仅限受邀者参加的常春藤盟校创业会议。交通和住宿另计。",
     ],
     questions: "如有任何问题，直接回复这封邮件即可。",
     sign: "NGEN 团队",
     tagline: "常春藤盟校创业网络",
   },
   "zh-Hant": {
-    program: "NGEN 全球學人計劃",
+    program: "NGEN 全球院士計劃",
     dates: "2027年1月至6月",
     hello: function (name) { return name + " 您好："; },
-    thanks: "感謝您關注 NGEN 全球學人計劃。我們已收到您的諮詢申請。",
+    thanks: "感謝您關注 NGEN 全球院士計劃。我們已收到您的諮詢申請。",
     nextTitle: "接下來",
     steps: [
       ["預約時間", "選擇一個時間，與我們的團隊進行私人 Zoom 通話；我們也會在兩個工作天內聯絡您。"],
@@ -612,7 +612,7 @@ var LEAD_COPY = {
     networkTitle: "加入常春藤盟校的學生創業網絡",
     network: [
       "NGEN 由普林斯頓、賓夕法尼亞大學和布朗大學的學生創立，網絡已接觸20,000名學生。",
-      "學人由常春藤盟校學生擔任導師，並在紐約的 NGEN Founder Trek 與創業者和投資人會面。",
+      "院士由常春藤盟校學生擔任導師，並在紐約的 NGEN Founder Trek 與創業者和投資人會面。",
       "NGEN 主辦常春藤盟校創業會議，這是我們的旗艦活動，將於2027年4月18日（星期日）在紐約舉行。",
     ],
     cohort: "首屆名額有限，申請截止日期為2026年12月14日（星期一）。",
@@ -620,10 +620,10 @@ var LEAD_COPY = {
     glance: [
       "為期六個月，2027年1月至6月，在家線上參加，期間有一次紐約實體行程。",
       "與常春藤盟校學生導師一對一指導共10次，前三個月每月約三次。",
-      "每週至少2小時。學人可以獨自或組隊完成項目。",
+      "每週至少2小時。院士可以獨自或組隊完成項目。",
       "每月寄給家長的進度更新信。",
       "6月的結業發表，並獲頒證書及 NGEN 推薦信。",
-      "4月15日至18日在紐約：另行收費的可選行程，所有學人均可參加。包括大學參訪、NGEN Founder Trek，以及4月18日（星期日）只限受邀者參加的常春藤盟校創業會議。交通和住宿另計。",
+      "4月15日至18日在紐約：另行收費的可選行程，所有院士均可參加。包括大學參訪、NGEN Founder Trek，以及4月18日（星期日）只限受邀者參加的常春藤盟校創業會議。交通和住宿另計。",
     ],
     questions: "如有任何問題，直接回覆這封電郵即可。",
     sign: "NGEN 團隊",
