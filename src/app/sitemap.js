@@ -4,7 +4,7 @@ import { programs } from "@/content/programs";
 // /admin/* and /api/* are excluded via robots.js.
 // /global-fellowship is reachable but excluded from the sitemap on
 // purpose — direct/shared links, not meant for search indexing.
-// The old /startup-challenge addresses redirect to it.
+// /startup-challenge is the flyer QR landing page (noindex, canonical to /global-fellowship).
 // /zoom and /intro are temporary redirects (next.config); not indexed.
 const STATIC_ROUTES = [
   "",

@@ -17,6 +17,10 @@ function readSource() {
       window.sessionStorage.setItem(SOURCE_KEY, fromUrl);
       return fromUrl;
     }
+    if (window.location.pathname.replace(/\/$/, "") === "/startup-challenge") {
+      window.sessionStorage.setItem(SOURCE_KEY, "flyer");
+      return "flyer";
+    }
     return normalizeSource(window.sessionStorage.getItem(SOURCE_KEY));
   } catch {
     return "";
