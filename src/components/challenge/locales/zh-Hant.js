@@ -1,14 +1,14 @@
-/** Traditional Chinese, written for parents in Hong Kong. */
+/** Traditional Chinese, written for parents in Hong Kong. Mirrors the edited Simplified Chinese. */
 export const zhHant = {
   meta: {
-    title: "NGEN 全球學人計劃",
-    description: "為學生而設的六個月創業課程，與常春藤盟校學生一同建立項目。2027年1月至6月。",
+    title: "NGEN 全球院士計劃",
+    description: "引導院士六個月創業課程，與常春藤盟校學生一同構思與建立項目。2027年1月至6月。",
   },
   switcherLabel: "語言",
-  name: "NGEN 全球學人計劃",
-  emailSubject: "NGEN 全球學人計劃",
+  name: "NGEN 全球院士計劃",
+  emailSubject: "NGEN 全球院士計劃",
   applyPath: "#request",
-  cohortNote: "首屆學人，名額有限。",
+  cohortNote: "首屆收生名額有限。",
   deadlineLabel: "截止日期：",
   deadline: "2026年12月14日（星期一）",
   urgency: "課程1月開始。",
@@ -20,14 +20,14 @@ export const zhHant = {
   },
 
   hero: {
-    title: "NGEN 全球學人計劃",
+    title: "NGEN 全球院士計劃",
     eyebrow: "2027年1月至6月",
-    tagline: "為學生而設的六個月創業課程，與常春藤盟校學生一同建立項目。",
-    intro: "2027年1月至6月，學人學習一間公司如何運作，並親手完成自己的項目，由常春藤盟校學生擔任導師。",
+    tagline: "引導院士六個月創業課程，與常春藤盟校學生一同構思與建立項目。2027年1月至6月。",
+    intro: "2027年1月至6月，院士學習分析一家公司，並完成自己項目（從大綱到完成創業計劃），由常春藤盟校學生擔任導師。",
     photo: {
       src: "/home/hero-ngen-new-group.jpg",
       alt: "NGEN Trailblazers 會議上的一大群學生",
-      caption: "NGEN 活動中的學生合照。",
+      caption: "NGEN 活動中的學生合影。",
       position: "50% 55%",
     },
   },
@@ -36,7 +36,7 @@ export const zhHant = {
   glance: {
     photo: {
       src: "/about/events/Copy of DSC06515.jpg",
-      alt: "一名學生在紐約 NGEN Trailblazers 會議上拿着麥克風發言",
+      alt: "一名學生在紐約 NGEN Trailblazers 會議上拿著麥克風發言",
       caption: "學生在紐約 NGEN Trailblazers 會議上提問。",
       position: "50% 40%",
     },
@@ -44,27 +44,27 @@ export const zhHant = {
     facts: [
       { label: "對象", value: "9至12年級", detail: "約14至18歲。" },
       { label: "時間", value: "2027年1月至6月", detail: "為期六個月，每月一個目標。" },
-      { label: "投入", value: "每週至少2小時", detail: "平台上的任務，加上定期與導師一對一。學人可以按興趣投入更多時間。" },
+      { label: "投入", value: "每週至少2小時", detail: "平台上的任務，加上定期與導師一對一。院士可以按個人時間分配及興趣投入更多時間。" },
       { label: "導師指導", value: "10次一對一", detail: "每次30分鐘，與常春藤盟校學生導師網上一對一，前三個月每月約三次。" },
-      { label: "團隊", value: "自由選擇", detail: "學人可以獨自或組隊完成項目。每人有自己的帳戶，並各自提交作業。" },
-      { label: "入門要求", value: "無需創業點子", detail: "不需要已有公司或想法。" },
+      { label: "團隊", value: "自由選擇", detail: "院士可以獨自或組隊完成項目。每人有自己的帳戶，並各自提交作業。" },
+      { label: "入門要求", value: "無需創業點子", detail: "沒門檻，只要堅定承諾" },
     ],
   },
 
   gets: {
-    title: "學人會得到什麼",
-    intro: "清晰的進度、一個真實項目，以及一路陪同的導師。",
+    title: "院士會有什麼收穫？",
+    intro: "清楚的進度、一個真實項目，以及一路陪伴的導師。",
     items: [
       { icon: "mentor", title: "六個月的導師", body: "導師是常春藤盟校學生，整個課程共10次一對一指導。" },
-      { icon: "build", title: "一個真實的公司項目", body: "從想法、初版產品到第一批客戶。學人完成後有可以給學校看的成果。" },
+      { icon: "build", title: "一個真實的公司理念項目", body: "從構思想法、第一批產品至第一批客戶。院士完成後可以給同學們及學校分享的成果。" },
       { icon: "workshop", title: "網上工作坊", body: "由專家主持的網上工作坊，另設答疑時間。" },
-      { icon: "school", title: "升學申請的支持", body: "完成課程的學人會獲得證書，以及 NGEN 的推薦信。老師和家長都可以跟進進度。" },
+      { icon: "school", title: "升學申請的支持", body: "完成課程的院士會獲得證書，以及 NGEN 的推薦信。老師和家長都可以跟進進度。" },
     ],
   },
 
   months: {
-    title: "六個月怎樣安排",
-    intro: "每月一個目標，每次都有完成的成果。",
+    title: "六個月如何安排",
+    intro: "每月一個目標，每次都有達標的成績。",
     photo: {
       src: "/startup-challenge/speaker-conversation.jpg",
       alt: "The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 在 NGEN Trailblazers 會議上與學生交談",
@@ -72,26 +72,26 @@ export const zhHant = {
       position: "50% 35%",
     },
     steps: [
-      { when: "1月", title: "選定想法", body: "找出一個真實問題，並訪問有這個問題的人。" },
-      { when: "2月", title: "做出產品和名字", body: "做一個別人能試用的簡單初版，並給它起個名字。" },
-      { when: "3月", title: "讓人知道它", body: "選一種方式接觸客戶，並看結果。" },
-      { when: "4月", title: "完成第一筆銷售", body: "請人付費，並把數字記下來。" },
-      { when: "5月", title: "檢視數字", body: "看看發生了什麼，並決定哪些要繼續做。" },
-      { when: "6月", title: "結業發表", body: "學人在 Zoom 上向家長、導師和 NGEN 團隊發表自己的成果和心得，並獲頒證書。" },
+      { when: "1月", title: "選定構思大綱", body: "找出一個現實問題，並訪問這個問題領域上有需要和有工作經驗的人（作出多方面探討）。" },
+      { when: "2月", title: "做出產品", body: "做一個別人能試用的簡單初版，並給它起個名字。" },
+      { when: "3月", title: "把概念或產品推廣", body: "選一種方式接觸客戶，並看他們對產品的評價。" },
+      { when: "4月", title: "完成第一筆銷售", body: "定下付費條款，並記錄收款明細表" },
+      { when: "5月", title: "查看數字", body: "持續監測，決定下一步" },
+      { when: "6月", title: "結業展示", body: "院士在 Zoom 上向家長、導師和 NGEN 團隊展示自己的成果和心得，並獲頒證書。" },
     ],
-    note: "之後，學人可以選擇參加線上暑期實習，直接與 NGEN 團隊一起推動社群建設和 NGEN 的拓展。詳情會在諮詢時說明。",
+    note: "之後，院士可以選擇參加網上暑期實習，直接與 NGEN 團隊一起推動社群建設和 NGEN 的拓展。詳情會在諮詢時說明。",
   },
 
   mentors: {
     title: "導師",
-    intro: "每位導師都是常春藤盟校學生。他們與每位學人一對一見面共10次，前三個月每月約三次，並在作業提交前先看一遍。",
+    intro: "每位導師都是常春藤盟校學生。他們與每位院士一對一見面共10次，前三個月每月約三次，並在作業提交前作出期末複習和最終評審。",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
-    schoolsNote: "導師就讀的大學。NGEN 是獨立非營利組織，並不屬於這些大學。",
+    schoolsNote: "導師就讀的大學。NGEN 是畢業生創辦的獨立非牟利組織，跟這些大學沒有關係的。",
     points: [
-      { name: "坦白的回應", body: "導師會說明什麼做得好，什麼需要改。" },
-      { name: "親身的創業經驗", body: "導師有自己的創業經驗，會把學到的東西直接分享給每位學人。" },
+      { name: "真誠坦白的反饋", body: "導師會說明什麼做得好，什麼需要改。" },
+      { name: "親身的創業經驗", body: "導師會分享自己的創業經驗。" },
       { name: "來自我們的網絡", body: "導師來自 NGEN 自己的常春藤盟校網絡。配對前我們會先與每位導師見面，六個月裡我們的團隊也會全程參與。" },
-      { name: "給家長的更新", body: "我們的團隊每月會寄給家長一封進度更新信。課程以英語進行，我們的團隊可用英語或普通話與家長溝通。" },
+      { name: "給家長的按時更新（每月一次）", body: "我們的團隊每月會給家長一封英語進度更新電郵。課程以英語進行，我們的團隊可用英語或普通話與家長溝通。" },
     ],
     speakersTitle: "曾在 NGEN 紐約活動演講的嘉賓",
     speakersNote: "曾在 NGEN 活動演講的創辦人和投資人。",
@@ -99,12 +99,12 @@ export const zhHant = {
 
   team: {
     title: "我們的團隊",
-    intro: "NGEN 團隊負責營運學人計劃，並與每個家庭溝通。",
+    intro: "NGEN 團隊負責營運院士計劃，並與每個家庭溝通。",
     people: [
       {
         name: "Jackson Lehner",
         photo: "/startup-challenge/team/jackson.jpg",
-        bio: "NGEN 聯合創辦人。普林斯頓大學2024屆，曾任普林斯頓創業俱樂部主席。負責學人計劃及紐約行程。",
+        bio: "NGEN 聯合創辦人。普林斯頓大學2024屆，曾任普林斯頓創業俱樂部主席。負責院士計劃及紐約行程。",
       },
       {
         name: "Sabrina Chann",
@@ -121,17 +121,17 @@ export const zhHant = {
 
   capstone: {
     title: "紐約四天 · 常春藤盟校創業會議",
-    introBefore: "學人可以參加為期四天的紐約行程，配合 NGEN 的",
+    introBefore: "院士可以參加為期四天的紐約行程，配合 NGEN 的",
     conferenceLabel: "常春藤盟校創業會議（Ivy League Entrepreneurship Conference）",
-    introAfter: "，於2027年4月18日（星期日）舉行。這是只限受邀者參加的聚會，匯聚常春藤盟校的頂尖學生創業者。學人並會在4月16日（星期五）參加 NGEN 的 Founder Trek。",
+    introAfter: "，於2027年4月18日（星期日）舉行。這是僅限受邀者參加的聚會，匯聚常春藤盟校的頂尖學生創業者。院士還會在4月16日（星期五）參加 NGEN 的 Founder Trek。",
     conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "交通與陪同",
     logistics: [
-      "這是另行收費的可選行程，由 NGEN 統籌安排，讓學人親身認識常春藤盟校。所有學人均可參加，無需甄選。",
-      "未滿18歲的學人須由家長陪同，或由家長書面指定的成年監護人陪同。",
-      "機票和酒店另計，由家庭自行預算。",
-      "NGEN 訂定行程，並在參訪和會議期間與學生同行。",
-      "我們會告知家庭誰前往紐約、每天的安排，以及如何保持聯絡。",
+      "這是另行收費的可選行程，由 NGEN 統籌安排，讓院士親身認識常春藤盟校。所有院士均可參加，無需選拔。",
+      "未滿18歲的院士須由家長陪同，或由家長書面指定的成年監護人陪同。",
+      "收費不包括機票/交通和酒店住宿飲食，所有其它離港參加費用由家長自行安排。",
+      "NGEN 負責制定行程，並在參訪和會議期間與院士同行。",
+      "家長或監護人會以電郵得知每天的安排，以及如何保持聯繫。",
     ],
     photo: {
       src: "/startup-challenge/founder-trek-insight-partners.jpg",
@@ -143,13 +143,13 @@ export const zhHant = {
       label: "每天安排",
       place: "2027年4月15日至18日，紐約",
       days: [
-        { when: "4月15日", title: "哥倫比亞大學", body: "第1天。家庭提前一天抵達。簡短歡迎後，參觀哥倫比亞大學。" },
+        { when: "4月15日", title: "哥倫比亞大學", body: "第1天。院士已於前一天抵達。簡短歡迎後，參觀哥倫比亞大學。" },
         { when: "4月16日", title: "Founder Trek", body: "第2天。一整天參訪紐約的初創公司和投資機構。" },
         { when: "4月17日", title: "普林斯頓與賓夕法尼亞大學", body: "第3天。從紐約乘火車，參觀普林斯頓大學和賓夕法尼亞大學。" },
         {
           when: "4月18日",
           title: "常春藤盟校創業會議",
-          body: "第4天。學人參加會議，之後一起為這次行程作總結。",
+          body: "第4天。院士參加會議，之後一起為這次行程做總結。",
           href: "https://ivyleagueconference.org/",
         },
       ],
@@ -202,15 +202,15 @@ export const zhHant = {
     title: "誰可以參加",
     points: [
       "9至12年級。",
-      "不需要已有公司或想法。",
+      "沒門檻，只要堅定承諾",
       "由家長或監護人提出。",
       "2027年1月至6月網上進行，期間於4月15日至18日前往紐約參加實體行程。",
-      "首屆學人名額有限。",
+      "首屆收生名額有限。",
     ],
     stepsTitle: "如何參加",
     steps: [
       { title: "預約諮詢", body: "填寫下方的簡短表格，只需一分鐘。" },
-      { title: "與團隊會面", body: "與我們的團隊進行一次私人 Zoom 通話，可用英語或普通話。我們會解答問題，並說明費用和付款方式。" },
+      { title: "與團隊見面", body: "與我們的團隊進行一次私人 Zoom 通話，可用英語或普通話。我們會解答問題，並說明費用和付款方式。" },
       { title: "確認名額", body: "確認後，我們會為學生配對導師，一月正式開始。" },
     ],
     cta: "預約諮詢",
@@ -220,7 +220,7 @@ export const zhHant = {
     title: "關於 NGEN",
     body: "NGEN 是常春藤盟校的創業網絡，由普林斯頓、賓夕法尼亞大學和布朗的學生創立。會議、參訪團和公司參訪都由常春藤盟校的學生和校友主持。NGEN 是 501(c)(3) 非營利組織，獨立於這些大學。",
     raised: "由 NGEN 初創公司籌得",
-    reach: "網絡內接觸的學生",
+    reach: "網絡中接觸的學生",
     partners: "透過 NGEN 投入學生創辦人和初創公司",
     events: "三年內的會議、參訪團和公司參訪",
     more: { label: "關於 NGEN", href: "/" },
@@ -234,8 +234,8 @@ export const zhHant = {
     formTitle: "預約諮詢",
     formIntro: "幾項資料。我們會再跟進。",
     emailInstead: "如果表格發送失敗，請電郵",
-    reassure: "我們會在兩個工作天內回覆，安排一次個別諮詢。",
-    submit: "送出",
+    reassure: "我們會盡量在兩個工作天內回覆，安排一次個別諮詢。",
+    submit: "提交",
     submitting: "發送中…",
     successTitle: "已收到。",
     successBody: "謝謝。您可以現在選擇諮詢時間，或等我們在兩個工作天內回覆。",
@@ -245,12 +245,12 @@ export const zhHant = {
     fields: {
       parentName: "家長姓名",
       email: "家長電郵",
-      phone: "微信或 WhatsApp（可選填）",
+      phone: "微信或 WhatsApp（選填）",
       gradeOrAge: "學生年級或年齡",
       gradePlaceholder: "例如：11年級、中五，或16歲",
       callLanguage: "通話語言",
       callLanguages: { english: "英語", mandarin: "普通話" },
-      note: "還有什麼想讓我們知道的",
+      note: "其它問題？",
     },
     errors: {
       summary: "請檢查下面的欄目，然後再試一次。",
