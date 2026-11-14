@@ -100,6 +100,7 @@ export function validateConsultation(input) {
   const gradeOrAge = String(input.gradeOrAge || "").trim();
   const note = String(input.note || "").trim();
   const callLanguage = CALL_LANGUAGES.includes(input.callLanguage) ? input.callLanguage : defaultCallLanguage(language);
+  const source = normalizeSource(input.source);
   const errors = {};
 
   if (parentName.length < 2 || parentName.length > 120) errors.parentName = copy.parentName;
@@ -111,8 +112,18 @@ export function validateConsultation(input) {
   return {
     ok: Object.keys(errors).length === 0,
     errors,
-    value: { parentName, parentEmail, whatsapp: phone, gradeOrAge, note, language, callLanguage, eligible: "yes" },
+    value: { parentName, parentEmail, whatsapp: phone, gradeOrAge, note, language, callLanguage, source, eligible: "yes" },
   };
+}
+
+// Where a lead came from, from a tagged link such as ?utm_source=flyer.
+// Kept short and to letters, numbers, dashes and underscores.
+export function normalizeSource(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]/g, "")
+    .slice(0, 40);
 }
 
 export function validateLead(input) {
