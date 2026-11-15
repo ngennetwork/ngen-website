@@ -10,6 +10,9 @@ import ProgramSummary from "@/components/ui/ProgramSummary";
 import SpeakerGrid from "@/components/sections/SpeakerGrid";
 import ConferenceFilm from "@/components/sections/ConferenceFilm";
 import ConferenceOnPhoto from "@/components/brand/ConferenceOnPhoto";
+import BrandLogo from "@/components/brand/BrandLogo";
+import NewsletterForm from "@/components/NewsletterForm";
+import { RoundAction, RoundDetails } from "@/components/sections/RoundStatus";
 
 const copy = pages.program;
 
@@ -29,7 +32,7 @@ export async function generateMetadata({ params }) {
   const program = getProgramBySlug(slug);
   if (!program) return { title: "Program not found" };
   const description = program.featured ? `${program.featured}. ${program.summary}` : program.summary;
-  return { title: program.name, description };
+  return { title: program.brandName ?? program.name, description };
 }
 
 const isExternal = (href) => href.startsWith("http");
@@ -41,16 +44,19 @@ export default async function ProgramPage({ params }) {
 
   const others = programs.filter((p) => p.slug !== program.slug);
   const isFlagship = program.slug === "conferences";
+  const { round, partner, terms } = program;
 
   return (
     <>
       <PageHero
         id="program-title"
-        title={program.name}
+        title={program.brandName ?? program.name}
         intro={<ProgramSummary program={program} />}
         action={
           <div className="flex flex-wrap items-center gap-3">
-            {program.apply && (
+            {round && program.apply ? (
+              <RoundAction round={round} apply={program.apply} />
+            ) : program.apply && (
               <a
                 href={program.apply.href}
                 {...(isExternal(program.apply.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -86,6 +92,63 @@ export default async function ProgramPage({ params }) {
           </dl>
         </div>
       </PageSection>
+
+      {round && program.apply && (
+        <PageSection id="round-title" title="Current round">
+          <RoundDetails round={round} apply={program.apply} />
+        </PageSection>
+      )}
+
+      {terms && (
+        <PageSection id="terms-title" title="Key terms" tone="band">
+          <ul className="flex flex-col">
+            {terms.map((t) => (
+              <li key={t} className="border-b border-ink/10 py-4 text-base first:pt-0 last:border-0">
+                {t}
+              </li>
+            ))}
+          </ul>
+        </PageSection>
+      )}
+
+      {partner && (
+        <PageSection id="partner-title" title={`With ${partner.name}`}>
+          <div className="grid gap-x-8 gap-y-8 lg:grid-cols-9">
+            <div className="flex flex-col gap-5 lg:col-span-5">
+              <a href={partner.href} target="_blank" rel="noopener noreferrer" className="self-start text-ink">
+                <BrandLogo brand={partner} />
+              </a>
+              <p className="text-lead lg:[text-wrap:pretty]">{partner.line}</p>
+            </div>
+            {partner.stats && (
+              <dl className="flex gap-10 lg:col-span-3 lg:col-start-7 lg:flex-col lg:gap-6">
+                {partner.stats.map((st) => (
+                  <div key={st.label} className="flex flex-col gap-1">
+                    <dt className="order-2 text-small text-slate">{st.label}</dt>
+                    <dd className="order-1 font-display text-h2">{st.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+          </div>
+        </PageSection>
+      )}
+
+      {round && (
+        <section id="pitch-alerts" aria-labelledby="pitch-alerts-title" className="grain bg-ink-deep text-on-dark">
+          <div className="wrap grid items-end gap-x-8 gap-y-8 py-[clamp(4rem,8vw,6rem)] lg:grid-cols-12">
+            <div className="flex flex-col gap-3 lg:col-span-5">
+              <h2 id="pitch-alerts-title" className="font-display text-h2">
+                Hear when the next round opens
+              </h2>
+              <p className="text-lead text-on-dark/75">One email when applications open. Nothing else.</p>
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7">
+              <NewsletterForm id="pitch-alerts-email" tone="dark" source="Pitch" />
+            </div>
+          </div>
+        </section>
+      )}
 
       {isFlagship && (
         <>

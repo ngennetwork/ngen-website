@@ -30,6 +30,11 @@ import { conference } from "./site";
  *   photo       { src, alt, position? }: a real NGEN photo
  *   featured    the one event a program presents (Conferences: the Ivy
  *               League Entrepreneurship Conference), named before its summary
+ *   brandName   optional co-branded title for the program's own page
+ *   round       optional current round { name, closesAt, deadlineLabel,
+ *               finalLabel, lumaHref }; the page switches itself once it closes
+ *   terms       optional list of key terms shown on the program's page
+ *   partner     optional program partner { name, href, logo, line, stats }
  *
  * TODO(photo): new photos are coming; each record notes whether its photo
  * should be replaced.
@@ -92,14 +97,44 @@ export const programs = [
     slug: "pitch-competitions",
     name: "Pitch Competitions",
     shortName: "Pitch",
+    // The co-branded name used on the program's own page, F6S and Luma.
+    brandName: "NGEN x Honors Fund $150K Pitch Competition",
     summary:
-      "Pitch your company and compete against other founders for investment and prize funding.",
+      "Pitch your company and compete against other founders for a $150K investment from Honors Fund.",
     description:
-      "Pitch Competitions give student founders a real stage and a real check on the line: up to $150K from Honors Fund. Teams get direct feedback from the investors judging the room, so even the founders who don't win leave with sharper answers to the questions that matter most.",
-    audience: "Student founders",
-    // Pitch competitions are listed on the Luma calendar, so the Events page
-    // leaves this button out. The Pitch Competitions page still shows it.
-    apply: { label: "Apply to pitch", href: "https://pitch.ngennetwork.org", hideOnEvents: true },
+      "NGEN and Honors Fund run the $150K Pitch Competition in rounds, several times a year. Each round, up to 10 finalist teams pitch virtually to the Honors Fund team, and the winner receives a $150K SAFE investment. Because it's virtual, founders can apply from anywhere.",
+    audience: "Student, recent grad and faculty founders building software",
+    apply: { label: "Apply on F6S", href: "https://www.f6s.com/150k-pitch-competition-18", hideOnEvents: true },
+    /**
+     * The current round. Update these each round; everything else on the
+     * page stays. After `closesAt`, the page switches itself to "Next round
+     * opening soon" with the email signup, so it never shows a passed date.
+     * Set `lumaHref` once the final is on the Luma calendar.
+     */
+    round: {
+      name: "December 2026 Round",
+      closesAt: "2026-11-27T23:59:00-05:00",
+      deadlineLabel: "Friday, November 27",
+      finalLabel: "Virtual final in early December",
+      lumaHref: null,
+    },
+    terms: [
+      "Prize: a $150K SAFE at a $2M post-money valuation, which can increase with prior rounds or strong traction. Pro rata rights included.",
+      "Software startups, legally incorporated. Honors Fund typically invests in Delaware C Corporations.",
+      "At least one founder is a student, recent grad (within 24 months), post-doc or faculty member planning to work on the company full-time.",
+      "Open to founders in the USA, Canada and the UK.",
+    ],
+    partner: {
+      name: "Honors Fund",
+      href: "https://honorsfund.com",
+      logo: { src: "/logos/firms/honors-fund.png", width: 1010, height: 219 },
+      // Honors Fund's own description, from honorsfund.com.
+      line: "Honors Fund is investing $25M in first checks into student and faculty software startups.",
+      stats: [
+        { value: "29", label: "startups backed" },
+        { value: "$10M+", label: "deployed since 2022" },
+      ],
+    },
     // TODO(photo): replace. This is the first conference's audience (also on
     // About and home); use one from a pitch competition, e.g. pitch-competitions.jpg.
     photo: {

@@ -8,7 +8,7 @@ import { site } from "@/content/site";
  * One email field for application alerts. Submits to the Apps Script
  * backend (formType "newsletter"), which dedupes into the sheet.
  */
-export default function NewsletterForm({ id = "alerts-email", tone = "light" }) {
+export default function NewsletterForm({ id = "alerts-email", tone = "light", source }) {
   const dark = tone === "dark";
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
@@ -19,7 +19,7 @@ export default function NewsletterForm({ id = "alerts-email", tone = "light" }) 
     setStatus("loading");
     setError("");
     try {
-      await submitToAppsScript({ formType: "newsletter", email });
+      await submitToAppsScript({ formType: "newsletter", email, ...(source ? { source } : {}) });
       setStatus("success");
     } catch (err) {
       setStatus("error");
