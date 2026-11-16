@@ -5,8 +5,8 @@
  * order: largest raise first. `badge` is what the card shows: money raised,
  * or the accelerator that backed them where the amount isn't public.
  *
- * Sources: press where it exists. Series shows $8.2M raised in total; its
- * TechCrunch headline covers the $5.1M pre-seed within that. Zorbe ($8M)
+ * Sources: press where it exists. Series shows the $5.1M pre-seed from its
+ * TechCrunch headline (November 2026). Zorbe ($8M)
  * and Nirvana Carbon Solutions ($2M) come from Juan (October 2026), before
  * any press, so they link to their own sites. Doe's $500K is Y Combinator's
  * standard deal, which every company in a YC batch receives.
@@ -28,25 +28,6 @@
 /** @type {Startup[]} */
 export const startups = [
   {
-    id: "series",
-    name: "Series",
-    badge: "$8.2M raised",
-    description: "AI-powered social network matching founders and mentors.",
-    photo: {
-      src: "/team-photos/series-photo.png",
-      alt: "The Series founders",
-      width: 870,
-      height: 840,
-      position: "center 25%",
-    },
-    logo: { src: "/logos/startups/series-logo.png", width: 453, height: 315 },
-    press: {
-      title: "Two College Kids Raise a $5.1 Million Pre-Seed to Build an AI Social Network in iMessage",
-      href: "https://techcrunch.com/2026/04/24/two-college-kids-raise-a-5-1-million-pre-seed-to-build-an-ai-social-network-in-imessage/",
-    },
-    founders: ["Nathaneo Johnson", "Sean Hargrow"],
-  },
-  {
     id: "zorbe",
     name: "Zorbe",
     badge: "$8M raised",
@@ -62,6 +43,25 @@ export const startups = [
     logo: { src: "/logos/startups/zorbe-mark.webp", width: 978, height: 1118 },
     site: "https://www.zorbe.ai/",
     founders: ["Pranay Sadani", "Yash Iyer"],
+  },
+  {
+    id: "series",
+    name: "Series",
+    badge: "$5.1M raised",
+    description: "AI-powered social network matching founders and mentors.",
+    photo: {
+      src: "/team-photos/series-photo.png",
+      alt: "The Series founders",
+      width: 870,
+      height: 840,
+      position: "center 25%",
+    },
+    logo: { src: "/logos/startups/series-logo.png", width: 453, height: 315 },
+    press: {
+      title: "Two College Kids Raise a $5.1 Million Pre-Seed to Build an AI Social Network in iMessage",
+      href: "https://techcrunch.com/2026/04/24/two-college-kids-raise-a-5-1-million-pre-seed-to-build-an-ai-social-network-in-imessage/",
+    },
+    founders: ["Nathaneo Johnson", "Sean Hargrow"],
   },
   {
     id: "freya",
