@@ -94,7 +94,7 @@ function Home() {
             </div>
             <div className="flex flex-col items-start gap-5 max-md:order-1 max-md:gap-3">
               <p className="text-small text-[#fbfaf7]/60">
-                {copy.cohortNote} {copy.deadlineLabel} {copy.deadline}
+                {copy.cohortNote} {copy.admission}
               </p>
               <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
                 <a id="hero-apply" href={copy.applyPath} className="btn btn-on-dark whitespace-normal text-center">
@@ -387,7 +387,7 @@ function Home() {
               ))}
             </ul>
             <p className="font-medium">
-              {copy.deadlineLabel} {copy.deadline}
+              {copy.admission}
             </p>
             <p className="text-small text-slate">
               {copy.feesNote}{" "}
