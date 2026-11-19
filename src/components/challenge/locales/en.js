@@ -1,7 +1,6 @@
 /**
  * NGEN Global Fellowship: every word in one place.
- * Written for families. The deadline string is the one
- * line a client can change without touching the layout.
+ * Written for families. Admission is rolling; there is no fixed request date.
  * Info-session dates live in src/components/challenge/sessions.js.
  */
 
@@ -15,9 +14,7 @@ export const en = {
   emailSubject: "NGEN Global Fellowship",
   applyPath: "#request",
   cohortNote: "First cohort, limited places.",
-  deadlineLabel: "Request by",
-  deadline: "Monday, December 14, 2026",
-  urgency: "The program starts in January.",
+  admission: "Applications are reviewed on a rolling basis.",
   noIdea: "No company or idea is needed.",
   feesNote: "Program fees and payment options are shared during your private consultation.",
   policiesLink: "Fees, refunds and policies",
