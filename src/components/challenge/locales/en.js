@@ -1,7 +1,6 @@
 /**
  * NGEN Global Fellowship: every word in one place.
- * Written for families. The deadline string is the one
- * line a client can change without touching the layout.
+ * Written for families. Admission is rolling; there is no fixed request date.
  * Info-session dates live in src/components/challenge/sessions.js.
  */
 
@@ -15,11 +14,10 @@ export const en = {
   emailSubject: "NGEN Global Fellowship",
   applyPath: "#request",
   cohortNote: "First cohort, limited places.",
-  deadlineLabel: "Request by",
-  deadline: "Monday, December 14, 2026",
-  urgency: "The program starts in January.",
+  admission: "Applications are reviewed on a rolling basis.",
   noIdea: "No company or idea is needed.",
   feesNote: "Program fees and payment options are shared during your private consultation.",
+  policiesLink: "Fees, refunds and policies",
   schools: {
     label: "Founded and run by students and alumni of",
   },
@@ -101,6 +99,28 @@ export const en = {
     ],
     speakersTitle: "Speakers at NGEN events in New\u00a0York",
     speakersNote: "Founders and investors who have spoken at NGEN events.",
+  },
+
+  team: {
+    title: "Our team",
+    intro: "The NGEN team runs the Fellowship and speaks with every family.",
+    people: [
+      {
+        name: "Jackson Lehner",
+        photo: "/startup-challenge/team/jackson.jpg",
+        bio: "Co-founder of NGEN. Princeton ’24 and former president of the Princeton Entrepreneurship Club. Leads the Fellowship and the New York trip.",
+      },
+      {
+        name: "Sabrina Chann",
+        photo: "/startup-challenge/team/sabrina.jpg",
+        bio: "University of Pennsylvania, and an alum of the ISF Academy in Hong Kong. Leads intake and prepares each family consultation.",
+      },
+      {
+        name: "Alex Ren",
+        photo: "/startup-challenge/team/alex.jpg",
+        bio: "UC Berkeley, and an alum of the ISF Academy in Hong Kong. Speaks with families in Mandarin.",
+      },
+    ],
   },
 
   capstone: {
@@ -222,7 +242,8 @@ export const en = {
     submit: "Send request",
     submitting: "Sending\u2026",
     successTitle: "Request received.",
-    successBody: "Thank you. We will reply within two business days to arrange a private consultation.",
+    successBody: "Thank you. Choose a time for your consultation now, or we will reply within two business days.",
+    bookNow: "Book a meeting",
     fields: {
       parentName: "Parent name",
       email: "Parent email",

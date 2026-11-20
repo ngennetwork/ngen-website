@@ -80,7 +80,8 @@ export const programs = [
     description:
       "Founder Treks bring small groups of actively raising founders to investors' own offices for a day of back-to-back visits. Instead of a cold email, founders walk in with a warm introduction and walk out with a real relationship, often the first meeting in a much longer conversation with that fund.",
     audience: "Student founders who are actively raising",
-    apply: { label: "Apply for a trek", href: "/capital-network/founders" },
+    // No trek application yet. Add { label, href } here once one exists.
+    apply: null,
     photo: {
       src: "/about/events/founder-treks.jpg",
       alt: "Student founders at a venture firm's office during a Founder Trek",
@@ -96,7 +97,9 @@ export const programs = [
     description:
       "Pitch Competitions give student founders a real stage and a real check on the line: up to $150K from Honors Fund. Teams get direct feedback from the investors judging the room, so even the founders who don't win leave with sharper answers to the questions that matter most.",
     audience: "Student founders",
-    apply: { label: "Apply to pitch", href: "https://pitch.ngennetwork.org" },
+    // Pitch competitions are listed on the Luma calendar, so the Events page
+    // leaves this button out. The Pitch Competitions page still shows it.
+    apply: { label: "Apply to pitch", href: "https://pitch.ngennetwork.org", hideOnEvents: true },
     // TODO(photo): replace. This is the first conference's audience (also on
     // About and home); use one from a pitch competition, e.g. pitch-competitions.jpg.
     photo: {

@@ -50,13 +50,15 @@ export default async function ProgramPage({ params }) {
         intro={<ProgramSummary program={program} />}
         action={
           <div className="flex flex-wrap items-center gap-3">
-            <a
-              href={program.apply.href}
-              {...(isExternal(program.apply.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="btn btn-ink"
-            >
-              {program.apply.label}
-            </a>
+            {program.apply && (
+              <a
+                href={program.apply.href}
+                {...(isExternal(program.apply.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="btn btn-ink"
+              >
+                {program.apply.label}
+              </a>
+            )}
             <PageLink href={copy.calendar.href} className="btn btn-ghost">
               {copy.calendar.label}
             </PageLink>

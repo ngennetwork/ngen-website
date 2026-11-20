@@ -13,14 +13,14 @@
 export const conference = {
   name: "Ivy League Entrepreneurship Conference",
   // Noon keeps the date right in any time zone; the start time is TBD.
-  startsAt: "2027-04-17T12:00:00-04:00",
+  startsAt: "2027-04-18T12:00:00-04:00",
   dateLabel: "April 17, 2027",
   city: "New York City",
   format: "Invite-only",
   // The conference's fixed motto, verbatim.
   motto: "Connecting world-class student entrepreneurs with today’s most influential leaders.",
-  // The conference site's production address. Swap for its custom domain once connected.
-  url: "https://ngen-five.vercel.app",
+  // The conference site's custom domain.
+  url: "https://ivyleagueconference.org",
   // The conference's official wordmark (set in white on the site).
   wordmark: { src: "/logos/conference/ilec-wordmark.png", width: 2000, height: 548 },
 };

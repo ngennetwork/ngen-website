@@ -116,10 +116,14 @@ const nextConfig = {
         destination: "/global-fellowship#request",
         permanent: true,
       },
+      // /startup-challenge itself is the flyer's QR landing page (same content,
+      // counted on its own in analytics). It opens in Traditional Chinese,
+      // like the flyer, unless a language is given.
       {
         source: "/startup-challenge",
-        destination: "/global-fellowship",
-        permanent: true,
+        missing: [{ type: "query", key: "lang" }],
+        destination: "/startup-challenge?lang=zh-Hant",
+        permanent: false,
       },
       {
         source: "/capital-network",

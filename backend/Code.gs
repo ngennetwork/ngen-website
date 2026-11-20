@@ -361,7 +361,7 @@ var DEFAULT_SESSIONS = [
   },
 ];
 
-var LEAD_HEADERS = ["timestamp", "parentName", "parentEmail", "whatsapp", "gradeOrAge", "eligible", "language", "session", "note", "callLanguage"];
+var LEAD_HEADERS = ["timestamp", "parentName", "parentEmail", "whatsapp", "gradeOrAge", "eligible", "language", "session", "note", "callLanguage", "source"];
 var CALL_LANGUAGES = { english: "English", mandarin: "Mandarin" };
 var CONSULT_URL = "https://www.ngennetwork.org/intro";
 var ZOOM_URL = "https://www.ngennetwork.org/zoom";
@@ -377,6 +377,7 @@ function handleStartupChallengeLead(data) {
   var callLanguage = CALL_LANGUAGES[oneLine(data.callLanguage).toLowerCase()] || "";
   var eligible = String(data.eligible || "").toLowerCase() === "yes" ? "yes" : "no";
   var language = oneLine(data.language) || "en";
+  var source = oneLine(data.source).toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 40);
 
   if (!parentName || !isEmailAddress(parentEmail) || !gradeOrAge) {
     return jsonResponse({ ok: false, error: "Please fill in all required fields." });
@@ -384,7 +385,7 @@ function handleStartupChallengeLead(data) {
 
   var sheet = getOrCreateSheet("Start-Up Challenge Leads", LEAD_HEADERS);
   ensureTrailingHeaders(sheet, LEAD_HEADERS);
-  sheet.appendRow([new Date(), parentName, parentEmail, whatsapp, gradeOrAge, eligible, language, "", note, callLanguage]);
+  sheet.appendRow([new Date(), parentName, parentEmail, whatsapp, gradeOrAge, eligible, language, "", note, callLanguage, source]);
   var row = sheet.getLastRow();
 
   try {
@@ -401,6 +402,7 @@ function handleStartupChallengeLead(data) {
         "Grade or age: " + gradeOrAge,
         "Note: " + (note || "—"),
         "Call language: " + (callLanguage || "—"),
+        "Source: " + (source || "direct"),
         "Eligible: " + eligible,
         "Language: " + language,
       ].join("\n"),
@@ -509,8 +511,8 @@ function sessionLine(option, language) {
 }
 
 function leadSubject(language) {
-  if (language === "zh-Hant") return "NGEN 全球學人計劃：已收到您的諮詢申請";
-  if (language === "zh-Hans") return "NGEN 全球学人计划：已收到您的咨询申请";
+  if (language === "zh-Hant") return "NGEN 全球院士計劃：已收到您的諮詢申請";
+  if (language === "zh-Hans") return "NGEN 全球院士计划：已收到您的咨询申请";
   return "NGEN Global Fellowship: we received your request";
 }
 
@@ -537,8 +539,15 @@ var LEAD_COPY = {
     ],
     callIn: function (lang) { return "Your call will be in " + lang + "."; },
     languages: { english: "English", mandarin: "Mandarin" },
-    book: "Book a consultation",
-    cohort: "The first cohort has limited places. Requests close Monday, December 14, 2026.",
+    book: "Book a meeting",
+    bookIntro: "The fastest next step: choose a time for a 20-minute Zoom call with our team.",
+    networkTitle: "Part of the Ivy League’s student founder network",
+    network: [
+      "NGEN was founded by students at Princeton, Penn and Brown, and has reached 20,000 students across its network.",
+      "Fellows are mentored by Ivy League students, and meet founders and investors on NGEN’s Founder Trek in New York.",
+      "NGEN runs the Ivy League Entrepreneurship Conference, its flagship event, in New York on Sunday, April 18, 2027.",
+    ],
+    cohort: "The first cohort has limited places. Applications are reviewed on a rolling basis.",
     glanceTitle: "The program at a glance",
     glance: [
       "Six months, January to June 2027, online from home, with an in-person trip to New York partway through.",
@@ -553,10 +562,10 @@ var LEAD_COPY = {
     tagline: "The Ivy League entrepreneurship network",
   },
   "zh-Hans": {
-    program: "NGEN 全球学人计划",
+    program: "NGEN 全球院士计划",
     dates: "2027年1月至6月",
     hello: function (name) { return name + " 您好："; },
-    thanks: "感谢您关注 NGEN 全球学人计划。我们已收到您的咨询申请。",
+    thanks: "感谢您关注 NGEN 全球院士计划。我们已收到您的咨询申请。",
     nextTitle: "接下来",
     steps: [
       ["预约时间", "选择一个时间，与我们的团队进行私人 Zoom 通话；我们也会在两个工作日内联系您。"],
@@ -565,26 +574,33 @@ var LEAD_COPY = {
     ],
     callIn: function (lang) { return "通话语言：" + lang + "。"; },
     languages: { english: "英语", mandarin: "普通话" },
-    book: "预约咨询",
-    cohort: "首届名额有限，申请截止日期为2026年12月14日（星期一）。",
+    book: "预约会面",
+    bookIntro: "最快的下一步：选择时间，与我们的团队进行20分钟的 Zoom 通话。",
+    networkTitle: "加入常春藤盟校的学生创业网络",
+    network: [
+      "NGEN 由普林斯顿、宾夕法尼亚大学和布朗大学的学生创立，网络已接触20,000名学生。",
+      "院士由常春藤盟校学生担任导师，并在纽约的 NGEN Founder Trek 与创业者和投资人见面。",
+      "NGEN 主办常春藤盟校创业会议，这是我们的旗舰活动，将于2027年4月18日（星期日）在纽约举行。",
+    ],
+    cohort: "首届名额有限，申请以滚动方式审核。",
     glanceTitle: "课程一览",
     glance: [
       "为期六个月，2027年1月至6月，在家线上参加，期间有一次纽约线下行程。",
       "与常春藤盟校学生导师一对一指导共10次，前三个月每月约三次。",
-      "每周至少2小时。学人可以独自或组队完成项目。",
+      "每周至少2小时。院士可以独自或组队完成项目。",
       "每月寄给家长的进度更新信。",
       "6月的结业展示，并获颁证书及 NGEN 推荐信。",
-      "4月15日至18日在纽约：另行收费的可选行程，所有学人均可参加。包括大学参访、NGEN Founder Trek，以及4月18日（星期日）仅限受邀者参加的常春藤盟校创业会议。交通和住宿另计。",
+      "4月15日至18日在纽约：另行收费的可选行程，所有院士均可参加。包括大学参访、NGEN Founder Trek，以及4月18日（星期日）仅限受邀者参加的常春藤盟校创业会议。交通和住宿另计。",
     ],
     questions: "如有任何问题，直接回复这封邮件即可。",
     sign: "NGEN 团队",
     tagline: "常春藤盟校创业网络",
   },
   "zh-Hant": {
-    program: "NGEN 全球學人計劃",
+    program: "NGEN 全球院士計劃",
     dates: "2027年1月至6月",
     hello: function (name) { return name + " 您好："; },
-    thanks: "感謝您關注 NGEN 全球學人計劃。我們已收到您的諮詢申請。",
+    thanks: "感謝您關注 NGEN 全球院士計劃。我們已收到您的諮詢申請。",
     nextTitle: "接下來",
     steps: [
       ["預約時間", "選擇一個時間，與我們的團隊進行私人 Zoom 通話；我們也會在兩個工作天內聯絡您。"],
@@ -593,16 +609,23 @@ var LEAD_COPY = {
     ],
     callIn: function (lang) { return "通話語言：" + lang + "。"; },
     languages: { english: "英語", mandarin: "普通話" },
-    book: "預約諮詢",
-    cohort: "首屆名額有限，申請截止日期為2026年12月14日（星期一）。",
+    book: "預約會面",
+    bookIntro: "最快的下一步：選擇時間，與我們的團隊進行20分鐘的 Zoom 通話。",
+    networkTitle: "加入常春藤盟校的學生創業網絡",
+    network: [
+      "NGEN 由普林斯頓、賓夕法尼亞大學和布朗大學的學生創立，網絡已接觸20,000名學生。",
+      "院士由常春藤盟校學生擔任導師，並在紐約的 NGEN Founder Trek 與創業者和投資人會面。",
+      "NGEN 主辦常春藤盟校創業會議，這是我們的旗艦活動，將於2027年4月18日（星期日）在紐約舉行。",
+    ],
+    cohort: "首屆名額有限，申請以滾動方式審核。",
     glanceTitle: "課程一覽",
     glance: [
       "為期六個月，2027年1月至6月，在家線上參加，期間有一次紐約實體行程。",
       "與常春藤盟校學生導師一對一指導共10次，前三個月每月約三次。",
-      "每週至少2小時。學人可以獨自或組隊完成項目。",
+      "每週至少2小時。院士可以獨自或組隊完成項目。",
       "每月寄給家長的進度更新信。",
       "6月的結業發表，並獲頒證書及 NGEN 推薦信。",
-      "4月15日至18日在紐約：另行收費的可選行程，所有學人均可參加。包括大學參訪、NGEN Founder Trek，以及4月18日（星期日）只限受邀者參加的常春藤盟校創業會議。交通和住宿另計。",
+      "4月15日至18日在紐約：另行收費的可選行程，所有院士均可參加。包括大學參訪、NGEN Founder Trek，以及4月18日（星期日）只限受邀者參加的常春藤盟校創業會議。交通和住宿另計。",
     ],
     questions: "如有任何問題，直接回覆這封電郵即可。",
     sign: "NGEN 團隊",
@@ -624,7 +647,7 @@ function leadWelcomeBody(language, parentName, callLanguageKey) {
 
 function leadPlainText(language, parentName, callLanguageKey) {
   var c = leadCopyFor(language);
-  var lines = [c.hello(parentName), c.thanks, c.nextTitle];
+  var lines = [c.hello(parentName), c.thanks, c.bookIntro + "\n" + c.book + ": " + CONSULT_URL, c.nextTitle];
   c.steps.forEach(function (step, i) {
     var text = (i + 1) + ". " + step[0] + ": " + step[1];
     if (i === 0) text += "\n" + CONSULT_URL;
@@ -632,6 +655,7 @@ function leadPlainText(language, parentName, callLanguageKey) {
     lines.push(text);
   });
   lines.push(c.cohort);
+  lines.push(c.networkTitle + "\n" + c.network.map(function (item) { return "• " + item; }).join("\n"));
   lines.push(c.glanceTitle + "\n" + c.glance.map(function (item) { return "• " + item; }).join("\n"));
   lines.push(c.questions);
   lines.push(c.sign + "\n" + c.tagline);
@@ -669,6 +693,14 @@ function leadWelcomeHtml(language, parentName, callLanguageKey) {
       return '<tr><td valign="top" style="padding:0 10px 10px 0;color:' + GREEN + ';font:15px/1.55 ' + SANS + ';">&#9679;</td>' +
         '<td style="padding:0 0 10px;font:15px/1.55 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(item) + '</td></tr>';
     }).join("");
+    var network = c.network.map(function (item) {
+      return '<tr><td valign="top" style="padding:0 10px 10px 0;color:' + GREEN + ';font:15px/1.55 ' + SANS + ';">&#9679;</td>' +
+        '<td style="padding:0 0 10px;font:15px/1.55 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(item) + '</td></tr>';
+    }).join("");
+    function bookButton(margin) {
+      return '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:' + margin + ';"><tr><td bgcolor="' + GREEN + '" style="background:' + GREEN + ';border-radius:8px;">' +
+        '<a href="' + CONSULT_URL + '" style="display:inline-block;padding:14px 26px;font:600 16px ' + SANS + ';color:' + CREAM + ';text-decoration:none;">' + escapeHtml(c.book) + '</a></td></tr></table>';
+    }
     var banner = withBanner
       ? '<tr><td><img src="' + FELLOWSHIP_BANNER + '" width="600" alt="' + escapeHtml(c.program + ", " + c.dates) + '" style="display:block;width:100%;max-width:600px;height:auto;border:0;"></td></tr>'
       : '<tr><td bgcolor="' + GREEN + '" style="background:' + GREEN + ';padding:28px 36px;"><div style="font:28px/1.15 ' + SERIF + ';color:' + CREAM + ';">' + escapeHtml(c.program) + '</div>' +
@@ -676,13 +708,16 @@ function leadWelcomeHtml(language, parentName, callLanguageKey) {
     return banner +
       '<tr><td bgcolor="' + CREAM + '" style="background:' + CREAM + ';padding:32px 36px 12px;">' +
       '<p style="margin:0 0 14px;font:16px/1.6 ' + SANS + ';color:' + INK + ';">' + escapeHtml(c.hello(parentName)) + '</p>' +
-      '<p style="margin:0 0 28px;font:16px/1.6 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.thanks) + '</p>' +
+      '<p style="margin:0 0 18px;font:16px/1.6 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.thanks) + '</p>' +
+      '<p style="margin:0 0 12px;font:16px/1.6 ' + SANS + ';color:' + INK + ';">' + escapeHtml(c.bookIntro) + '</p>' +
+      bookButton("0 0 32px") +
       '<div style="margin:0 0 16px;font:24px/1.2 ' + SERIF + ';color:' + INK + ';">' + escapeHtml(c.nextTitle) + '</div>' +
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">' + steps + '</table>' +
-      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 14px;"><tr><td bgcolor="' + GREEN + '" style="background:' + GREEN + ';border-radius:8px;">' +
-      '<a href="' + CONSULT_URL + '" style="display:inline-block;padding:13px 22px;font:600 15px ' + SANS + ';color:' + CREAM + ';text-decoration:none;">' + escapeHtml(c.book) + '</a></td></tr></table>' +
+      bookButton("4px 0 14px") +
       '<p style="margin:0 0 32px;font:14px/1.55 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.cohort) + '</p>' +
       '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 28px;"><tr><td height="1" bgcolor="#e3e0d8" style="height:1px;line-height:1px;font-size:1px;background:#e3e0d8;">&nbsp;</td></tr></table>' +
+      '<div style="margin:0 0 16px;font:24px/1.2 ' + SERIF + ';color:' + INK + ';">' + escapeHtml(c.networkTitle) + '</div>' +
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0 0 18px;">' + network + '</table>' +
       '<div style="margin:0 0 16px;font:24px/1.2 ' + SERIF + ';color:' + INK + ';">' + escapeHtml(c.glanceTitle) + '</div>' +
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">' + glance + '</table>' +
       '<p style="margin:18px 0 6px;font:15px/1.6 ' + SANS + ';color:' + SLATE + ';">' + escapeHtml(c.questions) + '</p>' +

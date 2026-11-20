@@ -44,6 +44,7 @@ export async function POST(request) {
     language: parsed.value.language,
     note: parsed.value.note,
     callLanguage: parsed.value.callLanguage,
+    source: parsed.value.source,
     sessionOptions: sessionCatalog(),
   };
 

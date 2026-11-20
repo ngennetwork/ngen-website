@@ -29,7 +29,7 @@ export default function ChallengeHome({ initialLang }) {
 
 function Home() {
   const { copy, lang } = useLocale();
-  const { hero, glance, gets, months, mentors, capstone, gallery, join, ngen, apply } = copy;
+  const { hero, glance, gets, months, mentors, team, capstone, gallery, join, ngen, apply } = copy;
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(copy.emailSubject)}`;
   const mentorSchools = mentors.schools.map((name) => universities.find((u) => u.name === name)).filter(Boolean);
   const ivySchools = universities.filter((school) => school.ivy);
@@ -94,7 +94,7 @@ function Home() {
             </div>
             <div className="flex flex-col items-start gap-5 max-md:order-1 max-md:gap-3">
               <p className="text-small text-[#fbfaf7]/60">
-                {copy.cohortNote} {copy.deadlineLabel} {copy.deadline}
+                {copy.cohortNote} {copy.admission}
               </p>
               <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
                 <a id="hero-apply" href={copy.applyPath} className="btn btn-on-dark whitespace-normal text-center">
@@ -227,6 +227,30 @@ function Home() {
               <figcaption className="mt-3 text-small text-slate">{mentors.schoolsNote}</figcaption>
             </figure>
           </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="team-title" className="bg-fog">
+        <div className={SECTION}>
+          <h2 id="team-title" className="font-display text-h2">
+            {team.title}
+          </h2>
+          <p className="mt-3 max-w-[42rem] text-lead text-slate">{team.intro}</p>
+          <ul className="mt-6 grid items-stretch gap-4 sm:grid-cols-3">
+            {team.people.map((person) => (
+              <li key={person.name} className="h-full">
+                <article className="flex h-full flex-col overflow-hidden rounded-xl bg-paper text-ink shadow-[0_24px_50px_-32px_rgb(21_24_21/0.28)] ring-1 ring-ink/10">
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image src={person.photo} alt={person.name} fill sizes="(min-width: 640px) 30vw, 90vw" className="object-cover" style={{ objectPosition: "50% 30%" }} />
+                  </div>
+                  <div className="flex flex-1 flex-col gap-2 p-6">
+                    <h3 className="font-display text-[1.35rem] leading-tight">{person.name}</h3>
+                    <p className={MUTED}>{person.bio}</p>
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -363,9 +387,14 @@ function Home() {
               ))}
             </ul>
             <p className="font-medium">
-              {copy.deadlineLabel} {copy.deadline}
+              {copy.admission}
             </p>
-            <p className="text-small text-slate">{copy.feesNote}</p>
+            <p className="text-small text-slate">
+              {copy.feesNote}{" "}
+              <PageLink href="/global-fellowship/policies" className="link text-ink">
+                {copy.policiesLink}
+              </PageLink>
+            </p>
             <p className="text-small text-slate">
               {apply.emailInstead}{" "}
               <a href={mailto} className="link text-ink">

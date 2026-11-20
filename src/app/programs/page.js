@@ -78,13 +78,15 @@ export default function ProgramsPage() {
                   <PageLink href={`/programs/${p.slug}`} className="btn btn-ghost">
                     {copy.more}
                   </PageLink>
-                  <a
-                    href={p.apply.href}
-                    {...(isExternal(p.apply.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="link text-small"
-                  >
-                    {p.apply.label}
-                  </a>
+                  {p.apply && (
+                    <a
+                      href={p.apply.href}
+                      {...(isExternal(p.apply.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="link text-small"
+                    >
+                      {p.apply.label}
+                    </a>
+                  )}
                 </div>
               </div>
             </li>

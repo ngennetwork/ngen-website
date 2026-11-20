@@ -63,7 +63,7 @@ export default function EventsPage() {
 
       <PageSection id="apply-title" title={copy.applyTitle} aside={<p className="text-small text-slate">{copy.applyIntro}</p>}>
         <ul className="flex flex-col">
-          {programs.map((p) => (
+          {programs.filter((p) => p.apply && !p.apply.hideOnEvents).map((p) => (
             <li key={p.slug} className="grid gap-3 py-6 first:pt-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-8">
               <div className="flex flex-col gap-1">
                 <PageLink href={`/programs/${p.slug}`} className="font-display text-h3 underline decoration-transparent decoration-1 underline-offset-[0.18em] transition-colors hover:decoration-current">
