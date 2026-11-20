@@ -8,7 +8,6 @@ export const zhHans = {
   name: "NGEN 全球院士计划",
   emailSubject: "NGEN 全球院士计划",
   applyPath: "#request",
-  cohortNote: "首届收生名额有限。",
   admission: "申请以滚动方式审核，截止日期为2026年12月18日（星期五）。",
   noIdea: "不需要已有公司或想法。",
   feesNote: "课程费用和付款方式，会在个别咨询时说明。",

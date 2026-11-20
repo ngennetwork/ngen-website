@@ -14,7 +14,6 @@ export const en = {
   name: "NGEN Global Fellowship",
   emailSubject: "NGEN Global Fellowship",
   applyPath: "#request",
-  cohortNote: "First cohort, limited places.",
   admission: "Applications are reviewed on a rolling basis. Final deadline: Friday, December 18, 2026.",
   noIdea: "No company or idea is needed.",
   feesNote: "Program fees and payment options are shared during your private consultation.",
