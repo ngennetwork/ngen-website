@@ -117,14 +117,7 @@ const nextConfig = {
         permanent: true,
       },
       // /startup-challenge itself is the flyer's QR landing page (same content,
-      // counted on its own in analytics). It opens in Traditional Chinese,
-      // like the flyer, unless a language is given.
-      {
-        source: "/startup-challenge",
-        missing: [{ type: "query", key: "lang" }],
-        destination: "/startup-challenge?lang=zh-Hant",
-        permanent: false,
-      },
+      // counted on its own in analytics). It is a page, not a redirect.
       {
         source: "/capital-network",
         destination: "/capital-network/founders",

@@ -21,7 +21,8 @@ const pageLinks = nav.links.flatMap((link) => [link, ...(link.children ?? []).fi
  */
 export default function SiteFooter() {
   const pathname = usePathname();
-  const ivy = pathname === "/global-fellowship" || pathname.startsWith("/global-fellowship/");
+  // The fellowship pages, including the flyer QR landing page at /startup-challenge.
+  const ivy = pathname === "/global-fellowship" || pathname.startsWith("/global-fellowship/") || pathname === "/startup-challenge";
   const year = new Date().getFullYear();
   // Two sentences, two lines on wide screens: who NGEN is, then what that
   // means for a gift, with the copyright closing the second.
