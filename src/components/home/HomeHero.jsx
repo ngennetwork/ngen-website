@@ -1,8 +1,10 @@
 import { home } from "@/content/site";
 import PageLink from "@/components/ui/PageLink";
 import IvyRange from "./IvyRange";
+import { universities } from "@/data/universities";
 
 const { hero } = home;
+const ivies = universities.filter((u) => u.ivy);
 
 /**
  * The cover fits one screen: the line across the full measure, the intro
@@ -15,7 +17,17 @@ export default function HomeHero() {
   return (
     <section aria-labelledby="hero-title" className="relative flex min-h-[100svh] flex-col overflow-hidden bg-snow text-ink">
       <div className="wrap flex flex-1 flex-col justify-end gap-7 pt-[clamp(6.5rem,13svh,8rem)] pb-[clamp(2rem,5svh,3.5rem)] md:flex-none">
-        <p className="text-small text-slate">{hero.kicker}</p>
+        <div className="flex flex-col items-start gap-1.5">
+          <p className="text-small text-slate">{hero.kicker}</p>
+          <p className="max-w-[46rem] text-[0.8125rem] leading-snug text-slate">
+            {ivies.map((u, i) => (
+              <span key={u.file}>
+                {i > 0 ? <span aria-hidden="true"> · </span> : null}
+                {u.name}
+              </span>
+            ))}
+          </p>
+        </div>
         <h1 id="hero-title" className="font-display text-[clamp(3rem,1.1rem+5vw,6.25rem)] leading-[0.98] tracking-[-0.04em]">
           {hero.title}
         </h1>
