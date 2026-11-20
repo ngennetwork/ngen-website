@@ -547,7 +547,7 @@ var LEAD_COPY = {
       "Fellows are mentored by Ivy League students, and meet founders and investors on NGEN’s Founder Trek in New York.",
       "NGEN runs the Ivy League Entrepreneurship Conference, its flagship event, in New York on Sunday, April 18, 2027.",
     ],
-    cohort: "The first cohort has limited places. Applications are reviewed on a rolling basis.",
+    cohort: "The first cohort has limited places. Applications are reviewed on a rolling basis. Final deadline: Friday, December 18, 2026.",
     glanceTitle: "The program at a glance",
     glance: [
       "Six months, January to June 2027, online from home, with an in-person trip to New York partway through.",
@@ -582,7 +582,7 @@ var LEAD_COPY = {
       "院士由常春藤盟校学生担任导师，并在纽约的 NGEN Founder Trek 与创业者和投资人见面。",
       "NGEN 主办常春藤盟校创业会议，这是我们的旗舰活动，将于2027年4月18日（星期日）在纽约举行。",
     ],
-    cohort: "首届名额有限，申请以滚动方式审核。",
+    cohort: "首届名额有限，申请以滚动方式审核，截止日期为2026年12月18日（星期五）。",
     glanceTitle: "课程一览",
     glance: [
       "为期六个月，2027年1月至6月，在家线上参加，期间有一次纽约线下行程。",
@@ -617,7 +617,7 @@ var LEAD_COPY = {
       "院士由常春藤盟校學生擔任導師，並在紐約的 NGEN Founder Trek 與創業者和投資人會面。",
       "NGEN 主辦常春藤盟校創業會議，這是我們的旗艦活動，將於2027年4月18日（星期日）在紐約舉行。",
     ],
-    cohort: "首屆名額有限，申請以滾動方式審核。",
+    cohort: "首屆名額有限，申請以滾動方式審核，截止日期為2026年12月18日（星期五）。",
     glanceTitle: "課程一覽",
     glance: [
       "為期六個月，2027年1月至6月，在家線上參加，期間有一次紐約實體行程。",
