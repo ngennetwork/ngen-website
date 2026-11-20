@@ -1,6 +1,7 @@
 /**
  * NGEN Global Fellowship: every word in one place.
- * Written for families. Admission is rolling; there is no fixed request date.
+ * Written for families. Applications are reviewed on a rolling basis,
+ * with a final deadline of Friday, December 18, 2026.
  * Info-session dates live in src/components/challenge/sessions.js.
  */
 
@@ -14,7 +15,7 @@ export const en = {
   emailSubject: "NGEN Global Fellowship",
   applyPath: "#request",
   cohortNote: "First cohort, limited places.",
-  admission: "Applications are reviewed on a rolling basis.",
+  admission: "Applications are reviewed on a rolling basis. Final deadline: Friday, December 18, 2026.",
   noIdea: "No company or idea is needed.",
   feesNote: "Program fees and payment options are shared during your private consultation.",
   policiesLink: "Fees, refunds and policies",
