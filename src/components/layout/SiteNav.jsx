@@ -68,7 +68,8 @@ export default function SiteNav() {
   }, [open]);
 
   const isActive = (link) => pathname === link.href || pathname.startsWith(`${link.match ?? link.href}/`) || pathname === link.match;
-  const ivy = pathname === "/global-fellowship" || pathname.startsWith("/global-fellowship/");
+  // The fellowship pages, including the flyer QR landing page at /startup-challenge.
+  const ivy = pathname === "/global-fellowship" || pathname.startsWith("/global-fellowship/") || pathname === "/startup-challenge";
   const pill = scrolled && !open;
   const frost = "bg-paper ring-1 ring-ink/12";
   const ivyBar = "bg-[#fbfaf7] text-[#151815] ring-1 ring-[#151815]/12";

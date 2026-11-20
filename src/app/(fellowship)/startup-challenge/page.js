@@ -6,7 +6,7 @@ import { localeFrom, normalizeLang, pageMeta } from "@/components/challenge/cont
  * (ngennetwork.org/startup-challenge). It shows the same page as
  * /global-fellowship, so visits from the flyer show up as their own page
  * in Vercel Web Analytics, and requests sent from it are tagged "flyer".
- * next.config adds ?lang=zh-Hant when no language is given, to match the flyer.
+ * It opens in English, like /global-fellowship; families switch language on the page.
  */
 export async function generateMetadata({ searchParams }) {
   const params = await searchParams;
@@ -20,5 +20,5 @@ export async function generateMetadata({ searchParams }) {
 
 export default async function FlyerLandingPage({ searchParams }) {
   const params = await searchParams;
-  return <ChallengeHome initialLang={normalizeLang(params?.lang) || "zh-Hant"} />;
+  return <ChallengeHome initialLang={normalizeLang(params?.lang) || "en"} />;
 }
