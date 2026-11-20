@@ -1,8 +1,36 @@
 import { home } from "@/content/site";
 import PageLink from "@/components/ui/PageLink";
 import IvyRange from "./IvyRange";
+import { RANGE_WIDE } from "./range-geometry";
 
 const { hero } = home;
+
+/**
+ * The same ridge as the desktop hero, drawn small and still, in the same ink.
+ */
+function RidgeMark({ geo, className = "" }) {
+  const top = 70;
+  const height = geo.H - top;
+  return (
+    <svg
+      viewBox={`0 ${top} ${geo.W} ${height}`}
+      aria-hidden="true"
+      focusable="false"
+      className={`h-[1.35rem] w-auto shrink-0 text-ink md:h-[1.65rem] ${className}`}
+      style={{ aspectRatio: `${geo.W} / ${height}` }}
+    >
+      <path
+        d={geo.ridge}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}
 
 /**
  * The cover fits one screen: the line across the full measure, the intro
@@ -15,7 +43,10 @@ export default function HomeHero() {
   return (
     <section aria-labelledby="hero-title" className="relative flex min-h-[100svh] flex-col overflow-hidden bg-snow text-ink">
       <div className="wrap flex flex-1 flex-col justify-end gap-7 pt-[clamp(6.5rem,13svh,8rem)] pb-[clamp(2rem,5svh,3.5rem)] md:flex-none">
-        <p className="text-small text-slate">{hero.kicker}</p>
+        <p className="flex items-start gap-2.5 text-small text-slate">
+          <RidgeMark geo={RANGE_WIDE} className="mt-0.5" />
+          <span className="min-w-0">{hero.kicker}</span>
+        </p>
         <h1 id="hero-title" className="font-display text-[clamp(3rem,1.1rem+5vw,6.25rem)] leading-[0.98] tracking-[-0.04em]">
           {hero.title}
         </h1>
