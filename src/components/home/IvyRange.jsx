@@ -78,8 +78,7 @@ function Range({ geo, className, narrow = false, active, take, release }) {
             aria-hidden="true"
             className="range-node"
             data-ivy={s.ivy ? "" : undefined}
-            data-on={active === s.file ? "" : undefined}
-            style={{ left: pct(s.x / W), top: pct(s.y / H), "--at": `${(0.35 + (s.x / W) * 2.1).toFixed(2)}s` }}
+            style={{ left: pct(s.x / W), top: pct(s.y / H) }}
           />
         ))}
 
@@ -96,7 +95,7 @@ function Range({ geo, className, narrow = false, active, take, release }) {
               data-on={active === s.file ? "" : undefined}
               style={{ left: pct(at), top: pct(s.y / H), "--anchor": anchor }}
             >
-              <span className="flex items-center justify-center rounded-xl bg-paper px-5 py-3.5 shadow-[0_18px_40px_-18px_rgb(21_39_71/0.45),0_0_0_1px_rgb(30_52_96/0.06)] [--logo-scale:0.78]">
+              <span className="flex items-center justify-center rounded-lg bg-paper px-5 py-3.5 ring-1 ring-ink/12 shadow-[0_6px_16px_-8px_rgb(0_0_0/0.45)] [--logo-scale:0.78]">
                 <UniversityLogo university={s} />
               </span>
               <span className="mx-auto block h-4 w-px bg-ink/35" style={{ marginLeft: `calc(${anchor.replace("-", "")} - 0.5px)` }} />

@@ -18,12 +18,11 @@ const mobileLinks = nav.links.flatMap((link) => [
 
 /**
  * At the top of the page: the full NGEN logo on the left, the links in a
- * frosted tray (readable over stone or the navy panel), and the one action.
- * Once you scroll, the whole bar lifts into a floating frosted pill and the
- * logo folds down to the mountain alone. Its edges set every page's edges.
- * A link with children (About: its story and the team) opens a small
- * frosted list under it when pointed at or focused; on phones the children
- * sit indented under their parent.
+ * solid tray (readable over the navy), and the one action. Once you scroll,
+ * the whole bar becomes that same solid bar. Its edges set every page's
+ * edges. A link with children (About: its story and the team) opens a small
+ * list under it when pointed at or focused; on phones the children sit
+ * indented under their parent.
  */
 export default function SiteNav() {
   const [open, setOpen] = useState(false);
@@ -71,10 +70,8 @@ export default function SiteNav() {
   const isActive = (link) => pathname === link.href || pathname.startsWith(`${link.match ?? link.href}/`) || pathname === link.match;
   const ivy = pathname === "/global-fellowship" || pathname.startsWith("/global-fellowship/");
   const pill = scrolled && !open;
-  const frost =
-    "bg-paper/72 shadow-[0_10px_30px_-14px_rgb(0_0_0/0.5)] ring-1 ring-ink/6 backdrop-blur-xl backdrop-saturate-150";
-  const ivyBar =
-    "bg-[#fbfaf7]/92 text-[#151815] shadow-[0_10px_30px_-14px_rgb(21_24_21/0.28)] ring-1 ring-[#151815]/10 backdrop-blur-xl";
+  const frost = "bg-paper ring-1 ring-ink/12";
+  const ivyBar = "bg-[#fbfaf7] text-[#151815] ring-1 ring-[#151815]/12";
   const linkClass = ivy
     ? "flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-small text-[#151815]/75 transition-colors hover:bg-[#151815]/6 hover:text-[#151815] aria-[current=page]:bg-[#151815]/8 aria-[current=page]:text-[#151815]"
     : "flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-small text-ink/75 transition-colors hover:bg-ink/6 hover:text-ink aria-[current=page]:bg-ink/8 aria-[current=page]:text-ink";
@@ -124,7 +121,7 @@ export default function SiteNav() {
 
       <nav aria-label="Primary" className={`${ivy ? "ivy-nav wrap" : "wrap"} transition-[padding] duration-500 ease-out ${pill && !ivy ? "pt-3" : ivy ? "nav:pt-5" : "pt-5"}`}>
         <div
-          className={`relative flex h-14 items-center justify-between gap-6 rounded-2xl transition-[background-color,box-shadow,padding] duration-500 ease-out ${
+          className={`relative flex h-14 items-center justify-between gap-6 rounded-lg transition-[background-color,padding] duration-500 ease-out ${
             ivy ? `ivy-nav-bar ${ivyBar} pr-2 pl-4` : pill ? `${frost} pr-2 pl-4` : "px-0"
           } ${open && !ivy ? "text-on-dark" : ""}`}
         >
@@ -134,7 +131,7 @@ export default function SiteNav() {
 
           <div className="flex items-center gap-2">
             <ul
-              className={`hidden items-center gap-0.5 rounded-xl p-1 transition-[background-color,box-shadow] duration-500 nav:flex ${
+              className={`hidden items-center gap-0.5 rounded-lg p-1 transition-colors duration-500 nav:flex ${
                 ivy ? "" : pill ? "" : frost
               }`}
             >
@@ -154,7 +151,7 @@ export default function SiteNav() {
                   </PageLink>
                   {link.children && (
                     <div className="invisible absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 transition-[opacity,visibility] duration-200 group-focus-within/sub:visible group-focus-within/sub:opacity-100 group-hover/sub:visible group-hover/sub:opacity-100">
-                      <ul className={`min-w-40 rounded-xl p-1 shadow-[0_10px_30px_-14px_rgb(21_24_21/0.28)] backdrop-blur-xl ${ivy ? "bg-[#fbfaf7] ring-1 ring-[#151815]/10" : "bg-paper/95 ring-1 ring-ink/6 backdrop-saturate-150"}`}>
+                      <ul className={`min-w-40 rounded-lg p-1 ring-1 ${ivy ? "bg-[#fbfaf7] ring-[#151815]/12" : "bg-paper ring-ink/12"}`}>
                         {link.children.map((child) => (
                           <li key={child.href}>
                             <PageLink

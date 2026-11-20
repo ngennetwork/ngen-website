@@ -21,7 +21,7 @@ export default function Closing() {
         className="-z-20 object-cover object-[60%_45%] grayscale"
       />
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-ink-deep mix-blend-color" />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(15_29_55/0.94)_0%,rgb(15_29_55/0.82)_45%,rgb(15_29_55/0.45)_100%)]" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-ink-deep/75" />
 
       <div className="wrap flex min-h-svh flex-col justify-end gap-7 pt-[clamp(6rem,12svh,8.5rem)] pb-[clamp(4rem,9svh,6.5rem)]">
         <h2 id="closing-title" className="font-display text-[clamp(3rem,1.4rem+4.6vw,6rem)] leading-[0.98] tracking-[-0.04em]">

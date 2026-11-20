@@ -37,7 +37,7 @@ export default function ContactPage() {
         <a
           href={mailto(site.name)}
           aria-label={`${contact.emailCta}: ${site.email}`}
-          className="flex flex-col rounded-2xl bg-paper text-ink shadow-[0_30px_60px_-30px_rgb(0_0_0/0.6)] transition-transform duration-500 ease-out hover:-translate-y-1 lg:flex-1"
+          className="flex flex-col rounded-lg bg-paper text-ink ring-1 ring-ink/12 lg:flex-1"
         >
           <p className="flex items-center gap-2.5 border-b border-ink/10 px-6 py-4 text-small text-slate">
             <span aria-hidden="true" className="node" />
@@ -61,7 +61,6 @@ export default function ContactPage() {
           </dl>
           <p className="min-h-[clamp(7rem,12vw,10rem)] px-6 pt-5 pb-6 font-display text-[1.5rem] leading-snug tracking-[-0.02em] lg:min-h-[12.5rem] lg:flex-1">
             {contact.draft.body}
-            <span aria-hidden="true" className="draft-caret" />
           </p>
         </a>
       }
@@ -84,7 +83,7 @@ export default function ContactPage() {
                       height="11"
                       viewBox="0 0 10 10"
                       fill="none"
-                      className="shrink-0 text-mist transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-on-dark"
+                      className="shrink-0 text-mist group-hover:text-on-dark"
                     >
                       <path d="M2 8L8 2M3.5 2H8v4.5" stroke="currentColor" strokeWidth="1.1" />
                     </svg>

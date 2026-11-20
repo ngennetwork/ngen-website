@@ -32,7 +32,7 @@ export default function Ledger() {
       <ol className="grid gap-3 lg:grid-cols-2">
         {LEDGER.map((s) => (
           <li key={s.id}>
-            <article className="group grid h-full grid-cols-[6.5rem_minmax(0,1fr)] items-center gap-x-5 rounded-2xl bg-fog p-3 transition-colors duration-300 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-x-6">
+            <article className="group grid h-full grid-cols-[6.5rem_minmax(0,1fr)] items-center gap-x-5 rounded-lg bg-fog p-3 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-x-6">
               <StartupPicture startup={s} sizes="140px" className="aspect-[4/3] rounded-lg" markClassName="w-[42%]" />
               <div className="flex min-w-0 flex-col gap-1">
                 {/* Sized so the longest name and its raise share one line from 1280px up */}

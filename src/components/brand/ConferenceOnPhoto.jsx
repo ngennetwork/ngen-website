@@ -5,14 +5,14 @@ import { conference } from "@/content/site";
  * The conference's official wordmark, in white, resting on the foot of a
  * photo over a navy fade: how a photo says "this is the Ivy League
  * Entrepreneurship Conference". Place it inside a positioned photo frame.
- * `show` fades it in and out (the home index swaps it as you point).
+ * `show` swaps it in and out (the home index changes it as you point).
  */
 export default function ConferenceOnPhoto({ show = true }) {
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none absolute inset-x-0 bottom-0 flex items-end bg-[linear-gradient(to_top,rgb(3_10_31/0.88),rgb(3_10_31/0.4)_55%,transparent)] px-7 pt-28 pb-6 transition-[opacity,transform] duration-700 ease-out ${
-        show ? "opacity-100" : "translate-y-2 opacity-0"
+      className={`pointer-events-none absolute inset-x-0 bottom-0 flex items-end bg-ink-night/80 px-7 pt-16 pb-6 ${
+        show ? "opacity-100" : "opacity-0"
       }`}
     >
       <Image

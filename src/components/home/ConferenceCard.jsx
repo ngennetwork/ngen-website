@@ -11,7 +11,7 @@ const { card } = home.calendar;
  * The flagship NGEN presents, as the conference's own admission ticket:
  * "Admit one" over its official wordmark and motto, the date with the days
  * left and the place, then a perforated stub (invite-only, and its site).
- * It stretches to its column; its edge glows orange like NGEN's dark tiles.
+ * It stretches to its column.
  *
  * ground: the background class of the section it sits on, so the two
  * notches in the perforation read as cut out of the ticket.
@@ -25,7 +25,7 @@ export default function ConferenceCard({ className = "", ground = "bg-fog" }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${conference.name}, ${conference.dateLabel}, ${conference.city}. ${card.cta} ${site.labels.newTab}`}
-      className={`glow-card group flex flex-col rounded-2xl bg-paper text-ink transition-transform duration-500 ease-out hover:-translate-y-1 ${className}`}
+      className={`group flex flex-col rounded-lg bg-paper text-ink ring-1 ring-ink/12 ${className}`}
     >
       <div className="flex flex-col gap-3.5 px-7 pt-6 pb-5">
         <p className="text-small text-slate">{card.kicker}</p>
@@ -58,7 +58,7 @@ export default function ConferenceCard({ className = "", ground = "bg-fog" }) {
       <div className="relative flex items-center justify-between gap-4 border-t border-dashed border-ink/25 px-7 py-3.5 text-small">
         <span aria-hidden="true" className={`absolute -top-2.5 -left-2.5 size-5 rounded-full ${ground}`} />
         <span aria-hidden="true" className={`absolute -top-2.5 -right-2.5 size-5 rounded-full ${ground}`} />
-        <span className="rounded-full px-3 py-0.5 whitespace-nowrap ring-1 ring-signal/70">{conference.format}</span>
+        <span className="whitespace-nowrap">{conference.format}</span>
         <span className="inline-flex items-center gap-1.5 font-medium whitespace-nowrap underline decoration-ink/30 underline-offset-4 transition-colors group-hover:decoration-ink">
           {card.cta}
           <ExternalArrow />

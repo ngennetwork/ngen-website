@@ -26,7 +26,7 @@ export default function Photo({
   const frame = ratio === "fill" ? "aspect-[4/3] lg:aspect-auto lg:min-h-[11rem] lg:flex-1 xl:min-h-[14rem]" : ratio;
   return (
     <figure className={`flex flex-col gap-3 ${ratio === "fill" ? "lg:h-full" : ""} ${className}`}>
-      <div className={`relative ${frame} overflow-hidden rounded-xl bg-ink/5`}>
+      <div className={`relative ${frame} overflow-hidden rounded-lg bg-ink/5`}>
         <Image
           src={src}
           alt={alt}

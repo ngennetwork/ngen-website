@@ -36,7 +36,7 @@ export default function ConferenceFilm({ caption }) {
 
   return (
     <figure className="flex flex-col gap-3">
-      <div className="relative aspect-video overflow-hidden rounded-xl bg-ink-deep">
+      <div className="relative aspect-video overflow-hidden rounded-lg bg-ink-deep">
         <video
           ref={ref}
           src="/home/trailblazers.mp4"
@@ -51,9 +51,9 @@ export default function ConferenceFilm({ caption }) {
         <button
           type="button"
           onClick={toggleSound}
-          className="absolute right-4 bottom-4 inline-flex items-center gap-2 rounded-full bg-paper/90 px-3.5 py-2 text-small text-ink backdrop-blur transition-colors hover:bg-paper"
+          className="absolute right-4 bottom-4 inline-flex items-center gap-2 bg-paper px-3 py-2 text-small text-ink"
         >
-          <span aria-hidden="true" className={`size-1.5 rounded-full ${playing && !muted ? "bg-signal" : "bg-ink/40"}`} />
+          <span aria-hidden="true" className={`size-1.5 rounded-full ${playing && !muted ? "bg-ink" : "bg-ink/40"}`} />
           {!playing ? "Play with sound" : muted ? "Sound on" : "Sound off"}
         </button>
       </div>

@@ -39,7 +39,7 @@ export default function CapitalNetworkFoundersPage() {
             {/* Listed largest first, so the ladder rises toward the top */}
             <ol className="flex flex-col-reverse gap-3">
               {copy.tiers.map((tier) => (
-                <li key={tier.name} className="grid gap-x-6 gap-y-1 rounded-xl bg-paper px-5 py-6 ring-1 ring-ink/6 sm:grid-cols-[8.5rem_1fr] lg:py-7">
+                <li key={tier.name} className="grid gap-x-6 gap-y-1 rounded-lg bg-paper px-5 py-6 ring-1 ring-ink/12 sm:grid-cols-[8.5rem_1fr] lg:py-7">
                   <span className="font-display text-[1.375rem] leading-tight tracking-[-0.02em] tabular">{tier.range}</span>
                   <span className="flex flex-col gap-1">
                     <span className="font-medium">{tier.name}</span>
@@ -54,7 +54,7 @@ export default function CapitalNetworkFoundersPage() {
 
       <div id="submit">
         <PageSection id="submit-title" title={copy.formTitle} tone="band">
-          <div className="rounded-2xl bg-white p-[clamp(1rem,3vw,2rem)] ring-1 ring-ink/6">
+          <div className="rounded-lg bg-white p-[clamp(1rem,3vw,2rem)] ring-1 ring-ink/12">
             <TallyEmbed formId="44YLKk" title="Submit your startup to the NGEN Capital Network" />
           </div>
         </PageSection>
