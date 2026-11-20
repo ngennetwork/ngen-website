@@ -15,7 +15,10 @@ export default function HomeHero() {
   return (
     <section aria-labelledby="hero-title" className="relative flex min-h-[100svh] flex-col overflow-hidden bg-snow text-ink">
       <div className="wrap flex flex-1 flex-col justify-end gap-7 pt-[clamp(6.5rem,13svh,8rem)] pb-[clamp(2rem,5svh,3.5rem)] md:flex-none">
-        <p className="text-small text-slate">{hero.kicker}</p>
+        <div className="flex flex-col items-start gap-2.5">
+          <span aria-hidden="true" className="h-0.5 w-8 bg-signal" />
+          <p className="text-[0.8125rem] font-medium uppercase leading-snug tracking-[0.14em] text-slate">{hero.kicker}</p>
+        </div>
         <h1 id="hero-title" className="font-display text-[clamp(3rem,1.1rem+5vw,6.25rem)] leading-[0.98] tracking-[-0.04em]">
           {hero.title}
         </h1>
