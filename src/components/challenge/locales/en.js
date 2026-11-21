@@ -28,20 +28,20 @@ export const en = {
     tagline: "A six-month startup program for students, building alongside Ivy League students.",
     intro: "From January to June 2027, Fellows learn how a company works and build one, mentored by Ivy League students.",
     photo: {
-      src: "/home/hero-ngen-new-group.jpg",
-      alt: "A large group of students at NGEN’s Trailblazers conference",
-      caption: "Students at an NGEN conference.",
-      position: "50% 55%",
+      src: "/startup-challenge/trailblazers-group-nyc.jpg",
+      alt: "About sixty students standing behind rows of chairs at the NGEN Trailblazers Conference in New York, with the conference title on the screen",
+      caption: "Students at the NGEN Trailblazers Conference, New York.",
+      position: "50% 80%",
     },
   },
 
 
   glance: {
     photo: {
-      src: "/about/events/Copy of DSC06515.jpg",
-      alt: "A student speaking into a microphone at the NGEN Trailblazers Conference in New York",
-      caption: "A student asks a question at the NGEN Trailblazers Conference.",
-      position: "50% 40%",
+      src: "/startup-challenge/speaker-conversation.jpg",
+      alt: "Tom Gardner, co-founder and CEO of The Motley Fool, talking with a group of students at the NGEN Trailblazers Conference",
+      caption: "Students talk with Tom Gardner, co-founder and CEO of The Motley Fool, at the NGEN Trailblazers Conference.",
+      position: "50% 35%",
     },
     title: "At a glance",
     facts: [
@@ -69,10 +69,10 @@ export const en = {
     title: "The six months",
     intro: "One milestone a month. Each one ends with something finished.",
     photo: {
-      src: "/startup-challenge/speaker-conversation.jpg",
-      alt: "Tom Gardner, co-founder and CEO of The Motley Fool, talking with a group of students at the NGEN Trailblazers Conference",
-      caption: "Students talk with Tom Gardner, co-founder and CEO of The Motley Fool, at the NGEN Trailblazers Conference.",
-      position: "50% 35%",
+      src: "/startup-challenge/founder-trek-laconia.jpg",
+      alt: "Students listening to the team at Laconia Capital Group during an NGEN Founder Trek visit",
+      caption: "NGEN Founder Trek visit to Laconia Capital Group.",
+      position: "50% 40%",
     },
     steps: [
       { when: "January", title: "Choose an idea", body: "Find a real problem and talk to people who have it." },
@@ -195,9 +195,9 @@ export const en = {
         caption: "Workshop at the NGEN Spacetech Conference, New York",
       },
       {
-        src: "/startup-challenge/spacetech-session.jpg",
-        alt: "An audience seated for a session at the NGEN Trailblazers Conference in New York, with the Trailblazers title on the screen",
-        caption: "Conference session at the NGEN Trailblazers Conference, New York",
+        src: "/startup-challenge/student-pitch-nyc.jpg",
+        alt: "A student founder pitching with a microphone, with his slides on the screen behind him",
+        caption: "A student founder pitches at an NGEN event in New York",
       },
     ],
   },

@@ -22,20 +22,20 @@ export const zhHant = {
     tagline: "引導院士六個月創業課程，與常春藤盟校學生一同構思與建立項目。2027年1月至6月。",
     intro: "2027年1月至6月，院士學習分析一家公司，並完成自己項目（從大綱到完成創業計劃），由常春藤盟校學生擔任導師。",
     photo: {
-      src: "/home/hero-ngen-new-group.jpg",
-      alt: "NGEN Trailblazers 會議上的一大群學生",
-      caption: "NGEN 活動中的學生合影。",
-      position: "50% 55%",
+      src: "/startup-challenge/trailblazers-group-nyc.jpg",
+      alt: "約六十名學生站在一排排椅子後面，參加紐約 NGEN Trailblazers 會議，螢幕上是會議標題",
+      caption: "紐約 NGEN Trailblazers 會議上的學生。",
+      position: "50% 80%",
     },
   },
 
 
   glance: {
     photo: {
-      src: "/about/events/Copy of DSC06515.jpg",
-      alt: "一名學生在紐約 NGEN Trailblazers 會議上拿著麥克風發言",
-      caption: "學生在紐約 NGEN Trailblazers 會議上提問。",
-      position: "50% 40%",
+      src: "/startup-challenge/speaker-conversation.jpg",
+      alt: "The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 在 NGEN Trailblazers 會議上與學生交談",
+      caption: "學生在 NGEN Trailblazers 會議上與 The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 交流。",
+      position: "50% 35%",
     },
     title: "重點一覽",
     facts: [
@@ -63,10 +63,10 @@ export const zhHant = {
     title: "六個月如何安排",
     intro: "每月一個目標，每次都有達標的成績。",
     photo: {
-      src: "/startup-challenge/speaker-conversation.jpg",
-      alt: "The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 在 NGEN Trailblazers 會議上與學生交談",
-      caption: "學生在 NGEN Trailblazers 會議上與 The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 交流。",
-      position: "50% 35%",
+      src: "/startup-challenge/founder-trek-laconia.jpg",
+      alt: "NGEN Founder Trek 參訪 Laconia Capital Group 時，學生聆聽團隊分享",
+      caption: "NGEN Founder Trek 參訪 Laconia Capital Group。",
+      position: "50% 40%",
     },
     steps: [
       { when: "1月", title: "選定構思大綱", body: "找出一個現實問題，並訪問這個問題領域上有需要和有工作經驗的人（作出多方面探討）。" },
@@ -188,9 +188,9 @@ export const zhHant = {
         caption: "NGEN 太空科技會議工作坊，紐約",
       },
       {
-        src: "/startup-challenge/spacetech-session.jpg",
-        alt: "觀眾坐在紐約 NGEN Trailblazers 會議的會場，螢幕上是 Trailblazers 的標題",
-        caption: "NGEN Trailblazers 會議論壇，紐約",
+        src: "/startup-challenge/student-pitch-nyc.jpg",
+        alt: "一名學生創業者拿著麥克風進行路演，身後螢幕顯示簡報",
+        caption: "學生創業者在紐約 NGEN 活動上路演",
       },
     ],
   },
