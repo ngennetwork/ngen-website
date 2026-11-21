@@ -202,7 +202,8 @@
     min-height: 2.75rem;
     white-space: normal;
   }
-  .ivy-chrome {
+  /* Cream is the mobile header only. The footer keeps its dark ground so the white logo and light type stay legible. */
+  header.ivy-chrome {
     background: #f3f1ec;
   }
   .ivy-chrome .ivy-nav {
@@ -228,7 +229,7 @@
   }
 }
 
-/* Header and footer on the Start-Up Challenge routes only. */
+/* Header buttons on the Start-Up Challenge routes only. */
 .ivy-btn,
 .ivy-btn-light {
   box-shadow: none;
@@ -248,15 +249,6 @@
 .ivy-btn-light:hover {
   background: #fff;
   box-shadow: none;
-}
-footer.ivy-chrome .text-mist {
-  color: #d5ddd4;
-}
-footer.ivy-chrome .footer-link {
-  color: #fbfaf7e0;
-}
-footer.ivy-chrome .footer-link:hover {
-  color: #fff;
 }
 
 @layer base {
