@@ -22,10 +22,10 @@ export const zhHant = {
     tagline: "引導院士六個月創業課程，與常春藤盟校學生一同構思與建立項目。2027年1月至6月。",
     intro: "2027年1月至6月，院士學習分析一家公司，並完成自己項目（從大綱到完成創業計劃），由常春藤盟校學生擔任導師。",
     photo: {
-      src: "/startup-challenge/trailblazers-group-nyc.jpg",
-      alt: "約六十名學生站在一排排椅子後面，參加紐約 NGEN Trailblazers 會議，螢幕上是會議標題",
-      caption: "紐約 NGEN Trailblazers 會議上的學生。",
-      position: "50% 80%",
+      src: "/home/hero-ngen-new-group.jpg",
+      alt: "NGEN Trailblazers 會議上的一大群學生",
+      caption: "NGEN 活動中的學生合影。",
+      position: "50% 55%",
     },
   },
 
