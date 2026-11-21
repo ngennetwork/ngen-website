@@ -184,8 +184,8 @@ export const zhHans = {
       },
       {
         src: "/startup-challenge/student-pitch-nyc.jpg",
-        alt: "一名学生创业者拿着麦克风进行路演，身后屏幕显示简报",
-        caption: "学生创业者在纽约 NGEN 活动上路演",
+        alt: "一名学生创业者在纽约 NGEN Trailblazers 会议上拿着麦克风路演，身后屏幕显示简报",
+        caption: "学生创业者在纽约 NGEN Trailblazers 会议上路演",
       },
       {
         src: "/startup-challenge/founder-trek-laconia-close.jpg",

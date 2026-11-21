@@ -191,8 +191,8 @@ export const en = {
       },
       {
         src: "/startup-challenge/student-pitch-nyc.jpg",
-        alt: "A student founder pitching with a microphone, with his slides on the screen behind him",
-        caption: "A student founder pitches at an NGEN event in New York",
+        alt: "A student founder pitching at the NGEN Trailblazers Conference in New York, with his slides on the screen behind him",
+        caption: "A student founder pitches at the NGEN Trailblazers Conference, New York",
       },
       {
         src: "/startup-challenge/founder-trek-laconia-close.jpg",
