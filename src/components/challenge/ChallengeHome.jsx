@@ -52,8 +52,8 @@ function Home() {
               sizes="100vw"
               loading="eager"
               fetchPriority="high"
-              className="object-cover md:hidden"
-              style={{ objectPosition: hero.photo.position || "50% 50%" }}
+              className="origin-[50%_20%] scale-[1.45] object-cover md:hidden"
+              style={{ objectPosition: "50% 60%" }}
             />
             <Image
               src={hero.photo.src}
@@ -62,8 +62,8 @@ function Home() {
               sizes="100vw"
               loading="eager"
               fetchPriority="high"
-              className="hidden object-cover md:block lg:hidden"
-              style={{ objectPosition: "50% 66%" }}
+              className="hidden origin-[50%_25%] scale-[1.35] object-cover md:block lg:hidden"
+              style={{ objectPosition: "50% 55%" }}
             />
             <Image
               src={hero.photo.src}
@@ -72,7 +72,7 @@ function Home() {
               sizes="80vw"
               loading="eager"
               fetchPriority="high"
-              className="hidden object-cover lg:block"
+              className="hidden origin-[50%_15%] scale-[1.5] object-cover lg:block"
               style={{ objectPosition: "50% 50%" }}
             />
           </div>

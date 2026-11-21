@@ -32,7 +32,7 @@ export const zhHant = {
 
   glance: {
     photo: {
-      src: "/startup-challenge/speaker-conversation.jpg",
+      src: "/startup-challenge/speaker-conversation-close.jpg",
       alt: "The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 在 NGEN Trailblazers 會議上與學生交談",
       caption: "學生在 NGEN Trailblazers 會議上與 The Motley Fool 聯合創辦人兼行政總裁 Tom Gardner 交流。",
       position: "50% 35%",
@@ -63,7 +63,7 @@ export const zhHant = {
     title: "六個月如何安排",
     intro: "每月一個目標，每次都有達標的成績。",
     photo: {
-      src: "/startup-challenge/founder-trek-laconia.jpg",
+      src: "/startup-challenge/founder-trek-laconia-close.jpg",
       alt: "NGEN Founder Trek 參訪 Laconia Capital Group 時，學生聆聽團隊分享",
       caption: "NGEN Founder Trek 參訪 Laconia Capital Group。",
       position: "50% 40%",
@@ -101,17 +101,17 @@ export const zhHant = {
       {
         name: "Jackson Lehner",
         photo: "/startup-challenge/team/jackson.jpg",
-        bio: "NGEN 聯合創辦人。普林斯頓大學2024屆，曾任普林斯頓創業俱樂部主席。負責院士計劃及紐約行程。",
+        bio: "NGEN 聯合創辦人，普林斯頓大學2024屆，曾任普林斯頓創業俱樂部主席。",
       },
       {
         name: "Sabrina Chann",
         photo: "/startup-challenge/team/sabrina.jpg",
-        bio: "賓夕法尼亞大學，香港弘立書院（ISF）校友。負責報名事宜及每次家庭諮詢的準備。",
+        bio: "賓夕法尼亞大學，弘立書院（The ISF Academy）校友。負責報名事宜及每次家庭諮詢的準備。",
       },
       {
         name: "Alex Ren",
         photo: "/startup-challenge/team/alex.jpg",
-        bio: "加州大學柏克萊分校，香港弘立書院（ISF）校友。負責以普通話與家長溝通。",
+        bio: "加州大學柏克萊分校，弘立書院（The ISF Academy）校友。負責以普通話與家長溝通。",
       },
     ],
   },
@@ -131,7 +131,7 @@ export const zhHant = {
       "家長或監護人會以電郵得知每天的安排，以及如何保持聯繫。",
     ],
     photo: {
-      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      src: "/startup-challenge/founder-trek-insight-partners-close.jpg",
       alt: "學生圍坐在紐約 Insight Partners 的會議桌旁，窗外是城市天際線，投影片寫著 Invest in the Future of Technology with Insight Partners",
       caption: "NGEN 創業者參訪團拜訪紐約 Insight Partners",
       position: "center",
