@@ -125,7 +125,7 @@ const zhHans = {
   },
   title: "费用、退款及条款",
   intro:
-    "确认名额前，家长需要了解的事项。您的协议对象是 NextGen Entrepreneurship Network Inc.，一家纽约非牟利组织及美国 501(c)(3) 机构。如有任何疑问，请发邮件至 info@ngennetwork.org。",
+    "确认名额前，家长需要了解的事项。您的协议对象是 NextGen Entrepreneurship Network Inc.，一家纽约非营利组织及美国 501(c)(3) 机构。如有任何疑问，请发邮件至 info@ngennetwork.org。",
   updated: "2026年11月更新",
   back: "返回院士计划",
   sections: [
@@ -172,7 +172,7 @@ const zhHans = {
       title: "安全保护",
       items: [
         "导师是来自 NGEN 网络的常春藤盟校本科生。配对前，每位导师须经我们团队面试、提供推荐人、通过美国背景调查、签署行为守则，并完成安全保护培训。",
-        "所有导师指导均使用 NGEN 的 Zoom 账户进行并录影，NGEN 工作人员可随时加入。",
+        "所有导师指导均使用 NGEN 的 Zoom 账户进行并录像，NGEN 工作人员可随时加入。",
         "导师与院士只在有 NGEN 工作人员参与的课程群组中沟通。不设私信、不互加社交媒体，也不在课程以外见面。",
         "导师绝不会索取或分享个人照片、住址或金钱。",
         "任何关注事项须于24小时内报告 NGEN 的安全保护负责人，由其决定后续处理，并在适当时通知家长。家长可随时发邮件至 info@ngennetwork.org 提出关注。",
@@ -222,7 +222,7 @@ const zhHans = {
       id: "about",
       title: "关于 NGEN",
       items: [
-        "NGEN 即 NextGen Entrepreneurship Network Inc.，一家纽约非牟利组织及美国 501(c)(3) 机构。家庭协议受纽约法律管辖。",
+        "NGEN 即 NextGen Entrepreneurship Network Inc.，一家纽约非营利组织及美国 501(c)(3) 机构。家庭协议受纽约法律管辖。",
         "NGEN 是独立机构，不隶属于任何大学，院士计划也不是学校项目。",
         "费用用于导师、平台、工作人员及纽约行程。任何盈余均留在 NGEN，用于资助其为大学生提供的免费项目。",
       ],
