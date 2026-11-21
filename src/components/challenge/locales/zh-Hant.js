@@ -63,10 +63,10 @@ export const zhHant = {
     title: "六個月如何安排",
     intro: "每月一個目標，每次都有達標的成績。",
     photo: {
-      src: "/startup-challenge/founder-trek-laconia-close.jpg",
-      alt: "NGEN Founder Trek 參訪 Laconia Capital Group 時，學生聆聽團隊分享",
-      caption: "NGEN Founder Trek 參訪 Laconia Capital Group。",
-      position: "50% 40%",
+      src: "/startup-challenge/student-founder-summit-sf.jpg",
+      alt: "學生在舊金山 NGEN 學生創業者峰會的明亮空間裡聚談，綠色沙發圍成一圈",
+      caption: "NGEN 學生創業者峰會，舊金山。",
+      position: "50% 50%",
     },
     steps: [
       { when: "1月", title: "選定構思大綱", body: "找出一個現實問題，並訪問這個問題領域上有需要和有工作經驗的人（作出多方面探討）。" },
@@ -173,11 +173,6 @@ export const zhHant = {
     },
     photos: [
       {
-        src: "/startup-challenge/student-founder-summit-sf.jpg",
-        alt: "學生在舊金山 NGEN 學生創業者峰會的明亮空間裡聚談，綠色沙發圍成一圈",
-        caption: "NGEN 學生創業者峰會，舊金山",
-      },
-      {
         src: "/startup-challenge/keynote-geoff-ralston.jpg",
         alt: "Y Combinator 前總裁 Geoff Ralston 在主題演講中對談，身後螢幕顯示他的肖像",
         caption: "主題演講：Y Combinator 前總裁 Geoff Ralston",
@@ -191,6 +186,11 @@ export const zhHant = {
         src: "/startup-challenge/student-pitch-nyc.jpg",
         alt: "一名學生創業者拿著麥克風進行路演，身後螢幕顯示簡報",
         caption: "學生創業者在紐約 NGEN 活動上路演",
+      },
+      {
+        src: "/startup-challenge/founder-trek-laconia-close.jpg",
+        alt: "NGEN Founder Trek 參訪 Laconia Capital Group 時，學生聆聽團隊分享",
+        caption: "NGEN Founder Trek 參訪 Laconia Capital Group",
       },
     ],
   },

@@ -69,10 +69,10 @@ export const en = {
     title: "The six months",
     intro: "One milestone a month. Each one ends with something finished.",
     photo: {
-      src: "/startup-challenge/founder-trek-laconia-close.jpg",
-      alt: "Students listening to the team at Laconia Capital Group during an NGEN Founder Trek visit",
-      caption: "NGEN Founder Trek visit to Laconia Capital Group.",
-      position: "50% 40%",
+      src: "/startup-challenge/student-founder-summit-sf.jpg",
+      alt: "Students gathered in a bright loft with green sofas at the NGEN Student Founder Summit in San Francisco",
+      caption: "NGEN Student Founder Summit, San Francisco.",
+      position: "50% 50%",
     },
     steps: [
       { when: "January", title: "Choose an idea", body: "Find a real problem and talk to people who have it." },
@@ -180,11 +180,6 @@ export const en = {
     },
     photos: [
       {
-        src: "/startup-challenge/student-founder-summit-sf.jpg",
-        alt: "Students gathered in a bright loft with green sofas at the NGEN Student Founder Summit in San Francisco",
-        caption: "NGEN Student Founder Summit, San Francisco",
-      },
-      {
         src: "/startup-challenge/keynote-geoff-ralston.jpg",
         alt: "Geoff Ralston, former President of Y Combinator, in a keynote conversation, with his portrait on the screen",
         caption: "Keynote with Geoff Ralston, former President of Y Combinator",
@@ -198,6 +193,11 @@ export const en = {
         src: "/startup-challenge/student-pitch-nyc.jpg",
         alt: "A student founder pitching with a microphone, with his slides on the screen behind him",
         caption: "A student founder pitches at an NGEN event in New York",
+      },
+      {
+        src: "/startup-challenge/founder-trek-laconia-close.jpg",
+        alt: "Students listening to the team at Laconia Capital Group during an NGEN Founder Trek visit",
+        caption: "NGEN Founder Trek visit to Laconia Capital Group",
       },
     ],
   },
