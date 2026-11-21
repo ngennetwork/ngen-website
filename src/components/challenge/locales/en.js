@@ -48,7 +48,7 @@ export const en = {
       { label: "Who", value: "Grades 9 to 12", detail: "About 14 to 18 years old." },
       { label: "When", value: "Jan to Jun 2027", detail: "Six months, one milestone a month." },
       { label: "Time", value: "2+ hours a week", detail: "Missions between sessions, plus regular one-on-ones with a mentor. Fellows can always do more." },
-      { label: "Mentorship", value: "10 one-on-ones", detail: "30 minutes each with an Ivy League student mentor, about three a month over the first three months." },
+      { label: "Mentorship", value: "10 one-on-ones", detail: "30 minutes each with an Ivy League student mentor, spread across the program." },
       { label: "Teams", value: "Optional", detail: "Fellows can work alone or in a team. Each has their own account and submits their own work." },
       { label: "To start", value: "No idea needed", detail: "No company or idea is needed." },
     ],
@@ -58,7 +58,7 @@ export const en = {
     title: "What Fellows get",
     intro: "A clear plan, a real project, and a mentor for all six months.",
     items: [
-      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student, with 10 one-on-one sessions across the program." },
+      { icon: "mentor", title: "A mentor for six months", body: "An Ivy League student, with 10 one-on-ones of 30 minutes each, spread across the program." },
       { icon: "build", title: "A real company project", body: "An idea, a first product, and real customers. Fellows finish with work they can show a school." },
       { icon: "workshop", title: "Live workshops", body: "Live online workshops with experts, plus office hours for questions." },
       { icon: "school", title: "Support for applications", body: "Fellows who finish receive a certificate and a letter of recommendation from NGEN. Teachers and parents can follow progress." },
@@ -88,7 +88,7 @@ export const en = {
   mentors: {
     title: "Mentors",
     intro:
-      "Each mentor is an Ivy League student. They meet each Fellow one-on-one 10 times, about three a month over the first three months, and review the work before it is submitted.",
+      "Each mentor is an Ivy League student. They meet each Fellow for 10 one-on-ones, 30 minutes each, spread across the program, and review the work before it is submitted.",
     schools: ["Brown", "Columbia", "Cornell", "Dartmouth", "Harvard", "Penn", "Princeton", "Yale"],
     schoolsNote: "Where our mentors study. NGEN is an independent nonprofit and is not part of these universities.",
     points: [
