@@ -122,22 +122,6 @@ function Home() {
         </div>
       </section>
 
-      <figure className="bg-snow lg:hidden">
-        <div className="wrap pt-2">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
-            <Image
-              src={gallery.lead.src}
-              alt={gallery.lead.alt}
-              fill
-              sizes="100vw"
-              className="object-cover"
-              style={{ objectPosition: "50% 42%" }}
-            />
-          </div>
-        </div>
-        <figcaption className="wrap py-3 text-center text-small leading-relaxed text-slate">{gallery.lead.caption}</figcaption>
-      </figure>
-
       <section aria-labelledby="glance-title" className="bg-fog">
         <div className={SECTION}>
           <div className="grid items-start gap-8 lg:grid-cols-12">
@@ -224,7 +208,7 @@ function Home() {
                   </li>
                 ))}
               </ul>
-              <figcaption className="mt-3 text-small text-slate">{mentors.schoolsNote}</figcaption>
+              <figcaption className="mt-3 text-center text-small text-slate lg:text-left">{mentors.schoolsNote}</figcaption>
             </figure>
           </div>
         </div>
