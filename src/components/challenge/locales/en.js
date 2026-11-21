@@ -28,10 +28,10 @@ export const en = {
     tagline: "A six-month startup program for students, building alongside Ivy League students.",
     intro: "From January to June 2027, Fellows learn how a company works and build one, mentored by Ivy League students.",
     photo: {
-      src: "/startup-challenge/trailblazers-group-nyc.jpg",
-      alt: "About sixty students standing behind rows of chairs at the NGEN Trailblazers Conference in New York, with the conference title on the screen",
-      caption: "Students at the NGEN Trailblazers Conference, New York.",
-      position: "50% 80%",
+      src: "/home/hero-ngen-new-group.jpg",
+      alt: "A large group of students at NGEN’s Trailblazers conference",
+      caption: "Students at an NGEN conference.",
+      position: "50% 55%",
     },
   },
 

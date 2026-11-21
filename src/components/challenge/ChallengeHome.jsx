@@ -53,7 +53,7 @@ function Home() {
               loading="eager"
               fetchPriority="high"
               className="object-cover md:hidden"
-              style={{ objectPosition: hero.photo.position || "50% 50%" }}
+              style={{ objectPosition: "50% 63.74%" }}
             />
             <Image
               src={hero.photo.src}
@@ -62,8 +62,8 @@ function Home() {
               sizes="100vw"
               loading="eager"
               fetchPriority="high"
-              className="hidden object-cover md:block lg:hidden"
-              style={{ objectPosition: "50% 66%" }}
+              className="hidden origin-bottom scale-[1.32] object-cover md:block lg:hidden"
+              style={{ objectPosition: "center bottom" }}
             />
             <Image
               src={hero.photo.src}
@@ -72,8 +72,8 @@ function Home() {
               sizes="80vw"
               loading="eager"
               fetchPriority="high"
-              className="hidden object-cover lg:block"
-              style={{ objectPosition: "50% 50%" }}
+              className="hidden origin-bottom scale-[1.41] object-cover lg:block"
+              style={{ objectPosition: "center bottom" }}
             />
           </div>
         </div>
