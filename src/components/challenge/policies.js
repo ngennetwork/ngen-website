@@ -120,8 +120,8 @@ const en = {
 
 const zhHans = {
   meta: {
-    title: "费用、退款及条款 · NGEN 全球院士计划",
-    description: "NGEN 全球院士计划的费用、付款、退款、安全保护、纽约行程、照片及个人资料说明。",
+    title: "费用、退款及条款 · NGEN 创业实战营",
+    description: "NGEN 创业实战营的费用、付款、退款、安全保护、纽约行程、照片及个人资料说明。",
   },
   title: "费用、退款及条款",
   intro:
@@ -232,8 +232,8 @@ const zhHans = {
 
 const zhHant = {
   meta: {
-    title: "費用、退款及條款 · NGEN 全球院士計劃",
-    description: "NGEN 全球院士計劃的費用、付款、退款、安全保護、紐約行程、照片及個人資料說明。",
+    title: "費用、退款及條款 · NGEN 創業實戰營",
+    description: "NGEN 創業實戰營的費用、付款、退款、安全保護、紐約行程、照片及個人資料說明。",
   },
   title: "費用、退款及條款",
   intro:

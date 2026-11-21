@@ -1,12 +1,12 @@
 /** Simplified Chinese, written for parents. */
 export const zhHans = {
   meta: {
-    title: "NGEN 全球院士计划",
+    title: "NGEN 创业实战营",
     description: "为学生而设的六个月创业计划，与常春藤盟校学生一同构思及建立项目。2027年1月至6月。",
   },
   switcherLabel: "语言",
-  name: "NGEN 全球院士计划",
-  emailSubject: "NGEN 全球院士计划",
+  name: "NGEN 创业实战营",
+  emailSubject: "NGEN 创业实战营",
   applyPath: "#request",
   admission: "申请以滚动方式审核，截止日期为2026年12月18日（星期五）。",
   noIdea: "无需已有公司或构思。",
@@ -17,9 +17,9 @@ export const zhHans = {
   },
 
   hero: {
-    title: "NGEN 全球院士计划",
+    title: "NGEN 创业实战营",
     eyebrow: "2027年1月至6月",
-    tagline: "为学生而设的六个月创业计划，与常春藤盟校学生一同构思及建立项目。",
+    tagline: "六个月，从 0 到 1 · 走进纽约创业圈",
     intro: "2027年1月至6月，院士学习分析一家公司，并完成自己项目（从大纲到完成创业计划），由常春藤盟校学生担任导师。",
     photo: {
       src: "/home/hero-ngen-new-group.jpg",

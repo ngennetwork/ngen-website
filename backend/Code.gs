@@ -511,8 +511,8 @@ function sessionLine(option, language) {
 }
 
 function leadSubject(language) {
-  if (language === "zh-Hant") return "NGEN 全球院士計劃：已收到您的諮詢申請";
-  if (language === "zh-Hans") return "NGEN 全球院士计划：已收到您的咨询申请";
+  if (language === "zh-Hant") return "NGEN 創業實戰營：已收到您的諮詢申請";
+  if (language === "zh-Hans") return "NGEN 创业实战营：已收到您的咨询申请";
   return "NGEN Global Fellowship: we received your request";
 }
 
@@ -562,10 +562,10 @@ var LEAD_COPY = {
     tagline: "The Ivy League entrepreneurship network",
   },
   "zh-Hans": {
-    program: "NGEN 全球院士计划",
+    program: "NGEN 创业实战营",
     dates: "2027年1月至6月",
     hello: function (name) { return name + " 您好："; },
-    thanks: "感谢您关注 NGEN 全球院士计划。我们已收到您的咨询申请。",
+    thanks: "感谢您关注 NGEN 创业实战营。我们已收到您的咨询申请。",
     nextTitle: "接下来",
     steps: [
       ["预约时间", "选择一个时间，与我们的团队进行私人 Zoom 通话；我们也会在两个工作日内联系您。"],
@@ -597,10 +597,10 @@ var LEAD_COPY = {
     tagline: "常春藤盟校创业网络",
   },
   "zh-Hant": {
-    program: "NGEN 全球院士計劃",
+    program: "NGEN 創業實戰營",
     dates: "2027年1月至6月",
     hello: function (name) { return name + " 您好："; },
-    thanks: "感謝您關注 NGEN 全球院士計劃。我們已收到您的諮詢申請。",
+    thanks: "感謝您關注 NGEN 創業實戰營。我們已收到您的諮詢申請。",
     nextTitle: "接下來",
     steps: [
       ["預約時間", "選擇一個時間，與我們的團隊進行私人 Zoom 通話；我們也會在兩個工作天內聯絡您。"],
