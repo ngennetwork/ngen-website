@@ -38,7 +38,7 @@ export const en = {
 
   glance: {
     photo: {
-      src: "/startup-challenge/speaker-conversation.jpg",
+      src: "/startup-challenge/speaker-conversation-close.jpg",
       alt: "Tom Gardner, co-founder and CEO of The Motley Fool, talking with a group of students at the NGEN Trailblazers Conference",
       caption: "Students talk with Tom Gardner, co-founder and CEO of The Motley Fool, at the NGEN Trailblazers Conference.",
       position: "50% 35%",
@@ -69,7 +69,7 @@ export const en = {
     title: "The six months",
     intro: "One milestone a month. Each one ends with something finished.",
     photo: {
-      src: "/startup-challenge/founder-trek-laconia.jpg",
+      src: "/startup-challenge/founder-trek-laconia-close.jpg",
       alt: "Students listening to the team at Laconia Capital Group during an NGEN Founder Trek visit",
       caption: "NGEN Founder Trek visit to Laconia Capital Group.",
       position: "50% 40%",
@@ -108,17 +108,17 @@ export const en = {
       {
         name: "Jackson Lehner",
         photo: "/startup-challenge/team/jackson.jpg",
-        bio: "Co-founder of NGEN. Princeton ’24 and former president of the Princeton Entrepreneurship Club. Leads the Fellowship and the New York trip.",
+        bio: "Co-founder of NGEN. Princeton ’24, former president of the Princeton Entrepreneurship Club.",
       },
       {
         name: "Sabrina Chann",
         photo: "/startup-challenge/team/sabrina.jpg",
-        bio: "University of Pennsylvania, and an alum of the ISF Academy in Hong Kong. Leads intake and prepares each family consultation.",
+        bio: "University of Pennsylvania, and an alum of The ISF Academy. Leads intake and prepares each family consultation.",
       },
       {
         name: "Alex Ren",
         photo: "/startup-challenge/team/alex.jpg",
-        bio: "UC Berkeley, and an alum of the ISF Academy in Hong Kong. Speaks with families in Mandarin.",
+        bio: "UC Berkeley, and an alum of The ISF Academy. Speaks with families in Mandarin.",
       },
     ],
   },
@@ -138,7 +138,7 @@ export const en = {
       "We tell families who is travelling, the daily plan, and how we stay in touch.",
     ],
     photo: {
-      src: "/startup-challenge/founder-trek-insight-partners.jpg",
+      src: "/startup-challenge/founder-trek-insight-partners-close.jpg",
       alt: "Students around a boardroom table at Insight Partners in New York, with the skyline in the windows and a slide reading Invest in the Future of Technology with Insight Partners",
       caption: "NGEN Founder Trek at Insight Partners, New York",
       position: "center",
