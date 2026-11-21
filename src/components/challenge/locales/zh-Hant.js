@@ -1,12 +1,12 @@
 /** Traditional Chinese, written for parents in Hong Kong. Mirrors the edited Simplified Chinese. */
 export const zhHant = {
   meta: {
-    title: "NGEN 全球院士計劃",
+    title: "NGEN 創業實戰營",
     description: "為學生而設的六個月創業計劃，與常春藤盟校學生一同構思及建立項目。2027年1月至6月。",
   },
   switcherLabel: "語言",
-  name: "NGEN 全球院士計劃",
-  emailSubject: "NGEN 全球院士計劃",
+  name: "NGEN 創業實戰營",
+  emailSubject: "NGEN 創業實戰營",
   applyPath: "#request",
   admission: "申請以滾動方式審核，截止日期為2026年12月18日（星期五）。",
   noIdea: "無需已有公司或構思。",
@@ -17,9 +17,9 @@ export const zhHant = {
   },
 
   hero: {
-    title: "NGEN 全球院士計劃",
+    title: "NGEN 創業實戰營",
     eyebrow: "2027年1月至6月",
-    tagline: "為學生而設的六個月創業計劃，與常春藤盟校學生一同構思及建立項目。",
+    tagline: "六個月，從 0 到 1 · 走進紐約創業圈",
     intro: "2027年1月至6月，院士學習分析一家公司，並完成自己項目（從大綱到完成創業計劃），由常春藤盟校學生擔任導師。",
     photo: {
       src: "/home/hero-ngen-new-group.jpg",
