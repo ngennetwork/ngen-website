@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGEN Incubator Terms</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Participant and Campus Partner Terms and Conditions for the NGEN Incubator, powered by NGEN and Expop.">
+<meta property="og:title" content="NGEN Incubator — Terms and Conditions">
+<meta property="og:description" content="Participant and Campus Partner Terms and Conditions for the NGEN Incubator.">
+<link rel="icon" href="/incubator/img/mark-primary.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F7F5EF;--tile:#EFEFE8;--white:#FFFFFF;--ink:#2D2B30;--ink-soft:#55505A;--mist:#6F6A66;
+  --faint:#A39D96;--line:#D9D5CE;--night:#1E2235;--ember:#F2662B;--ember-ink:#B8461A;--cream:#EDE6DD;
+  --bar:rgba(255,255,255,.88);--notice:#FFFFFF;
+  --f-serif:"Young Serif","Iowan Old Style",Georgia,serif;
+  --f-sans:Inter,"Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --wrap:1280px;--ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#1E2235;--tile:#272C44;--white:#272C44;--ink:#EDE6DD;--ink-soft:#C9C2CF;--mist:#A7A1B4;
+    --faint:#7E7990;--line:#3A4060;--ember:#FF7A45;--ember-ink:#FF8A5C;--bar:rgba(30,34,53,.88);--notice:#272C44;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1E2235;--tile:#272C44;--white:#272C44;--ink:#EDE6DD;--ink-soft:#C9C2CF;--mist:#A7A1B4;
+  --faint:#7E7990;--line:#3A4060;--ember:#FF7A45;--ember-ink:#FF8A5C;--bar:rgba(30,34,53,.88);--notice:#272C44;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+::selection{background:var(--ember);color:#fff}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.label{font:500 12px/1.4 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.em{color:var(--ember)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;z-index:99;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:999px}
+
+/* ---------- top bar (same pill bar as the incubator page) ---------- */
+.mini{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding:14px 0 0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+.mini .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--bar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1.5px solid var(--ink);border-radius:999px;padding:6px 6px 6px 18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.mini .brand img{height:30px;width:auto}
+.mini .brand span{font:400 20px var(--f-serif);color:var(--ember-ink)}
+.mini nav{display:flex;align-items:center;gap:26px;font:500 13px var(--f-sans);letter-spacing:.06em;text-transform:uppercase}
+.mini nav a{text-decoration:none;position:relative}
+.mini nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.mini nav a:hover::after,.mini nav a[aria-current="true"]::after{transform:none}
+.pill{display:inline-flex;align-items:center;gap:4px;text-decoration:none;border:0;background:none;padding:0;cursor:pointer;font:inherit}
+.pill .t{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;background:var(--ember);color:#fff;font:600 13px/1 var(--f-sans);letter-spacing:.06em;text-transform:uppercase;transition:background-color .25s}
+.pill .a{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--ember);color:#fff;transition:background-color .25s,transform .3s var(--ease)}
+.pill:hover .t,.pill:hover .a{background:#DB5218}
+.pill:hover .a{transform:translateX(2px)}
+@media (max-width:820px){.mini nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(56px,9vw,112px) 0 0}
+.hero .crumbs{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.hero .crumbs a{text-decoration:none}
+.hero .crumbs a:hover{color:var(--ink)}
+.hero h1{font-family:var(--f-serif);font-size:clamp(48px,8.4vw,120px);line-height:.98;letter-spacing:-.025em;margin-top:22px}
+.hero .lede{margin:26px 0 0;font-size:clamp(17px,1.5vw,20px);color:var(--ink-soft);max-width:52ch}
+.glance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--ink);margin-top:clamp(40px,6vw,72px)}
+.glance > div{padding:18px 20px 20px 0;border-right:1px solid var(--line)}
+.glance > div + div{padding-left:20px}
+.glance > div:last-child{border-right:0}
+.glance b{display:block;margin-top:6px;font:400 19px/1.3 var(--f-serif);overflow-wrap:anywhere}
+.glance b a{text-decoration:none;border-bottom:1px solid var(--line)}
+.glance b a:hover{border-color:var(--ember)}
+@media (max-width:820px){
+  .glance{grid-template-columns:1fr 1fr}
+  .glance > div{border-bottom:1px solid var(--line)}
+  .glance > div:nth-child(2n){border-right:0}
+  .glance > div:nth-child(3){padding-left:0}
+}
+
+/* ---------- document switch (same segmented control as the campus forms) ---------- */
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);border-radius:22px;overflow:hidden;margin-top:clamp(40px,5vw,64px);background:var(--white)}
+.seg button{all:unset;box-sizing:border-box;cursor:pointer;padding:22px 26px;display:flex;flex-direction:column;gap:6px;transition:background-color .3s,color .3s}
+.seg button+button{border-left:1.5px solid var(--ink)}
+.seg button .k{font:500 11.5px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.seg button .n{font:400 clamp(21px,2.2vw,28px)/1.15 var(--f-serif)}
+.seg button .d{font-size:14.5px;color:var(--ink-soft)}
+.seg button:hover{background:var(--tile)}
+.seg button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.seg button[aria-selected="true"] .k{color:var(--ember)}
+.seg button[aria-selected="true"] .d{color:var(--paper);opacity:.75}
+.seg button:focus-visible{outline:2px solid var(--ember);outline-offset:-5px}
+@media (max-width:640px){
+  .seg{grid-template-columns:1fr}
+  .seg button+button{border-left:0;border-top:1.5px solid var(--ink)}
+  .seg button{padding:18px 20px}
+}
+
+/* ---------- document body ---------- */
+.doc{padding:clamp(48px,6vw,80px) 0 clamp(84px,11vw,140px)}
+.doc-grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:start}
+.toc{position:sticky;top:104px;max-height:calc(100vh - 124px);overflow:auto;padding-right:6px;scrollbar-width:thin}
+.toc summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1.5px solid var(--ink)}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary .pm{display:none}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc li a{display:grid;grid-template-columns:38px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:14px;line-height:1.35;color:var(--ink-soft);transition:color .2s}
+.toc .tt-tn{font:500 11.5px/1.6 var(--f-mono);color:var(--faint);letter-spacing:.04em}
+.toc li a:hover{color:var(--ink)}
+.toc li a.on{color:var(--ink);font-weight:600}
+.toc li a.on .tt-tn{color:var(--ember-ink)}
+.toc-tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn-plain{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 12px var(--f-sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background-color .25s,color .25s}
+.btn-plain:hover{background:var(--ink);color:var(--paper)}
+
+.doc-head{padding-bottom:26px;border-bottom:1.5px solid var(--ink)}
+.doc-head h2{font-family:var(--f-serif);font-size:clamp(34px,4.4vw,60px);line-height:1.02;letter-spacing:-.02em;margin-top:14px}
+.doc-head p{margin:16px 0 0;color:var(--ink-soft);max-width:60ch}
+
+.tt-notice{margin:32px 0 8px;padding:24px 26px;border:1.5px solid var(--ink);border-left:6px solid var(--ember);border-radius:18px;background:var(--notice)}
+.tt-notice-k{color:var(--ember-ink);margin-bottom:10px}
+.tt-notice p{margin:0;font-size:14.5px;line-height:1.65;letter-spacing:.01em;color:var(--ink)}
+
+.tt-art{padding-top:44px}
+.tt-art h3{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:22px}
+.tt-num{font:500 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ember-ink);white-space:nowrap}
+.tt-title{font:400 clamp(24px,2.5vw,32px)/1.15 var(--f-serif);letter-spacing:-.01em}
+@media (max-width:640px){.tt-art h3{grid-template-columns:1fr;row-gap:8px}}
+.tt-p,.tt-cl,.tt-caps{margin:0 0 16px;max-width:72ch;color:var(--ink-soft);font-size:16.5px;line-height:1.7}
+.tt-p strong,.tt-cl strong{color:var(--ink);font-weight:600}
+.tt-cl{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px}
+.tt-cn{font:500 13px/1.95 var(--f-mono);color:var(--mist)}
+.tt-caps{font-size:14px;letter-spacing:.01em;line-height:1.7}
+.tt-defs{list-style:none;margin:-4px 0 18px 54px;padding:0;max-width:calc(72ch - 54px)}
+.tt-defs li{position:relative;padding:12px 0 12px 22px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:16px;line-height:1.65}
+.tt-defs li:last-child{border-bottom:1px solid var(--line)}
+.tt-defs li::before{content:"";position:absolute;left:0;top:22px;width:8px;height:8px;border-radius:50%;background:var(--ember)}
+.tt-defs strong{color:var(--ink);font-weight:600}
+@media (max-width:640px){.tt-cl{grid-template-columns:1fr;gap:0}.tt-defs{margin-left:0}}
+.tt-p a,.tt-cl a,.tt-caps a,.tt-defs a{color:var(--ember-ink);text-underline-offset:3px}
+
+.tt-tablewrap{overflow-x:auto;margin:8px 0 22px;border:1.5px solid var(--ink);border-radius:18px;background:var(--white)}
+.tt-table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.tt-table th{text-align:left;font:500 11.5px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mist);padding:16px 18px;border-bottom:1.5px solid var(--ink)}
+.tt-table td{padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-soft)}
+.tt-table tr:last-child td{border-bottom:0}
+.tt-table td:first-child{color:var(--ink);font-weight:600}
+.tt-table td:nth-child(2){font-family:var(--f-mono);font-size:13px;white-space:nowrap}
+
+.doc-end{margin-top:56px;padding:28px;border-radius:22px;background:var(--night);color:#EDE6DD;display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap}
+.doc-end h4{font:400 clamp(22px,2.4vw,30px)/1.2 var(--f-serif)}
+.doc-end p{margin:6px 0 0;color:#B9B3C6;font-size:15px}
+.doc-end a.btn-plain{border-color:#EDE6DD;color:#EDE6DD}
+.doc-end a.btn-plain:hover{background:#EDE6DD;color:var(--night)}
+
+[hidden]{display:none!important}
+
+@media (max-width:980px){
+  .doc-grid{grid-template-columns:1fr}
+  .toc{position:static;max-height:none;overflow:visible;border:1.5px solid var(--ink);border-radius:18px;padding:16px 18px;background:var(--white)}
+  .toc summary{cursor:pointer;padding-bottom:0;border-bottom:0}
+  .toc[open] summary{padding-bottom:12px;border-bottom:1.5px solid var(--ink)}
+  .toc summary .pm{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);transition:transform .3s var(--ease)}
+  .toc[open] summary .pm{transform:rotate(45deg)}
+}
+
+/* ---------- footer (same as the incubator page) ---------- */
+footer{padding-block:64px 40px;border-top:1.5px solid var(--ink)}
+.foot{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px}
+.foot .brand img{height:46px;width:auto}
+.foot .brand span{font:400 26px var(--f-serif);color:var(--ember-ink)}
+.foot .blurb{margin-top:18px;color:var(--mist);font-size:14.5px;max-width:36ch}
+.foot h4{font:500 11.5px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:12px}
+.foot ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.foot li a{display:block;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:500;font-size:15px;overflow-wrap:anywhere}
+.foot li a:hover{color:var(--ember-ink)}
+.foot address{font-style:normal;color:var(--mist);font-size:14px;line-height:1.6;margin-top:14px}
+.fine-print{margin-top:48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:500 11.5px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}
+@media (max-width:900px){.foot{grid-template-columns:1fr 1fr}.foot > div:first-child{grid-column:1/-1}}
+@media (max-width:520px){.foot{grid-template-columns:1fr}}
+
+/* ---------- print ---------- */
+@media print{
+  :root{--paper:#fff;--ink:#000;--ink-soft:#222;--mist:#444;--line:#bbb;--white:#fff;--notice:#fff}
+  .mini,.seg,.toc,.doc-end,footer,.skip{display:none!important}
+  .doc-grid{display:block}
+  .hero{padding-top:0}.hero h1{font-size:40px}
+  .tt-art{break-inside:auto}.tt-art h3{break-after:avoid}
+  [data-doc][hidden]{display:none!important}
+  body.print-all [data-doc][hidden]{display:block!important}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#doc">Skip to the terms</a>
+
+<div class="mini">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="https://www.ngennetwork.org/incubator"><img src="/incubator/img/mark-primary.png" alt="NGEN"><span>Incubator</span></a>
+      <nav aria-label="Terms">
+        <a href="#participants" data-go="participants">Participant Terms</a>
+        <a href="#campus-partners" data-go="campus">Campus Partner Terms</a>
+        <a href="https://www.ngennetwork.org/incubator#faq">FAQ</a>
+      </nav>
+      <a class="pill" href="https://www.ngennetwork.org/incubator#apply"><span class="t">Apply</span><span class="a"><svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    </div>
+  </div>
+</div>
+
+<main>
+<header class="hero">
+  <div class="wrap">
+    <div class="crumbs label"><a href="https://www.ngennetwork.org/incubator">NGEN Incubator</a><span aria-hidden="true">/</span><span>Legal</span></div>
+    <h1>Terms &amp; <span class="em">Conditions.</span></h1>
+    <p class="lede">The agreements that govern applying to, taking part in, and hosting the NGEN Incubator, a program of NextGen Entrepreneurship Network (NGEN) and Expop. Please read the terms that apply to you before you submit an application.</p>
+    <div class="glance">
+      <div><span class="label">Last updated</span><b>November 23, 2026</b></div>
+      <div><span class="label">Organizers</span><b>NGEN &amp; Expop</b></div>
+      <div><span class="label">Cohort</span><b>Cohort 1 · Spring 2027</b></div>
+      <div><span class="label">Questions</span><b><a href="mailto:info@ngennetwork.org">info@ngennetwork.org</a></b></div>
+    </div>
+
+    <div class="seg" role="tablist" aria-label="Choose which terms to read">
+      <button role="tab" id="tab-participants" aria-controls="doc-participants" aria-selected="true" data-go="participants">
+        <span class="k">For founders</span>
+        <span class="n">Participant Terms</span>
+        <span class="d">For every founder applying to or joining the Public Track or the Campus Track.</span>
+      </button>
+      <button role="tab" id="tab-campus" aria-controls="doc-campus" aria-selected="false" tabindex="-1" data-go="campus">
+        <span class="k">For student organizations</span>
+        <span class="n">Campus Partner Terms</span>
+        <span class="d">For student clubs applying to host the Campus Track at their college or university.</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="doc" id="doc">
+  <div class="wrap">
+
+    <!-- ===================== PARTICIPANT TERMS ===================== -->
+    <div class="doc-grid" data-doc="participants" id="doc-participants" role="tabpanel" aria-labelledby="tab-participants">
+      <details class="toc" open>
+        <summary><span class="label">Contents · 13 sections</span><span class="pm" aria-hidden="true">+</span></summary>
+        <ol><li><a href="#p-1" data-sec="p-1"><span class="tt-tn">1</span><span>Preamble, Acceptance, and Definitions</span></a></li><li><a href="#p-2" data-sec="p-2"><span class="tt-tn">2</span><span>Eligibility and Participant Representations</span></a></li><li><a href="#p-3" data-sec="p-3"><span class="tt-tn">3</span><span>Program Structure and Attendance Commitment</span></a></li><li><a href="#p-4" data-sec="p-4"><span class="tt-tn">4</span><span>Incorporation Requirement</span></a></li><li><a href="#p-5" data-sec="p-5"><span class="tt-tn">5</span><span>Investment Opportunity; No Guarantee</span></a></li><li><a href="#p-6" data-sec="p-6"><span class="tt-tn">6</span><span>No Equity, No Fees, No Guaranteed Outcomes</span></a></li><li><a href="#p-7" data-sec="p-7"><span class="tt-tn">7</span><span>Partner Platforms and Third-Party Accounts</span></a></li><li><a href="#p-8" data-sec="p-8"><span class="tt-tn">8</span><span>Media Release; Name, Image, and Likeness</span></a></li><li><a href="#p-9" data-sec="p-9"><span class="tt-tn">9</span><span>Intellectual Property, Confidentiality, and Conduct</span></a></li><li><a href="#p-10" data-sec="p-10"><span class="tt-tn">10</span><span>Disclaimers, Limitation of Liability, Assumption of Risk, Indemnification, and Release</span></a></li><li><a href="#p-11" data-sec="p-11"><span class="tt-tn">11</span><span>Privacy, Dispute Resolution, and General Provisions</span></a></li><li><a href="#p-12" data-sec="p-12"><span class="tt-tn">12</span><span>Campus Track; Host Organizations and Host Institutions</span></a></li><li><a href="#p-13" data-sec="p-13"><span class="tt-tn">—</span><span>Acknowledgment</span></a></li></ol>
+        <div class="toc-tools">
+          <button class="btn-plain" type="button" data-print>Print / Save PDF</button>
+          <a class="btn-plain" href="#top-of-page" data-top>Back to top ↑</a>
+        </div>
+      </details>
+      <article aria-labelledby="h-participants">
+        <div class="doc-head">
+          <div class="label">NGEN Incubator</div>
+          <h2 id="h-participants">Participant Terms and Conditions</h2>
+          <p>Each founder on a Team must accept these Terms individually.</p>
+        </div>
+        <div class="tt-notice" role="note"><div class="label tt-notice-k">Important notice</div><p>BY SUBMITTING AN APPLICATION TO, ACCEPTING ADMISSION TO, ATTENDING ANY SESSION OF, OR OTHERWISE PARTICIPATING IN THE NGEN INCUBATOR IN ANY MANNER, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND ACCEPTED THESE TERMS AND CONDITIONS IN THEIR ENTIRETY, WHETHER OR NOT YOU HAVE CHECKED AN ACCEPTANCE BOX. IF YOU DO NOT AGREE, DO NOT APPLY TO OR PARTICIPATE IN THE PROGRAM.</p></div>
+<section class="tt-art" id="p-1" aria-labelledby="p-1-h">
+<h3 id="p-1-h"><span class="tt-num">Article 1</span><span class="tt-title">Preamble, Acceptance, and Definitions</span></h3>
+<p class="tt-cl"><span class="tt-cn">1.1</span><span class="tt-cb"><strong>Agreement.</strong> These Participant Terms and Conditions (the “Terms”) constitute a legally binding agreement by and between each individual applicant or participant (each, a “Participant,” and collectively with such Participant’s co-founders and Venture, the “Team”) and NextGen Entrepreneurship Network, a not-for-profit organization registered in the State of New York (“NGEN”), and Ascendance US Inc., a Delaware corporation doing business as Expop (“Expop,” and together with NGEN, the “Organizers”), governing the Participant’s application to and participation in the NGEN Incubator (the “Program”).</span></p>
+<p class="tt-cl"><span class="tt-cn">1.2</span><span class="tt-cb"><strong>Acceptance.</strong> By submitting an application, checking the box indicating acceptance, attending any Session, or otherwise participating in the Program, the Participant acknowledges that the Participant has read, understood, and agrees to be bound by these Terms in their entirety. If the Participant does not agree to these Terms, the Participant shall not apply to or participate in the Program. Each founder on a Team must accept these Terms individually.</span></p>
+<p class="tt-cl"><span class="tt-cn">1.3</span><span class="tt-cb"><strong>Definitions.</strong> As used herein:</span></p>
+<ul class="tt-defs">
+<li><strong>“Cohort”</strong> means the group of Teams admitted to a given iteration of the Program, including Cohort 01.</li>
+<li><strong>“Session”</strong> means any scheduled live Program session, workshop, Buildathon, office hour designated as mandatory, or Pitch Day, whether delivered virtually or in person, under the Public Track or the Campus Track.</li>
+<li><strong>“Venture”</strong> means the business, startup, product, or project for which the Team applies to and participates in the Program, together with any legal entity formed to operate it.</li>
+<li><strong>“Honors Fund”</strong> means Honors Fund, a sub-fund of CEAS Investments, and its affiliates, general partners, managers, and investment vehicles, each of which is a third party independent of the Organizers.</li>
+<li><strong>“Partner”</strong> means any third-party company, platform, sponsor, mentor, speaker, campus organization, or service provider that collaborates with the Organizers in connection with the Program.</li>
+<li><strong>“Program Materials”</strong> means all curricula, slides, recordings, templates, frameworks, worksheets, and other content furnished by or on behalf of the Organizers.</li>
+</ul>
+<p class="tt-cl"><span class="tt-cn">1.4</span><span class="tt-cb"><strong>Modifications.</strong> The Organizers reserve the right, in their sole discretion, to amend these Terms at any time. Material amendments shall be communicated to Participants by email or posting on the Program website, and continued participation following such notice shall constitute acceptance of the amended Terms.</span></p>
+</section>
+<section class="tt-art" id="p-2" aria-labelledby="p-2-h">
+<h3 id="p-2-h"><span class="tt-num">Article 2</span><span class="tt-title">Eligibility and Participant Representations</span></h3>
+<p class="tt-cl"><span class="tt-cn">2.1</span><span class="tt-cb"><strong>Eligibility.</strong> To be admitted to and remain in the Program, a Team must satisfy each of the following conditions: (a) at least one founder is, and remains throughout the Program, currently enrolled at an accredited college or university in the United States; (b) the Venture’s product or service includes software as a material component of what it delivers; (c) the Team agrees to incorporate the Venture in accordance with Article 4; and (d) the Team satisfies any additional criteria published by the Organizers for the applicable track.</span></p>
+<p class="tt-cl"><span class="tt-cn">2.2</span><span class="tt-cb"><strong>Representations and Warranties.</strong> Each Participant represents and warrants that: (a) all information submitted in the application, interview, and throughout the Program is true, accurate, and complete, and the Participant shall promptly update such information if it changes; (b) the Participant has full right, power, and authority to enter into these Terms; (c) the Participant’s participation does not and will not violate any agreement to which the Participant is a party, including any employment, consulting, confidentiality, non-competition, or intellectual-property assignment agreement, or any policy of the Participant’s academic institution; (d) the Venture and its intellectual property are owned by, or properly licensed to, the Team, and do not infringe, misappropriate, or violate the rights of any third party; and (e) the Participant is not subject to any sanctions or legal restriction that would prohibit participation.</span></p>
+<p class="tt-cl"><span class="tt-cn">2.3</span><span class="tt-cb"><strong>Participants Under Eighteen.</strong> If a Participant is under eighteen (18) years of age or otherwise a minor in the Participant’s jurisdiction of residence, the Participant represents and warrants that the Participant has obtained the consent of the Participant’s parent or legal guardian to participate in the Program and to these Terms, including Articles 8, 10, and 11, and shall furnish evidence of such consent to the Organizers upon request. The Organizers may suspend the participation of any such Participant until such evidence is furnished.</span></p>
+<p class="tt-cl"><span class="tt-cn">2.4</span><span class="tt-cb"><strong>Admission Discretion.</strong> Admission to the Program is at the sole and absolute discretion of the Organizers. The Organizers are under no obligation to admit any applicant or to disclose the reasons for any admission decision, and may revoke admission at any time prior to or during the Program if any representation herein proves untrue.</span></p>
+</section>
+<section class="tt-art" id="p-3" aria-labelledby="p-3-h">
+<h3 id="p-3-h"><span class="tt-num">Article 3</span><span class="tt-title">Program Structure and Attendance Commitment</span></h3>
+<p class="tt-cl"><span class="tt-cn">3.1</span><span class="tt-cb"><strong>Program Structure.</strong> The Program is a twelve (12) week, non-credit, educational program comprising the Idea, MVP, Go-to-Market, and Pitch phases, delivered through (a) the Public Track, consisting of weekly live virtual Sessions, and (b) the Campus Track, consisting of in-person workshops hosted by participating campus organizations. The Organizers may modify the schedule, content, format, speakers, Partners, or location of any Session, or cancel or postpone any Session, at any time and without liability.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.2</span><span class="tt-cb"><strong>Minimum Attendance Requirement.</strong> As a material condition of participation, each Team shall attend, through at least one (1) founder present for the substantial entirety of the Session, no fewer than four (4) of the twelve (12) scheduled Sessions of the Program (the “Minimum Attendance Requirement”). For the Campus Track, the Minimum Attendance Requirement shall mean attendance at all four (4) scheduled in-person workshops. Attendance shall be determined solely by the Organizers’ records, including Zoom participant logs, check-in sheets, or such other method as the Organizers may designate, and such records shall be conclusive. Satisfaction of the Minimum Attendance Requirement is a floor and not a recommendation; the Organizers expect Teams to attend every Session.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.3</span><span class="tt-cb"><strong>Catch-Up Requirement.</strong> In the event a Team fails to attend two (2) consecutive Sessions, the Team shall use its best efforts to promptly schedule a catch-up call with the NGEN Incubator team, at a mutually convenient time, to review the Team’s progress and any material missed. Such catch-up call shall not count toward the Minimum Attendance Requirement. A Team’s failure to make such best efforts may be taken into account by the Organizers under Section 3.4.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.4</span><span class="tt-cb"><strong>Consequences of Non-Attendance.</strong> A Team that fails to satisfy, or in the Organizers’ reasonable judgment cannot satisfy, the Minimum Attendance Requirement may, in the Organizers’ sole discretion, be (a) deemed ineligible to present at Pitch Day; (b) deemed ineligible for referral to Honors Fund or any other investor, Partner, or opportunity; (c) denied any certificate, credential, or Partner benefit associated with the Program; and/or (d) removed from the Program. The Organizers may, but are not obligated to, excuse an absence for documented emergency, illness, or academic conflict communicated in advance.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.5</span><span class="tt-cb"><strong>Good-Faith Participation.</strong> Each Participant shall participate in good faith, complete assigned work within a reasonable time, and keep the Organizers reasonably informed of the Venture’s progress, including by responding to Program surveys and progress check-ins.</span></p>
+</section>
+<section class="tt-art" id="p-4" aria-labelledby="p-4-h">
+<h3 id="p-4-h"><span class="tt-num">Article 4</span><span class="tt-title">Incorporation Requirement</span></h3>
+<p class="tt-cl"><span class="tt-cn">4.1</span><span class="tt-cb"><strong>Obligation to Incorporate.</strong> As a condition of participation, each Team that has not already done so shall cause the Venture to be duly organized as a legal entity under the laws of a state of the United States no later than April 30, 2027 (the “Incorporation Deadline”), and shall furnish the Organizers, upon request, with reasonable evidence thereof, such as a certificate of incorporation or formation.</span></p>
+<p class="tt-cl"><span class="tt-cn">4.2</span><span class="tt-cb"><strong>Sole Responsibility.</strong> The Team acknowledges that the choice of entity type, jurisdiction, capitalization, founder equity allocation, vesting, and intellectual-property assignment are matters within the Team’s sole responsibility. Any guidance, templates, or Partner services offered during the Program’s Incorporation Session are provided for general educational purposes only and do not constitute legal, tax, or accounting advice. The Team shall bear all filing fees, registered-agent fees, franchise taxes, and other costs of incorporation, and is strongly encouraged to consult independent counsel.</span></p>
+<p class="tt-cl"><span class="tt-cn">4.3</span><span class="tt-cb"><strong>Investor Requirements.</strong> The Team acknowledges that Honors Fund or other investors may require a particular entity type or jurisdiction (including, without limitation, a Delaware C-corporation) as a condition of investment, and that satisfaction of Section 4.1 does not ensure the Venture meets any such requirement.</span></p>
+<p class="tt-cl"><span class="tt-cn">4.4</span><span class="tt-cb"><strong>Failure to Incorporate.</strong> A Team that fails to incorporate by the Incorporation Deadline may be deemed ineligible for referral to Honors Fund or other investment opportunities and may be removed from the Program.</span></p>
+</section>
+<section class="tt-art" id="p-5" aria-labelledby="p-5-h">
+<h3 id="p-5-h"><span class="tt-num">Article 5</span><span class="tt-title">Investment Opportunity; No Guarantee</span></h3>
+<p class="tt-cl"><span class="tt-cn">5.1</span><span class="tt-cb"><strong>No Guarantee of Investment.</strong> The Participant expressly acknowledges and agrees that participation in the Program, completion of the Program, presentation at Pitch Day, or selection for review by Honors Fund does not constitute, and shall not be construed as, an offer, commitment, promise, or guarantee of any investment, funding, grant, loan, or other financial support by the Organizers, Honors Fund, or any other person.</span></p>
+<p class="tt-cl"><span class="tt-cn">5.2</span><span class="tt-cb"><strong>Independent Investment Decision.</strong> Honors Fund is a third party independent of the Organizers. All decisions concerning whether to review, conduct diligence on, offer to invest in, or invest in any Venture are made by Honors Fund in its sole and absolute discretion. The Organizers have no authority to bind Honors Fund and make no representation regarding the likelihood, timing, amount, or terms of any investment.</span></p>
+<p class="tt-cl"><span class="tt-cn">5.3</span><span class="tt-cb"><strong>Pitch Competition Terms.</strong> Any Team that presents at Pitch Day or is selected for review or investment by Honors Fund shall be subject to, and shall comply with, the rules, terms, and conditions of the Honors Fund pitch competition and investment process, as published or furnished by Honors Fund (the “Honors Fund Terms”). In the event of any conflict between these Terms and the Honors Fund Terms with respect to the pitch competition or any investment, the Honors Fund Terms shall govern as between the Team and Honors Fund.</span></p>
+<p class="tt-cl"><span class="tt-cn">5.4</span><span class="tt-cb"><strong>Indicative Investment Terms; Negotiation.</strong> The Participant acknowledges that, if a Venture is selected for investment, the indicative terms of such investment as set forth by Honors Fund are an investment of up to One Hundred Fifty Thousand U.S. Dollars ($150,000) by way of a Simple Agreement for Future Equity (“SAFE”) (a) for Ventures that have not previously raised funds, with a valuation cap of Two Million U.S. Dollars ($2,000,000) or a twenty percent (20%) discount on the Venture’s next equity financing, whichever results in the lower conversion price; and (b) for Ventures that have previously raised funds at a valuation of Three Million Five Hundred Thousand U.S. Dollars ($3,500,000) or less, on the terms of such prior round. Such terms are indicative only, are subject to change by Honors Fund, are not binding on any party until definitive investment documents are executed, and may be negotiated, modified, or withdrawn at the mutual discretion of the Team and Honors Fund. The Organizers shall not be a party to, and shall bear no obligation or liability under, any such negotiation or investment documents.</span></p>
+<p class="tt-cl"><span class="tt-cn">5.5</span><span class="tt-cb"><strong>No Organizer Role in Investment.</strong> The Organizers do not act as a broker, dealer, placement agent, finder, investment adviser, or fiduciary to any Participant or to Honors Fund, receive no compensation contingent upon any investment, and do not recommend or endorse any investment. Each Team shall conduct its own evaluation of, and obtain independent legal, tax, and financial advice regarding, any proposed investment terms.</span></p>
+<p class="tt-cl"><span class="tt-cn">5.6</span><span class="tt-cb"><strong>Other Investors.</strong> Any introduction by the Organizers to any investor, Partner, or other third party is made as a courtesy only and creates no obligation on the part of any person.</span></p>
+</section>
+<section class="tt-art" id="p-6" aria-labelledby="p-6-h">
+<h3 id="p-6-h"><span class="tt-num">Article 6</span><span class="tt-title">No Equity, No Fees, No Guaranteed Outcomes</span></h3>
+<p class="tt-cl"><span class="tt-cn">6.1</span><span class="tt-cb"><strong>No Equity.</strong> Neither NGEN nor Expop shall acquire, or be entitled to, any equity, ownership interest, option, warrant, convertible instrument, profit share, revenue share, or other economic interest in any Venture by reason of the Team’s application to or participation in the Program.</span></p>
+<p class="tt-cl"><span class="tt-cn">6.2</span><span class="tt-cb"><strong>No Program Fee.</strong> No application fee or participation fee is charged for the Program. Participants are solely responsible for their own costs and expenses incurred in connection with the Program, including travel, lodging, equipment, internet access, incorporation costs, and any paid upgrades to Partner services.</span></p>
+<p class="tt-cl"><span class="tt-cn">6.3</span><span class="tt-cb"><strong>No Guarantee of Outcomes.</strong> The Organizers make no representation, warranty, or guarantee that participation in the Program will result in any particular outcome, including, without limitation, funding, revenue, customers, pilots, partnerships, employment, academic credit, admission to any other program, valuation, or the success or survival of the Venture. References on the Program website or in Program Materials to the achievements of other founders or members of the NGEN network are illustrative only, are not results of the Program, and are not indicative of results any Participant may achieve.</span></p>
+<p class="tt-cl"><span class="tt-cn">6.4</span><span class="tt-cb"><strong>No Employment or Agency.</strong> Nothing in these Terms creates any employment, partnership, joint venture, agency, fiduciary, or franchise relationship between any Participant and either Organizer. No Participant shall hold itself out as an agent or representative of NGEN or Expop.</span></p>
+</section>
+<section class="tt-art" id="p-7" aria-labelledby="p-7-h">
+<h3 id="p-7-h"><span class="tt-num">Article 7</span><span class="tt-title">Partner Platforms and Third-Party Accounts</span></h3>
+<p class="tt-cl"><span class="tt-cn">7.1</span><span class="tt-cb"><strong>Required Accounts.</strong> The Participant acknowledges that, as part of certain Sessions and workshops, the Participant may be required to create accounts with Partner companies (including, without limitation, Base44) in order to access their products or services. The Organizers shall endeavor to ensure that any account required for Program participation is available at no cost to the Participant.</span></p>
+<p class="tt-cl"><span class="tt-cn">7.2</span><span class="tt-cb"><strong>Third-Party Terms.</strong> Each such account is a direct relationship between the Participant and the applicable Partner and shall be governed exclusively by that Partner’s terms of service, privacy policy, and other policies, which the Participant is responsible for reviewing. The Organizers are not parties to any such agreement.</span></p>
+<p class="tt-cl"><span class="tt-cn">7.3</span><span class="tt-cb"><strong>Paid Features.</strong> Any upgrade, paid tier, usage beyond free limits, or purchase the Participant elects to make with a Partner is at the Participant’s sole election, risk, and expense. Partner perks, credits, or discounts are offered at the Partner’s discretion and may be modified or withdrawn at any time.</span></p>
+<p class="tt-cl"><span class="tt-cn">7.4</span><span class="tt-cb"><strong>No Endorsement or Liability.</strong> The inclusion of any Partner in the Program does not constitute an endorsement or warranty of such Partner’s products or services. The Organizers shall have no liability for the availability, performance, security, data handling, pricing, or any acts or omissions of any Partner, including any loss of data or intellectual property stored on a Partner platform.</span></p>
+<p class="tt-cl"><span class="tt-cn">7.5</span><span class="tt-cb"><strong>Information Shared with Partners.</strong> The Participant consents to the Organizers sharing the Participant’s name, school email address, and Venture name with Partners solely to the extent necessary to provision accounts or deliver Program benefits.</span></p>
+</section>
+<section class="tt-art" id="p-8" aria-labelledby="p-8-h">
+<h3 id="p-8-h"><span class="tt-num">Article 8</span><span class="tt-title">Media Release; Name, Image, and Likeness</span></h3>
+<p class="tt-cl"><span class="tt-cn">8.1</span><span class="tt-cb"><strong>Grant.</strong> The Participant hereby grants to NGEN and Expop, and their respective affiliates, successors, assigns, licensees, and Partners (the “Released Parties”), an irrevocable, perpetual, worldwide, royalty-free, fully paid-up, transferable, and sublicensable right and license to photograph, film, record, and otherwise capture the Participant’s name, image, likeness, voice, statements, biographical information, and the Venture’s name, logo, and description (collectively, the “Likeness”) during the Program, including at Sessions, Pitch Day, and related events, and to reproduce, edit, adapt, publish, display, distribute, and otherwise use the Likeness, in whole or in part, in any media now known or hereafter devised.</span></p>
+<p class="tt-cl"><span class="tt-cn">8.2</span><span class="tt-cb"><strong>Permitted Purposes.</strong> Such uses include, without limitation, marketing, advertising, and promotional materials; testimonial videos and case studies; recruitment of future Cohorts; reports, presentations, and materials furnished to current or prospective Partners, sponsors, donors, and campus organizations; websites, social media, and press; and NGEN’s charitable and educational activities.</span></p>
+<p class="tt-cl"><span class="tt-cn">8.3</span><span class="tt-cb"><strong>Waiver.</strong> The Participant waives any right to inspect or approve the finished materials and any claim for compensation, royalties, or damages, including claims for invasion of privacy, right of publicity, or defamation by alteration or fictionalization, arising from any use permitted hereunder. Live Sessions may be recorded, and recordings may be made available to other Participants and Partners.</span></p>
+<p class="tt-cl"><span class="tt-cn">8.4</span><span class="tt-cb"><strong>Testimonials.</strong> The Organizers shall obtain the Participant’s separate approval before attributing to the Participant any written quotation or testimonial not captured verbatim during the Program.</span></p>
+<p class="tt-cl"><span class="tt-cn">8.5</span><span class="tt-cb"><strong>Opt-Out.</strong> A Participant may request in writing to <a href="mailto:info@ngennetwork.org">info@ngennetwork.org</a> that the Organizers refrain from featuring the Participant’s Likeness in future materials created after receipt of such request. The Organizers shall use commercially reasonable efforts to honor such request prospectively, provided that the Organizers shall have no obligation to recall, alter, or remove materials already produced, published, or distributed, or to edit group photographs or recordings.</span></p>
+</section>
+<section class="tt-art" id="p-9" aria-labelledby="p-9-h">
+<h3 id="p-9-h"><span class="tt-num">Article 9</span><span class="tt-title">Intellectual Property, Confidentiality, and Conduct</span></h3>
+<p class="tt-cl"><span class="tt-cn">9.1</span><span class="tt-cb"><strong>Venture IP.</strong> As between the Organizers and the Team, the Team retains all right, title, and interest in and to the Venture and its intellectual property. Nothing herein transfers to the Organizers any ownership of the Team’s intellectual property.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.2</span><span class="tt-cb"><strong>Program Materials.</strong> All Program Materials are and shall remain the exclusive property of the Organizers or their licensors. The Participant is granted a limited, non-exclusive, non-transferable, revocable license to use Program Materials solely for the Participant’s own Venture during and after the Program, and shall not reproduce, distribute, sell, publish, record, or create derivative works from Program Materials for any other purpose without prior written consent.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.3</span><span class="tt-cb"><strong>Feedback.</strong> Any suggestions or feedback the Participant provides regarding the Program may be used by the Organizers without restriction or compensation.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.4</span><span class="tt-cb"><strong>No Confidentiality Obligation.</strong> The Participant acknowledges that the Program is a collaborative, educational environment in which ideas are shared among Participants, Organizers, mentors, speakers, Partners, and investors, and that none of the foregoing is bound by any obligation of confidentiality or non-use with respect to information the Participant discloses, absent a separate written agreement signed by the receiving party. The Participant is solely responsible for determining what information to disclose and for protecting its trade secrets and other proprietary information. The Participant acknowledges that others may be developing similar ideas, and that the Organizers have no liability therefor.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.5</span><span class="tt-cb"><strong>Respect for Other Participants.</strong> Each Participant shall not misappropriate, copy, or disclose the non-public business information of another Team obtained through the Program.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.6</span><span class="tt-cb"><strong>Code of Conduct.</strong> Each Participant shall conduct themselves professionally and shall not engage in harassment, discrimination, threats, intimidation, plagiarism, misrepresentation, unlawful conduct, or any conduct that, in the Organizers’ judgment, is disruptive or reflects adversely on the Organizers, Partners, or the Program. Participants shall comply with all applicable laws, campus policies of any host institution, and the rules of any venue or virtual platform.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.7</span><span class="tt-cb"><strong>Removal.</strong> The Organizers may suspend or remove any Participant or Team from the Program, with or without notice, for any breach of these Terms, failure to meet the Minimum Attendance Requirement or Incorporation Deadline, loss of eligibility, or conduct the Organizers deem inconsistent with the Program’s purpose. Upon removal, all Program benefits, referrals, and eligibility for Pitch Day and Honors Fund review shall terminate immediately.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.8</span><span class="tt-cb"><strong>Use of Organizer Marks.</strong> The Participant may truthfully state that the Venture participated in the NGEN Incubator, but shall not use the names, logos, or trademarks of NGEN, Expop, Honors Fund, or any Partner in a manner that implies endorsement, sponsorship, investment, or affiliation without prior written consent.</span></p>
+</section>
+<section class="tt-art" id="p-10" aria-labelledby="p-10-h">
+<h3 id="p-10-h"><span class="tt-num">Article 10</span><span class="tt-title">Disclaimers, Limitation of Liability, Assumption of Risk, Indemnification, and Release</span></h3>
+<p class="tt-cl"><span class="tt-cn">10.1</span><span class="tt-cb"><strong>Disclaimer of Warranties.</strong> THE PROGRAM, PROGRAM MATERIALS, SESSIONS, MENTORSHIP, INTRODUCTIONS, AND ALL RELATED SERVICES ARE PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT WARRANTY OF ANY KIND, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING ANY WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, ACCURACY, OR RESULTS.</span></p>
+<p class="tt-cl"><span class="tt-cn">10.2</span><span class="tt-cb"><strong>No Professional Advice.</strong> All content, guidance, and feedback provided by the Organizers, mentors, speakers, Partners, or investors is for general educational purposes only and does not constitute legal, tax, accounting, financial, investment, or securities advice. The Participant shall rely solely on the Participant’s own judgment and independent professional advisers. Mentors, speakers, and Partners act in their individual capacity and not on behalf of the Organizers.</span></p>
+<p class="tt-cl"><span class="tt-cn">10.3</span><span class="tt-cb"><strong>Limitation of Liability.</strong> TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL NGEN, EXPOP, OR THEIR RESPECTIVE DIRECTORS, OFFICERS, EMPLOYEES, CONTRACTORS, INTERNS, VOLUNTEERS, MENTORS, AGENTS, OR PARTNERS (THE “ORGANIZER PARTIES”) BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, FUNDING, DATA, GOODWILL, OR BUSINESS OPPORTUNITY, ARISING OUT OF OR RELATING TO THE PROGRAM OR THESE TERMS, HOWEVER CAUSED AND UNDER ANY THEORY OF LIABILITY, EVEN IF ADVISED OF THE POSSIBILITY THEREOF. THE AGGREGATE LIABILITY OF THE ORGANIZER PARTIES FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THE PROGRAM SHALL NOT EXCEED ONE HUNDRED U.S. DOLLARS ($100).</span></p>
+<p class="tt-cl"><span class="tt-cn">10.4</span><span class="tt-cb"><strong>Assumption of Risk.</strong> The Participant acknowledges that attendance at in-person Sessions, Pitch Day, and related events, and any associated travel, involves inherent risks, including risk of personal injury, illness, and property loss or damage. The Participant voluntarily assumes all such risks and is solely responsible for the Participant’s own health, safety, insurance, and personal property.</span></p>
+<p class="tt-cl"><span class="tt-cn">10.5</span><span class="tt-cb"><strong>Indemnification.</strong> The Participant shall defend, indemnify, and hold harmless the Organizer Parties from and against any and all claims, demands, actions, losses, liabilities, damages, judgments, settlements, costs, and expenses (including reasonable attorneys’ fees) arising out of or relating to (a) the Participant’s breach of these Terms or any representation or warranty herein; (b) the Venture, its products, services, operations, or fundraising activities; (c) any dispute between or among the Participant, co-founders, other Participants, Honors Fund, investors, or Partners; (d) any infringement or misappropriation of third-party rights by the Participant or the Venture; or (e) the Participant’s negligence or willful misconduct.</span></p>
+<p class="tt-cl"><span class="tt-cn">10.6</span><span class="tt-cb"><strong>Release.</strong> To the fullest extent permitted by law, the Participant, on behalf of the Participant and the Participant’s heirs, successors, and assigns, hereby releases and forever discharges the Organizer Parties from any and all claims, known or unknown, arising out of or relating to the Program, including any investment decision or non-decision by Honors Fund, any act or omission of any Partner, mentor, or other Participant, any admission or removal decision, and any use of the Likeness permitted under Article 8, except for claims arising from the gross negligence or willful misconduct of an Organizer Party that cannot be released as a matter of law. To the extent applicable, the Participant waives the benefit of California Civil Code Section 1542 and any similar statute, which provides: “A general release does not extend to claims that the creditor or releasing party does not know or suspect to exist in his or her favor at the time of executing the release and that, if known by him or her, would have materially affected his or her settlement with the debtor or released party.”</span></p>
+</section>
+<section class="tt-art" id="p-11" aria-labelledby="p-11-h">
+<h3 id="p-11-h"><span class="tt-num">Article 11</span><span class="tt-title">Privacy, Dispute Resolution, and General Provisions</span></h3>
+<p class="tt-cl"><span class="tt-cn">11.1</span><span class="tt-cb"><strong>Personal Information.</strong> The Participant consents to the Organizers’ collection, storage, and use of information submitted in connection with the Program, including application responses, attendance records, progress data, and contact information, for purposes of administering, evaluating, reporting on, and improving the Program; communicating with Participants regarding the Program and future NGEN and Expop opportunities; and, in aggregated or de-identified form, reporting to Partners, sponsors, and donors. The Participant further consents to the Organizers sharing the Participant’s application materials, pitch deck, and Program performance with Honors Fund and, with respect to Teams presenting at Pitch Day, with other prospective investors and Partners. The Organizers do not sell personal information.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.2</span><span class="tt-cb"><strong>Governing Law.</strong> These Terms shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict-of-laws principles.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.3</span><span class="tt-cb"><strong>Informal Resolution; Arbitration.</strong> Prior to initiating any proceeding, the Participant shall first notify the Organizers in writing at <a href="mailto:info@ngennetwork.org">info@ngennetwork.org</a> and the parties shall attempt in good faith to resolve the dispute informally for not less than thirty (30) days. Any dispute not so resolved shall be finally resolved by binding arbitration administered by the American Arbitration Association before a single arbitrator in New York, New York or by videoconference. THE PARTICIPANT WAIVES ANY RIGHT TO A JURY TRIAL AND ANY RIGHT TO PARTICIPATE IN A CLASS, COLLECTIVE, OR REPRESENTATIVE ACTION. Notwithstanding the foregoing, either party may seek injunctive relief in a court of competent jurisdiction to protect its intellectual property or Likeness rights.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.4</span><span class="tt-cb"><strong>Entire Agreement.</strong> These Terms, together with any Program policies published by the Organizers, constitute the entire agreement between the Participant and the Organizers regarding the Program and supersede all prior or contemporaneous statements, representations, website content, and marketing materials. In the event of any conflict between these Terms and any statement on the Program website or in Program marketing, these Terms shall control.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.5</span><span class="tt-cb"><strong>Severability; Waiver.</strong> If any provision of these Terms is held invalid or unenforceable, such provision shall be enforced to the maximum extent permissible and the remaining provisions shall remain in full force and effect. No failure or delay in exercising any right shall operate as a waiver thereof.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.6</span><span class="tt-cb"><strong>Assignment.</strong> The Participant may not assign these Terms without the prior written consent of the Organizers. The Organizers may assign these Terms, in whole or in part, to any affiliate or successor.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.7</span><span class="tt-cb"><strong>Survival.</strong> Articles 5, 6, 8, 9 (Sections 9.1 through 9.5 and 9.8), 10, 11, and 12 shall survive the conclusion of the Program and any removal or withdrawal of the Participant.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.8</span><span class="tt-cb"><strong>Force Majeure.</strong> The Organizers shall not be liable for any delay, cancellation, or failure to perform resulting from causes beyond their reasonable control, including acts of God, public-health emergencies, campus closures, platform outages, or Partner withdrawal.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.9</span><span class="tt-cb"><strong>Withdrawal.</strong> A Participant may withdraw from the Program at any time by written notice to the Organizers. Withdrawal shall not affect any rights granted or obligations accrued prior to withdrawal, including those under Article 8.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.10</span><span class="tt-cb"><strong>Electronic Acceptance.</strong> Acceptance of these Terms by electronic means, including by checking a box or submitting an online form, shall be deemed equivalent to a handwritten signature.</span></p>
+</section>
+<section class="tt-art" id="p-12" aria-labelledby="p-12-h">
+<h3 id="p-12-h"><span class="tt-num">Article 12</span><span class="tt-title">Campus Track; Host Organizations and Host Institutions</span></h3>
+<p class="tt-cl"><span class="tt-cn">12.1</span><span class="tt-cb"><strong>Applicability.</strong> This Article applies to each Participant in the Campus Track and to any Participant in the Public Track who attends a Program event held on a college or university campus. As used herein, “Host Organization” means any student club, entrepreneurship organization, or other campus group that hosts, co-organizes, or delivers any portion of the Program, together with its officers, leads, and volunteers; and “Host Institution” means the college or university with which a Host Organization is affiliated or at which a Program event is held.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.2</span><span class="tt-cb"><strong>Independence of Host Organizations.</strong> Each Host Organization and Host Institution is independent of the Organizers. Officers, leads, and volunteers of a Host Organization act in their individual or organizational capacity and are not employees, agents, or representatives of NGEN or Expop. The Organizers shall have no responsibility or liability for the acts, omissions, statements, decisions, or communications of any Host Organization or Host Institution.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.3</span><span class="tt-cb"><strong>No Institutional Sponsorship or Endorsement.</strong> Except as a Host Institution has expressly agreed in a writing signed by its authorized representative, the Program is not sponsored, endorsed, accredited, or operated by any Host Institution. Participation in the Program does not confer academic credit, institutional status, or any affiliation with a Host Institution, and the Participant shall not represent otherwise.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.4</span><span class="tt-cb"><strong>Campus Selection.</strong> A Host Organization may administer applications to and selection for its campus cohort, subject to the Organizers’ final approval. Neither the Host Organization nor the Organizers is obligated to admit any applicant, and a Team not admitted to a campus cohort may apply to the Public Track.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.5</span><span class="tt-cb"><strong>Campus Policies and Venues.</strong> Each Participant shall comply with the student code of conduct, facilities and event policies, safety requirements, and other rules of the applicable Host Institution and Host Organization, including any rules concerning guests, alcohol, recording, and use of campus spaces. A Host Institution or Host Organization may require additional registrations, waivers, or acknowledgments as a condition of attending an event, and the Participant shall execute the same. Where such rules are stricter than these Terms, the stricter rule shall apply. A violation of such rules shall constitute a breach of these Terms.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.6</span><span class="tt-cb"><strong>University Intellectual-Property Policies.</strong> The Participant acknowledges that a college or university at which the Participant is enrolled or employed, or whose facilities, funding, laboratories, personnel, or sponsored research the Participant has used, may assert ownership of or other rights in intellectual property relating to the Venture under its policies. The Participant is solely responsible for determining and resolving any such rights, including prior to incorporation or any investment, and represents that the Venture’s ownership of its intellectual property is not subject to any undisclosed institutional claim. The Organizers make no representation regarding any institutional policy.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.7</span><span class="tt-cb"><strong>Information Sharing with Host Organizations.</strong> The Participant consents to the Organizers sharing the Participant’s name, contact information, Venture name and description, attendance records, progress data, and pitch materials with the applicable Host Organization and with the entrepreneurship center or similar office of the applicable Host Institution, for purposes of administering, evaluating, and reporting on the Program.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.8</span><span class="tt-cb"><strong>Media at Campus Events.</strong> For purposes of Article 8, the term “Released Parties” includes each Host Organization and Host Institution with respect to Likeness captured at Program events it hosts, and each such party may use such Likeness to promote the Program and its own entrepreneurship programming, subject to the limitations of Article 8.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.9</span><span class="tt-cb"><strong>Changes to Campus Delivery.</strong> If a Host Organization withdraws from, is unable to continue, or is suspended from hosting the Program, or if a Host Institution restricts any Program event, the Organizers may, in their sole discretion and without liability, reschedule or relocate any workshop, deliver it virtually, or transfer the affected Teams to the Public Track, and may adjust the Minimum Attendance Requirement accordingly.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.10</span><span class="tt-cb"><strong>Third-Party Beneficiaries.</strong> Each Host Organization and Host Institution, and their respective officers, leads, volunteers, trustees, and employees, is an intended third-party beneficiary of Article 10 and this Article 12 and shall be entitled to enforce the same as though included in the definition of “Organizer Parties.”</span></p>
+<p class="tt-cl"><span class="tt-cn">12.11</span><span class="tt-cb"><strong>Reporting Concerns.</strong> Any Participant who experiences or witnesses misconduct at a campus Program event shall report it to the Organizers at <a href="mailto:info@ngennetwork.org">info@ngennetwork.org</a> and, where appropriate, to the applicable Host Institution in accordance with its policies.</span></p>
+</section>
+<section class="tt-art" id="p-13" aria-labelledby="p-13-h">
+<h3 id="p-13-h"><span class="tt-num">&nbsp;</span><span class="tt-title">Acknowledgment</span></h3>
+<p class="tt-caps">BY ACCEPTING THESE TERMS, THE PARTICIPANT ACKNOWLEDGES THAT THE PARTICIPANT HAS READ AND UNDERSTANDS THESE TERMS, INCLUDING THE MINIMUM ATTENDANCE REQUIREMENT, THE INCORPORATION REQUIREMENT, THE ABSENCE OF ANY GUARANTEE OF INVESTMENT OR OUTCOME, THE MEDIA RELEASE, THE ABSENCE OF CONFIDENTIALITY OBLIGATIONS, THE LIMITATION OF LIABILITY, THE RELEASE, AND THE AGREEMENT TO ARBITRATE AND WAIVER OF JURY TRIAL AND CLASS ACTIONS, AND AGREES TO BE BOUND HEREBY.</p>
+</section>
+        <div class="doc-end">
+          <div><h4>Questions about these terms?</h4><p>Write to us before you apply and we'll help.</p></div>
+          <a class="btn-plain" href="mailto:info@ngennetwork.org">info@ngennetwork.org</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- ===================== CAMPUS PARTNER TERMS ===================== -->
+    <div class="doc-grid" data-doc="campus" id="doc-campus" role="tabpanel" aria-labelledby="tab-campus" hidden>
+      <details class="toc" open>
+        <summary><span class="label">Contents · 19 sections</span><span class="pm" aria-hidden="true">+</span></summary>
+        <ol><li><a href="#c-1" data-sec="c-1"><span class="tt-tn">1</span><span>Definitions</span></a></li><li><a href="#c-2" data-sec="c-2"><span class="tt-tn">2</span><span>Term</span></a></li><li><a href="#c-3" data-sec="c-3"><span class="tt-tn">3</span><span>Campus Partner Responsibilities</span></a></li><li><a href="#c-4" data-sec="c-4"><span class="tt-tn">4</span><span>Organizer Responsibilities</span></a></li><li><a href="#c-5" data-sec="c-5"><span class="tt-tn">5</span><span>Fees, Expenses, and Sponsorship</span></a></li><li><a href="#c-6" data-sec="c-6"><span class="tt-tn">6</span><span>Intellectual Property and Program Materials</span></a></li><li><a href="#c-7" data-sec="c-7"><span class="tt-tn">7</span><span>Names, Logos, and Branding</span></a></li><li><a href="#c-8" data-sec="c-8"><span class="tt-tn">8</span><span>Photography, Video, and Recordings</span></a></li><li><a href="#c-9" data-sec="c-9"><span class="tt-tn">9</span><span>Participant Data</span></a></li><li><a href="#c-10" data-sec="c-10"><span class="tt-tn">10</span><span>Confidentiality</span></a></li><li><a href="#c-11" data-sec="c-11"><span class="tt-tn">11</span><span>Relationship of the Parties</span></a></li><li><a href="#c-12" data-sec="c-12"><span class="tt-tn">12</span><span>Representations</span></a></li><li><a href="#c-13" data-sec="c-13"><span class="tt-tn">13</span><span>Risk, Insurance, and Indemnification</span></a></li><li><a href="#c-14" data-sec="c-14"><span class="tt-tn">14</span><span>Disclaimers and Limitation of Liability</span></a></li><li><a href="#c-15" data-sec="c-15"><span class="tt-tn">15</span><span>Termination</span></a></li><li><a href="#c-16" data-sec="c-16"><span class="tt-tn">16</span><span>Dispute Resolution</span></a></li><li><a href="#c-17" data-sec="c-17"><span class="tt-tn">17</span><span>General Provisions</span></a></li><li><a href="#c-18" data-sec="c-18"><span class="tt-tn">Ex. A</span><span>Campus Track Schedule and Commitments</span></a></li><li><a href="#c-19" data-sec="c-19"><span class="tt-tn">—</span><span>Acknowledgment</span></a></li></ol>
+        <div class="toc-tools">
+          <button class="btn-plain" type="button" data-print>Print / Save PDF</button>
+          <a class="btn-plain" href="#top-of-page" data-top>Back to top ↑</a>
+        </div>
+      </details>
+      <article aria-labelledby="h-campus">
+        <div class="doc-head">
+          <div class="label">NGEN Incubator · Campus Track</div>
+          <h2 id="h-campus">Campus Partner Terms and Conditions</h2>
+          <p>Accepted on behalf of the student organization by the officer who submits the Partner Application.</p>
+        </div>
+        <div class="tt-notice" role="note"><div class="label tt-notice-k">Important notice</div><p>BY SUBMITTING AN APPLICATION TO BECOME A CAMPUS PARTNER OF THE NGEN INCUBATOR, OR BY HOSTING, PROMOTING, OR OTHERWISE PARTICIPATING IN THE CAMPUS TRACK IN ANY MANNER, THE STUDENT ORGANIZATION ON WHOSE BEHALF THE APPLICATION IS SUBMITTED, AND THE INDIVIDUAL SUBMITTING IT, ACKNOWLEDGE THAT THEY HAVE READ, UNDERSTOOD, AND ACCEPTED THESE TERMS AND CONDITIONS IN THEIR ENTIRETY. IF YOU DO NOT AGREE, OR ARE NOT AUTHORIZED TO BIND YOUR ORGANIZATION, DO NOT SUBMIT THE APPLICATION.</p></div>
+<p class="tt-p">These Campus Partner Terms and Conditions (these “Terms”) constitute a legally binding agreement by and among NextGen Entrepreneurship Network, a not-for-profit organization registered in the State of New York (“NGEN”); Ascendance US Inc., a Delaware corporation doing business as Expop (“Expop,” and together with NGEN, the “Organizers”); and the student organization identified in the Partner Application (the “Campus Partner”). The Organizers and the Campus Partner are each a “Party” and together the “Parties.”</p>
+<p class="tt-p"><strong>Background.</strong> The Organizers operate the NGEN Incubator, a twelve (12) week educational program for student founders (the “Program”). The Program includes a Campus Track under which selected student organizations host in-person workshops for a cohort of student teams at their campus. These Terms govern the Campus Partner’s application to host, and its hosting of, the Campus Track at the college or university identified in the Partner Application (the “Host Institution”).</p>
+<section class="tt-art" id="c-1" aria-labelledby="c-1-h">
+<h3 id="c-1-h"><span class="tt-num">Article 1</span><span class="tt-title">Definitions</span></h3>
+<p class="tt-p">As used herein: “Partner Application” means the online form through which a student organization applies to become a Campus Partner, together with all information submitted therein; “Campus Cohort” means the student teams admitted to the Campus Track at the Host Institution for the applicable cohort; “Campus Leads” means the officers or members of the Campus Partner designated under Section 3.1; “Participant” means any student founder participating in the Program; “Participant Terms” means the NGEN Incubator Participant Terms and Conditions, as amended from time to time; “Program Materials” means all curricula, facilitator guides, slides, recordings, templates, worksheets, frameworks, and other content furnished by or on behalf of the Organizers; and “Workshops” means the four (4) in-person Campus Track workshops described in Exhibit A.</p>
+</section>
+<section class="tt-art" id="c-2" aria-labelledby="c-2-h">
+<h3 id="c-2-h"><span class="tt-num">Article 2</span><span class="tt-title">Term</span></h3>
+<p class="tt-cl"><span class="tt-cn">2.1</span><span class="tt-cb"><strong>Term.</strong> These Terms bind the Campus Partner upon submission of the Partner Application. The Campus Partner’s rights and obligations to host the Campus Track commence upon the Organizers’ written acceptance of the Partner Application (the “Acceptance Date”) and continue through the date that is thirty (30) days after the final Workshop of the cohort for which the Partner Application is accepted (the “Term”), unless earlier terminated under Article 15.</span></p>
+<p class="tt-cl"><span class="tt-cn">2.2</span><span class="tt-cb"><strong>Subsequent Cohorts.</strong> The Campus Partner’s participation in any subsequent cohort shall require a new Partner Application or the Parties’ confirmation by email that these Terms, as then in effect, apply to such cohort.</span></p>
+</section>
+<section class="tt-art" id="c-3" aria-labelledby="c-3-h">
+<h3 id="c-3-h"><span class="tt-num">Article 3</span><span class="tt-title">Campus Partner Responsibilities</span></h3>
+<p class="tt-cl"><span class="tt-cn">3.1</span><span class="tt-cb"><strong>Campus Leads.</strong> The Campus Partner shall designate no fewer than two (2) Campus Leads, identified in the Partner Application, who shall serve as the Organizers’ primary points of contact, respond to Organizer communications within two (2) business days during the Term, and promptly notify the Organizers of any change in Campus Leads or in the Campus Partner’s officers.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.2</span><span class="tt-cb"><strong>Recruitment.</strong> The Campus Partner shall use reasonable efforts to promote the Program to students at the Host Institution and to recruit a target of no fewer than twenty (20) applicant teams for the Campus Cohort. Such target is a goal and not a guarantee. All promotional materials shall be based on materials furnished or approved in writing by the Organizers, and the Campus Partner shall not make any statement concerning the Program, its outcomes, or any investment opportunity that is inconsistent with the Participant Terms.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.3</span><span class="tt-cb"><strong>Applications and Selection.</strong> The Campus Partner shall administer applications for the Campus Cohort through the application form designated by the Organizers and shall recommend a Campus Cohort to the Organizers by the date designated by the Organizers in writing. The Organizers shall have final approval of the Campus Cohort. The Campus Partner shall apply the eligibility criteria set forth in the Participant Terms and shall not discriminate against any applicant on any basis prohibited by law or by the policies of the Host Institution.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.4</span><span class="tt-cb"><strong>Participant Terms.</strong> The Campus Partner shall ensure that each member of the Campus Cohort accepts the Participant Terms through the Organizers’ application form before attending the first Workshop, and shall not admit to any Workshop any person who has not done so, other than invited guests, speakers, and Campus Partner members acting in a hosting capacity.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.5</span><span class="tt-cb"><strong>Workshops.</strong> The Campus Partner shall (a) schedule the four (4) Workshops during the Program weeks set forth in Exhibit A and confirm the dates to the Organizers by the date designated by the Organizers in writing; (b) secure, at its own expense or through the Host Institution, a suitable venue for each Workshop with adequate capacity, internet access, and audiovisual equipment; (c) obtain all event registrations, approvals, and permits required by the Host Institution; and (d) host and facilitate each Workshop using the Program Materials and in accordance with the Organizers’ facilitator guides.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.6</span><span class="tt-cb"><strong>Attendance Records.</strong> The Campus Partner shall record attendance at each Workshop using the method designated by the Organizers and deliver such records to the Organizers within three (3) business days after each Workshop. The Campus Partner shall promptly notify the Organizers of any team that misses a Workshop.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.7</span><span class="tt-cb"><strong>Compliance with Institutional Policies.</strong> The Campus Partner shall conduct all Program activities in compliance with applicable law and with the policies of the Host Institution governing student organizations, events, facilities, recording, alcohol, safety, sponsorship, and use of institutional names and marks, and shall remain a recognized student organization in good standing throughout the Term.</span></p>
+<p class="tt-cl"><span class="tt-cn">3.8</span><span class="tt-cb"><strong>Incident Reporting.</strong> The Campus Partner shall notify the Organizers at <a href="mailto:info@ngennetwork.org">info@ngennetwork.org</a> within twenty-four (24) hours of becoming aware of any injury, safety incident, allegation of harassment or misconduct, property damage, or complaint arising in connection with any Workshop, and shall report such matter to the Host Institution where its policies so require.</span></p>
+</section>
+<section class="tt-art" id="c-4" aria-labelledby="c-4-h">
+<h3 id="c-4-h"><span class="tt-num">Article 4</span><span class="tt-title">Organizer Responsibilities</span></h3>
+<p class="tt-cl"><span class="tt-cn">4.1</span><span class="tt-cb"><strong>Program Materials and Support.</strong> The Organizers shall provide the Campus Partner, without charge, with (a) the Program Materials necessary to deliver the Workshops; (b) facilitator guidance and a designated Organizer point of contact; (c) promotional templates and approved Program descriptions; and (d) access for the Campus Cohort to such Partner tools and accounts as are made available to the Public Track.</span></p>
+<p class="tt-cl"><span class="tt-cn">4.2</span><span class="tt-cb"><strong>Program Access.</strong> Members of the Campus Cohort shall be eligible for the Program’s weekly virtual sessions, Pitch Day, and referral for review by Honors Fund on the same terms and conditions as Participants in the Public Track, as set forth in the Participant Terms.</span></p>
+<p class="tt-cl"><span class="tt-cn">4.3</span><span class="tt-cb"><strong>Speakers.</strong> The Organizers may, but are not obligated to, arrange for speakers, mentors, or Organizer staff to attend Workshops in person or virtually.</span></p>
+</section>
+<section class="tt-art" id="c-5" aria-labelledby="c-5-h">
+<h3 id="c-5-h"><span class="tt-num">Article 5</span><span class="tt-title">Fees, Expenses, and Sponsorship</span></h3>
+<p class="tt-cl"><span class="tt-cn">5.1</span><span class="tt-cb"><strong>No Fees.</strong> Unless otherwise agreed in a separate writing signed by the Parties, no fee is payable by either Party to the other under these Terms, and no Party shall charge any Participant a fee to apply to or participate in the Program.</span></p>
+<p class="tt-cl"><span class="tt-cn">5.2</span><span class="tt-cb"><strong>Expenses.</strong> Each Party shall bear its own costs and expenses incurred in performing these Terms. The Organizers shall not be responsible for any venue, catering, travel, printing, or other expense incurred by the Campus Partner unless approved in advance in writing.</span></p>
+<p class="tt-cl"><span class="tt-cn">5.3</span><span class="tt-cb"><strong>Sponsorship.</strong> The Campus Partner shall not solicit or accept sponsorship, donations, or in-kind support for the Program, or use the names of the Organizers, Honors Fund, or any Organizer partner in any sponsorship solicitation, without the Organizers’ prior written approval.</span></p>
+</section>
+<section class="tt-art" id="c-6" aria-labelledby="c-6-h">
+<h3 id="c-6-h"><span class="tt-num">Article 6</span><span class="tt-title">Intellectual Property and Program Materials</span></h3>
+<p class="tt-cl"><span class="tt-cn">6.1</span><span class="tt-cb"><strong>Ownership.</strong> As between the Parties, the Organizers own all right, title, and interest in and to the Program, the Program Materials, and all improvements and derivatives thereof, including any adaptations prepared by the Campus Partner.</span></p>
+<p class="tt-cl"><span class="tt-cn">6.2</span><span class="tt-cb"><strong>License.</strong> Subject to these Terms, the Organizers grant the Campus Partner a limited, non-exclusive, non-transferable, non-sublicensable, revocable license during the Term to reproduce and display the Program Materials solely to deliver the Workshops to the Campus Cohort.</span></p>
+<p class="tt-cl"><span class="tt-cn">6.3</span><span class="tt-cb"><strong>Restrictions.</strong> The Campus Partner shall not, and shall cause its members not to, (a) distribute the Program Materials to any person outside the Campus Cohort; (b) modify, sell, publish, or create derivative works from the Program Materials except as the Organizers approve in writing; (c) record any Workshop for public distribution without the Organizers’ approval; or (d) use the Program Materials to operate any other program, course, or event.</span></p>
+<p class="tt-cl"><span class="tt-cn">6.4</span><span class="tt-cb"><strong>Feedback.</strong> The Organizers may use any suggestions or feedback provided by the Campus Partner regarding the Program without restriction or compensation.</span></p>
+<p class="tt-cl"><span class="tt-cn">6.5</span><span class="tt-cb"><strong>Return of Materials.</strong> Upon expiration or termination of these Terms, the Campus Partner shall cease use of, and upon request delete or return, all Program Materials in its possession.</span></p>
+</section>
+<section class="tt-art" id="c-7" aria-labelledby="c-7-h">
+<h3 id="c-7-h"><span class="tt-num">Article 7</span><span class="tt-title">Names, Logos, and Branding</span></h3>
+<p class="tt-cl"><span class="tt-cn">7.1</span><span class="tt-cb"><strong>Mutual License.</strong> Each Party grants the other a limited, non-exclusive, non-transferable, royalty-free license during the Term to use its name and logo solely to identify the Parties’ collaboration and to promote the Program, in a form consistent with any brand guidelines furnished by the licensing Party. The Campus Track at the Host Institution shall be identified as “NGEN Incubator — Powered by NGEN &amp; Expop, hosted by [Campus Partner name]” or as otherwise approved by the Organizers.</span></p>
+<p class="tt-cl"><span class="tt-cn">7.2</span><span class="tt-cb"><strong>Institutional Marks.</strong> The Campus Partner is solely responsible for determining whether, and on what terms, the name, logo, or other marks of the Host Institution may be used in connection with the Program, and shall inform the Organizers in writing of any such permission. The Organizers shall not use the Host Institution’s name or marks except as so permitted, and shall not represent that the Host Institution sponsors or endorses the Program unless the Host Institution has so agreed in writing.</span></p>
+<p class="tt-cl"><span class="tt-cn">7.3</span><span class="tt-cb"><strong>Case Studies.</strong> Following the Term, the Organizers may continue to identify the Campus Partner and the Host Institution, by name only, as a past host of the Program in factual descriptions of the Program’s history, unless the Campus Partner objects in writing.</span></p>
+</section>
+<section class="tt-art" id="c-8" aria-labelledby="c-8-h">
+<h3 id="c-8-h"><span class="tt-num">Article 8</span><span class="tt-title">Photography, Video, and Recordings</span></h3>
+<p class="tt-cl"><span class="tt-cn">8.1</span><span class="tt-cb"><strong>Recording Notice.</strong> The Campus Partner shall give reasonable notice at each Workshop, through signage or announcement, that photographs and video may be taken, and shall honor the reasonable requests of attendees who ask not to be photographed, to the extent required by the policies of the Host Institution.</span></p>
+<p class="tt-cl"><span class="tt-cn">8.2</span><span class="tt-cb"><strong>License to Organizers.</strong> The Campus Partner grants the Organizers a perpetual, worldwide, royalty-free, non-exclusive license to use any photographs, video, or recordings of Workshops made by or on behalf of the Campus Partner for the purposes set forth in Article 8 of the Participant Terms.</span></p>
+<p class="tt-cl"><span class="tt-cn">8.3</span><span class="tt-cb"><strong>License to Campus Partner.</strong> The Organizers grant the Campus Partner a non-exclusive, royalty-free license to use photographs and video of Workshops it hosts to promote the Program and the Campus Partner’s own entrepreneurship programming, consistent with Article 8 of the Participant Terms.</span></p>
+</section>
+<section class="tt-art" id="c-9" aria-labelledby="c-9-h">
+<h3 id="c-9-h"><span class="tt-num">Article 9</span><span class="tt-title">Participant Data</span></h3>
+<p class="tt-cl"><span class="tt-cn">9.1</span><span class="tt-cb"><strong>Use.</strong> Each Party shall collect, use, and disclose personal information of applicants and Participants (“Participant Data”) solely to administer, deliver, evaluate, and report on the Program, and in accordance with the Participant Terms and applicable law.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.2</span><span class="tt-cb"><strong>Sharing.</strong> The Campus Partner shall share with the Organizers all Participant Data it collects in connection with the Program. The Organizers may share with the Campus Partner the Participant Data of members of the Campus Cohort as reasonably necessary for the Campus Partner’s performance.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.3</span><span class="tt-cb"><strong>Safeguards.</strong> Each Party shall protect Participant Data with reasonable administrative, technical, and physical safeguards, restrict access to those who need it for the Program, and not sell Participant Data or add Participants to any mailing list unrelated to the Program without their consent.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.4</span><span class="tt-cb"><strong>Security Incidents.</strong> Each Party shall notify the other within seventy-two (72) hours of becoming aware of any unauthorized access to or disclosure of Participant Data in its possession.</span></p>
+<p class="tt-cl"><span class="tt-cn">9.5</span><span class="tt-cb"><strong>Deletion.</strong> Within sixty (60) days after the Term, the Campus Partner shall delete Participant Data in its possession, except attendance and contact information the Campus Partner retains for its own membership purposes with the consent of the relevant Participants.</span></p>
+</section>
+<section class="tt-art" id="c-10" aria-labelledby="c-10-h">
+<h3 id="c-10-h"><span class="tt-num">Article 10</span><span class="tt-title">Confidentiality</span></h3>
+<p class="tt-cl"><span class="tt-cn">10.1</span><span class="tt-cb"><strong>Confidential Information.</strong> “Confidential Information” means non-public information disclosed by the Organizers in connection with these Terms that is marked or reasonably understood to be confidential, including unreleased Program Materials, investor and partner terms and contacts, Participant evaluations, and internal plans.</span></p>
+<p class="tt-cl"><span class="tt-cn">10.2</span><span class="tt-cb"><strong>Obligations.</strong> The Campus Partner shall hold Confidential Information in confidence, use it solely to perform these Terms, and disclose it only to Campus Leads and members who need to know it and are bound by obligations at least as protective as these.</span></p>
+<p class="tt-cl"><span class="tt-cn">10.3</span><span class="tt-cb"><strong>Exclusions.</strong> Confidential Information does not include information that (a) is or becomes public through no fault of the Campus Partner; (b) was known to the Campus Partner without restriction before disclosure; (c) is independently developed without use of Confidential Information; or (d) is required to be disclosed by law, provided the Campus Partner gives prompt notice where lawful.</span></p>
+<p class="tt-cl"><span class="tt-cn">10.4</span><span class="tt-cb"><strong>Duration.</strong> The obligations in this Article shall survive for two (2) years after the Term.</span></p>
+</section>
+<section class="tt-art" id="c-11" aria-labelledby="c-11-h">
+<h3 id="c-11-h"><span class="tt-num">Article 11</span><span class="tt-title">Relationship of the Parties</span></h3>
+<p class="tt-cl"><span class="tt-cn">11.1</span><span class="tt-cb"><strong>Independent Parties.</strong> The Parties are independent contracting parties. Nothing herein creates any partnership, joint venture, agency, franchise, or employment relationship. Campus Leads and members of the Campus Partner are volunteers acting on behalf of the Campus Partner and are not employees, contractors, or agents of the Organizers.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.2</span><span class="tt-cb"><strong>No Authority.</strong> The Campus Partner has no authority to bind the Organizers, Honors Fund, or any Organizer partner, and shall not make any commitment, promise, or representation on their behalf, including any statement that participation will result in investment, funding, or any other outcome.</span></p>
+<p class="tt-cl"><span class="tt-cn">11.3</span><span class="tt-cb"><strong>Host Institution.</strong> The Host Institution is not a party to these Terms. The Campus Partner shall not represent that these Terms bind the Host Institution.</span></p>
+</section>
+<section class="tt-art" id="c-12" aria-labelledby="c-12-h">
+<h3 id="c-12-h"><span class="tt-num">Article 12</span><span class="tt-title">Representations</span></h3>
+<p class="tt-cl"><span class="tt-cn">12.1</span><span class="tt-cb"><strong>Campus Partner.</strong> The Campus Partner represents and warrants that (a) it is a student organization recognized by and in good standing with the Host Institution; (b) the individual submitting the Partner Application is an officer authorized under its governing documents to accept these Terms on its behalf, and all information in the Partner Application is true and complete; (c) its performance under these Terms does not violate any policy of the Host Institution or any agreement to which it is a party; and (d) it will obtain all institutional approvals required for the Workshops.</span></p>
+<p class="tt-cl"><span class="tt-cn">12.2</span><span class="tt-cb"><strong>Organizers.</strong> Each Organizer represents and warrants that it has the right to enter into these Terms and to grant the licenses granted herein, and that the Program Materials, as furnished, do not to its knowledge infringe the intellectual property rights of any third party.</span></p>
+</section>
+<section class="tt-art" id="c-13" aria-labelledby="c-13-h">
+<h3 id="c-13-h"><span class="tt-num">Article 13</span><span class="tt-title">Risk, Insurance, and Indemnification</span></h3>
+<p class="tt-cl"><span class="tt-cn">13.1</span><span class="tt-cb"><strong>Events.</strong> The Campus Partner is responsible for the organization and conduct of the Workshops on campus, including venue safety, crowd management, and compliance with the Host Institution’s event requirements. The Organizers do not control and are not responsible for any venue.</span></p>
+<p class="tt-cl"><span class="tt-cn">13.2</span><span class="tt-cb"><strong>Insurance.</strong> The Campus Partner shall maintain or obtain, through the Host Institution or otherwise, any event insurance the Host Institution requires for the Workshops. The Organizers do not provide insurance coverage for campus events.</span></p>
+<p class="tt-cl"><span class="tt-cn">13.3</span><span class="tt-cb"><strong>Indemnification by Campus Partner.</strong> To the extent permitted by the policies of the Host Institution and applicable law, the Campus Partner shall defend, indemnify, and hold harmless the Organizers and their directors, officers, employees, contractors, interns, and volunteers from and against third-party claims, losses, and expenses (including reasonable attorneys’ fees) arising out of (a) the Campus Partner’s breach of these Terms; (b) the negligence or willful misconduct of the Campus Partner or its members; or (c) the conduct of any Workshop, except to the extent caused by the Organizers.</span></p>
+<p class="tt-cl"><span class="tt-cn">13.4</span><span class="tt-cb"><strong>Indemnification by Organizers.</strong> The Organizers shall defend, indemnify, and hold harmless the Campus Partner and its officers and members from and against third-party claims, losses, and expenses (including reasonable attorneys’ fees) arising out of (a) any claim that the Program Materials, as furnished by the Organizers and used in accordance with these Terms, infringe a third party’s intellectual property rights; or (b) the gross negligence or willful misconduct of the Organizers.</span></p>
+<p class="tt-cl"><span class="tt-cn">13.5</span><span class="tt-cb"><strong>Procedure.</strong> The indemnified Party shall give prompt written notice of any claim, permit the indemnifying Party to control its defense, and reasonably cooperate at the indemnifying Party’s expense. No settlement imposing any obligation on the indemnified Party shall be made without its consent.</span></p>
+</section>
+<section class="tt-art" id="c-14" aria-labelledby="c-14-h">
+<h3 id="c-14-h"><span class="tt-num">Article 14</span><span class="tt-title">Disclaimers and Limitation of Liability</span></h3>
+<p class="tt-cl"><span class="tt-cn">14.1</span><span class="tt-cb"><strong>Disclaimer.</strong> EXCEPT AS EXPRESSLY SET FORTH HEREIN, THE PROGRAM AND PROGRAM MATERIALS ARE PROVIDED “AS IS,” AND THE ORGANIZERS MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING AS TO ANY OUTCOME FOR THE CAMPUS PARTNER, THE HOST INSTITUTION, OR ANY PARTICIPANT.</span></p>
+<p class="tt-cl"><span class="tt-cn">14.2</span><span class="tt-cb"><strong>Limitation.</strong> EXCEPT FOR OBLIGATIONS UNDER ARTICLES 6, 10, AND 13, NO PARTY SHALL BE LIABLE TO ANY OTHER FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR LOST PROFITS OR OPPORTUNITIES, ARISING OUT OF THIS AGREEMENT, AND EACH PARTY’S AGGREGATE LIABILITY UNDER THIS AGREEMENT SHALL NOT EXCEED ONE HUNDRED U.S. DOLLARS ($100).</span></p>
+</section>
+<section class="tt-art" id="c-15" aria-labelledby="c-15-h">
+<h3 id="c-15-h"><span class="tt-num">Article 15</span><span class="tt-title">Termination</span></h3>
+<p class="tt-cl"><span class="tt-cn">15.1</span><span class="tt-cb"><strong>For Convenience.</strong> Any Party may terminate these Terms for convenience upon thirty (30) days’ written notice to the others, provided that the Campus Partner shall use reasonable efforts to give such notice before the Campus Cohort is admitted.</span></p>
+<p class="tt-cl"><span class="tt-cn">15.2</span><span class="tt-cb"><strong>For Cause.</strong> Any Party may terminate these Terms upon written notice if another Party materially breaches it and fails to cure within ten (10) days after written notice. The Organizers may terminate immediately upon written notice if the Campus Partner ceases to be a recognized student organization, the Host Institution prohibits or restricts the Program, or the Campus Partner’s conduct presents a risk to the safety of Participants or to the reputation of the Program.</span></p>
+<p class="tt-cl"><span class="tt-cn">15.3</span><span class="tt-cb"><strong>Effect.</strong> Upon expiration or termination, (a) all licenses granted to the Campus Partner terminate, except as provided in Section 8.3 for materials already published; (b) the Campus Partner shall comply with Sections 6.5 and 9.5; and (c) the Organizers may, in their sole discretion, transfer members of the Campus Cohort to the Public Track or another campus, and the Campus Partner shall cooperate in such transition and in notifying the Campus Cohort.</span></p>
+<p class="tt-cl"><span class="tt-cn">15.4</span><span class="tt-cb"><strong>Survival.</strong> Articles 6, 9, 10, 13, 14, 16, and 17, and Sections 7.3, 8.2, and 15.3, shall survive expiration or termination.</span></p>
+</section>
+<section class="tt-art" id="c-16" aria-labelledby="c-16-h">
+<h3 id="c-16-h"><span class="tt-num">Article 16</span><span class="tt-title">Dispute Resolution</span></h3>
+<p class="tt-cl"><span class="tt-cn">16.1</span><span class="tt-cb"><strong>Governing Law.</strong> These Terms shall be governed by the laws of the State of New York, without regard to its conflict-of-laws principles.</span></p>
+<p class="tt-cl"><span class="tt-cn">16.2</span><span class="tt-cb"><strong>Informal Resolution; Arbitration.</strong> The Parties shall attempt in good faith to resolve any dispute arising out of these Terms through discussion between the Campus Leads and an Organizer representative for not less than thirty (30) days. Any dispute not so resolved shall be finally resolved by binding arbitration administered by the American Arbitration Association before a single arbitrator in New York, New York or by videoconference. Either Party may seek injunctive relief in a court of competent jurisdiction to protect its intellectual property or Confidential Information.</span></p>
+</section>
+<section class="tt-art" id="c-17" aria-labelledby="c-17-h">
+<h3 id="c-17-h"><span class="tt-num">Article 17</span><span class="tt-title">General Provisions</span></h3>
+<p class="tt-cl"><span class="tt-cn">17.1</span><span class="tt-cb"><strong>Entire Agreement; Precedence.</strong> These Terms, including their Exhibits, constitute the entire agreement among the Parties regarding their subject matter and supersede all prior proposals and understandings. As to the rights and obligations of Participants, the Participant Terms shall control.</span></p>
+<p class="tt-cl"><span class="tt-cn">17.2</span><span class="tt-cb"><strong>Amendment; Waiver.</strong> The Organizers may amend these Terms by posting a revised version and notifying the Campus Leads by email. Amendments shall apply from the start of the next cohort, except that amendments required by law or that do not materially increase the Campus Partner’s obligations may apply upon notice. Continued participation after the effective date of an amendment constitutes acceptance. No waiver shall be effective unless in writing.</span></p>
+<p class="tt-cl"><span class="tt-cn">17.3</span><span class="tt-cb"><strong>Assignment.</strong> The Campus Partner may not assign these Terms without the Organizers’ prior written consent. The Organizers may assign these Terms to an affiliate or successor upon notice.</span></p>
+<p class="tt-cl"><span class="tt-cn">17.4</span><span class="tt-cb"><strong>Change of Officers.</strong> These Terms bind the Campus Partner as an organization and shall not terminate upon any change in its officers or Campus Leads. The Campus Partner shall ensure that incoming officers are informed of its obligations hereunder.</span></p>
+<p class="tt-cl"><span class="tt-cn">17.5</span><span class="tt-cb"><strong>Notices.</strong> Notices shall be in writing and delivered by email: to the Organizers at <a href="mailto:info@ngennetwork.org">info@ngennetwork.org</a>, and to the Campus Partner at the Campus Lead email addresses provided in the Partner Application, with any change of address notified in writing.</span></p>
+<p class="tt-cl"><span class="tt-cn">17.6</span><span class="tt-cb"><strong>Severability.</strong> If any provision is held unenforceable, it shall be enforced to the maximum extent permissible and the remaining provisions shall remain in effect.</span></p>
+<p class="tt-cl"><span class="tt-cn">17.7</span><span class="tt-cb"><strong>Electronic Acceptance.</strong> Acceptance of these Terms by checking a box or submitting the Partner Application shall be deemed equivalent to a handwritten signature by the Campus Partner. The Organizers’ records of the Partner Application, including the submitter’s name, title, email address, and time of submission, shall be conclusive evidence of acceptance.</span></p>
+</section>
+<section class="tt-art" id="c-18" aria-labelledby="c-18-h">
+<h3 id="c-18-h"><span class="tt-num">Exhibit A</span><span class="tt-title">Campus Track Schedule and Commitments</span></h3>
+<p class="tt-p">Specific dates for each item below shall be agreed in writing, including by email, between the Organizers and the Campus Leads after the Acceptance Date.</p>
+<div class="tt-tablewrap"><table class="tt-table"><tr><th>Item</th><th>Program week</th><th>Campus Partner commitment</th></tr><tr><td>Applications open</td><td>Before Week 1</td><td>Promote and open applications; target 20+ teams</td></tr><tr><td>Cohort lock</td><td>Before Week 1</td><td>Recommend Campus Cohort for Organizer approval</td></tr><tr><td>Workshop 1: Idea</td><td>Week 1</td><td>Host in person; record attendance</td></tr><tr><td>Workshop 2: MVP</td><td>Week 5</td><td>Host in person; record attendance</td></tr><tr><td>Workshop 3: Go-to-Market</td><td>Week 9</td><td>Host in person; record attendance</td></tr><tr><td>Workshop 4: Pitch</td><td>Week 12</td><td>Host in person; support Pitch Day</td></tr></table></div>
+</section>
+<section class="tt-art" id="c-19" aria-labelledby="c-19-h">
+<h3 id="c-19-h"><span class="tt-num">&nbsp;</span><span class="tt-title">Acknowledgment</span></h3>
+<p class="tt-caps">BY SUBMITTING THE PARTNER APPLICATION, THE CAMPUS PARTNER AND THE SUBMITTING INDIVIDUAL ACKNOWLEDGE THAT THEY HAVE READ AND UNDERSTAND THESE TERMS, INCLUDING THE CAMPUS PARTNER’S RECRUITMENT, HOSTING, AND REPORTING OBLIGATIONS, THE RESTRICTIONS ON USE OF PROGRAM MATERIALS AND NAMES, THE DATA AND CONFIDENTIALITY OBLIGATIONS, THE INDEMNIFICATION AND LIMITATION OF LIABILITY, AND THE AGREEMENT TO ARBITRATE, AND THAT THE SUBMITTING INDIVIDUAL IS AUTHORIZED TO BIND THE CAMPUS PARTNER.</p>
+</section>
+        <div class="doc-end">
+          <div><h4>Hosting on your campus?</h4><p>Questions about these terms go to the NGEN team.</p></div>
+          <a class="btn-plain" href="mailto:info@ngennetwork.org">info@ngennetwork.org</a>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand"><img src="/incubator/img/mark-primary.png" alt=""><span>NGEN Incubator</span></div>
+        <p class="blurb">NGEN Incubator is powered by NGEN, the NextGen Entrepreneurship Network, a 501(c)(3) nonprofit, and Expop.</p>
+      </div>
+      <div><h4>Incubator</h4><ul><li><a href="https://www.ngennetwork.org/incubator#public">Public Track</a></li><li><a href="https://www.ngennetwork.org/incubator#campus">Campus Track</a></li><li><a href="https://www.ngennetwork.org/incubator#apply">Apply</a></li><li><a href="https://www.ngennetwork.org/incubator#faq">FAQ</a></li><li><a href="#participants" data-go="participants">Terms &amp; Conditions</a></li></ul></div>
+      <div><h4>NGEN</h4><ul><li><a href="https://www.ngennetwork.org/programs" target="_blank" rel="noopener">Programs</a></li><li><a href="https://www.ngennetwork.org/events" target="_blank" rel="noopener">Events</a></li><li><a href="https://www.ngennetwork.org/about" target="_blank" rel="noopener">About</a></li><li><a href="https://ivyleagueconference.org/" target="_blank" rel="noopener">Ivy League Conference</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:admin@expop.io">admin@expop.io</a></li><li><a href="mailto:info@ngennetwork.org">info@ngennetwork.org</a></li></ul><address>169 Madison Ave, STE 30444<br>New York, NY 10016</address></div>
+    </div>
+    <div class="fine-print"><span>© 2026 NGEN</span><span>NGEN Incubator · Powered by NGEN &amp; Expop</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var docs={participants:document.getElementById('doc-participants'),campus:document.getElementById('doc-campus')};
+  var tabs={participants:document.getElementById('tab-participants'),campus:document.getElementById('tab-campus')};
+  var hashFor={participants:'participants',campus:'campus-partners'};
+  var current='participants';
+
+  function show(which,opts){
+    opts=opts||{};
+    current=which;
+    Object.keys(docs).forEach(function(k){
+      var on=k===which;
+      docs[k].hidden=!on;
+      tabs[k].setAttribute('aria-selected',on?'true':'false');
+      tabs[k].tabIndex=on?0:-1;
+    });
+    document.querySelectorAll('.mini nav a[data-go]').forEach(function(a){a.setAttribute('aria-current',a.dataset.go===which?'true':'false')});
+    if(opts.hash!==false){try{history.replaceState(null,'','#'+hashFor[which])}catch(e){}}
+    if(opts.scroll){document.getElementById('doc').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+    spy();
+  }
+
+  document.querySelectorAll('[data-go]').forEach(function(el){
+    el.addEventListener('click',function(e){
+      e.preventDefault();
+      show(el.dataset.go,{scroll:el.closest('.seg')?false:true});
+    });
+  });
+  // arrow keys between tabs
+  document.querySelector('.seg').addEventListener('keydown',function(e){
+    if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;
+    var next=current==='participants'?'campus':'participants';
+    show(next);tabs[next].focus();
+  });
+
+  // route from the address bar: #participants, #campus-partners, or a section id like #p-5 / #c-9
+  function route(){
+    var h=(location.hash||'').slice(1);
+    if(h==='campus-partners'||h==='campus'){show('campus',{hash:false});document.getElementById('doc').scrollIntoView();return}
+    if(h==='participants'){show('participants',{hash:false});document.getElementById('doc').scrollIntoView();return}
+    var m=/^([pc])-\d+$/.exec(h);
+    if(m){show(m[1]==='c'?'campus':'participants',{hash:false});var t=document.getElementById(h);if(t)t.scrollIntoView();}
+  }
+  window.addEventListener('hashchange',route);
+  route();
+
+  // contents links: keep the right document open and highlight the section in view
+  document.querySelectorAll('.toc a[data-sec]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(matchMedia('(max-width:980px)').matches){a.closest('details').open=false}
+    });
+  });
+  function spy(){
+    var panel=docs[current];
+    var secs=panel.querySelectorAll('.tt-art');
+    var links=panel.querySelectorAll('.toc a[data-sec]');
+    var y=120,active=null;
+    secs.forEach(function(s){if(s.getBoundingClientRect().top-y<=0)active=s.id});
+    if(!active&&secs.length)active=null;
+    links.forEach(function(l){l.classList.toggle('on',l.dataset.sec===active)});
+  }
+  var ticking=false;
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(function(){ticking=false;spy()})}},{passive:true});
+
+  // contents box starts collapsed on phones
+  var mq=matchMedia('(max-width:980px)');
+  function setToc(){document.querySelectorAll('.toc').forEach(function(d){d.open=!mq.matches})}
+  setToc();
+  if(mq.addEventListener)mq.addEventListener('change',setToc);
+  document.querySelectorAll('.toc summary').forEach(function(s){
+    s.addEventListener('click',function(e){if(!mq.matches)e.preventDefault()});
+  });
+
+  document.querySelectorAll('[data-print]').forEach(function(b){b.addEventListener('click',function(){window.print()})});
+  document.querySelectorAll('[data-top]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})})});
+})();
+</script>
+</body>
+</html>
