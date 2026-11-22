@@ -129,6 +129,7 @@ const nextConfig = {
   async rewrites() {
     return [
       { source: "/incubator", destination: "/incubator/index.html" },
+      { source: '/incubatorterms', destination: '/incubator/terms/index.html' },
     ];
   },
 };
