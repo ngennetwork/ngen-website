@@ -125,6 +125,12 @@ const nextConfig = {
       },
     ];
   },
+    // The NGEN Incubator page lives at public/incubator/index.html.
+  async rewrites() {
+    return [
+      { source: "/incubator", destination: "/incubator/index.html" },
+    ];
+  },
 };
 
 export default nextConfig;
