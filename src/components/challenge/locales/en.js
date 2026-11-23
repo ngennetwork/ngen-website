@@ -127,7 +127,7 @@ export const en = {
     title: "Four days in New\u00a0York · the Ivy League Entrepreneurship Conference",
     introBefore: "Fellows can join four days in New\u00a0York, tied to NGEN’s",
     conferenceLabel: "Ivy League Entrepreneurship Conference",
-    introAfter: "on Sunday, April 18, 2027, an invitation-only gathering of top student founders from across the Ivy League. They also join NGEN’s Founder Trek on Friday, April 16.",
+    introAfter: "on Sunday, April 18, 2027, an invitation-only gathering of top student founders from across the Ivy League. Fellows on the trip attend as NGEN’s guests. They also join NGEN’s Founder Trek on Friday, April 16.",
     conferenceHref: "https://ivyleagueconference.org/",
     logisticsTitle: "Travel and supervision",
     logistics: [
@@ -214,7 +214,7 @@ export const en = {
     stepsTitle: "How to join",
     steps: [
       { title: "Request a consultation", body: "Send the short form below. It takes a minute." },
-      { title: "Meet our team", body: "A private Zoom call with our team, in English or Mandarin. We answer your questions and share fees and payment options." },
+      { title: "Meet our team", body: "A private 20-minute Zoom call with our team, in English or Mandarin. We answer your questions and share fees and payment options." },
       { title: "Confirm a place", body: "Once you confirm, your student is matched with a mentor, ready for January." },
     ],
     cta: "Request a consultation",

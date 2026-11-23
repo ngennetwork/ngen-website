@@ -201,9 +201,9 @@ function handleStartupChallenge(data) {
     MailApp.sendEmail({
       to: CHALLENGE_INBOX,
       replyTo: email,
-      subject: "Start-Up Challenge application: " + name + " (" + school + ")",
+      subject: "NGEN Global Fellowship application: " + name + " (" + school + ")",
       body: [
-        "A parent applied for the NGEN Start-Up Challenge.",
+        "A parent applied for the NGEN Global Fellowship.",
         "",
         "Parent name: " + parentName,
         "Parent email: " + email,
@@ -579,7 +579,7 @@ var LEAD_COPY = {
     networkTitle: "加入常春藤盟校的学生创业网络",
     network: [
       "NGEN 由普林斯顿、宾夕法尼亚大学和布朗大学的学生创立，网络已接触20,000名学生。",
-      "院士由常春藤盟校学生担任导师，并在纽约的 NGEN Founder Trek 与创业者和投资人见面。",
+      "学员由常春藤盟校学生担任导师，并在纽约的 NGEN Founder Trek 与创业者和投资人见面。",
       "NGEN 主办常春藤盟校创业会议，这是我们的旗舰活动，将于2027年4月18日（星期日）在纽约举行。",
     ],
     cohort: "首届名额有限，申请以滚动方式审核，截止日期为2026年12月18日（星期五）。",
@@ -587,10 +587,10 @@ var LEAD_COPY = {
     glance: [
       "为期六个月，2027年1月至6月，在家线上参加，期间有一次纽约线下行程。",
       "与常春藤盟校学生导师一对一指导共10次，每次30分钟，分布于整个计划。",
-      "每周至少2小时。院士可以独自或组队完成项目。",
+      "每周至少2小时。学员可以独自或组队完成项目。",
       "每月寄给家长的进度更新信。",
       "6月的结业展示，并获颁证书及 NGEN 推荐信。",
-      "4月15日至18日在纽约：另行收费的可选行程，所有院士均可参加。包括大学参访、NGEN Founder Trek，以及4月18日（星期日）仅限受邀者参加的常春藤盟校创业会议。交通和住宿另计。",
+      "4月15日至18日在纽约：另行收费的可选行程，所有学员均可参加。包括大学参访、NGEN Founder Trek，以及4月18日（星期日）仅限受邀者参加的常春藤盟校创业会议。交通和住宿另计。",
     ],
     questions: "如有任何问题，直接回复这封邮件即可。",
     sign: "NGEN 团队",
@@ -614,7 +614,7 @@ var LEAD_COPY = {
     networkTitle: "加入常春藤盟校的學生創業網絡",
     network: [
       "NGEN 由普林斯頓、賓夕法尼亞大學和布朗大學的學生創立，網絡已接觸20,000名學生。",
-      "院士由常春藤盟校學生擔任導師，並在紐約的 NGEN Founder Trek 與創業者和投資人會面。",
+      "學員由常春藤盟校學生擔任導師，並在紐約的 NGEN Founder Trek 與創業者和投資人會面。",
       "NGEN 主辦常春藤盟校創業會議，這是我們的旗艦活動，將於2027年4月18日（星期日）在紐約舉行。",
     ],
     cohort: "首屆名額有限，申請以滾動方式審核，截止日期為2026年12月18日（星期五）。",
@@ -622,10 +622,10 @@ var LEAD_COPY = {
     glance: [
       "為期六個月，2027年1月至6月，在家線上參加，期間有一次紐約實體行程。",
       "與常春藤盟校學生導師一對一指導共10次，每次30分鐘，分佈於整個計劃。",
-      "每週至少2小時。院士可以獨自或組隊完成項目。",
+      "每週至少2小時。學員可以獨自或組隊完成項目。",
       "每月寄給家長的進度更新信。",
       "6月的結業發表，並獲頒證書及 NGEN 推薦信。",
-      "4月15日至18日在紐約：另行收費的可選行程，所有院士均可參加。包括大學參訪、NGEN Founder Trek，以及4月18日（星期日）只限受邀者參加的常春藤盟校創業會議。交通和住宿另計。",
+      "4月15日至18日在紐約：另行收費的可選行程，所有學員均可參加。包括大學參訪、NGEN Founder Trek，以及4月18日（星期日）只限受邀者參加的常春藤盟校創業會議。交通和住宿另計。",
     ],
     questions: "如有任何問題，直接回覆這封電郵即可。",
     sign: "NGEN 團隊",
@@ -770,7 +770,7 @@ function sessionCopy(language, parentName, when) {
   if (language === "zh-Hant") {
     return [
       parentName + " 您好：",
-      "已為您預留 NGEN 創業挑戰的網上簡介會。",
+      "已為您預留 NGEN 創業實戰營的網上簡介會。",
       when,
       "30分鐘，Zoom：" + ZOOM_URL,
       "到時見。",
@@ -780,7 +780,7 @@ function sessionCopy(language, parentName, when) {
   if (language === "zh-Hans") {
     return [
       parentName + " 您好：",
-      "已为您预留 NGEN 创业挑战的网上简介会。",
+      "已为您预留 NGEN 创业实战营的网上简介会。",
       when,
       "30分钟，Zoom：" + ZOOM_URL,
       "到时见。",
@@ -789,7 +789,7 @@ function sessionCopy(language, parentName, when) {
   }
   return [
     "Hello " + parentName + ",",
-    "You are signed up for the NGEN Start-Up Challenge online info session.",
+    "You are signed up for the NGEN Global Fellowship online info session.",
     when,
     "30 minutes on Zoom: " + ZOOM_URL,
     "We will see you there.",
@@ -815,9 +815,9 @@ function sendApplicationCopy(data, fields) {
 }
 
 function applicationSubject(language) {
-  if (language === "zh-Hant") return "已收到創業挑戰申請";
-  if (language === "zh-Hans") return "已收到创业挑战申请";
-  return "We received the Start-Up Challenge application";
+  if (language === "zh-Hant") return "已收到創業實戰營申請";
+  if (language === "zh-Hans") return "已收到创业实战营申请";
+  return "We received the NGEN Global Fellowship application";
 }
 
 function applicationBody(language, fields) {
@@ -831,7 +831,7 @@ function applicationCopy(language, fields) {
   if (language === "zh-Hant") {
     return [
       fields.parentName + " 您好：",
-      "我們已收到 " + fields.name + " 的創業挑戰申請。這封信同時發給家長和學校聯絡人。",
+      "我們已收到 " + fields.name + " 的創業實戰營申請。這封信同時發給家長和學校聯絡人。",
       "學生：" + fields.name + "\n年齡：" + fields.age + "\n年級：" + fields.grade + "\n學校：" + fields.school + "\n學校聯絡人：" + schoolContact + "\n興趣：" + fields.motivation,
       "接下來\n我們會閱讀申請，並以電郵回覆。\n課程由2027年1月進行至6月。\n課程費用和付款方式，會在個別諮詢時說明：\n" + CONSULT_URL + "\n獲選學生可能於4月到紐約四天。",
       "如有問題，直接回覆這封信即可。",
@@ -841,7 +841,7 @@ function applicationCopy(language, fields) {
   if (language === "zh-Hans") {
     return [
       fields.parentName + " 您好：",
-      "我们已收到 " + fields.name + " 的创业挑战申请。这封信同时发给家长和学校联系人。",
+      "我们已收到 " + fields.name + " 的创业实战营申请。这封信同时发给家长和学校联系人。",
       "学生：" + fields.name + "\n年龄：" + fields.age + "\n年级：" + fields.grade + "\n学校：" + fields.school + "\n学校联系人：" + schoolContact + "\n兴趣：" + fields.motivation,
       "接下来\n我们会阅读申请，并以邮件回复。\n课程由2027年1月进行至6月。\n课程费用和付款方式，会在个别咨询时说明：\n" + CONSULT_URL + "\n获选学生可能于4月前往纽约四天。",
       "如有问题，直接回复这封信即可。",
@@ -850,7 +850,7 @@ function applicationCopy(language, fields) {
   }
   return [
     "Hello " + fields.parentName + ",",
-    "We received the Start-Up Challenge application for " + fields.name + ". This copy goes to the parent and the school contact.",
+    "We received the NGEN Global Fellowship application for " + fields.name + ". This copy goes to the parent and the school contact.",
     "Student: " + fields.name + "\nAge: " + fields.age + "\nGrade: " + fields.grade + "\nSchool: " + fields.school + "\nSchool contact: " + schoolContact + "\nInterests: " + fields.motivation,
     "What happens next\nWe read the application and reply by email.\nThe program runs from January to June 2027.\nProgram fees and payment options are shared during your private consultation:\n" + CONSULT_URL + "\nSelected students may spend four days in New York in April.",
     "Reply to this email if you have a question.",
