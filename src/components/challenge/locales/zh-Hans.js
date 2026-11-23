@@ -96,7 +96,7 @@ export const zhHans = {
 
   team: {
     title: "我们的团队",
-    intro: "NGEN 团队负责运营院士计划，并与每个家庭沟通。",
+    intro: "NGEN 团队负责运营创业实战营，并与每个家庭沟通。",
     people: [
       {
         name: "Jackson Lehner",
