@@ -208,7 +208,7 @@ export const en = {
       "Grades 9 to 12.",
       "No company or idea is needed.",
       "A parent or guardian makes the request.",
-      "Online from January to June 2027, with an in-person trip to New\u00a0York partway through, April 15 to 18.",
+      "Online from January to June 2027, with an optional in-person trip to New\u00a0York, April 15 to 18, at a separate fee.",
       "The first cohort has limited places.",
     ],
     stepsTitle: "How to join",
